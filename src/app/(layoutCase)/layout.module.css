@@ -1,0 +1,44 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-y: auto;
+  width: 260px;
+  z-index: 99;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border-color);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nav {
+  padding: 0px 35px;
+}
+
+.nav_item {
+  list-style: none;
+}
+
+.nav_link {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--sidebar-active-color);
+  text-decoration: none;
+}
+
+.ico {
+  font-size: 15px;
+  height: 18px;
+  opacity: 0.8;
+  margin-right: 20px;
+}
+
+.nav_txt {
+  display: flex;
+  align-items: center;
+  line-height: 18px;
+  font-size: 15px;
+}
