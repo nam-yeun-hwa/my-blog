@@ -13,11 +13,18 @@
 }
 
 .nav {
-  padding: 0px 35px;
+  padding: 0px 20px;
 }
 
 .nav_item {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 10px;
   list-style: none;
+  transition: color 0.15s ease-in-out, background-color 0.3s ease-in-out,
+    border-color 0.15s ease-in-out;
+  margin-bottom: 4px;
+  padding: 0px 34px;
 }
 
 .nav_link {
@@ -28,12 +35,21 @@
   color: var(--sidebar-active-color);
   text-decoration: none;
 }
+.active {
+  color: var(--sidebar-active-color);
+  background-color: var(--sidebar-hover-bg);
+}
+
+.nav_item:hover {
+  background-color: var(--sidebar-hover-bg);
+}
 
 .ico {
   font-size: 15px;
   height: 18px;
   opacity: 0.8;
   margin-right: 20px;
+  color: var(--sidebar-muted-color);
 }
 
 .nav_txt {
@@ -41,4 +57,5 @@
   align-items: center;
   line-height: 18px;
   font-size: 15px;
+  color: var(--sidebar-muted-color);
 }
