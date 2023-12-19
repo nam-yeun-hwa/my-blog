@@ -26,6 +26,18 @@ export default function Layout({
             </li>
             <li className={style.nav_item}>
               <Link className={style.nav_link} href={'http://www.naver.com'}>
+                <i className={`fa-fw fas fa-stream ${style.ico}`}></i>
+                <span className={style.nav_txt}>CATEGORIES</span>
+              </Link>
+            </li>
+            <li className={style.nav_item}>
+              <Link className={style.nav_link} href={'http://www.naver.com'}>
+                <i className={`fa-fw fas fa-tags ${style.ico}`}></i>
+                <span className={style.nav_txt}>TAGS</span>
+              </Link>
+            </li>
+            <li className={style.nav_item}>
+              <Link className={style.nav_link} href={'http://www.naver.com'}>
                 <i className={`fa-fw fas fa-archive ${style.ico}`}></i>
                 <span className={style.nav_txt}>ARCHIVES</span>
               </Link>
