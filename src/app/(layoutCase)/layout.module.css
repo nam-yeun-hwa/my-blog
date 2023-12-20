@@ -37,6 +37,7 @@
   font-weight: 400;
   color: var(--site-subtitle-color);
   font-style: italic !important;
+  margin: 4px 0 0 0;
 }
 
 /* 메뉴 리스트 */

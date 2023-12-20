@@ -3,7 +3,7 @@ import Link from 'next/link';
 import style from './layout.module.css';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import Image from 'next/image';
-import profileImg from '../../../public/profile.jpeg';
+import profileImg from '../../../public/profile1.jpg';
 import cx from 'classnames';
 
 export default function Layout({
@@ -30,7 +30,9 @@ export default function Layout({
             />
           </Link>
           <h1 className={style.blog_name_txt}>my blog</h1>
-          <p className={style.site_subtitle}>A text-focused hellow theme</p>
+          <p className={style.site_subtitle}>
+            You can only earn as much as an ant does by working like an ant.
+          </p>
         </header>
         <nav>
           <ul className={style.nav}>
