@@ -9,6 +9,10 @@
   --sidebar-btn-bg: white;
   --sidebar-btn-color: #8e8e8e;
 
+  --heading-color: #2a2a2a;
+  --site-title-color: rgb(113, 113, 113);
+  --site-subtitle-color: #717171;
+
   body {
     background: var(--main-bg);
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
