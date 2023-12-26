@@ -1,5 +1,11 @@
+import Post from './[postname]/page';
+
 export default function posts() {
-  return <>posts</>;
+  return (
+    <>
+      <Post />
+    </>
+  );
 }
 
 //992px

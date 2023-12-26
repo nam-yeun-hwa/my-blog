@@ -94,6 +94,7 @@
 
 .main_wrapper {
   margin-left: 260px;
+  display: flex;
   justify-content: center !important;
 }
 
