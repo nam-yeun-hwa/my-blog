@@ -70,7 +70,7 @@ export default function Layout({
         </nav>
         <div className="sidebar-bottom"></div>
       </aside>
-      <div className="main-wrapper">
+      <div className={style.main_wrapper}>
         {children}
         {modal}
       </div>

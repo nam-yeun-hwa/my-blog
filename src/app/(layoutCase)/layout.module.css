@@ -91,3 +91,23 @@
   color: var(--sidebar-muted-color);
   font-weight: 700;
 }
+
+.main_wrapper {
+  margin-left: 260px;
+  justify-content: center !important;
+}
+
+@media (min-width: 1650px) {
+  .main_wrapper {
+    margin-left: 300px;
+  }
+}
+
+@media (min-width: 850px) {
+  .main-wrapper {
+    margin-left: 260px;
+  }
+}
+
+/* 1650일때
+850일때  */
