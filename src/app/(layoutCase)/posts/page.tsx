@@ -1,4 +1,4 @@
-import Post from './[postname]/page';
+import Post from 'app/(layoutCase)/_component/Post';
 
 export default function posts() {
   return (
