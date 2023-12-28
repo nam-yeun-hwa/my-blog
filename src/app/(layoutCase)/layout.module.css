@@ -1,3 +1,4 @@
+/* 사이드 메뉴 : start */
 .sidebar {
   position: fixed;
   top: 0;
@@ -92,15 +93,29 @@
   font-weight: 700;
 }
 
+/* 사이드 메뉴 : end */
+
+/* 컨텐츠 페이지 : start */
+
 .main_wrapper {
   margin-left: 260px;
   display: flex;
   justify-content: center !important;
 }
 
+.container {
+  min-height: 100vh;
+}
+
 @media (min-width: 1650px) {
   .main_wrapper {
     margin-left: 300px;
+  }
+
+  .container {
+    max-width: 1250px;
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
   }
 }
 
@@ -110,5 +125,22 @@
   }
 }
 
+@media (min-width: 1400px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 576px) {
+}
+
 /* 1650일때
 850일때  */
+
+/* 컨텐츠 페이지 : end */

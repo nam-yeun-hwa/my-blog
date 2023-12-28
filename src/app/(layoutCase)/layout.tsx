@@ -26,7 +26,6 @@ export default function Layout({
               alt="프로필 사진"
               width={112}
               height={112}
-              layout="cover"
             />
           </Link>
           <h1 className={style.blog_name_txt}>my blog</h1>
@@ -71,8 +70,10 @@ export default function Layout({
         <div className="sidebar-bottom"></div>
       </aside>
       <div className={style.main_wrapper}>
-        {children}
-        {modal}
+        <div className={style.container}>
+          {children}
+          {modal}
+        </div>
       </div>
     </>
   );
