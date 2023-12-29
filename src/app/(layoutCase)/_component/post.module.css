@@ -5,7 +5,7 @@
   word-wrap: break-word;
   background-color: #fff;
   /* background-clip: border-box; */
-  border: 0.5px solid #dee2e6;
+  border: 0.5px solid rgba(226, 226, 226, 0.5);
   border-radius: 0.475rem;
 
   transition: background-color 0.5s ease-in-out;
@@ -23,16 +23,59 @@
 
 .post_title {
   color: #2a2a2a;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.25rem;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  margin: 0;
+  margin: 0 0 8px 0;
 }
 
 .post_text {
   font-size: 1.03rem;
-  font-weight: 400;
+  font-weight: 500;
+  color: #757575;
+  margin-bottom: 16px;
+}
+
+.post_meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post_info {
+  color: #757575;
+}
+
+.categories {
+  font-size: 0.85rem;
+  color: #757575;
+}
+
+.pin {
+  font-size: 0.85rem;
+  color: #757575;
+}
+
+.ico_calendar {
+  font-size: 0.85rem;
+  color: #757575;
+  margin-right: 5px;
+}
+
+.ico_folder {
+  font-size: 0.85rem;
+  color: #757575;
+  margin-left: 28px;
+  margin-right: 5px;
+}
+
+.ico_pin {
+  font-size: 0.85rem;
+  color: #757575;
+}
+
+.time {
+  font-size: 0.85rem;
   color: #757575;
 }

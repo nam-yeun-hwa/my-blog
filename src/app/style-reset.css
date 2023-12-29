@@ -88,6 +88,13 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
+/* 추가 */
 a {
   text-decoration: none;
 }
+
+p {
+  margin: 0;
+}
+
+/* https://ykss.netlify.app/translation/a_more_modern_css_reset/ */
