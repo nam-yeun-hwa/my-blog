@@ -18,7 +18,7 @@
 
 .post_body {
   height: 100%;
-  padding: 1.25rem 1.75rem 1.25rem 1.75rem;
+  padding: 1.75rem 1.75rem 1.25rem 1.75rem;
 }
 
 .post_title {
@@ -34,7 +34,7 @@
 .post_text {
   font-size: 1.03rem;
   font-weight: 500;
-  color: #757575;
+  color: var(--text-muted-color);
   margin-bottom: 16px;
 }
 
@@ -44,38 +44,38 @@
 }
 
 .post_info {
-  color: #757575;
+  color: var(--text-muted-color);
 }
 
 .categories {
   font-size: 0.85rem;
-  color: #757575;
+  color: var(--text-muted-color);
 }
 
 .pin {
   font-size: 0.85rem;
-  color: #757575;
+  color: var(--text-muted-color);
 }
 
 .ico_calendar {
   font-size: 0.85rem;
-  color: #757575;
+  color: var(--text-muted-color);
   margin-right: 5px;
 }
 
 .ico_folder {
   font-size: 0.85rem;
-  color: #757575;
+  color: var(--text-muted-color);
   margin-left: 28px;
   margin-right: 5px;
 }
 
 .ico_pin {
   font-size: 0.85rem;
-  color: #757575;
+  color: var(--text-muted-color);
 }
 
 .time {
   font-size: 0.85rem;
-  color: #757575;
+  color: var(--text-muted-color);
 }

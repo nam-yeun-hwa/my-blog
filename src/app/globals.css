@@ -13,6 +13,7 @@
   --site-title-color: rgb(113, 113, 113);
   --site-subtitle-color: #717171;
 
+  --text-muted-color: #757575;
   body {
     background: var(--main-bg);
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
