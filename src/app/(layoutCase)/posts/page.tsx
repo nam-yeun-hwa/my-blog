@@ -1,20 +1,11 @@
 import Post from 'app/(layoutCase)/_component/Post';
 import style from './page.module.css';
+import BreadCrumb from 'app/_component/BreadCrumb';
 
 export default function posts() {
   return (
     <>
-      <header className={style.topbar_wrapper}>
-        <div className={style.top_bar}>
-          <nav className={style.breadcrumb}>
-            <span>Home</span>
-          </nav>
-          <search className={style.search}>
-            <i className={`fas fa-search fa-fw ${style.search_ico}`}></i>
-            <input className={style.search_input} placeholder="Search..." autoComplete="off" />
-          </search>
-        </div>
-      </header>
+      <BreadCrumb />
       <div className={style.contents}>
         <main className={style.main_wrapper}>
           <div className={style.post_list}>
