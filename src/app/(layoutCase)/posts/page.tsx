@@ -1,23 +1,7 @@
-import Post from 'app/(layoutCase)/_component/Post';
-import style from './page.module.css';
-import BreadCrumb from 'app/_component/BreadCrumb';
+import Home from 'app/_component/Home';
 
 export default function posts() {
-  return (
-    <>
-      <BreadCrumb />
-      <div className={style.contents}>
-        <main className={style.main_wrapper}>
-          <div className={style.post_list}>
-            <Post />
-          </div>
-        </main>
-        <aside className={style.panel_wrapper}>
-          <div style={{ width: '100%' }}>flasjf akjf l</div>
-        </aside>
-      </div>
-    </>
-  );
+  return <Home />;
 }
 
 //992px

@@ -1,3 +1,5 @@
+import Home from 'app/_component/Home';
+
 export default function page() {
-  return <div>layoutcase 페이지</div>;
+  return <Home />;
 }
