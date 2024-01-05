@@ -9,7 +9,7 @@ export default function Home() {
       <div className={style.contents}>
         <main className={style.main_wrapper}>
           <div className={style.post_list}>
-            <Post />
+            <Post post_id={1} />
           </div>
         </main>
         <aside className={style.panel_wrapper}>

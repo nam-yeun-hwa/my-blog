@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import style from './Post.module.css';
 
-export default function Post() {
+type Props = {
+  post_id: number;
+};
+
+export default function Post({ post_id }: Props) {
   return (
     <article className={style.post}>
-      <Link href="http:www.naver.com">
+      <Link href={`/posts/${post_id}`}>
         <div className={style.post_body}>
           <h1 className={style.post_title}>Getting Started</h1>
           <div className={style.post_text}>
