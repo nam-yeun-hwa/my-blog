@@ -1,10 +1,5 @@
 /* 페이지 내용 : start */
 
-.contents {
-  display: flex;
-  flex-direction: row;
-}
-
 .main_wrapper {
   flex: 0 0 auto;
   width: 75%;
@@ -19,16 +14,37 @@
   height: 100%;
 }
 
+.contents {
+  display: flex;
+  flex-direction: row;
+}
+
 .detail {
   padding-right: 0.25rem !important;
   padding-left: 0.25rem !important;
+}
+
+.post_meta {
+  color: var(--text-muted-color) !important;
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.time {
+  font-weight: 600;
+}
+
+.update::before {
+  content: '•';
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .h1 {
   font-size: 1.92rem;
   color: var(--heading-color);
   font-weight: 500;
-  font-family: Lato, 'Microsoft Yahei', sans-serif;
+  font-family: Lato, 'Microsoft Yahei', sans-serif, var(--font-IBM_Plex_Sans_KR);
   margin-top: 2rem;
   margin-bottom: 1.5rem;
   line-height: 1.2;
