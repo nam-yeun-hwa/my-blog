@@ -17,11 +17,12 @@
 .contents {
   display: flex;
   flex-direction: row;
+  font-family: var(--font-IBM_Plex_Sans_KR);
 }
 
 .detail {
-  padding-right: 0.25rem !important;
-  padding-left: 0.25rem !important;
+  /* padding-right: 0.25rem !important; */
+  /* padding-left: 0.25rem !important; */
 }
 
 .post_meta {
@@ -34,6 +35,15 @@
   font-weight: 600;
 }
 
+.author {
+  font-weight: 600;
+}
+
+.author:hover {
+  text-decoration: underline;
+  color: #d63384;
+}
+
 .update::before {
   content: '•';
   padding-left: 0.25rem;
@@ -43,12 +53,28 @@
 .h1 {
   font-size: 1.92rem;
   color: var(--heading-color);
-  font-weight: 500;
-  font-family: Lato, 'Microsoft Yahei', sans-serif, var(--font-IBM_Plex_Sans_KR);
+  font-weight: 400;
+  font-family: var(--font-IBM_Plex_Sans_KR);
   margin-top: 2rem;
   margin-bottom: 1.5rem;
   line-height: 1.2;
   letter-spacing: 0.2px;
+}
+
+.h2 {
+  color: var(--heading-color);
+  font-weight: 400;
+  font-family: var(--font-IBM_Plex_Sans_KR);
+  margin-right: 0.5rem !important;
+  font-size: 1.54rem;
+  color: #2a2a2a;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.content {
+  margin-top: 2rem;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 850px) {
