@@ -31,6 +31,7 @@
   margin-bottom: 8px;
   color: var(--site-title-color);
   font-weight: 800;
+  font-family: var(--font-IBM_Plex_Sans_KR);
 }
 
 .site_subtitle {

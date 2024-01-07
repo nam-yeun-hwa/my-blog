@@ -20,7 +20,7 @@
       env(safe-area-inset-left);
     color: var(--text-color);
     -webkit-font-smoothing: antialiased;
-    font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif, 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif, 'IBM Plex Sans KR', sans-serif !important;
     margin: 0;
   }
 

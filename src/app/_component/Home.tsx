@@ -1,5 +1,5 @@
 import Post from 'app/(layoutCase)/_component/\bPost';
-import BreadCrumb from './BreadCrumb';
+import BreadCrumb from './common/BreadCrumb';
 import style from './Home.module.css';
 
 export default function Home() {

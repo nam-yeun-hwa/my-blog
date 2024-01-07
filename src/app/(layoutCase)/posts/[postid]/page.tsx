@@ -1,14 +1,14 @@
-import BreadCrumb from 'app/_component/BreadCrumb';
+import BreadCrumb from 'app/_component/common/BreadCrumb';
 import style from './page.module.css';
 import Link from 'next/link';
-import CodeType from 'app/_component/CodeType';
+import CodeComponentType from 'app/_component/detailContent/LanguageConsole';
 
 export default function Post() {
   return (
     <>
       <BreadCrumb />
       <div className={style.contents}>
-        <main className={style.main_content}>
+        <main className={style.main_wrapper}>
           <article className={style.detail}>
             <header>
               <h1 className={style.h1}>불변성</h1>
@@ -42,7 +42,7 @@ export default function Post() {
             수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을
             덮어씌워야 한다.
           </div>
-          <CodeType />
+          <CodeComponentType />
         </main>
         <aside className={style.panel_wrapper}>
           <div style={{ width: '100%' }}>flasjf akjf l</div>
