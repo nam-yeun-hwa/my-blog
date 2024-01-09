@@ -70,6 +70,21 @@
   color: #2a2a2a;
   margin-top: 2.5rem;
   margin-bottom: 1.25rem;
+  line-height: 1.4;
+  text-wrap: wrap;
+}
+
+.h4 {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-family: var(--font-IBM_Plex_Sans_KR);
+  margin-right: 0.5rem !important;
+  font-size: 1rem;
+  color: #2a2a2a;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+  text-wrap: wrap;
 }
 
 .content {
@@ -77,7 +92,7 @@
   overflow-wrap: break-word;
   /* color: #34343c; */
   color: #4e4e55;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 @media (min-width: 850px) {

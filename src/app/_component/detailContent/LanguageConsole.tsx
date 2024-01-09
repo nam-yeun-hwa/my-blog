@@ -1,6 +1,10 @@
 import style from './LanguageConsole.module.css';
 
-export default function LanguageConsole() {
+type Props = {
+  code: string;
+};
+
+export default function LanguageConsole({ code }: Props) {
   return (
     <div className={style.console_container}>
       <div className={style.console_header}>
@@ -15,16 +19,7 @@ export default function LanguageConsole() {
         <pre
           className={style.console_code}
           dangerouslySetInnerHTML={{
-            __html: `const info={
-  id:1,
-  name:'John'
-}
-            
-const nextInfo={
-  ...info,
-  name: 'Jane'
-}
-`,
+            __html: code,
           }}
         ></pre>
       </div>
