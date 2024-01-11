@@ -13,9 +13,9 @@ export default function Post({ post_id }: Props) {
           <h1 className={style.post_title}>Getting Started</h1>
           <div className={style.post_text}>
             <p>
-              Prerequisites Follow the instructions in the Jekyll Docs to complete the installation
-              of the basic environment. Git also needs to be installed. Installation Creating a New
-              Site There are two wa
+              Prerequisites Follow the instructions in the Jekyll Docs to
+              complete the installation of the basic environment. Git also needs
+              to be installed. Installation Creating a New Site There are two wa
             </p>
           </div>
           <div className={style.post_meta}>

@@ -1,4 +1,4 @@
-import Post from 'app/(layoutCase)/_component/\bPost';
+import Post from 'app/(layoutCase)/_component/Post';
 import BreadCrumb from './common/BreadCrumb';
 import style from './Home.module.css';
 
