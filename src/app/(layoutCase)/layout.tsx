@@ -5,14 +5,14 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 import Image from 'next/image';
 import profileImg from '../../../public/profile1.jpg';
 import cx from 'classnames';
+import { ReactNode } from 'react';
 
-export default function Layout({
-  children,
-  modal,
-}: {
-  children: React.ReactNode;
-  modal: React.ReactNode;
-}) {
+type Props = {
+  children: ReactNode;
+  modal: ReactNode;
+};
+
+function Layout({ children, modal }: Props) {
   const segment = useSelectedLayoutSegment();
 
   return (
@@ -35,31 +35,53 @@ export default function Layout({
         </header>
         <nav>
           <ul className={style.nav}>
-            <li className={cx(style.nav_item, segment === 'posts' && style.active)}>
-              <Link className={style.nav_link} href={'/posts'}>
+            <li
+              className={cx(
+                style.nav_item,
+                segment === 'posts' && style.active,
+              )}
+            >
+              <Link href={'/posts'} className={style.nav_link}>
                 <i className={`fa-fw fas fa-home ${style.ico}`}></i>
                 <span className={style.nav_txt}>HOME</span>
               </Link>
             </li>
-            <li className={cx(style.nav_item, segment === 'categories' && style.active)}>
+            <li
+              className={cx(
+                style.nav_item,
+                segment === 'categories' && style.active,
+              )}
+            >
               <Link className={style.nav_link} href={'/categories'}>
                 <i className={`fa-fw fas fa-stream ${style.ico}`}></i>
                 <span className={style.nav_txt}>CATEGORIES</span>
               </Link>
             </li>
-            <li className={cx(style.nav_item, segment === 'tags' && style.active)}>
+            <li
+              className={cx(style.nav_item, segment === 'tags' && style.active)}
+            >
               <Link className={style.nav_link} href={'/tags'}>
                 <i className={`fa-fw fas fa-tags ${style.ico}`}></i>
                 <span className={style.nav_txt}>TAGS</span>
               </Link>
             </li>
-            <li className={cx(style.nav_item, segment === 'archives' && style.active)}>
+            <li
+              className={cx(
+                style.nav_item,
+                segment === 'archives' && style.active,
+              )}
+            >
               <Link className={style.nav_link} href={'/archives'}>
                 <i className={`fa-fw fas fa-archive ${style.ico}`}></i>
                 <span className={style.nav_txt}>ARCHIVES</span>
               </Link>
             </li>
-            <li className={cx(style.nav_item, segment === 'about' && style.active)}>
+            <li
+              className={cx(
+                style.nav_item,
+                segment === 'about' && style.active,
+              )}
+            >
               <Link className={style.nav_link} href={'/about'}>
                 <i className={`fa-fw fas fa-info-circle ${style.ico}`}></i>
                 <span className={style.nav_txt}>ABOUT</span>
@@ -78,3 +100,5 @@ export default function Layout({
     </>
   );
 }
+
+export default Layout;

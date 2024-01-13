@@ -29,8 +29,12 @@ export default function BreadCrumb() {
         <search className={cx(style.search, isFocused && style.search_active)}>
           <i className={`fas fa-search fa-fw ${style.search_ico}`}></i>
           <input
+            id="search"
             ref={inputRef}
-            className={cx(style.search_input, isFocused && style.search_input_active)}
+            className={cx(
+              style.search_input,
+              isFocused && style.search_input_active,
+            )}
             onFocus={handleFocus}
             onBlur={handleBlur}
             placeholder="Search..."
