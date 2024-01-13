@@ -41,7 +41,7 @@ const inputString = [
   },
   {
     type: 'normal',
-    value: `리액트는 컴포넌트에 변화가 필요한지 필요하지 않은지 Props의 변화를 통해 알 수 있는데`,
+    value: `리액트는 컴포넌트에 변화가 필요한지 필요하지 않은지 Props의 변화 통해 알 수 있는데`,
   },
   {
     type: 'normal',
@@ -49,16 +49,16 @@ const inputString = [
   },
   {
     type: 'h4',
-    value: `<h4 class=${style.h4}>📝 같은 참조를 가지고 있는 값을 가리키고 있는 데이터</h4>`,
+    value: `<h4 class=${style.h4}>📝 불변성이 유지되지 않은 같은 참조를 가리키고 있는 데이터</h4>`,
   },
   {
     type: 'code',
     value: `const data = { id:1, text:'안녕하세요'};
 
-  const sameData = data;
-  sameData.text = '안녕하세요';
+const sameData = data;
+sameData.text = '안녕하세요';
   
-  console.log(sameData === data); // true`,
+console.log(sameData === data); // true`,
   },
   {
     type: 'normal',
@@ -70,7 +70,7 @@ const inputString = [
   },
   {
     type: 'emphasis',
-    value: `객체의 특정 프로퍼티만 변경하는 작업을 수행하면 리액트에서는 변경이 일어나지 않았다고 인식하여 리렌더링이 일어나지 않는다. 불변성을 지켜주면서 값을 전달해 주어야 한다.`,
+    value: `객체의 특정 프로퍼티만 변경하는 작업을 수행하면 리액트에서는 변경이 일어나지 않았다고 인식하여 리렌더링이 일어나지 않는다. <b>불변성을 지켜주면서 값을 전달해 주어야 한다.</b>`,
   },
   {
     type: 'h2',
@@ -97,7 +97,7 @@ const inputString = [
   },
   {
     type: 'emphasis',
-    value: `React는 이 Props와 State의 변경을 불변성을 이용해서 감지한다.`,
+    value: `React는 <b>Props</b>와 <b>State</b>의 변경을 불변성을 이용해서 감지한다.`,
   },
   {
     type: 'normal',
