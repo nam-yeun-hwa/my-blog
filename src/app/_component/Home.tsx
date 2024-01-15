@@ -17,7 +17,7 @@ export default function Home() {
         <main className={style.main_wrapper}>
           <div className={style.post_list}>
             {postList.map((value, idx) => {
-              return <Post key={idx} post_id={1} />;
+              return <Post key={value.id} post={value} />;
             })}
           </div>
         </main>
