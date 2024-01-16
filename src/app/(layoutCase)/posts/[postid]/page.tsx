@@ -154,7 +154,7 @@ export default function Post({ params, detail }: Props) {
                   href="https://github.com/nam-yeun-hwa"
                   className={style.author}
                 >
-                  nyh
+                  bunny Chung
                 </Link>
               </em>
             </span>
@@ -187,7 +187,7 @@ export default function Post({ params, detail }: Props) {
           <p className={style.copylight}>
             © 2024 bunny Chung. Some rights reserved.
           </p>
-          <p className={style.theme}>Using the Chirpy theme for Jekyll.</p>
+          <p className={style.theme}>Using the theme ...</p>
         </footer>
       </div>
     </>
