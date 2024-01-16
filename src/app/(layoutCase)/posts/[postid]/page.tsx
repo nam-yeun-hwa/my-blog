@@ -5,10 +5,13 @@ import style from './page.module.css';
 import Link from 'next/link';
 import CodeComponentType from 'app/_component/detailContent/LanguageConsole';
 import Prompts from 'app/_component/detailContent/Prompts';
-import { useRouter } from 'next/router';
+import { IPost } from 'type/post';
+import { useContext, useEffect } from 'react';
+import { PostContext } from 'app/(layoutCase)/_component/contexts/PostContextProvider';
 
 type Props = {
-  detail: string;
+  params: { postid: string };
+  detail: IPost;
 };
 
 // 엔터 값 검색 정규 표현식
@@ -120,11 +123,8 @@ console.log(sameData === data); // true`,
   },
 ];
 
-export default function Post({ detail }: Props) {
-  // const { query } = useRouter();
-
-  // 찾은 엔터 값들의 배열 결과 출력
-  // console.log(matches);
+export default function Post({ params, detail }: Props) {
+  const { postList } = useContext(PostContext);
 
   return (
     <>
@@ -160,7 +160,7 @@ export default function Post({ detail }: Props) {
             </span>
           </div>
 
-          {inputString?.map((value, idx) => {
+          {postList[parseInt(params.postid) - 1].post?.map((value, idx) => {
             if (value.type === 'emphasis')
               return <Prompts key={idx} type="warning" detail={value.value} />;
             if (value.type === 'code')
@@ -177,6 +177,18 @@ export default function Post({ detail }: Props) {
         <aside className={style.panel_wrapper}>
           <div style={{ width: '100%' }}>flasjf akjf l</div>
         </aside>
+      </div>
+      <div className={style.footer_container}>
+        <nav className={style.footer_nav}>
+          <Link href="">이전 게시물</Link>
+          <Link href="">다음 게시물</Link>
+        </nav>
+        <footer className={style.footer}>
+          <p className={style.copylight}>
+            © 2024 bunny Chung. Some rights reserved.
+          </p>
+          <p className={style.theme}>Using the Chirpy theme for Jekyll.</p>
+        </footer>
       </div>
     </>
   );

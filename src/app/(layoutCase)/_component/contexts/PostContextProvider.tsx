@@ -2,6 +2,7 @@
 
 import { createContext, useState } from 'react';
 import { Folder, IPost } from 'type/post';
+import style from 'app/(layoutCase)/posts/[postid]/page.module.css';
 
 type Props = {
   children: React.ReactNode;
@@ -11,15 +12,14 @@ export const PostContext = createContext<{ postList: Array<IPost> }>({
   postList: [
     {
       id: 1,
-      title: '리액트와 불변성',
+      title: '리액트와 불변성1',
       date: '2024-01-15',
       folder: Folder.React,
       preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
       post: [
         {
           type: 'h2',
-          value:
-            '<h2 class=${style.h2}>리액트에서 불변성을 지켜야 하는 이유는?</h2>',
+          value: `<h2 class=${style.h2}>리액트에서 불변성을 지켜야 하는 이유는?</h2>`,
         },
         {
           type: 'normal',
@@ -32,14 +32,14 @@ export const PostContext = createContext<{ postList: Array<IPost> }>({
         {
           type: 'code',
           value: `const info={
-      id:1,
-        name:'John'
-    }
+id:1,
+  name:'John'
+}
     
-    const nextInfo={
-      ...info,
-        name: 'Jane'
-    }`,
+const nextInfo={
+  ...info,
+  name: 'Jane'
+}`,
         },
         {
           type: 'normal',
@@ -51,17 +51,16 @@ export const PostContext = createContext<{ postList: Array<IPost> }>({
         },
         {
           type: 'h4',
-          value:
-            '<h4 class=${style.h4}>📝 불변성이 유지되지 않은 같은 참조를 가리키고 있는 데이터</h4>',
+          value: `<h4 class=${style.h4}>📝 불변성이 유지되지 않은 같은 참조를 가리키고 있는 데이터</h4>`,
         },
         {
           type: 'code',
           value: `const data = { id:1, text:'안녕하세요'};
   
-  const sameData = data;
-  sameData.text = '안녕하세요';
+const sameData = data;
+sameData.text = '안녕하세요';
     
-  console.log(sameData === data); // true`,
+console.log(sameData === data); // true`,
         },
         {
           type: 'normal',
@@ -77,15 +76,14 @@ export const PostContext = createContext<{ postList: Array<IPost> }>({
         },
         {
           type: 'h2',
-          value:
-            '<h2 class=${style.h2}>불변성을 유지하면서 상태를 업데이트하는 방법</h2>',
+          value: `<h2 class=${style.h2}>불변성을 유지하면서 상태를 업데이트하는 방법</h2>`,
         },
         {
           type: 'code',
           value: `const data = { id:1, text:'안녕하세요'};
-    const nextData = { ...data, text: '사요나라'};
+const nextData = { ...data, text: '사요나라'};
     
-    console.log(nextData === data) // false`,
+console.log(nextData === data) // false`,
         },
         {
           type: 'normal',
@@ -126,7 +124,7 @@ export const PostContext = createContext<{ postList: Array<IPost> }>({
     },
     {
       id: 2,
-      title: '리액트와 불변성',
+      title: '리액트와 불변성2',
       date: '2024-01-15',
       folder: Folder.Javascript,
       preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
@@ -139,7 +137,7 @@ export const PostContext = createContext<{ postList: Array<IPost> }>({
     },
     {
       id: 3,
-      title: '리액트와 불변성',
+      title: '리액트와 불변성3',
       date: '2024-01-15',
       folder: Folder.Javascript,
       preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
