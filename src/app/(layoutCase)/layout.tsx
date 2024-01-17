@@ -6,6 +6,7 @@ import Image from 'next/image';
 import profileImg from '../../../public/profile1.jpg';
 import cx from 'classnames';
 import { ReactNode } from 'react';
+import BreadCrumb from 'app/_component/common/BreadCrumb';
 
 type Props = {
   children: ReactNode;
@@ -92,6 +93,7 @@ function Layout({ children, modal }: Props) {
         <div className="sidebar-bottom"></div>
       </aside>
       <div className={style.main_wrapper}>
+        <BreadCrumb />
         <div className={style.container}>
           {children}
           {modal}

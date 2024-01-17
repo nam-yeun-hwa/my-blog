@@ -40,7 +40,6 @@ export default function Home() {
 
   return (
     <>
-      <BreadCrumb />
       <div className={style.contents}>
         <main className={style.main_wrapper}>
           <div className={style.post_list}>

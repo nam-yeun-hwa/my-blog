@@ -6,8 +6,7 @@ import Link from 'next/link';
 import CodeComponentType from 'app/_component/detailContent/LanguageConsole';
 import Prompts from 'app/_component/detailContent/Prompts';
 import { IPost } from 'type/post';
-import { useContext, useEffect } from 'react';
-import { PostContext } from 'app/(layoutCase)/_component/contexts/PostContextProvider';
+import { totalPostlist } from 'data/db';
 
 type Props = {
   params: { postid: string };
@@ -124,7 +123,15 @@ console.log(sameData === data); // true`,
 ];
 
 export default function Post({ params, detail }: Props) {
-  const { postList } = useContext(PostContext);
+  // id: 1,
+  // title: '리액트와 불변성1',
+  // date: '2024-01-15',
+  // folder: Folder.React,
+  // preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
+  // post: [
+
+  const { id, title, date, folder, preview, post } =
+    totalPostlist[parseInt(params.postid) - 1];
 
   return (
     <>
@@ -160,7 +167,7 @@ export default function Post({ params, detail }: Props) {
             </span>
           </div>
 
-          {postList[parseInt(params.postid) - 1].post?.map((value, idx) => {
+          {post.map((value, idx) => {
             if (value.type === 'emphasis')
               return <Prompts key={idx} type="warning" detail={value.value} />;
             if (value.type === 'code')
@@ -178,7 +185,7 @@ export default function Post({ params, detail }: Props) {
           <div style={{ width: '100%' }}>flasjf akjf l</div>
         </aside>
       </div>
-      <div className={style.footer_container}>
+      {/* <div className={style.footer_container}>
         <nav className={style.footer_nav}>
           <Link href="">이전 게시물</Link>
           <Link href="">다음 게시물</Link>
@@ -189,7 +196,7 @@ export default function Post({ params, detail }: Props) {
           </p>
           <p className={style.theme}>Using the theme ...</p>
         </footer>
-      </div>
+      </div> */}
     </>
   );
 }

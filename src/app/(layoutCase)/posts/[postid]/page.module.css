@@ -95,38 +95,6 @@
   line-height: 1.6;
 }
 
-.footer_container {
-  padding-right: 4.5rem;
-  padding-left: 1.5rem !important;
-}
-
-.footer_nav {
-  margin-top: 3rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.footer {
-  height: 5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 1rem !important;
-  background-color: white;
-  border-top: 1px solid #f3f3f3;
-  margin-top: 3rem;
-}
-
-.copylight {
-  color: #757575;
-  font-size: 0.8rem;
-}
-
-.theme {
-  color: #757575;
-  font-size: 0.8rem;
-}
-
 @media (min-width: 850px) {
   .h1 {
     margin-top: 3rem;
