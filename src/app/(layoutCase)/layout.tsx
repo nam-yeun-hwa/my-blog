@@ -93,7 +93,6 @@ function Layout({ children, modal }: Props) {
         <div className="sidebar-bottom"></div>
       </aside>
       <div className={style.main_wrapper}>
-        <BreadCrumb />
         <div className={style.container}>
           {children}
           {modal}

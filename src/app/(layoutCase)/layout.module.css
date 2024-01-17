@@ -101,11 +101,11 @@
   margin-left: 260px;
   display: flex;
   justify-content: center !important;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .container {
-  /* min-height: 100vh; */
+  min-height: 100vh;
 }
 
 @media (min-width: 1650px) {

@@ -28,6 +28,7 @@
   border-radius: 1rem;
   border: 1px solid #f0f0f0;
   padding: 2px 0 0 0.5rem;
+  margin-right: calc(112.5px - 0.75rem);
 }
 .search_ico {
   z-index: 2;

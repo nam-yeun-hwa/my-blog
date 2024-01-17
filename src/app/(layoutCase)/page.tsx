@@ -4,7 +4,7 @@ import PostContextProvider from './_component/contexts/PostContextProvider';
 export default function page() {
   return (
     <PostContextProvider>
-      <Home />;
+      <Home />
     </PostContextProvider>
   );
 }
