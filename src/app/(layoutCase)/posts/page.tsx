@@ -1,7 +1,12 @@
 import Home from 'app/_component/Home';
+import PostContextProvider from '../_component/contexts/PostContextProvider';
 
 export default function posts() {
-  return <Home />;
+  return (
+    <PostContextProvider>
+      <Home />;
+    </PostContextProvider>
+  );
 }
 
 //992px

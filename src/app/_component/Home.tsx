@@ -6,9 +6,36 @@ import style from './Home.module.css';
 
 import { useContext, useEffect } from 'react';
 import { PostContext } from 'app/(layoutCase)/_component/contexts/PostContextProvider';
+import { totalPostlist } from 'data/db';
+
+import { InView, useInView } from 'react-intersection-observer';
+import { Folder, IPost } from 'type/post';
 
 export default function Home() {
-  const { postList } = useContext(PostContext);
+  const { postList, setPostList } = useContext(PostContext);
+
+  const { ref, inView } = useInView({
+    threshold: 0,
+    delay: 0,
+  });
+
+  useEffect(() => {
+    if (inView && postList.length < totalPostlist.length) {
+      setPostList(
+        postList.concat(
+          totalPostlist.slice(
+            postList[postList.length - 1].id,
+            totalPostlist.length - postList[postList.length - 1].id > 5
+              ? postList[postList.length - 1].id + 5
+              : postList[postList.length - 1].id +
+                  (totalPostlist.length - postList.length),
+          ),
+        ),
+      );
+    } //inView
+
+    console.log(postList);
+  }, [inView, postList, setPostList]);
 
   return (
     <>
@@ -19,6 +46,7 @@ export default function Home() {
             {postList.map((value, idx) => {
               return <Post key={value.id} post={value} />;
             })}
+            <div ref={ref} style={{ height: '10px' }}></div>
           </div>
         </main>
         <aside className={style.panel_wrapper}>
