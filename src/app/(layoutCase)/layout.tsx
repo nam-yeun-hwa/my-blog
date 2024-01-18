@@ -5,7 +5,7 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 import Image from 'next/image';
 import profileImg from '../../../public/profile1.jpg';
 import cx from 'classnames';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import BreadCrumb from 'app/_component/common/BreadCrumb';
 
 type Props = {
@@ -15,6 +15,9 @@ type Props = {
 
 function Layout({ children, modal }: Props) {
   const segment = useSelectedLayoutSegment();
+  useEffect(() => {
+    console.log(segment);
+  }, [segment]);
 
   return (
     <>
@@ -39,7 +42,7 @@ function Layout({ children, modal }: Props) {
             <li
               className={cx(
                 style.nav_item,
-                segment === 'posts' && style.active,
+                (segment === 'posts' || segment === null) && style.active,
               )}
             >
               <Link href={'/posts'} className={style.nav_link}>

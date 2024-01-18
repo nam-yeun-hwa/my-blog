@@ -11,18 +11,18 @@ export default function Panel() {
             <Link href={'url'}>Writing a New Post</Link>
           </li>
           <li className={style.text_truncate}>
-            <Link href={'url'}>Writing a New Post</Link>
+            <Link href={'url'}>Getting Started</Link>
           </li>
           <li className={style.text_truncate}>
-            <Link href={'url'}>Writing a New Post</Link>
+            <Link href={'url'}>Text and Typography</Link>
           </li>
           <li className={style.text_truncate}>
-            <Link href={'url'}>Writing a New Post</Link>
+            <Link href={'url'}>Customize the Favicon</Link>
           </li>
         </ul>
       </section>
       <section>
-        <h2 className={style.panel_heading}>Recently Updated</h2>
+        <h2 className={style.panel_heading}>Trending Tags</h2>
         <div>
           <Link href="url"></Link>
         </div>
