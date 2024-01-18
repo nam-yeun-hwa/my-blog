@@ -9,7 +9,8 @@ import { totalPostlist } from 'data/db';
 import { InView, useInView } from 'react-intersection-observer';
 
 export default function Home() {
-  const { postList, setPostList } = useContext(PostContext);
+  const { postList, setPostList, loading, setLoading } =
+    useContext(PostContext);
 
   const { ref, inView } = useInView({
     threshold: 0,
@@ -21,7 +22,9 @@ export default function Home() {
   // 리스트를 추가 해줄때 현재 렌더링된 리스트의 마지막 id 값을 기준으로 5개씩 화면에 추가
   // 하도록 한다.
   useEffect(() => {
-    if (inView && postList.length < totalPostlist.length) {
+    console.log(inView);
+    if (inView && !loading && postList.length < totalPostlist.length) {
+      setLoading(true);
       setPostList(
         postList.concat(
           totalPostlist.slice(
@@ -29,14 +32,18 @@ export default function Home() {
             totalPostlist.length - postList[postList.length - 1].id > 5
               ? postList[postList.length - 1].id + 5
               : postList[postList.length - 1].id +
-                  (totalPostlist.length - postList.length),
+                  5 +
+                  (totalPostlist.length % 5),
           ),
         ),
       );
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     } //inView
 
     console.log(postList);
-  }, [inView, postList, setPostList]);
+  }, [inView, postList, setPostList, loading, setLoading]);
 
   return (
     <>

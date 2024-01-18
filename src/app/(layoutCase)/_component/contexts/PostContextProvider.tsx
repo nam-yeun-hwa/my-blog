@@ -176,6 +176,10 @@ console.log(nextData === data) // false`,
     },
   ],
   setPostList: (value: IPost[]) => {},
+  hasMore: true,
+  setHasMore: (value: boolean) => {},
+  loading: false,
+  setLoading: (value: boolean) => {},
 });
 
 export default function PostContextProvider({ children }: Props) {
@@ -346,8 +350,20 @@ console.log(nextData === data) // false`,
     },
   ]);
 
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+
   return (
-    <PostContext.Provider value={{ postList, setPostList }}>
+    <PostContext.Provider
+      value={{
+        postList,
+        setPostList,
+        hasMore,
+        setHasMore,
+        loading,
+        setLoading,
+      }}
+    >
       {children}
     </PostContext.Provider>
   );
