@@ -3,8 +3,8 @@
 import BreadCrumb from 'app/_component/common/BreadCrumb';
 import style from './page.module.css';
 import Link from 'next/link';
-import CodeComponentType from 'app/_component/detailContent/LanguageConsole';
-import Prompts from 'app/_component/detailContent/Prompts';
+import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
+import Prompts from 'app/_component/detailPage/Prompts';
 import { IPost } from 'type/post';
 import { totalPostlist } from 'data/db';
 

@@ -7,6 +7,7 @@ import { useContext, useEffect } from 'react';
 import { PostContext } from 'app/(layoutCase)/_component/contexts/PostContextProvider';
 import { totalPostlist } from 'data/db';
 import { InView, useInView } from 'react-intersection-observer';
+import RecentlyUpdated from './common/RecentlyUpdated';
 
 export default function Home() {
   const { postList, setPostList, loading, setLoading } =
@@ -58,7 +59,7 @@ export default function Home() {
           </div>
         </main>
         <aside className={style.panel_wrapper}>
-          <div style={{ width: '100%' }}>flasjf akjf l</div>
+          <RecentlyUpdated />
         </aside>
       </div>
     </>
