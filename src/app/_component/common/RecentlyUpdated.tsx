@@ -20,6 +20,12 @@ export default function RecentlyUpdated() {
           </li>
         </ul>
       </section>
+      <section>
+        <h2 className="panel-heading">Recently Updated</h2>
+        <div>
+          <Link href="url"></Link>
+        </div>
+      </section>
     </div>
   );
 }
