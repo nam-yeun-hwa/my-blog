@@ -7,6 +7,7 @@ import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
 import Prompts from 'app/_component/detailPage/Prompts';
 import { IPost } from 'type/post';
 import { totalPostlist } from 'data/db';
+import Footer from 'app/_component/common/Footer';
 
 type Props = {
   params: { postid: string };
@@ -185,18 +186,7 @@ export default function Post({ params, detail }: Props) {
           <div style={{ width: '100%' }}>flasjf akjf l</div>
         </aside>
       </div>
-      {/* <div className={style.footer_container}>
-        <nav className={style.footer_nav}>
-          <Link href="">이전 게시물</Link>
-          <Link href="">다음 게시물</Link>
-        </nav>
-        <footer className={style.footer}>
-          <p className={style.copylight}>
-            © 2024 bunny Chung. Some rights reserved.
-          </p>
-          <p className={style.theme}>Using the theme ...</p>
-        </footer>
-      </div> */}
+      <Footer />
     </>
   );
 }

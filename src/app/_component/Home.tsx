@@ -10,7 +10,7 @@ import { InView, useInView } from 'react-intersection-observer';
 import RecentlyUpdated from './common/RecentlyUpdated';
 
 export default function Home() {
-  const { postList, setPostList, loading, setLoading } =
+  const { postList, setPostList, isFetching, setIsFetching } =
     useContext(PostContext);
 
   const { ref, inView } = useInView({
@@ -23,28 +23,25 @@ export default function Home() {
   // 리스트를 추가 해줄때 현재 렌더링된 리스트의 마지막 id 값을 기준으로 5개씩 화면에 추가
   // 하도록 한다.
   useEffect(() => {
-    console.log(inView);
-    if (inView && !loading && postList.length < totalPostlist.length) {
-      setLoading(true);
+    let lastId = postList[postList.length - 1].id;
+    let total = totalPostlist.length;
+    let hasNextPage = postList.length < totalPostlist.length;
+
+    if (inView && !isFetching && hasNextPage) {
+      setIsFetching(true);
       setPostList(
         postList.concat(
           totalPostlist.slice(
-            postList[postList.length - 1].id,
-            totalPostlist.length - postList[postList.length - 1].id > 5
-              ? postList[postList.length - 1].id + 5
-              : postList[postList.length - 1].id +
-                  5 +
-                  (totalPostlist.length % 5),
+            lastId,
+            total - lastId > 5 ? lastId + 5 : lastId + 5 + (total % 5),
           ),
         ),
       );
       setTimeout(() => {
-        setLoading(false);
+        setIsFetching(false);
       }, 1000);
     } //inView
-
-    console.log(postList);
-  }, [inView, postList, setPostList, loading, setLoading]);
+  }, [inView, postList, setPostList, isFetching, setIsFetching]);
 
   return (
     <>
