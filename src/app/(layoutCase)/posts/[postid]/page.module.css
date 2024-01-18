@@ -7,12 +7,12 @@
   padding-left: 1.5rem !important;
 }
 
-.panel_wrapper {
+/* .panel_wrapper {
   flex: 0 0 auto;
   width: 25%;
   background-color: azure;
   height: 100%;
-}
+} */
 
 .contents {
   display: flex;

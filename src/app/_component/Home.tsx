@@ -7,7 +7,7 @@ import { useContext, useEffect } from 'react';
 import { PostContext } from 'app/(layoutCase)/_component/contexts/PostContextProvider';
 import { totalPostlist } from 'data/db';
 import { InView, useInView } from 'react-intersection-observer';
-import RecentlyUpdated from './common/RecentlyUpdated';
+import RecentlyUpdated from './common/Panel';
 
 export default function Home() {
   const { postList, setPostList, isFetching, setIsFetching } =

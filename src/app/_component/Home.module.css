@@ -23,7 +23,7 @@
 .panel_wrapper {
   flex: 0 0 auto;
   width: 25%;
-  background-color: azure;
+  /* background-color: azure; */
   height: 100%;
 }
 
