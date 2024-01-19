@@ -1,12 +1,13 @@
-import Home from 'app/_component/Home';
-import PostContextProvider from '../_component/contexts/PostContextProvider';
-import Link from 'next/link';
+'use client';
 
+import Home from 'app/_component/Home';
+import { store } from 'app/(layoutCase)/_component/store/index';
+import { Provider } from 'react-redux';
 export default function posts() {
   return (
-    <PostContextProvider>
-      <Home />;
-    </PostContextProvider>
+    <Provider store={store}>
+      <Home />
+    </Provider>
   );
 }
 

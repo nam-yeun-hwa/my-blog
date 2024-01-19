@@ -1,10 +1,13 @@
+'use client';
+
 import Home from 'app/_component/Home';
-import PostContextProvider from './_component/contexts/PostContextProvider';
+import { store } from 'app/(layoutCase)/_component/store/index';
+import { Provider } from 'react-redux';
 
 export default function page() {
   return (
-    <PostContextProvider>
+    <Provider store={store}>
       <Home />
-    </PostContextProvider>
+    </Provider>
   );
 }

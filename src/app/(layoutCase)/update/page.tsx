@@ -61,7 +61,7 @@ export default function about() {
       <br />
       <br />
       <b> 2023-01-17 </b> <br />
-      post 페이지 5개 게시물 단위로 무한 스크롤
+      post 페이지 5개 게시물 단위로 무한 스크롤 기능 추가
       <br />
       react-intersection-observer 사용
       <br />
@@ -71,7 +71,22 @@ export default function about() {
       <br />
       <br />
       <b> 2023-01-20 </b> <br />
-      전역 상태 컴포넌트 로컬스토리지 사용을 위해 redux로 변경
+      {`Context API를 reduct-toolkit으로 변경
+      - 사유 : Link 컴포넌트 사용시 스크롤이 유지가 되지 않음
+      context api에서 localStorage에 저장하여 데이터를 유지 시켜보았으나
+
+      < 에러 발생 : s >
+      Error: Hydration failed because the initial UI does not match what was rendered on the server.
+      Warning: Expected server HTML to contain a matching <article> in <div>.
+      See more info here: https://nextjs.org/docs/messages/react-hydration-error
+      < 에러 발생 : e >
+      
+      그리하여 context api를 포기하고 redux-toolkit을 시도해 보았다.
+      처음에는 Redux Persist를 같이 사용 하려고 시도 하였으나 실행 자체에서 에러가 발생하였고 
+      Redux Persist를 포기하고 redux-toolkit만으로 구성하니 
+      데이타 캐싱도 유지되고 포스트 리스트 스크롤도 유지가 되었다. 에러도 나지 않았다.`}
+      <br />
+      <br />
     </div>
   );
 }

@@ -3,20 +3,28 @@
 import Post from 'app/(layoutCase)/_component/Post';
 import BreadCrumb from './common/BreadCrumb';
 import style from './Home.module.css';
-import { useContext, useEffect } from 'react';
-import { PostContext } from 'app/(layoutCase)/_component/contexts/PostContextProvider';
+import { useEffect } from 'react';
+
 import { totalPostlist } from 'data/db';
 import { useInView } from 'react-intersection-observer';
 import RecentlyUpdated from './common/Panel';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  rdxSetPostData,
+  rdxSetFetching,
+} from 'app/(layoutCase)/_component/store/post';
+import { RootState } from 'app/(layoutCase)/_component/store';
 
 export default function Home() {
-  const { postList, setPostList, isFetching, setIsFetching } =
-    useContext(PostContext);
-
   const { ref, inView } = useInView({
     threshold: 0,
     delay: 0,
   });
+
+  const dispatch = useDispatch();
+  const { postList, isFetching } = useSelector(
+    (state: RootState) => state.postStore,
+  );
 
   /**
    * @function delay
@@ -35,8 +43,10 @@ export default function Home() {
     const total = totalPostlist.length;
     const nextPage = lastId + 5 < total ? lastId + 5 : lastId + 5 + (total % 5);
 
-    setPostList(postList.concat(totalPostlist.slice(lastId, nextPage)));
-
+    // setPostList(postList.concat(totalPostlist.slice(lastId, nextPage)));
+    dispatch(
+      rdxSetPostData(postList.concat(totalPostlist.slice(lastId, nextPage))),
+    );
     await delay(500);
   };
 
@@ -46,9 +56,9 @@ export default function Home() {
   useEffect(() => {
     let hasNextPage = postList.length < totalPostlist.length;
     if (inView && !isFetching && hasNextPage) {
-      setIsFetching(true);
+      dispatch(rdxSetFetching(true));
       fetchData().then(() => {
-        setIsFetching(false);
+        dispatch(rdxSetFetching(false));
       });
     }
   }, [inView, postList, isFetching]);
