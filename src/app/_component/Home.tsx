@@ -18,9 +18,18 @@ export default function Home() {
     delay: 0,
   });
 
+  /**
+   * @function delay
+   * @param ms 초
+   * @returns 무한스크롤 리스트 로드 delay
+   */
   const delay = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));
 
+  /**
+   * @function fetchData
+   * @description 새 게시물 업데이트
+   */
   const fetchData = async () => {
     const lastId = postList.length ? postList[postList.length - 1].id : 0;
     const total = totalPostlist.length;
@@ -31,6 +40,9 @@ export default function Home() {
     await delay(500);
   };
 
+  /**
+   * @description inView에 따라 게시물을 업데이트 할수 있도록 로드 해준다.
+   */
   useEffect(() => {
     let hasNextPage = postList.length < totalPostlist.length;
     if (inView && !isFetching && hasNextPage) {
@@ -39,7 +51,6 @@ export default function Home() {
         setIsFetching(false);
       });
     }
-    // dataFetching();
   }, [inView, postList, isFetching]);
 
   return (
