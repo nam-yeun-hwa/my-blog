@@ -101,4 +101,78 @@ body {
 }
 ```
 
+## 이슈
+TypeError: Cannot read properties of undefined (reading 'getItem')
+    at eval (_component/contexts/PostContextProvider.tsx:351:48)
+    at PostContextProvider (_component/contexts/PostContextProvider.tsx:350:84)
+  353 |
+  354 |   const [postList, setPostList] = useState(() => {
+> 355 |     const storedData = global?.localStorage.getItem('postListData');
+      |                                            ^
+  356 |     return storedData ? JSON.parse(storedData) : initialValue;
+  357 |   });
+  358 |
+
+
+ReferenceError: localStorage is not defined 오류는 Next.js에서 서버 측 렌더링(SSR)으로 인해 서버에서 실행되는 코드에서는 브라우저 API들에 접근할 수 없기 때문이라고 한다.
+
+```shell
+import { useEffect, useState } from 'react';
+
+const PostContextProvider = () => {
+  const initialValue = /* your initial value */;
+  
+  const [postList, setPostList] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const storedData = localStorage.getItem('postListData');
+      return storedData ? JSON.parse(storedData) : initialValue;
+    } else {
+      return initialValue;
+    }
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('postListData', JSON.stringify(postList));
+    }
+  }, [postList]);
+
+
+  return (
+    // 컨텍스트 제공자 반환...
+  );
+};
+
+export default PostContextProvider;
+```
+
+위와 같이 코드를 변경하여 시도 하였으나 해결 되지 않았고 아래와 같이 변경 후 해결 되었다.
+
+```shell
+export default function PostContextProvider({ children }: Props) {
+  const [isFetching, setIsFetching] = useState(false);
+
+  const initialValue = /* your initial value */;
+
+  const [postList, setPostList] = useState(() => {
+    const storedData = global?.localStorage?.getItem('postListData');
+    return storedData ? JSON.parse(storedData) : initialValue;
+  });
+
+
+  useEffect(() => {
+    global?.localStorage.setItem('postListData', JSON.stringify(postList));
+  }, [postList]);
+
+
+  return (
+     // 컨텍스트 제공자 반환...
+  );
+}
+
+```
+
+로컬 스토리지에 접근 할때 localStorage.getItem('postListData')로 접근 하던 것을 global?.localStorage?.getItem('postListData'); 변경해 주니 해결 되었다.
+[참고] https://github.com/vercel/next.js/issues/57686
+
 
