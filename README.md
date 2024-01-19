@@ -102,16 +102,16 @@ body {
 ```
 
 ## 이슈
-TypeError: Cannot read properties of undefined (reading 'getItem')
-    at eval (_component/contexts/PostContextProvider.tsx:351:48)
-    at PostContextProvider (_component/contexts/PostContextProvider.tsx:350:84)
-  353 |
-  354 |   const [postList, setPostList] = useState(() => {
-> 355 |     const storedData = global?.localStorage.getItem('postListData');
-      |                                            ^
-  356 |     return storedData ? JSON.parse(storedData) : initialValue;
-  357 |   });
-  358 |
+TypeError: Cannot read properties of undefined (reading 'getItem') </br>
+    at eval (_component/contexts/PostContextProvider.tsx:351:48)</br>
+    at PostContextProvider (_component/contexts/PostContextProvider.tsx:350:84)</br>
+ > 353 |</br>
+   354 |   const [postList, setPostList] = useState(() => {</br>
+   355 |     const storedData = global?.localStorage.getItem('postListData');</br>
+       |                                            ^</br>
+   356 |     return storedData ? JSON.parse(storedData) : initialValue;</br>
+   357 |   });</br>
+   358 |</br>
 
 
 ReferenceError: localStorage is not defined 오류는 Next.js에서 서버 측 렌더링(SSR)으로 인해 서버에서 실행되는 코드에서는 브라우저 API들에 접근할 수 없기 때문이라고 한다.
