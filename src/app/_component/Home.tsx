@@ -18,30 +18,40 @@ export default function Home() {
     delay: 0,
   });
 
-  // 전체 포스트 리스트 totalPostlist의 값과 현재 화면에 렌더링 된 postList의 값을
-  // 비교하여 전체 리스트의 값을 넘지 않았을 경우에만 postList에 값을 추가 하도록 하며
-  // 리스트를 추가 해줄때 현재 렌더링된 리스트의 마지막 id 값을 기준으로 5개씩 화면에 추가
-  // 하도록 한다.
-  useEffect(() => {
+  const delay = (ms: number) => {
+    return new Promise((resolve) =>
+      setTimeout(() => {
+        resolve(ms);
+      }, ms),
+    );
+  };
+
+  const dataFetching = async () => {
     let lastId = postList[postList.length - 1].id;
     let total = totalPostlist.length;
-    let hasNextPage = postList.length < totalPostlist.length;
 
-    if (inView && !isFetching && hasNextPage) {
-      setIsFetching(true);
-      setPostList(
-        postList.concat(
-          totalPostlist.slice(
-            lastId,
-            total - lastId > 5 ? lastId + 5 : lastId + 5 + (total % 5),
-          ),
+    setIsFetching(true);
+    setPostList(
+      postList.concat(
+        totalPostlist.slice(
+          lastId,
+          total - lastId > 5 ? lastId + 5 : lastId + 5 + (total % 5),
         ),
-      );
-      setTimeout(() => {
-        setIsFetching(false);
-      }, 1000);
-    } //inView
-  }, [inView, postList, setPostList, isFetching, setIsFetching]);
+      ),
+    );
+
+    const result = await delay(500);
+    setIsFetching(false);
+  };
+
+  useEffect(() => {
+    // 전체 포스트 리스트 totalPostlist의 값과 현재 화면에 렌더링 된 postList의 값을
+    // 비교하여 전체 리스트의 값을 넘지 않았을 경우에만 postList에 값을 추가 하도록 하며
+    // 리스트를 추가 해줄때 현재 렌더링된 리스트의 마지막 id 값을 기준으로 5개씩 화면에 추가
+    // 하도록 한다.
+    let hasNextPage = postList.length < totalPostlist.length;
+    if (inView && !isFetching && hasNextPage) dataFetching();
+  }, [inView, postList, isFetching]);
 
   return (
     <>
@@ -62,3 +72,25 @@ export default function Home() {
     </>
   );
 }
+
+// 참고 > 이전 useEffect
+// useEffect(() => {
+//   let lastId = postList[postList.length - 1].id;
+//   let total = totalPostlist.length;
+//   let hasNextPage = postList.length < totalPostlist.length;
+
+//   if (inView && !isFetching && hasNextPage) {
+//     setIsFetching(true);
+//     setPostList(
+//       postList.concat(
+//         totalPostlist.slice(
+//           lastId,
+//           total - lastId > 5 ? lastId + 5 : lastId + 5 + (total % 5),
+//         ),
+//       ),
+//     );
+//     setTimeout(() => {
+//       setIsFetching(false);
+//     }, 1000);
+//   } //inView
+// }, [inView, postList, setPostList, isFetching, setIsFetching]);
