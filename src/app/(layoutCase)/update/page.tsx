@@ -70,6 +70,8 @@ export default function about() {
       패널 공톰 컴포넌트 생성
       <br />
       <br />
+      <b> 2023-01-20 </b> <br />
+      전역 상태 컴포넌트 로컬스토리지 사용을 위해 redux로 변경
     </div>
   );
 }
