@@ -6,7 +6,7 @@ import style from './Home.module.css';
 import { useContext, useEffect } from 'react';
 import { PostContext } from 'app/(layoutCase)/_component/contexts/PostContextProvider';
 import { totalPostlist } from 'data/db';
-import { InView, useInView } from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer';
 import RecentlyUpdated from './common/Panel';
 
 export default function Home() {
