@@ -8,6 +8,7 @@ import Prompts from 'app/_component/detailPage/Prompts';
 import { IPost } from 'type/post';
 import { totalPostlist } from 'data/db';
 import Footer from 'app/_component/common/Footer';
+import Panel from 'app/_component/common/Panel';
 
 type Props = {
   params: { postid: string };
@@ -181,12 +182,32 @@ export default function Post({ params, detail }: Props) {
               />
             );
           })}
+          <div className="row">
+            <nav className={style.post_navigation}>
+              <Link
+                className={style.post_navigation_pre}
+                href=""
+                aria-label="Older"
+              >
+                <p className={style.post_navigation_text}>이전 게시물</p>
+              </Link>
+              <Link
+                className={style.post_navigation_next}
+                href=""
+                aria-label="Newer"
+              >
+                <p className={style.post_navigation_text}>다음 게시물</p>
+              </Link>
+            </nav>
+          </div>
+          <Footer />
         </main>
         <aside className={style.panel_wrapper}>
-          <div style={{ width: '100%' }}>flasjf akjf l</div>
+          <div style={{ width: '100%' }}>
+            <Panel />
+          </div>
         </aside>
       </div>
-      <Footer />
     </>
   );
 }

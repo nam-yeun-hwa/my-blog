@@ -86,9 +86,9 @@ function Layout({ children, modal }: Props) {
                 segment === 'about' && style.active,
               )}
             >
-              <Link className={style.nav_link} href={'/about'}>
+              <Link className={style.nav_link} href={'/update'}>
                 <i className={`fa-fw fas fa-info-circle ${style.ico}`}></i>
-                <span className={style.nav_txt}>ABOUT</span>
+                <span className={style.nav_txt}>UPDATE</span>
               </Link>
             </li>
           </ul>
