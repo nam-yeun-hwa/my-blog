@@ -15,9 +15,6 @@ type Props = {
 
 function Layout({ children, modal }: Props) {
   const segment = useSelectedLayoutSegment();
-  useEffect(() => {
-    console.log(segment);
-  }, [segment]);
 
   return (
     <>

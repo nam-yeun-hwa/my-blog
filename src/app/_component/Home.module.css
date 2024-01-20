@@ -1,8 +1,9 @@
 /* 페이지 내용 : start */
 
 .contents {
+  flex-wrap: wrap;
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
 }
 
 .main_wrapper {
@@ -28,6 +29,48 @@
   padding-left: 0.5rem !important;
   margin-bottom: 3rem !important;
   padding-right: calc(1.5rem * 0.5);
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .main_wrapper {
+    flex: 0 0 96%;
+    max-width: 96%;
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .contents {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .panel_wrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 849px) {
+  .contents {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main_wrapper {
+    flex: 0 0 auto;
+    width: 100%;
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* .contents {
+    flex: 0 0 auto;
+    width: 75%;
+  } */
 }
 
 /* 페이지 내용 : end */

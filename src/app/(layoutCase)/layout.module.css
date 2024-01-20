@@ -5,7 +5,7 @@
   left: 0;
   height: 100%;
   overflow-y: auto;
-  width: 300px;
+  width: 260px;
   z-index: 99;
   background: var(--sidebar-bg);
   border-right: 1px solid var(--sidebar-border-color);
@@ -98,7 +98,6 @@
 /* 컨텐츠 페이지 : start */
 
 .main_wrapper {
-  margin-left: 260px;
   display: flex;
   justify-content: center !important;
   /* flex-direction: column; */
@@ -109,6 +108,9 @@
 }
 
 @media (min-width: 1650px) {
+  .sidebar {
+    width: 300px;
+  }
   .main_wrapper {
     margin-left: 300px;
   }
@@ -139,6 +141,23 @@
 }
 
 @media (min-width: 576px) {
+}
+
+@media (max-width: 849px) {
+  .main_wrapper {
+    transition: transform 0.4s ease;
+  }
+  .sidebar {
+    transition: transform 0.4s ease;
+    transform: translateX(-260px);
+    -webkit-transform: translateX(-260px);
+  }
+}
+
+@media (min-width: 850px) {
+  .main_wrapper {
+    margin-left: 260px;
+  }
 }
 
 /* 1650일때
