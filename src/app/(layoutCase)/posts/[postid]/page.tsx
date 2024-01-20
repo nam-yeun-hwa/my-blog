@@ -163,7 +163,7 @@ export default function Post({ params, detail }: Props) {
                   href="https://github.com/nam-yeun-hwa"
                   className={style.author}
                 >
-                  bunny Chung
+                  Carys Chung
                 </Link>
               </em>
             </span>

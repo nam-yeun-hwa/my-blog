@@ -2,9 +2,10 @@
   display: flex;
   flex: 1;
   height: 3rem;
+  align-items: center !important;
   background-color: var(--topbar-bg);
-  padding-right: 1rem !important;
-  padding-left: 1rem !important;
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
 }
 
 .top_bar {
@@ -28,7 +29,6 @@
   border-radius: 1rem;
   border: 1px solid #f0f0f0;
   padding: 2px 0 0 0.5rem;
-  margin-right: calc(112.5px - 0.75rem);
 }
 .search_ico {
   z-index: 2;
@@ -58,4 +58,76 @@
 
 .search_input_active::placeholder {
   color: #acacac;
+}
+
+.mobile_topbar {
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+}
+
+.sidebar_trigger_ico::before {
+  content: '\f0c9';
+}
+
+.sidebar_trigger {
+  width: 46px;
+  height: 38px;
+  color: #999;
+  padding: 6px 12px;
+}
+
+.search_trigger {
+  width: 46px;
+  height: 38px;
+  color: #999;
+  padding: 6px 12px;
+}
+
+.search_trigger_ico::before {
+  content: '\f002';
+}
+
+.mobile_topbar_title {
+  display: flex;
+  align-items: center;
+  font-size: 1.17rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: rgb(78, 78, 78);
+}
+
+/* 모바일 크기 일때 sideMenu가 사라지는 시점에 */
+@media (max-width: 849px) {
+  .top_bar {
+    display: none;
+  }
+  .topbar_wrapper {
+    padding: 0 !important;
+  }
+  .mobile_topbar {
+    display: flex;
+  }
+}
+
+@media (min-width: 1200px) {
+  .search {
+    margin-right: 4rem;
+  }
+
+  .topbar_wrapper {
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1650px) {
+  .search {
+    margin-right: 4.8rem;
+  }
 }

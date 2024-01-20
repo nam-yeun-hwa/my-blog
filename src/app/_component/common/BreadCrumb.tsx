@@ -1,12 +1,8 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import style from './BreadCrumb.module.css';
+import style from './breadCrumb.module.css';
 import cx from 'classnames';
-
-// type Props = {
-//     searchParams: { q: string, f?: string, pf?: string };
-//   }
 
 export default function BreadCrumb() {
   const [isFocused, setFocused] = useState(false);
@@ -41,6 +37,15 @@ export default function BreadCrumb() {
             autoComplete="off"
           />
         </search>
+      </div>
+      <div className={style.mobile_topbar}>
+        <button className={style.sidebar_trigger}>
+          <i className={`fas fa-bars fa-fw ${style.sidebar_trigger_ico}`}></i>
+        </button>
+        <div className={style.mobile_topbar_title}>Carys</div>
+        <button className={style.search_trigger}>
+          <i className={`fas fa-search fa-fw ${style.search_trigger_ico}`}></i>
+        </button>
       </div>
     </header>
   );

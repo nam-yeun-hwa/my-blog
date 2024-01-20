@@ -152,6 +152,9 @@
     transform: translateX(-260px);
     -webkit-transform: translateX(-260px);
   }
+  .container {
+    padding: 0 0.75rem;
+  }
 }
 
 @media (min-width: 850px) {

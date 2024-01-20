@@ -101,4 +101,14 @@ li {
   list-style: none;
 }
 
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointe;
+}
+
 /* https://ykss.netlify.app/translation/a_more_modern_css_reset/ */
