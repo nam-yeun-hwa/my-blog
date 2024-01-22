@@ -202,11 +202,7 @@ export default function Post({ params, detail }: Props) {
           </div>
           <Footer />
         </main>
-        <aside className={style.panel_wrapper}>
-          <div style={{ width: '100%' }}>
-            <Panel />
-          </div>
-        </aside>
+        <Panel />
       </div>
     </>
   );

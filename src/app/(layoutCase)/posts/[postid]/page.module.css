@@ -8,8 +8,8 @@
 }
 
 .contents {
+  flex-wrap: wrap;
   display: flex;
-  flex-direction: row;
   font-family: var(--font-IBM_Plex_Sans_KR);
 }
 
@@ -163,6 +163,15 @@
 @media (min-width: 1200px) {
   .footer_container {
     width: 75%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .main_wrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
 }
 

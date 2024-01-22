@@ -74,3 +74,19 @@
   color: white;
   border: 1px solid aqua;
 }
+
+.panel_wrapper {
+  flex: 0 0 auto;
+  width: 25%;
+  /* background-color: azure; */
+  height: 100%;
+  padding-left: 0.5rem !important;
+  margin-bottom: 3rem !important;
+  padding-right: calc(1.5rem * 0.5);
+}
+
+@media (max-width: 1199px) {
+  .panel_wrapper {
+    display: none;
+  }
+}
