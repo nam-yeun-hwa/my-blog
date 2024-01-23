@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import style from './Post.module.css';
+import style from './post.module.css';
 import { IPost } from 'type/post';
 
 type Props = {

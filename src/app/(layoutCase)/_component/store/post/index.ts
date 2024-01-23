@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Folder, IPost } from 'type/post';
-import style from 'app/(layoutCase)/posts/[postid]/page.module.css';
+import style from 'app/(layoutCase)/_component/post.module.css';
 
 type postType = {
   postList: Array<IPost>;
@@ -263,18 +263,140 @@ console.log(nextData === data) // false`,
         
         테스트 용이성: 순수 함수와 불변성은 코드의 테스트 용이성을 증가시킵니다. 각 함수는 독립적으로 테스트할 수 있고, 예측 가능한 결과를 가지기 때문에 테스트 작성이 쉬워집니다.`,
       },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>정적 리소스 (static)</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `정적 리소스는 변화가 없는 리소스를 뜻한다.
+        즉, HTML, CSS, Javascript와 같이 미리 서버에 저장해두고 서버가 요청을 받으면 응답만 해주면 되는 것들을 뜻한다. 어느 사용자에게도 동일한 결과값을 보여준다.`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>동적 리소스 (dynamic)</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `동적 리소스는 누가, 언제, 어떻게 서버에 요청했는지에 따라 결과값을 다르게 보여주는 리소스를 뜻한다. 사용자에게 맞춤형 콘텐츠를 제공해줄 수 있게 된다.`,
+      },
     ],
   },
   {
     id: 3,
-    title: '리액트와 불변성3',
+    title: '프론트 서버',
     date: '2024-01-15',
     folder: Folder.Javascript,
-    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
+    preview: `브라우저 작동원리에 대해 공부하던 중 의문점이 발생했다.
+
+    <b>"브라우저 주소창에 URL을 입력하면 브라우저는 HTTP GET 요청을 URL 프론트 서버로 전송한다.
+    보통 프론트 엔드가 있는 웹 서비스의 경우 HTML 파일을 결과로 반환한다."</b>
+    
+    라는 부분인데 프론트 서버의 존재가 정확히 어떤 일을 하는 것인지 궁금해 졌다.`,
     post: [
       {
+        type: 'h2',
+        value: `<h2 class=${style.h2}>프론트 서버</h2>`,
+      },
+      {
         type: 'normal',
-        value: `상태가 변경되었는지를 정확하게 판단하기 위해서는 불변성을 유지해야 하며 불변성을 유지하지 않으면 리액트가 제대로 동작하지 않고 성능 최적화가 무력화될 수 있다.`,
+        value: `브라우저 작동원리에 대해 공부하던 중 의문점이 발생했다.
+
+        <b>"브라우저 주소창에 URL을 입력하면 브라우저는 HTTP GET 요청을 URL 프론트 서버로 전송한다.
+        보통 프론트 엔드가 있는 웹 서비스의 경우 HTML 파일을 결과로 반환한다."</b>
+        
+        라는 부분인데 프론트 서버의 존재가 정확히 어떤 일을 하는 것인지 궁금해 졌다.`,
+      },
+      {
+        type: 'normal',
+        value: `프론트 서버는 어떤 주소에 대한 요청을 보냈을 때, Markup Language (HTML,CSS, Javascript)를 응답해서 사용자에게 GUI 환경을 제공해준다.`,
+      },
+      {
+        type: 'normal',
+        value: `→ react, next, styled-components, redux 등
+        `,
+      },
+      {
+        type: 'normal',
+        value: `<img href="https://velog.velcdn.com/images/bunny/post/f81790cf-1b26-4a2e-88a5-c6bc23fe7955/image.jpg"/>`,
+      },
+      {
+        type: 'normal',
+        value: `프론트엔드 개발자가 React 라이브러리를 활용하여 클라이언트(브라우저)에게 제공할 Javascript 파일들을 ES6 + JSX 문법으로 작성하게 되면, Babel 등의 컴파일러가 모든 브라우저에서 호환 가능한 문법으로 변환해준다.`,
+      },
+      {
+        type: 'normal',
+        value: `또한 Webpack 등의 모듈 번들러가 HTML, CSS, Javascript 파일들을 효율적인 방식으로 적절히 번들링하여 준비해둔다.`,
+      },
+      {
+        type: 'normal',
+        value: `클라이언트가 요청을 보낼 때마다 프론트 서버는 미리 준비해둔 HTML, CSS, Javascript 파일들을 클라이언트에게 제공한다. 그러면 클라이언트(브라우저)는 전달받은 Javascript를 실행해 페이지에 렌더링을 시작한다. 즉, React 라이브러리를 활용했던 Javascript 코드는 동적으로 DOM에 렌더링 해준다.`,
+      },
+      {
+        type: 'h2',
+        value: `<h2 class=${style.h2}>브라우저의 전체 흐름</h2>`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>SSR</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `SSR 전통적인 웹사이트에서는 브라우저에서는 프론트 서버로 GET 요청을 하고 프론트 서버에서 백엔드 서버로 데이터 요청을 하여 백엔드 서버는 데이터베이스에서 데이터를 받아와서 프론트서버로 데이터를 보내주고 프론트 서버는 HTML과 데이터를 합쳐서 브라우저에게 보내준다.`,
+      },
+      {
+        type: 'normal',
+        value: `브라우저 ➔ 프론트 서버 ➔ 백엔드 서버 ➔ DB`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>SPA</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `SPA 에서는 프론트 서버에서 정적파일들을 먼저 받아(HTML, CSS, Javascript) 화면을 그리고 데이터를 백엔서 서버에서 받아오는동안 로딩바를 화면에 표시해 주도록 한다.`,
+      },
+      {
+        type: 'normal',
+        value: `브라우저 ➔ 프론트 서버에서 정적파일들을 받아옴(HTML, CSS, Javascript) </br> 브라우저 ➔ 백엔드 서버(프론트 서버를 거치지 않고 백엔드 서버로 바로 데이터를 요청) ➔ DB`,
+      },
+      {
+        type: 'normal',
+        value: `브라우저 ➔ 프론트 서버에서 정적파일들을 받아옴(HTML, CSS, Javascript) </br> 브라우저 ➔ 백엔드 서버(프론트 서버를 거치지 않고 백엔드 서버로 바로 데이터를 요청) ➔ DB`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>프론트 서버(웹 서버)</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `다른말로 HTTP Server라고도 한다. 웹 브라우저의 파트너로서 서버의 정보를 제공하는 소프트웨어라고 할 수 있다.
+
+        대표적으로 Nginx, Apache가 있다.
+        
+        웹 서버는 인터넷 네트워크 위에서 HTTP 프로토콜을 이용해 HTML, CSS, Javascript, image/mediafile과 같은 정적인 정보들을 웹 브라우저에 전송한다.
+        
+        아파치 소프트웨어 재단에서 만든 웹서버(web server)를 일컫는다.
+        
+        리눅스에서는 httpd 로 명명지어져 배포된다.
+        
+        정적인 데이터들 (html, css 이미지, 파일 등)에 대한 클라이언트의 요청을 데이터로 만들어서 응답한다.
+        
+        80 포트를 사용`,
+      },
+      {
+        type: 'normal',
+        value: `http 프로토콜 기반으로 web client (browser) 로부터의 요청을 서비스하는 기능을 담당하는 프로그램.
+        80번 포트로 클라이언트 요청(POST,GET,DELETE)이 왔을때만 응답한다.
+        정적인 데이터에 대한 처리를 담당한다.`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>웹서버를 이해하기에 가장 편했던 유투브 영상</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `https://www.youtube.com/watch?v=Zimhvf2B7Es`,
       },
     ],
   },
@@ -306,7 +428,7 @@ console.log(nextData === data) // false`,
   },
 ];
 const postStore = createSlice({
-  name: 'postList',
+  name: 'postStore',
   initialState: { postList: initialValue, isFetching: false } as postType,
   reducers: {
     rdxSetPostData(state, action: PayloadAction<Array<IPost>>) {

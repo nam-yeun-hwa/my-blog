@@ -5,8 +5,7 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 import Image from 'next/image';
 import profileImg from '../../../public/profile1.jpg';
 import cx from 'classnames';
-import { ReactNode, useEffect } from 'react';
-import BreadCrumb from 'app/_component/common/BreadCrumb';
+import { ReactNode } from 'react';
 
 type Props = {
   children: ReactNode;
@@ -75,6 +74,17 @@ function Layout({ children, modal }: Props) {
               <Link className={style.nav_link} href={'/archives'}>
                 <i className={`fa-fw fas fa-archive ${style.ico}`}></i>
                 <span className={style.nav_txt}>ARCHIVES</span>
+              </Link>
+            </li>
+            <li
+              className={cx(
+                style.nav_item,
+                segment === 'algorithm' && style.active,
+              )}
+            >
+              <Link className={style.nav_link} href={'/algorithm'}>
+                <i className={`fa-solid fa-mug-saucer ${style.ico}`}></i>
+                <span className={style.nav_txt}>ALGORITHM</span>
               </Link>
             </li>
             <li

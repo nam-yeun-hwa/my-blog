@@ -2,7 +2,7 @@
 
 import React, { createContext, useEffect, useState } from 'react';
 import { Folder, IPost } from 'type/post';
-import style from 'app/(layoutCase)/posts/[postid]/page.module.css';
+import style from 'app/(layoutCase)/_component/post.module.css';
 
 type Props = {
   children: React.ReactNode;

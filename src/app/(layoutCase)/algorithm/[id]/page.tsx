@@ -11,16 +11,13 @@ import Footer from 'app/_component/common/Footer';
 import Panel from 'app/_component/common/Panel';
 
 type Props = {
-  params: { postid: string };
+  params: { id: string };
   detail: IPost;
 };
 
-// 엔터 값 검색 정규 표현식
-// var enterRegex = /^.*$/gm;
-
-export default function Post({ params, detail }: Props) {
+export default function page({ params, detail }: Props) {
   const { id, title, date, folder, preview, post } =
-    totalPostlist[parseInt(params.postid) - 1];
+    totalPostlist[parseInt(params.id) - 1];
 
   return (
     <>
