@@ -125,13 +125,6 @@ console.log(sameData === data); // true`,
 ];
 
 export default function Post({ params, detail }: Props) {
-  // id: 1,
-  // title: '리액트와 불변성1',
-  // date: '2024-01-15',
-  // folder: Folder.React,
-  // preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
-  // post: [
-
   const { id, title, date, folder, preview, post } =
     totalPostlist[parseInt(params.postid) - 1];
 

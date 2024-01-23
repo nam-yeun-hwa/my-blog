@@ -43,10 +43,8 @@ export default function Home() {
     const total = totalPostlist.length;
     const nextPage = lastId + 5 < total ? lastId + 5 : lastId + 5 + (total % 5);
 
-    // setPostList(postList.concat(totalPostlist.slice(lastId, nextPage)));
-    dispatch(
-      rdxSetPostData(postList.concat(totalPostlist.slice(lastId, nextPage))),
-    );
+    let updateData = postList.concat(totalPostlist.slice(lastId, nextPage));
+    dispatch(rdxSetPostData(updateData));
     await delay(500);
   };
 

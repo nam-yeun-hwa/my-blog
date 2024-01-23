@@ -14,9 +14,7 @@ export default function Post({ post }: Props) {
     <article className={style.post}>
       <Link href={`/posts/${post.id}`}>
         <div className={style.post_body}>
-          <h1 className={style.post_title}>
-            {post.title}-{post.id}
-          </h1>
+          <h1 className={style.post_title}>{post.title}</h1>
           <div className={style.post_text}>
             <p className={style.preview}>{post.preview}</p>
           </div>
