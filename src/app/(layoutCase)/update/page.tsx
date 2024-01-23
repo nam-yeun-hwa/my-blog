@@ -74,6 +74,8 @@ export default function about() {
       Context API를 reduct-toolkit으로 변경
       <br />
       <br />
+      <b> 2023-01-24 </b> <br />
+      알고리즘 카테고리 생성
     </div>
   );
 }
