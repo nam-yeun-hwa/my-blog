@@ -1,14 +1,18 @@
 # my-blog
 next.js 14버전을 이용하여 개인 블로그를 만들어 보도록 한다.
-- 사용된 라이브러리를 기록
-- 트러블슈팅을 기록
-- 전반적인 경험을 기록
+
+1. 컨셉 블로그 : https://chirpy.cotes.page/ 
+2. 프론트엔드로만 구성
+3. 사용된 라이브러리를 기록
+4. 트러블슈팅을 기록
+5. 전반적인 경험을 기록
   
 
 
 # 기술 스택
 - next.js 14.0.4
 - typescript
+- redux-toolkit 
 
 
 # Troubleshooting
@@ -101,78 +105,5 @@ body {
 }
 ```
 
-## 이슈
-TypeError: Cannot read properties of undefined (reading 'getItem') </br>
-    at eval (_component/contexts/PostContextProvider.tsx:351:48)</br>
-    at PostContextProvider (_component/contexts/PostContextProvider.tsx:350:84)</br>
- > 353 |</br>
-   354 |   const [postList, setPostList] = useState(() => {</br>
-   355 |     const storedData = global?.localStorage.getItem('postListData');</br>
-       |                                            ^</br>
-   356 |     return storedData ? JSON.parse(storedData) : initialValue;</br>
-   357 |   });</br>
-   358 |</br>
-
-
-ReferenceError: localStorage is not defined 오류는 Next.js에서 서버 측 렌더링(SSR)으로 인해 서버에서 실행되는 코드에서는 브라우저 API들에 접근할 수 없기 때문이라고 한다.
-
-```shell
-import { useEffect, useState } from 'react';
-
-const PostContextProvider = () => {
-  const initialValue = /* your initial value */;
-  
-  const [postList, setPostList] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const storedData = localStorage.getItem('postListData');
-      return storedData ? JSON.parse(storedData) : initialValue;
-    } else {
-      return initialValue;
-    }
-  });
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('postListData', JSON.stringify(postList));
-    }
-  }, [postList]);
-
-
-  return (
-    // 컨텍스트 제공자 반환...
-  );
-};
-
-export default PostContextProvider;
-```
-
-위와 같이 코드를 변경하여 시도 하였으나 해결 되지 않았고 아래와 같이 변경 후 해결 되었다.
-
-```shell
-export default function PostContextProvider({ children }: Props) {
-  const [isFetching, setIsFetching] = useState(false);
-
-  const initialValue = /* your initial value */;
-
-  const [postList, setPostList] = useState(() => {
-    const storedData = global?.localStorage?.getItem('postListData');
-    return storedData ? JSON.parse(storedData) : initialValue;
-  });
-
-
-  useEffect(() => {
-    global?.localStorage.setItem('postListData', JSON.stringify(postList));
-  }, [postList]);
-
-
-  return (
-     // 컨텍스트 제공자 반환...
-  );
-}
-
-```
-
-로컬 스토리지에 접근 할때 localStorage.getItem('postListData')로 접근 하던 것을 global?.localStorage?.getItem('postListData'); 변경해 주니 해결 되었다.
-[참고] https://github.com/vercel/next.js/issues/57686
 
 
