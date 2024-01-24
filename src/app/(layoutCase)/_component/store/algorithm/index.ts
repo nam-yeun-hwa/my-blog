@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Folder, IAlgorithmPost, IPost, LEVEL } from 'type/post';
+import { Folder, IAlgorithmPost, IPost, Level } from 'type/post';
 import style from 'app/(layoutCase)/_component/post.module.css';
 
 type algorithmType = {
@@ -14,7 +14,7 @@ const initialValue = [
     date: '2023-12-24',
     folder: Folder.Algorithm,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: LEVEL.Lv1,
+    lv: Level.Lv1,
     post: [
       {
         type: 'h4',

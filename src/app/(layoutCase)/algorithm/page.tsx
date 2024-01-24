@@ -1,6 +1,6 @@
 'use client';
 
-import Home from 'app/_component/Home';
+import Home from 'app/_component/PostPageing';
 import { store } from 'app/(layoutCase)/_component/store/index';
 import { Provider } from 'react-redux';
 import AlgorithmPageing from 'app/_component/AlgorithmPageing';

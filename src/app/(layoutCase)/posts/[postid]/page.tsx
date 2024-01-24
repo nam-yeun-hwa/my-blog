@@ -5,10 +5,11 @@ import style from './page.module.css';
 import Link from 'next/link';
 import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
 import Prompts from 'app/_component/detailPage/Prompts';
-import { IPost } from 'type/post';
+import { ComponentType, IPost } from 'type/post';
 import { totalPostlist } from 'data/db';
 import Footer from 'app/_component/common/Footer';
 import Panel from 'app/_component/common/Panel';
+import Table from 'app/_component/detailPage/Table';
 
 type Props = {
   params: { postid: string };
@@ -57,10 +58,12 @@ export default function Post({ params, detail }: Props) {
           </div>
 
           {post.map((value, idx) => {
-            if (value.type === 'emphasis')
+            if (value.type === ComponentType.EMPHASIS)
               return <Prompts key={idx} type="warning" detail={value.value} />;
-            if (value.type === 'code')
+            if (value.type === ComponentType.CODE)
               return <CodeComponentType key={idx} code={value.value} />;
+            if (value.type === ComponentType.TABLE)
+              return <Table key={idx} table={value.value} />;
             return (
               <div
                 key={idx}

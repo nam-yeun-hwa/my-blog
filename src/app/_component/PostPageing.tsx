@@ -2,7 +2,7 @@
 
 import Post from 'app/(layoutCase)/_component/Post';
 import BreadCrumb from './common/BreadCrumb';
-import style from './Home.module.css';
+import style from './postPageing.module.css';
 import { useEffect } from 'react';
 
 import { totalPostlist } from 'data/db';
@@ -15,7 +15,7 @@ import {
 import { RootState } from 'app/(layoutCase)/_component/store';
 import Panel from './common/Panel';
 
-export default function Home() {
+export default function PostPageing() {
   const { ref, inView } = useInView({
     threshold: 0,
     delay: 0,

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
 import BreadCrumb from 'app/_component/common/BreadCrumb';
 import { algorithmPostlist } from 'data/db';
-import style from './Home.module.css';
+import style from './postPageing.module.css';
 import Panel from 'app/_component/common/Panel';
 import Post from 'app/(layoutCase)/_component/Post';
 import {
@@ -43,7 +43,8 @@ export default function AlgorithmPageing() {
       ? algorithmList[algorithmList.length - 1].id
       : 0;
     const total = algorithmPostlist.length;
-    const nextPage = lastId + 5 < total ? lastId + 5 : lastId + 5 + (total % 5);
+    const nextPage =
+      lastId + 10 < total ? lastId + 10 : lastId + 10 + (total % 10);
 
     let updateData = algorithmList.concat(
       algorithmPostlist.slice(lastId, nextPage),

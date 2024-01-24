@@ -17,7 +17,7 @@ export interface IAlgorithmPost {
   date: string;
   folder: Folder;
   part_title: string;
-  lv: LEVEL;
+  lv: Level;
   post: Array<{ type: string; value: string }>;
 }
 
@@ -27,8 +27,14 @@ export enum Folder {
   Algorithm = 'ALGORITHM',
 }
 
-export enum LEVEL {
+export enum Level {
   Lv1 = 'LEVEL1',
   Lv2 = 'LEVEL2',
   Lv3 = 'LEVEL3',
+}
+
+export enum ComponentType {
+  EMPHASIS = 'emphasis',
+  CODE = 'code',
+  TABLE = 'table',
 }

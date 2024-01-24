@@ -1,4 +1,4 @@
-import { Folder, LEVEL } from 'type/post';
+import { Folder, Level } from 'type/post';
 import style from 'app/(layoutCase)/posts/[postid]/page.module.css';
 
 /**
@@ -755,11 +755,11 @@ let result = stringNumber.split(" ")
 export const algorithmPostlist = [
   {
     id: 1,
-    title: '배열의 길이를 2의 거듭제곱으로 만들기',
+    title: '괄호 회전하기',
     date: '2023-12-24',
     folder: Folder.Algorithm,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: LEVEL.Lv1,
+    lv: Level.Lv1,
     post: [
       {
         type: 'h4',
@@ -783,8 +783,30 @@ export const algorithmPostlist = [
         value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
       },
       {
+        type: 'table',
+        value: `<table>
+        <thead>
+          <tr>
+            <th>arr</th>
+            <th>result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>[1, 2, 3, 4, 5, 6]</td>
+            <td>[1, 2, 3, 4, 5, 6, 0, 0]</td>
+          </tr>
+          <tr>
+            <td>[58, 172, 746, 89]</td>
+            <td>[58, 172, 746, 89]</td>
+          </tr>
+        </tbody>
+      </table>`,
+      },
+      {
         type: 'normal',
-        value: `입출력 예 설명</br>
+        value: `
+        입출력 예 설명</br>
         입출력 예 #1</br></br>
         
         예제 1번의 arr의 길이는 6입니다. arr의 길이를 2의 정수 거듭제곱으로 만드는 방법은 0을 2개, 10개, 26개,..., 추가하는 방법이 있고 그중 최소한으로 0을 추가하는 방법은 2개를 추가하는 것입니다. 따라서 [1, 2, 3, 4, 5, 6, 0, 0]을 return 합니다.</br>
@@ -800,6 +822,406 @@ export const algorithmPostlist = [
    const totalLength = 2 ** Math.ceil(Math.log2(length));
    return [...arr, ...new Array(totalLength - length).fill(0)];
 }`,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: '괄호 회전하기',
+    date: '2023-12-24',
+    folder: Folder.Algorithm,
+    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    lv: Level.Lv1,
+    post: [
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `다음 규칙을 지키는 문자열을 올바른 괄호 문자열이라고 정의합니다. </br>
+        (), [], {} 는 모두 올바른 괄호 문자열입니다.</br>
+만약 A가 올바른 괄호 문자열이라면, (A), [A], {A} 도 올바른 괄호 문자열입니다. 예를 들어, [] 가 올바른 괄호 문자열이므로, ([]) 도 올바른 괄호 문자열입니다.</br>
+만약 A, B가 올바른 괄호 문자열이라면, AB 도 올바른 괄호 문자열입니다. 예를 들어, {} 와 ([]) 가 올바른 괄호 문자열이므로, {}([]) 도 올바른 괄호 문자열입니다.</br></br>
+대괄호, 중괄호, 그리고 소괄호로 이루어진 문자열 s가 매개변수로 주어집니다. 이 s를 왼쪽으로 x (0 ≤ x < (s의 길이)) 칸만큼 회전시켰을 때 s가 올바른 괄호 문자열이 되게 하는 x의 개수를 return 하도록 solution 함수를 완성해주세요.</br>`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `s의 길이는 1 이상 1,000 이하입니다.`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `입출력 예 설명</br>`,
+      },
+
+      {
+        type: 'code',
+        value: `// candidate
+        // [](){}
+        // ](){}[
+        // (){}[]
+        // ){}[](
+        // {}[]()
+        // }[](){
+        
+        
+        function solution(s) {
+            const stack = [];
+            let result = 0;
+            let is_right = true;
+            
+            //짝이 안맞으면 0 리턴
+            if (s.length % 2 === 1) return 0;
+        
+            for (let i = 0; i < s.length; i++){
+                let candidate = s.slice(i) + s.slice(0, i);
+        
+                is_right = true;
+                for (let word of candidate) {
+                    if (word === "(" || word === "{" || word === "[") {
+                        stack.push(word);
+                    }
+                    else {
+                        let last = stack.pop();
+                        if (last === "(" && word === ")") continue;
+                        if (last === "{" && word === "}") continue;
+                        if (last === "[" && word === "]") continue;
+            
+                        is_right = false;
+                        break;
+                    }
+                }
+                if (is_right) result++;
+            }
+            return result;
+        }`,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: '최대공약수와 최소공배수, N개의 최소공배수',
+    date: '2023-12-24',
+    folder: Folder.Algorithm,
+    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    lv: Level.Lv1,
+    post: [
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `두 수는 1이상 1000000이하의 자연수입니다.`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+      },
+
+      {
+        type: 'normal',
+        value: `입출력 예 #1</br>
+        위의 설명과 같습니다.</br></br>
+        
+        입출력 예 #2</br>
+        자연수 2와 5의 최대공약수는 1, 최소공배수는 10이므로 [1, 10]을 리턴해야 합니다.`,
+      },
+
+      {
+        type: 'code',
+        value: `function solution(n, m) {
+          let 최대공약수 = 0;
+         
+         const [min, max] = [n, m].sort((a, b) => a - b);
+     
+         for (let i = 1; i <= min; i++) {
+            if (min % i === 0 && max % i === 0) 최대공약수 = i;
+         }
+         
+         const 최소공배수 = (min * max) / 최대공약수;
+     
+         return [최대공약수, 최소공배수];
+     }`,
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: '배열 만들기 2',
+    date: '2023-12-24',
+    folder: Folder.Algorithm,
+    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    lv: Level.Lv1,
+    post: [
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `정수 l과 r이 주어졌을 때, l 이상 r이하의 정수 중에서 숫자 "0"과 "5"로만 이루어진 모든 정수를 오름차순으로 저장한 배열을 return 하는 solution 함수를 완성해 주세요.
+</br></br>
+        만약 그러한 정수가 없다면, -1이 담긴 배열을 return 합니다.`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `1 ≤ l ≤ r ≤ 1,000,000`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+      },
+
+      {
+        type: 'normal',
+        value: `입출력 예 #1</br></br>
+
+        5 이상 555 이하의 0과 5로만 이루어진 정수는 작은 수부터 5, 50, 55, 500, 505, 550, 555가 있습니다. 따라서 [5, 50, 55, 500, 505, 550, 555]를 return 합니다.</br>
+        입출력 예 #2</br></br>
+        
+        10 이상 20 이하이면서 0과 5로만 이루어진 정수는 없습니다. 따라서 [-1]을 return 합니다.`,
+      },
+
+      {
+        type: 'code',
+        value: `// l 이상 r이하
+        // 오름차순으로 저장한 배열을 return 
+        // 정수가 없다면, -1
+        function everyFunction(value){
+                return value < 38;
+        }
+        
+        function solution(l, r) {
+            var answer = [];
+            
+            for(let i=l; i<=r; i++){
+                // 숫자 "0"과 "5"로만 이루어진 모든 정수
+                
+                if(i%5 !== 0) continue;
+              
+                if(![...String(i)].every(a => a === '5' || a === '0')) continue;
+                
+                answer.push(i);
+            }
+            
+            return answer.length > 0 ? answer : [-1];
+        }`,
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: '겹치는 선분의 길이',
+    date: '2023-12-24',
+    folder: Folder.Algorithm,
+    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    lv: Level.Lv1,
+    post: [
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `선분 3개가 평행하게 놓여 있습니다. 세 선분의 시작과 끝 좌표가 [[start, end], [start, end], [start, end]] 형태로 들어있는 2차원 배열 lines가 매개변수로 주어질 때, 두 개 이상의 선분이 겹치는 부분의 길이를 return 하도록 solution 함수를 완성해보세요.
+
+        lines가 [[0, 2], [-3, -1], [-2, 1]]일 때 그림으로 나타내면 다음과 같습니다.</br>
+        <img src="https://velog.velcdn.com/images/bunny/post/04db5f2c-9735-4388-ba9d-45c578a0b2c5/image.png"/></br>
+        선분이 두 개 이상 겹친 곳은 [-2, -1], [0, 1]로 길이 2만큼 겹쳐있습니다.
+        `,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `lines의 길이 = 3</br>
+        lines의 원소의 길이 = 2</br>
+        모든 선분은 길이가 1 이상입니다.</br>
+        lines의 원소는 [a, b] 형태이며, a, b는 각각 선분의 양 끝점 입니다.</br>
+        100 ≤ a < b ≤ 100</br>`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+      },
+
+      {
+        type: 'normal',
+        value: `입출력 예 #1</br></br>
+
+        두 번째, 세 번째 선분 [2, 5], [3, 9]가 [3, 5] 구간에 겹쳐있으므로 2를 return 합니다.</br>
+        입출력 예 #2</br>
+        </br>
+        겹친 선분이 없으므로 0을 return 합니다.</br>
+        입출력 예 #3</br></br>
+        
+        첫 번째와 두 번째 선분이 [3, 5] 구간에서 겹칩니다.</br>
+        첫 번째와 세 번째 선분 [1, 5] 구간에서 겹칩니다.</br>
+        두 번째와 세 번째 선분 [3, 9] 구간에서 겹칩니다.</br>
+        따라서 [1, 9] 구간에 두 개 이상의 선분이 겹쳐있으므로, 8을 return 합니다.`,
+      },
+
+      {
+        type: 'code',
+        value: `function solution(lines) {
+          const table = Array.from({ length: 200 }, () => new Set())
+          lines.forEach(([a, b], index) => {
+            for (let i = a; i < b; i++) {
+              table[i + 100].add(index)
+            }
+          })
+        
+          let count = 0
+          table.forEach((line) => {
+            if ([...line].length > 1) count++
+          })
+          return count
+        }`,
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: '완주하지 못한 선수',
+    date: '2023-12-24',
+    folder: Folder.Algorithm,
+    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    lv: Level.Lv1,
+    post: [
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.</br></br>
+
+        마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.
+        `,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다. </br>
+        completion의 길이는 participant의 길이보다 1 작습니다.</br>
+        참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.</br>
+        참가자 중에는 동명이인이 있을 수 있습니다.`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+      },
+
+      {
+        type: 'normal',
+        value: `예제 #1
+        "leo"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다. </br></br>
+        
+        예제 #2</br>
+        "vinko"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</br></br>
+        
+        예제 #3</br>
+        "mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.`,
+      },
+
+      {
+        type: 'code',
+        value: `function solution(participant, completion) {
+          completion.sort();
+          participant.sort();
+          
+          return participant.find((참가자,i) => {
+              let 완주자 = completion[i];
+              if(!완주자 || 참가자 !== 완주자) return 참가자;
+          });
+          
+      }`,
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: '로또의 최고 순위와 최저 순위',
+    date: '2023-12-24',
+    folder: Folder.Algorithm,
+    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    lv: Level.Lv1,
+    post: [
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `로또 6/45(이하 '로또'로 표기)는 1부터 45까지의 숫자 중 6개를 찍어서 맞히는 대표적인 복권입니다. 아래는 로또의 순위를 정하는 방식입니다. 1
+        `,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다. </br>
+        completion의 길이는 participant의 길이보다 1 작습니다.</br>
+        참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.</br>
+        참가자 중에는 동명이인이 있을 수 있습니다.`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+      },
+
+      {
+        type: 'normal',
+        value: `예제 #1
+        "leo"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다. </br></br>
+        
+        예제 #2</br>
+        "vinko"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</br></br>
+        
+        예제 #3</br>
+        "mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.`,
+      },
+
+      {
+        type: 'code',
+        value: `function solution(participant, completion) {
+          completion.sort();
+          participant.sort();
+          
+          return participant.find((참가자,i) => {
+              let 완주자 = completion[i];
+              if(!완주자 || 참가자 !== 완주자) return 참가자;
+          });
+          
+      }`,
       },
     ],
   },
