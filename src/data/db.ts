@@ -1,6 +1,6 @@
 import { Folder, Level } from 'type/post';
 import style from 'app/(layoutCase)/posts/[postid]/page.module.css';
-
+import tableStyle from 'app/_component/detailPage/table.module.css';
 /**
  * @constant totalPostlist
  * @description post 데이타
@@ -198,9 +198,9 @@ let result = stringNumber.split(" ")
       },
       {
         type: 'normal',
-        value: `Goto
-        if/Then/Else
-        Switch/Case
+        value: `Goto </br>
+        if/Then/Else</br>
+        Switch/Case</br>
         For/While`,
       },
       {
@@ -224,8 +224,8 @@ let result = stringNumber.split(" ")
       },
       {
         type: 'data Flow',
-        value: `Stateless
-        Recursion
+        value: `Stateless</br>
+        Recursion</br>
         pipe`,
       },
       {
@@ -755,7 +755,7 @@ let result = stringNumber.split(" ")
 export const algorithmPostlist = [
   {
     id: 1,
-    title: '괄호 회전하기',
+    title: '배열의 길이를 2의 거듭제곱으로 만들기',
     date: '2023-12-24',
     folder: Folder.Algorithm,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
@@ -784,24 +784,25 @@ export const algorithmPostlist = [
       },
       {
         type: 'table',
-        value: `<table>
-        <thead>
-          <tr>
-            <th>arr</th>
-            <th>result</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>[1, 2, 3, 4, 5, 6]</td>
-            <td>[1, 2, 3, 4, 5, 6, 0, 0]</td>
-          </tr>
-          <tr>
-            <td>[58, 172, 746, 89]</td>
-            <td>[58, 172, 746, 89]</td>
-          </tr>
-        </tbody>
-      </table>`,
+        value: `
+        <table>
+          <thead>
+            <tr>
+              <th>arr</th>
+              <th>result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>[1, 2, 3, 4, 5, 6]</td>
+              <td>[1, 2, 3, 4, 5, 6, 0, 0]</td>
+            </tr>
+            <tr>
+              <td>[58, 172, 746, 89]</td>
+              <td>[58, 172, 746, 89]</td>
+            </tr>
+          </tbody>
+        </table>`,
       },
       {
         type: 'normal',
@@ -858,51 +859,76 @@ export const algorithmPostlist = [
         value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
       },
       {
-        type: 'normal',
-        value: `입출력 예 설명</br>`,
+        type: 'table',
+        value: `
+        <table>
+          <thead>
+            <tr>
+              <th>s</th>
+              <th>result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"{}"</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>"}]()[{"</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>"[)(]"</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>"}}}"</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>`,
       },
-
       {
         type: 'code',
         value: `// candidate
-        // [](){}
-        // ](){}[
-        // (){}[]
-        // ){}[](
-        // {}[]()
-        // }[](){
-        
-        
-        function solution(s) {
-            const stack = [];
-            let result = 0;
-            let is_right = true;
-            
-            //짝이 안맞으면 0 리턴
-            if (s.length % 2 === 1) return 0;
-        
-            for (let i = 0; i < s.length; i++){
-                let candidate = s.slice(i) + s.slice(0, i);
-        
-                is_right = true;
-                for (let word of candidate) {
-                    if (word === "(" || word === "{" || word === "[") {
-                        stack.push(word);
-                    }
-                    else {
-                        let last = stack.pop();
-                        if (last === "(" && word === ")") continue;
-                        if (last === "{" && word === "}") continue;
-                        if (last === "[" && word === "]") continue;
-            
-                        is_right = false;
-                        break;
-                    }
-                }
-                if (is_right) result++;
+// [](){}
+// ](){}[
+// (){}[]
+// ){}[](
+// {}[]()
+// }[](){
+
+
+function solution(s) {
+    const stack = [];
+    let result = 0;
+    let is_right = true;
+    
+    //짝이 안맞으면 0 리턴
+    if (s.length % 2 === 1) return 0;
+
+    for (let i = 0; i < s.length; i++){
+        let candidate = s.slice(i) + s.slice(0, i);
+
+        is_right = true;
+        for (let word of candidate) {
+            if (word === "(" || word === "{" || word === "[") {
+                stack.push(word);
             }
-            return result;
-        }`,
+            else {
+                let last = stack.pop();
+                if (last === "(" && word === ")") continue;
+                if (last === "{" && word === "}") continue;
+                if (last === "[" && word === "]") continue;
+    
+                is_right = false;
+                break;
+            }
+        }
+        if (is_right) result++;
+    }
+    return result;
+}`,
       },
     ],
   },
@@ -934,7 +960,29 @@ export const algorithmPostlist = [
         type: 'h4',
         value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
       },
-
+      {
+        type: 'table',
+        value: `
+        <table class=${tableStyle.table}>
+          <thead>
+            <tr class=${tableStyle.tr}>
+              <th class=${tableStyle.th}>n</th>
+              <th class=${tableStyle.th}>m</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <td class=${tableStyle.td}>3</td>
+              <td class=${tableStyle.td}>2</td>
+            </tr>
+            <tr class=${tableStyle.tr}>
+              <td class=${tableStyle.td}>12</td>
+              <td class=${tableStyle.td}>5</td>
+            </tr>
+          </tbody>
+        </table>
+        `,
+      },
       {
         type: 'normal',
         value: `입출력 예 #1</br>
@@ -992,6 +1040,32 @@ export const algorithmPostlist = [
         type: 'h4',
         value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
       },
+      {
+        type: 'table',
+        value: `
+        <table>
+          <thead>
+            <tr>
+              <th>L</th>
+              <th>R</th>
+              <th>result</th>
+            </tr>
+          <thead>
+          <tbody>
+          <tr>
+            <td>5</td>
+            <td>555</td>
+            <td>[5, 50, 55, 500, 505, 550, 555]</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>20</td>
+            <td>[-1]</td>
+          </tr>
+          </tbody>
+        </table>
+        `,
+      },
 
       {
         type: 'normal',
@@ -1006,27 +1080,27 @@ export const algorithmPostlist = [
       {
         type: 'code',
         value: `// l 이상 r이하
-        // 오름차순으로 저장한 배열을 return 
-        // 정수가 없다면, -1
-        function everyFunction(value){
-                return value < 38;
-        }
+// 오름차순으로 저장한 배열을 return 
+// 정수가 없다면, -1
+function everyFunction(value){
+        return value < 38;
+}
+
+function solution(l, r) {
+    var answer = [];
+    
+    for(let i=l; i<=r; i++){
+        // 숫자 "0"과 "5"로만 이루어진 모든 정수
         
-        function solution(l, r) {
-            var answer = [];
-            
-            for(let i=l; i<=r; i++){
-                // 숫자 "0"과 "5"로만 이루어진 모든 정수
-                
-                if(i%5 !== 0) continue;
-              
-                if(![...String(i)].every(a => a === '5' || a === '0')) continue;
-                
-                answer.push(i);
-            }
-            
-            return answer.length > 0 ? answer : [-1];
-        }`,
+        if(i%5 !== 0) continue;
+      
+        if(![...String(i)].every(a => a === '5' || a === '0')) continue;
+        
+        answer.push(i);
+    }
+    
+    return answer.length > 0 ? answer : [-1];
+}`,
       },
     ],
   },
@@ -1067,7 +1141,33 @@ export const algorithmPostlist = [
         type: 'h4',
         value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
       },
-
+      {
+        type: 'table',
+        value: `
+        <table>
+          <thead>
+            <tr>
+              <th>lines</th>
+              <th>result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>[[0, 1], [2, 5], [3, 9]]</td>
+              <td>2</td>
+            </tr>
+            <tr>
+            <td>[[-1, 1], [1, 3], [3, 9]]</td>
+            <td>0</td>
+          </tr>
+           <tr>
+              <td>[[0, 5], [3, 9], [1, 10]]</td>
+              <td>8</td>
+            </tr>
+          </tbody>
+        </table>
+  `,
+      },
       {
         type: 'normal',
         value: `입출력 예 #1</br></br>
@@ -1087,19 +1187,19 @@ export const algorithmPostlist = [
       {
         type: 'code',
         value: `function solution(lines) {
-          const table = Array.from({ length: 200 }, () => new Set())
-          lines.forEach(([a, b], index) => {
-            for (let i = a; i < b; i++) {
-              table[i + 100].add(index)
-            }
-          })
-        
-          let count = 0
-          table.forEach((line) => {
-            if ([...line].length > 1) count++
-          })
-          return count
-        }`,
+  const table = Array.from({ length: 200 }, () => new Set())
+  lines.forEach(([a, b], index) => {
+    for (let i = a; i < b; i++) {
+      table[i + 100].add(index)
+    }
+  })
+
+  let count = 0
+  table.forEach((line) => {
+    if ([...line].length > 1) count++
+  })
+  return count
+}`,
       },
     ],
   },
@@ -1137,7 +1237,35 @@ export const algorithmPostlist = [
         type: 'h4',
         value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
       },
-
+      {
+        type: 'table',
+        value: `
+        <table>
+          <thead>
+            <th>participant</th>
+            <th>completion</th>
+            <th>return</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>["leo", "kiki", "eden"]</td>
+              <td>["eden", "kiki"]</td>
+              <td>"leo"</td>
+            </tr>
+            <tr>
+              <td>["marina", "josipa", "nikola", "vinko", "filipa"]</td>
+              <td>["josipa", "filipa", "marina", "nikola"]</td>
+              <td>"vinko"</td>
+            </tr>
+            <tr>
+            <td>["mislav", "stanko", "mislav", "ana"]</td>
+            <td>["stanko", "ana", "mislav"]</td>
+            <td>"mislav"</td>
+          </tr>
+          </tbody>
+        </table>
+        `,
+      },
       {
         type: 'normal',
         value: `예제 #1
@@ -1153,15 +1281,14 @@ export const algorithmPostlist = [
       {
         type: 'code',
         value: `function solution(participant, completion) {
-          completion.sort();
-          participant.sort();
-          
-          return participant.find((참가자,i) => {
-              let 완주자 = completion[i];
-              if(!완주자 || 참가자 !== 완주자) return 참가자;
-          });
-          
-      }`,
+    completion.sort();
+    participant.sort();
+    
+    return participant.find((참가자,i) => {
+        let 완주자 = completion[i];
+        if(!완주자 || 참가자 !== 완주자) return 참가자;
+    });
+}`,
       },
     ],
   },
@@ -1179,7 +1306,91 @@ export const algorithmPostlist = [
       },
       {
         type: 'normal',
-        value: `로또 6/45(이하 '로또'로 표기)는 1부터 45까지의 숫자 중 6개를 찍어서 맞히는 대표적인 복권입니다. 아래는 로또의 순위를 정하는 방식입니다. 1
+        value: `로또 6/45(이하 '로또'로 표기)는 1부터 45까지의 숫자 중 6개를 찍어서 맞히는 대표적인 복권입니다. 아래는 로또의 순위를 정하는 방식입니다. 
+        `,
+      },
+      {
+        type: 'table',
+        value: `
+        <table>
+          <thead>
+            <th>순위</th>
+            <th>당첨 내용</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>6개 번호가 모두 일치</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>5개 번호가 일치</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>4개 번호가 일치</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>3개 번호가 일치</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>2개 번호가 일치</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>(낙첨) 그 외</td>
+            </tr>
+          </tbody>
+        </table>
+        `,
+      },
+      {
+        type: 'normal',
+        value: `로또를 구매한 민우는 당첨 번호 발표일을 학수고대하고 있었습니다. 하지만, 민우의 동생이 로또에 낙서를 하여, 일부 번호를 알아볼 수 없게 되었습니다. 당첨 번호 발표 후, 민우는 자신이 구매했던 로또로 당첨이 가능했던 최고 순위와 최저 순위를 알아보고 싶어 졌습니다.
+        알아볼 수 없는 번호를 0으로 표기하기로 하고, 민우가 구매한 로또 번호 6개가 44, 1, 0, 0, 31 25라고 가정해보겠습니다. 당첨 번호 6개가 31, 10, 45, 1, 6, 19라면, 당첨 가능한 최고 순위와 최저 순위의 한 예는 아래와 같습니다. 
+        `,
+      },
+      {
+        type: 'table',
+        value: `
+        <table>
+          <thead>
+            <tr>
+              <th>당첨 번호</th>
+              <th>31</th>
+              <th>10</th>
+              <th>45</th>
+              <th>1</th>
+              <th>6</th>
+              <th>19</th>
+              <th>결과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>최고 순위 번호</td>
+              <td>31</td>
+              <td>0→10</td>
+              <td>44</td>
+              <td>1</td>
+              <td>0→6	</td>
+              <td>25</td>
+              <td>4개 번호 일치, 3등</td>
+            </tr>
+            <tr>
+              <td>최저 순위 번호</td>
+              <td>31</td>
+              <td>0→11</td>
+              <td>44</td>
+              <td>1	</td>
+              <td>0→7	</td>
+              <td>25</td>
+              <td>2개 번호 일치, 5등</td>
+            </tr>
+          </tbody>
+        </table>
         `,
       },
       {
@@ -1188,16 +1399,51 @@ export const algorithmPostlist = [
       },
       {
         type: 'normal',
-        value: `마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다. </br>
-        completion의 길이는 participant의 길이보다 1 작습니다.</br>
-        참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.</br>
-        참가자 중에는 동명이인이 있을 수 있습니다.`,
+        value: `lottos는 길이 6인 정수 배열입니다. </br>
+        lottos의 모든 원소는 0 이상 45 이하인 정수입니다.</br>
+        0은 알아볼 수 없는 숫자를 의미합니다.</br>
+        0을 제외한 다른 숫자들은 lottos에 2개 이상 담겨있지 않습니다.</br>
+        lottos의 원소들은 정렬되어 있지 않을 수도 있습니다.</br>
+        win_nums은 길이 6인 정수 배열입니다.</br>
+        win_nums의 모든 원소는 1 이상 45 이하인 정수입니다.</br>
+        win_nums에는 같은 숫자가 2개 이상 담겨있지 않습니다.</br>
+        win_nums의 원소들은 정렬되어 있지 않을 수도 있습니다.`,
       },
       {
         type: 'h4',
         value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
       },
-
+      {
+        type: 'table',
+        value: `
+        <table>
+          <thead>
+            <tr>
+              <th>lottos</th>
+              <th>win_nums</th>
+              <th>result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>[44, 1, 0, 0, 31, 25]</td>
+              <td>[31, 10, 45, 1, 6, 19]</td>
+              <td>[3, 5]</td>
+            <tr>
+            <tr>
+              <td>[0, 0, 0, 0, 0, 0]</td>
+              <td>[38, 19, 20, 40, 15, 25]	</td>
+              <td>[1, 6]</td>
+            <tr>
+            <tr>
+              <td>[45, 4, 35, 20, 3, 9]	</td>
+              <td>[20, 9, 3, 45, 4, 35]</td>
+              <td>[1, 1]</td>
+            <tr>
+          </tbody>
+        </table>
+        `,
+      },
       {
         type: 'normal',
         value: `예제 #1
@@ -1212,16 +1458,22 @@ export const algorithmPostlist = [
 
       {
         type: 'code',
-        value: `function solution(participant, completion) {
-          completion.sort();
-          participant.sort();
-          
-          return participant.find((참가자,i) => {
-              let 완주자 = completion[i];
-              if(!완주자 || 참가자 !== 완주자) return 참가자;
-          });
-          
-      }`,
+        value: `function solution(lottos, win_nums) {
+   
+    //최고순위
+    let best = lottos.filter(v => {
+        return win_nums.includes(v) || v === 0;
+    }).length;
+
+      
+    //최저순위
+    let lowest = lottos.filter(v => {
+        return win_nums.includes(v);
+    }).length;
+    
+    
+    return [best > 0 ? Math.abs(7 - best) : 6 , lowest > 0 ? Math.abs(7.- lowest) : 6];
+}`,
       },
     ],
   },

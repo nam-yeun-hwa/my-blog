@@ -1,0 +1,26 @@
+.table {
+  min-width: 40%;
+  max-width: 100%;
+  border: 1px solid #adb5bd;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-indent: initial;
+  border-spacing: 2px;
+}
+
+.td {
+  background: #f8f9fa;
+  word-break: break-word;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.th {
+  background: #f8f9fa;
+  line-height: 1.7;
+  text-align: center;
+  border-bottom: 4px solid #adb5bd;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  padding: 0.5rem;
+}
