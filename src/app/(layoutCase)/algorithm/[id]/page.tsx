@@ -6,7 +6,7 @@ import Link from 'next/link';
 import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
 import Prompts from 'app/_component/detailPage/Prompts';
 import { IPost } from 'type/post';
-import { totalPostlist } from 'data/db';
+import { algorithmPostlist } from 'data/db';
 import Footer from 'app/_component/common/Footer';
 import Panel from 'app/_component/common/Panel';
 
@@ -16,8 +16,8 @@ type Props = {
 };
 
 export default function page({ params, detail }: Props) {
-  const { id, title, date, folder, preview, post } =
-    totalPostlist[parseInt(params.id) - 1];
+  const { id, title, date, folder, post } =
+    algorithmPostlist[parseInt(params.id) - 1];
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function page({ params, detail }: Props) {
         <main className={style.main_wrapper}>
           <article className={style.detail}>
             <header>
-              <h1 className={style.h1}>불변성</h1>
+              <h1 className={style.h1}>{title}</h1>
             </header>
           </article>
           <div className={style.post_meta}>

@@ -29,7 +29,7 @@ export default function Post({ params, detail }: Props) {
         <main className={style.main_wrapper}>
           <article className={style.detail}>
             <header>
-              <h1 className={style.h1}>불변성</h1>
+              <h1 className={style.h1}>{title}</h1>
             </header>
           </article>
           <div className={style.post_meta}>

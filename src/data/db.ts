@@ -1,4 +1,4 @@
-import { Folder } from 'type/post';
+import { Folder, LEVEL } from 'type/post';
 import style from 'app/(layoutCase)/posts/[postid]/page.module.css';
 
 /**
@@ -28,14 +28,14 @@ export const totalPostlist = [
       {
         type: 'code',
         value: `const info={
-  id:1,
-    name:'John'
-  }
+id:1,
+  name:'John'
+}
       
-  const nextInfo={
-    ...info,
-    name: 'Jane'
-  }`,
+const nextInfo={
+  ...info,
+  name: 'Jane'
+}`,
       },
       {
         type: 'normal',
@@ -53,10 +53,10 @@ export const totalPostlist = [
         type: 'code',
         value: `const data = { id:1, text:'안녕하세요'};
     
-  const sameData = data;
-  sameData.text = '안녕하세요';
+const sameData = data;
+sameData.text = '안녕하세요';
       
-  console.log(sameData === data); // true`,
+console.log(sameData === data); // true`,
       },
       {
         type: 'normal',
@@ -77,9 +77,9 @@ export const totalPostlist = [
       {
         type: 'code',
         value: `const data = { id:1, text:'안녕하세요'};
-  const nextData = { ...data, text: '사요나라'};
+const nextData = { ...data, text: '사요나라'};
       
-  console.log(nextData === data) // false`,
+console.log(nextData === data) // false`,
       },
       {
         type: 'normal',
@@ -126,10 +126,6 @@ export const totalPostlist = [
     preview: `데이터를 함수를 이용해 새로운 데이터로 만들어 나가는 데이터 파이프 라인의 형태로 프로그래밍이 작동 하며 함수형 프로그래밍은 거의 모든 것을 순수 함수로 나누어 문제를 해결하는 기법으로, 작은 문제를 해결하기 위한 함수를 작성하여 가독성을 높이고 유지보수를 용이하게 해준다. (클로저, 하스켈, 리스프)`,
     post: [
       {
-        type: 'h2',
-        value: `<h2 class=${style.h2}>함수형 패러다임</h2>`,
-      },
-      {
         type: 'normal',
         value: `데이터를 함수를 이용해 새로운 데이터로 만들어 나가는 데이터 파이프 라인의 형태로 프로그래밍이 작동 하며 함수형 프로그래밍은 거의 모든 것을 순수 함수로 나누어 문제를 해결하는 기법으로, 작은 문제를 해결하기 위한 함수를 작성하여 가독성을 높이고 유지보수를 용이하게 해준다. (클로저, 하스켈, 리스프)`,
       },
@@ -164,10 +160,10 @@ export const totalPostlist = [
       {
         type: 'code',
         value: `const stringNumber = "12345";
-        let sum = 0;
-        for(let i=0; i<stringNumber.length; i+=1){
-          sum += stringNumber[i] - "0";
-        }`,
+let sum = 0;
+for(let i=0; i < stringNumber.length; i+=1){
+  sum += stringNumber[i] - "0";
+}`,
       },
       {
         type: 'h4',
@@ -180,9 +176,9 @@ export const totalPostlist = [
       {
         type: 'code',
         value: `const stringNumber = "12345";
-        let result = stringNumber.split(" ")
-            .map((num) => parseInt(num))
-            .reduce((acc, value) => acc + value, 0);`,
+let result = stringNumber.split(" ")
+    .map((num) => parseInt(num))
+    .reduce((acc, value) => acc + value, 0);`,
       },
       {
         type: 'h2',
@@ -190,7 +186,7 @@ export const totalPostlist = [
       },
       {
         type: 'h4',
-        value: `<h4 class=${style.h4}>명령형</h4>`,
+        value: `<h4 class=${style.h4}>📝 명령형</h4>`,
       },
       {
         type: 'normal',
@@ -210,13 +206,13 @@ export const totalPostlist = [
       {
         type: 'code',
         value: `const stringNumber = "12345";
-        let result = stringNumber.split(" ")
-            .map((num) => parseInt(num))
-            .reduce((acc, value) => acc + value, 0);`,
+let result = stringNumber.split(" ")
+    .map((num) => parseInt(num))
+    .reduce((acc, value) => acc + value, 0);`,
       },
       {
         type: 'h4',
-        value: `<h4 class=${style.h4}>선언형</h4>`,
+        value: `<h4 class=${style.h4}>📝 선언형</h4>`,
       },
       {
         type: 'normal',
@@ -235,7 +231,7 @@ export const totalPostlist = [
       {
         type: 'code',
         value: `[1,2,3,4,5].filter(v => v% === 0)
-        .forEach(v => console.log(v));`,
+  .forEach(v => console.log(v));`,
       },
       {
         type: 'h2',
@@ -275,10 +271,6 @@ export const totalPostlist = [
     
     라는 부분인데 프론트 서버의 존재가 정확히 어떤 일을 하는 것인지 궁금해 졌다.`,
     post: [
-      {
-        type: 'h2',
-        value: `<h2 class=${style.h2}>프론트 서버</h2>`,
-      },
       {
         type: 'normal',
         value: `브라우저 작동원리에 대해 공부하던 중 의문점이 발생했다.
@@ -763,113 +755,51 @@ export const totalPostlist = [
 export const algorithmPostlist = [
   {
     id: 1,
-    title: '리액트와 불변성',
-    date: '2024-01-15',
-    folder: Folder.React,
-    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
+    title: '배열의 길이를 2의 거듭제곱으로 만들기',
+    date: '2023-12-24',
+    folder: Folder.Algorithm,
+    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    lv: LEVEL.Lv1,
     post: [
       {
-        type: 'h2',
-        value: `<h2 class=${style.h2}>리액트에서 불변성을 지켜야 하는 이유는?</h2>`,
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
       },
       {
         type: 'normal',
-        value: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까?`,
-      },
-      {
-        type: 'normal',
-        value: `리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
-      },
-      {
-        type: 'code',
-        value: `const info={
-id:1,
-  name:'John'
-}
-    
-const nextInfo={
-  ...info,
-  name: 'Jane'
-}`,
-      },
-      {
-        type: 'normal',
-        value: `리액트는 컴포넌트에 변화가 필요한지 필요하지 않은지 Props의 변화 통해 알 수 있는데`,
-      },
-      {
-        type: 'normal',
-        value: `컴포넌트의 렌더링 성능을 최적화 하기 위해서는 이전에 컴포넌트가 들고 있던 Props와 새로 받아올 Props를 비교하는 과정이 필요하며 불변성을 유지시켜 주어야 한다.`,
+        value: `정수 배열 arr이 매개변수로 주어집니다. arr의 길이가 2의 정수 거듭제곱이 되도록 arr 뒤에 정수 0을 추가하려고 합니다. arr에 최소한의 개수로 0을 추가한 배열을 return 하는 solution 함수를 작성해 주세요.`,
       },
       {
         type: 'h4',
-        value: `<h4 class=${style.h4}>📝 불변성이 유지되지 않은 같은 참조를 가리키고 있는 데이터</h4>`,
+        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
       },
+      {
+        type: 'normal',
+        value: `1 ≤ arr의 길이 ≤ 1,000</br>
+        1 ≤ arr의 원소 ≤ 1,000`,
+      },
+      {
+        type: 'h4',
+        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+      },
+      {
+        type: 'normal',
+        value: `입출력 예 설명</br>
+        입출력 예 #1</br></br>
+        
+        예제 1번의 arr의 길이는 6입니다. arr의 길이를 2의 정수 거듭제곱으로 만드는 방법은 0을 2개, 10개, 26개,..., 추가하는 방법이 있고 그중 최소한으로 0을 추가하는 방법은 2개를 추가하는 것입니다. 따라서 [1, 2, 3, 4, 5, 6, 0, 0]을 return 합니다.</br>
+        입출력 예 #2</br></br>
+        
+        예제 2번의 arr의 길이는 4이고 이미 2의 정수 거듭제곱입니다. 따라서 뒤에 0을 추가하지 않아도 되므로 [58, 172, 746, 89]를 return 합니다.</br>`,
+      },
+
       {
         type: 'code',
-        value: `const data = { id:1, text:'안녕하세요'};
-  
-const sameData = data;
-sameData.text = '안녕하세요';
-    
-console.log(sameData === data); // true`,
-      },
-      {
-        type: 'normal',
-        value: `sameData에 기존의 data를 대입하고 text 값을 수정 했다. 비록 새로운 이름을 선언 하긴 했지만 sameData와 data는 똑같은 객체를 가리키고 있다.`,
-      },
-      {
-        type: 'normal',
-        value: `따라서 sameData.text 값을 바꾸면 당연히 data.text 값 또한 바뀌게 된다. sameData와 data는 완전히 일치하는 객채이기 때문에 이를 비교하면 결과는 true 이다.`,
-      },
-      {
-        type: 'emphasis',
-        value: `객체의 특정 프로퍼티만 변경하는 작업을 수행하면 리액트에서는 변경이 일어나지 않았다고 인식하여 리렌더링이 일어나지 않는다. <b>불변성을 지켜주면서 값을 전달해 주어야 한다.</b>`,
-      },
-      {
-        type: 'h2',
-        value: `<h2 class=${style.h2}>불변성을 유지하면서 상태를 업데이트하는 방법</h2>`,
-      },
-      {
-        type: 'code',
-        value: `const data = { id:1, text:'안녕하세요'};
-const nextData = { ...data, text: '사요나라'};
-    
-console.log(nextData === data) // false`,
-      },
-      {
-        type: 'normal',
-        value: `위 코드는 data 변수를 참조가 끊어진 새로운 값으로 생성 한다. 이번에 선언한 nextData는 완전히 새로운 객체 이다.`,
-      },
-      {
-        type: 'normal',
-        value: `리액트는 상태가 변경되었는지 여부를 판단할 때 이전 상태와 현재 상태를 비교하여`,
-      },
-      {
-        type: 'normal',
-        value: `기본적으로 부모로 부터 내려받는 Props나 내부 상태인 State가 변경되었을 때 컴포넌트를 다시 렌더링 하는 리렌더링 과정이 일어난다.<br/>`,
-      },
-      {
-        type: 'emphasis',
-        value: `React는 <b>Props</b>와 <b>State</b>의 변경을 불변성을 이용해서 감지한다.`,
-      },
-      {
-        type: 'normal',
-        value: `객체의 참조를 복사한다는 점을 이용해 단순히 참조만 비교하는 얕은 비교를 이용해서 변경이 일어났는지 확인한다.`,
-      },
-
-      {
-        type: 'normal',
-        value: `자바스크립트에서 참조 타입의 데이터인 경우 메모리 힙 영역에 저장이 되어 내부 프로퍼티를 변경해도 같은 참조를 갖고 있다.`,
-      },
-
-      {
-        type: 'normal',
-        value: `따라서 객체의 특정 프로퍼티만 변경하는 작업을 수행하면 리액트에서는 변경이 일어나지 않았다고 인식하여 리렌더링이 일어나지 않는다. 따라서 리렌더링을 일으키려면 리액트에 이전의 참조와 다른 참조로 변경되었음을 알려야 한다.`,
-      },
-
-      {
-        type: 'normal',
-        value: `상태가 변경되었는지를 정확하게 판단하기 위해서는 불변성을 유지해야 하며 불변성을 유지하지 않으면 리액트가 제대로 동작하지 않고 성능 최적화가 무력화될 수 있다.`,
+        value: `function solution(arr) {
+   const length = arr.length;
+   const totalLength = 2 ** Math.ceil(Math.log2(length));
+   return [...arr, ...new Array(totalLength - length).fill(0)];
+}`,
       },
     ],
   },

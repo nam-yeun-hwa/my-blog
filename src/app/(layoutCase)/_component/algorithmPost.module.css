@@ -1,0 +1,105 @@
+.post {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: #fff;
+  /* background-clip: border-box; */
+  border: 0.5px solid rgba(226, 226, 226, 0.5);
+  border-radius: 0.475rem;
+
+  transition: background-color 0.5s ease-in-out;
+  margin-bottom: 1.25rem;
+}
+
+.post:hover {
+  background-color: rgb(226, 226, 226, 0.2);
+}
+
+.post_body {
+  height: 100%;
+  padding: 1.75rem 1.75rem 1.25rem 1.75rem;
+}
+
+.post_title {
+  color: #2a2a2a;
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 0 0 4px 0;
+}
+
+.post_text {
+  font-size: 1.03rem;
+  font-weight: 500;
+  color: var(--text-muted-color);
+  margin-bottom: 16px;
+}
+
+.post_meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post_info {
+  color: var(--text-muted-color);
+}
+
+.categories {
+  font-size: 0.85rem;
+  color: var(--text-muted-color);
+}
+
+.pin {
+  font-size: 0.85rem;
+  color: var(--text-muted-color);
+}
+
+.ico_calendar {
+  font-size: 0.85rem;
+  color: var(--text-muted-color);
+  margin-right: 5px;
+}
+
+.ico_folder {
+  font-size: 0.85rem;
+  color: var(--text-muted-color);
+  margin-left: 28px;
+  margin-right: 5px;
+}
+
+.ico_pin {
+  font-size: 0.85rem;
+  color: var(--text-muted-color);
+}
+
+.time {
+  font-size: 0.85rem;
+  color: var(--text-muted-color);
+}
+
+.preview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.8rem;
+  max-height: 4rem;
+  font-size: 0.9rem;
+}
+
+.part_title {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.0625rem;
+  font-size: 0.85rem;
+  color: rgb(120, 144, 160);
+  line-height: 150%;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
