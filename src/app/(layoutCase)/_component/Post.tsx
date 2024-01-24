@@ -31,7 +31,7 @@ export default function Post({ post }: Props) {
               <span className={style.categories}> {post.folder} </span>
             </div>
             <div className={style.pin}>
-              <i className={`fas fa-thumbtack fa-fw ${style.ico_pin}`}></i>
+              <i className={`fa-regular fa-heart  ${style.ico_pin}`}></i>
             </div>
           </div>
         </div>

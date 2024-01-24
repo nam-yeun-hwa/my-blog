@@ -25,7 +25,7 @@ export default function about() {
       <br />
       <br />
       <b> 2023-12-28 </b> <br />
-      각 페이지 생성
+      각 페이지 생성(HOME, CATEGORY, TAGS, ARCHIVES 등..)
       <br />
       <br />
       <b> 2023-12-31 </b> <br />
@@ -36,10 +36,10 @@ export default function about() {
       breadcrumb search 컴포넌트 추가
       <br />
       <br />
-      <b> 2023-01-06 </b> <br />
+      {/* <b> 2023-01-06 </b> <br />
       포스트 상세페이지 시작
       <br />
-      <br />
+      <br /> */}
       <b>2023-01-06 </b> <br />
       구글 폰트 적용(IBM Plex Sans KR)
       <br />

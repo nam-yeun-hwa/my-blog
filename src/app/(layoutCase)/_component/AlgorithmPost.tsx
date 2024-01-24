@@ -25,7 +25,11 @@ export default function AlgorithmPost({ post }: Props) {
               <span className={style.categories}> {post.folder} </span>
             </div>
             <div className={style.pin}>
-              <i className={`fas fa-thumbtack fa-fw ${style.ico_pin}`}></i>
+              <i className={`fa-regular fa-heart ${style.ico_pin}`}></i>
+              {/* <i class="fa-solid fa-timeline"></i> */}
+              {/* <i class="fa-regular fa-hand-back-fist"></i> */}
+              {/* <i class="fa-solid fa-circle-chevron-down"></i> */}
+              {/* <i class="fa-regular fa-heart"></i> */}
             </div>
           </div>
         </div>

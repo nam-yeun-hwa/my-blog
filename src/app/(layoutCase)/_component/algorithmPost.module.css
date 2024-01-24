@@ -73,6 +73,7 @@
 .ico_pin {
   font-size: 0.85rem;
   color: var(--text-muted-color);
+  /* visibility: hidden !important; */
 }
 
 .time {
