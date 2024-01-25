@@ -66,7 +66,7 @@ export default function Post({ params, detail }: Props) {
             if (value.type === ComponentType.TABLE)
               return <Table key={idx} table={value.value} />;
             if (value.type === ComponentType.STRINGLIST)
-              return <StringDot list={value.value} />;
+              return <StringDot key={idx} list={value.value} />;
             return (
               <div
                 key={idx}
