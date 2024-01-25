@@ -10,6 +10,7 @@ import { algorithmPostlist } from 'data/db';
 import Footer from 'app/_component/common/Footer';
 import Panel from 'app/_component/common/Panel';
 import Table from 'app/_component/detailPage/Table';
+import StringDot from 'app/_component/detailPage/StringDot';
 
 type Props = {
   params: { id: string };
@@ -61,6 +62,8 @@ export default function page({ params, detail }: Props) {
               return <CodeComponentType key={idx} code={value.value} />;
             if (value.type === ComponentType.TABLE)
               return <Table key={idx} table={value.value} />;
+            if (value.type === ComponentType.STRINGLIST)
+              return <StringDot key={idx} list={value.value} />;
             return (
               <div
                 key={idx}

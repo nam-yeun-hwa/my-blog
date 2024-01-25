@@ -1,0 +1,19 @@
+.ul {
+  margin-top: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.dot {
+  margin: 0.25rem 0;
+  padding-left: 0.25rem;
+  color: #4e4e55;
+  font-size: 1.03rem;
+  overflow-wrap: break-word;
+  line-height: 1.75;
+  list-style-type: disc;
+  margin-bottom: 1.2rem;
+}
+
+.dot::marker {
+  color: #757575;
+}

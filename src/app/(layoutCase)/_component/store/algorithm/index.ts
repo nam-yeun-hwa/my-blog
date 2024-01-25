@@ -13,7 +13,7 @@ const initialValue = [
     id: 1,
     title: '배열의 길이를 2의 거듭제곱으로 만들기',
     date: '2023-12-24',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
@@ -86,7 +86,7 @@ const initialValue = [
     id: 2,
     title: '괄호 회전하기',
     date: '2023-12-24',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
@@ -192,7 +192,7 @@ function solution(s) {
     id: 3,
     title: '최대공약수와 최소공배수, N개의 최소공배수',
     date: '2023-12-24',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
@@ -270,7 +270,7 @@ function solution(s) {
     id: 4,
     title: '배열 만들기 2',
     date: '2023-12-24',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
@@ -364,7 +364,7 @@ function solution(l, r) {
     id: 5,
     title: '겹치는 선분의 길이',
     date: '2023-12-24',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
@@ -463,7 +463,7 @@ function solution(l, r) {
     id: 6,
     title: '완주하지 못한 선수',
     date: '2023-12-24',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
@@ -552,7 +552,7 @@ function solution(l, r) {
     id: 7,
     title: '로또의 최고 순위와 최저 순위',
     date: '2023-12-24',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
@@ -737,7 +737,7 @@ function solution(l, r) {
     id: 8,
     title: '의상',
     date: '2023-12-24',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
@@ -871,7 +871,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
     id: 9,
     title: '완주하지 못한 선수',
     date: '2023-12-24',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
@@ -960,7 +960,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
     id: 10,
     title: '멘토링(블루투포스 대표적 문제)',
     date: '2023-11-08',
-    folder: Folder.Algorithm,
+    folder: Folder.ALGORITHM,
     part_title: '2024 KAKAO WINTER INTERNSHIP',
     lv: Level.Lv1,
     post: [
