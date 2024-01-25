@@ -342,7 +342,7 @@ let result = stringNumber.split(" ")
  &lt;/body>
 
  &lt;script>
-  var divs = document.querySelectorAll('div');
+  var divList = document.querySelectorAll('div');
   divList.forEach(function(div) {
     div.addEventListener('click', logEvent);
   });
@@ -378,10 +378,8 @@ let result = stringNumber.split(" ")
 
 &lt;script>
 var divList = document.querySelectorAll('div');
-divs.forEach(function(div) {
-  div.addEventListener('click', logEvent, {
-    <b>capture: true</b>
-  });
+divList.forEach(function(div) {
+  div.addEventListener('click', logEvent, true);
 });
 
 function logEvent(event) {
@@ -392,7 +390,7 @@ function logEvent(event) {
       },
       {
         type: ComponentType.EMPHASIS,
-        value: `여기서는 <b>capture: true </b>옵션을 사용하여 이벤트 캡쳐를 활성화합니다. </br> 클릭한 것이 최상위의 div 태그인 "layer1"이라면, 콘솔에는 "layer1 -> layer2 -> layer3" 순서로 출력됩니다.`,
+        value: `여기서는 addEventListener 함수의 <b>세 번째 인자로 true</b>를 전달하여 이벤트 캡처링을 활성화합니다. </br> 클릭한 것이 최상위의 div 태그인 "layer1"이라면, 콘솔에는 "layer1 -> layer2 -> layer3" 순서로 출력됩니다.`,
       },
       {
         type: ComponentType.H4,
@@ -417,40 +415,400 @@ function logEvent(event) {
   },
   {
     id: 5,
-    title: '게시물 등록',
-    date: '2024-01-15',
+    title: '일반함수 VS 화살표 함수의 this 바인딩',
+    date: '2023-03-20',
     folder: Folder.JAVASCRIPT,
-    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
+    preview: `일반 함수와 화살표 함수의 this 바인딩에 대한 차이에 대한 내용을 약간 각색하여 정리하겠습니다. 일반 함수에서 this는 함수가 호출될 때 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.
+    내부 함수의 this는 전역 객체(window)를 가리키므로 undefined 출력.`,
     post: [
       {
-        type: 'normal',
-        value: `상태가 변경되었는지를 정확하게 판단하기 위해서는 불변성을 유지해야 하며 불변성을 유지하지 않으면 리액트가 제대로 동작하지 않고 성능 최적화가 무력화될 수 있다.`,
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 일반 함수</h4>`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const foo = function () {
+  console.log('일반 함수');
+}`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 화살표 함수</h4>`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const foo = () => console.log('화살표 함수');`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `두 함수는 기능적으로 완전히 동일하게 작동합니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `<h4 class=${style.h2}>📝 JavaScript 일반 함수의 this 바인딩</h4>`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const cat = {
+  name: 'meow',
+  foo1: function() {
+    const foo2 = function() {
+      console.log(this.name); // undefined
+    }
+    foo2();
+  }
+};
+
+cat.foo1(); // undefined
+        `,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `일반 함수에서 this는 함수가 호출될 때 함수가 어디에서 호출되었는지에 따라 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.
+        전역스코프에서 실행(선언)이 되어 foo2 내부의 this는 지정되지 않아서 곧 전역 객체를 가리키게 됩니다.
+        내부 함수의 this는 전역 객체(window)를 가리키므로 전역 객체에 name이란 속성은 존재하지 않아 undefined 출력 됩니다.
+        이 내부함수가 global에서도 제대로 작동하기 위해서 우리는 저 내부함수에 객체의 this를 바인딩 할 필요가 있을 것입니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `<h2 class=${style.h2}>📝 JavaScript 화살표 함수의 this 바인딩</h2>`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const cat = {
+  name: 'meow',
+  foo1: function() {
+    const foo2 = () => {
+      console.log(this.name);
+    }
+    foo2();
+  }
+};
+
+cat.foo1(); // meow
+`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위 코드와 달라진 점은 cat 객체의 내부함수 foo2가 화살표 함수로 선언됐다는 점 뿐입니다. 그런데 이번엔 우리가 의도한대로 meow가 잘 찍혔습니다. 어떻게 가능한걸까요? </br></br>
+        화살표 함수에서 this는 함수가 정의된 스코프에서 상속됩니다. (Lexical this) 내부 함수의 this는 외부 함수의 this를 상속받아 cat을 가리키므로 meow 출력 됩니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `<h4 class=${style.h2}>addEventListener()의 콜백함수</h4>`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `원래 addEventListener의 콜백함수에서는 this에 해당 이벤트 리스너가 호출된 엘리먼트가 바인딩되도록 정의되어 있습니다. 그러나 화살표 함수를 사용할 경우, 이미 this의 값이 정해져 있는 콜백함수의 경우 기존 바인딩 값이 사라지고 상위 스코프(이 경우엔 전역 객체)가 바인딩되기 때문에 의도했던 대로 동작하지 않을 수 있습니다. 물론 상위 스코프의 속성들을 쓰려고 의도한 경우라면 사용할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const button = document.getElementById('myButton');
+
+// 화살표 함수 사용 (비권장)
+button.addEventListener('click', () => {
+  console.log(this); // Window
+  this.innerHTML = 'clicked'; // 전역 객체(window)의 innerHTML을 변경
+});
+
+// 일반 함수 사용
+button.addEventListener('click', function() {
+    console.log(this); // button 엘리먼트
+    this.innerHTML = 'clicked'; // 해당 버튼의 innerHTML을 변경
+});    
+`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `화살표 함수의 경우, this가 해당 이벤트 리스너를 호출한 문맥이 아닌 상위 스코프의 this를 가리키므로 비추천합니다.
+        일반 함수를 사용하면 this는 해당 이벤트가 발생한 엘리먼트를 가리키며, 버튼의 innerHTML을 변경하는 등의 작업이 의도한 대로 동작합니다.
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위의 예시에서는 화살표 함수를 사용할 경우 this가 Window를 가리키므로 버튼의 innerHTML을 변경하는 동작이 의도와 다릅니다. 따라서 일반 함수를 사용하여 콜백함수를 정의하는 것이 바람직합니다.
+        `,
       },
     ],
   },
   {
     id: 6,
-    title: '게시물 등록',
-    date: '2024-01-15',
+    title: '중첩된 객체를 가진 객체의 깊은 복사 하는 방법',
+    date: '2023-03-03',
     folder: Folder.JAVASCRIPT,
-    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
+    preview: `키-값 쌍이 여러 개인 객체가 있습니다. 문제는 객체가 완전하지 않다는 것입니다. 이 문제는 객체에 기존데이터가 있는 상태에서 새로운 필드를 추가하는 경우나 외부 API에서 데이터를 가져와 현재 데이터 모델에 연결해야 하는 경우에 자주 발생합니다. 어느 쪽이든 문제가 되는 부분은 같습니다.`,
     post: [
       {
-        type: 'normal',
-        value: `상태가 변경되었는지를 정확하게 판단하기 위해서는 불변성을 유지해야 하며 불변성을 유지하지 않으면 리액트가 제대로 동작하지 않고 성능 최적화가 무력화될 수 있다.`,
+        type: ComponentType.NORMAL,
+        value: `키-값 쌍이 여러 개인 객체가 있습니다. 문제는 객체가 완전하지 않다는 것입니다. 이 문제는 객체에 기존데이터가 있는 상태에서 새로운 필드를 추가하는 경우나 외부 API에서 데이터를 가져와 현재 데이터 모델에 연결해야 하는 경우에 자주 발생합니다. 어느 쪽이든 문제가 되는 부분은 같습니다. 새로운 필드 또는 데이터로 채워지지 않는 나머지 부분을 기본값 객체로 채워야 한다는 점입니다.</br></br>
+
+        기본값을 설정하면서 원래의 데이터를 유지하는 새로운 객체를 생성하려면 어떻게 해야 할까요?</br>
+        당연히 부수 효과나 조작은 발생하지 않아야 합니다.`,
+      },
+
+      {
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 Object.assign()을 이용한 값이 중첩되지 않은 객체의 복사 (Shallow Copy)</h4>`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const default = {
+  author:'',
+  title:'',
+  year:2017,
+  rating:null
+};
+
+const book = {
+  author : 'joe Morgan',
+  title : 'Simplifying Javascript'
+};
+
+const updated = Object.assign({}, defaults, book);
+console.log(updated);
+
+//{ 
+//  author : 'joe Morgan',
+//  title : 'Simplifying Javascript,
+//  year:2017,
+//  rating:null
+//}`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `첫번째 객체에 빈 객체를 사용하면 빈객체에 새로운 값이 갱신되어 반환됩니다.</br>다른 객체에는 조작이 발생하지 않습니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위의 코드는 defaults와 book 객체를 병합하여 얕은 복사를 수행합니다. 하지만 details 객체는 참조 관계가 유지되므로 shallowCopy 객체를 수정하면 defaults나 book에도 영향을 미칠 수 있습니다.</br></br>`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 Object.assign()을 이용한 값이 중첩된 객체의 복사 (Deep Copy)</h4>`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `중첩된 객체가 있는 경우에 Object.assign()을 이용해서 복사하도록 하면 모든 것을 갱신할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const defaultEmployee = {
+  name : {
+        first : '',
+          last : ''
+        }
+    years : 0,
+};
+const employee = Object.assign({}, defaultEmployee);`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위의 코드에서 name 속성은 복사 할수 없습니다. 실제로 키 name에 할당된 독립적인 객체에 대해 참조만 복사 됩니다. 중첩된 객체는 해당 객체를 담고 있는 객체와 독립적으로 존재합니다.</br></br>
+        중첩된 객체를 담고 있는 객체가 가지고 있는 것은 중첩된 객체에 대한 참조 뿐입니다. 참조에 대한 복사만으로는 중첩된 객체에 깊은 복사를 적용할 수 없습니다. 단지 참조의 위치를 복사하는 것에 불과 합니다.</br></br>
+        
+        따라서 원본 객체 또는 복사한 객체 중 어디서라도 중첩된 객체의 값을 변경하면 원본 객체와 복사한 객체 모두 변경됩니다.`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `<b>중첩된 객체</b>가 있는 경우에 <b>Object.assign()</b>을 이용해서 복사하도록 하면 모든 것을 갱신할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const defaultEmployee = {
+  name : {
+           first : '',
+           last : ''
+         }
+  years : 0,
+};
+
+const employee2 = Object.assign(
+  {},
+    defaultEmployee,
+    {
+      name : Object.assign({} , defaultEmployee.name)
+    }
+);`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 Lodash를 이용한 깊은 복사 cloneDeep</h4>`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `Lodash 라이브러리는 깊은 복사를 수행하는 cloneDeep 메서드를 제공합니다. Lodash는 일반적인 유틸리티 함수들을 모아놓은 라이브러리로서, 깊은 복사를 쉽게 처리할 수 있게 도와줍니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const _ = require('lodash');
+
+const defaults = {
+  author: '',
+  title: '',
+  details: {
+    pages: 0,
+    language: ''
+  }
+};
+
+const book = {
+  author: 'John Doe',
+  title: 'Sample Book',
+  details: {
+    pages: 200,
+    language: 'English'
+  }
+};
+
+const deepCopyResult = _.cloneDeep(defaults);
+_.merge(deepCopyResult, book);
+
+console.log(deepCopyResult);`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `cloneDeep 함수를 사용하면 중첩된 객체까지 깊은 복사가 이루어집니다. 이후 merge 함수를 사용하여 두 객체를 병합할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 JSON.stringify() 이용한 깊은 복사 cloneDeep</h4>`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `JSON.stringify()와 JSON.parse()를 이용하여 객체를 문자열로 변환하고 다시 파싱하여 깊은 복사를 수행할 수 있습니다. 단, 이 방법은 함수나 특별한 타입의 객체에는 적용되지 않을 수 있습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const originalObject = {
+  nestedObject: {
+    key: 'value'
+  },
+  otherKey: 'otherValue'
+};
+
+const deepCopy = JSON.parse(JSON.stringify(originalObject));
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `하지만 이방법은 사용하기는 쉽지만 <b>다른 방법에비해 아주 느리다</b>고 알려져있다.`,
       },
     ],
   },
   {
     id: 7,
-    title: '게시물 등록',
-    date: '2024-01-15',
+    title: 'const, let, var',
+    date: '2023-02-21',
     folder: Folder.JAVASCRIPT,
-    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
+    preview: `let은 재할당 할 수 있다는 점에서 var와 유사합니다. 그렇지만 var는 어휘적 유효범위(lexical scope)를 따르는 반면 let은 블록 유효범위를 따릅니다. 일단 블록 유효범위 변수는 if블록이나 for 반복문 같은 블록의 내부에만 존재한다고 알아두세요. 블록 밖에서는 블록 유효범위에 접근 할 수 없습니다. 즉, 변수를 선언한 중괄호를 벗어나면 변수가 존재하지 않습니다.`,
     post: [
       {
-        type: 'normal',
-        value: `상태가 변경되었는지를 정확하게 판단하기 위해서는 불변성을 유지해야 하며 불변성을 유지하지 않으면 리액트가 제대로 동작하지 않고 성능 최적화가 무력화될 수 있다.`,
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 블록유효범위를 따르는 const</h4>`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `블록의 문맥 내에서 재할당할 수 없는 변수 입니다.
+        const는 한 번 선언되면 재할당이 불가능한 변수를 선언하는 데 사용됩니다.
+        그러나 const로 선언된 변수가 가리키는 값(객체 또는 배열 등)의 내부는 수정될 수 있습니다. 이는 변수가 참조하는 메모리 주소가 변경되지 않는다는 의미입니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const discountable = [];
+
+for(let i = 0; i < cart.length; i++){
+    discountable.push(i);
+}`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 블록유효범위를 따르는 let</h4>`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `let은 변수를 선언하고, 필요에 따라 재할당할 수 있는 키워드입니다.
+        let은 블록 유효범위(block scope)를 가지며, 블록 외부에서는 해당 변수에 접근할 수 없습니다.
+        같은 블록 내에서 같은 이름의 변수를 재선언할 수 없습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `if (true) {
+    let blockScopedVar = 'I am a block-scoped variable';
+    console.log(blockScopedVar); // 유효
+}
+
+console.log(blockScopedVar); // 에러: blockScopedVar is not defined`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `var를 사용하는 경우에는 같은 유효범위에서 같은 이름의 변수를 다시 선언할 수 잇지만</br>
+        let과 const는 같은 이름이 변수를 다시 선언할 수 없습니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 어휘적 유효범위(lexical scope)를 따르는 var</h4>`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `var는 어휘적 유효범위(lexical scope)를 가지며, 함수 유효범위를 따릅니다.
+        함수 내에서 선언된 변수는 함수 전체에서 접근 가능하며, 함수 외부에서는 변수에 접근할 수 없습니다.
+        같은 함수 내에서 같은 이름의 변수를 재선언할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function exampleFunction() {
+    var lexicalScopedVar = 'I am a lexical-scoped variable';
+    console.log(lexicalScopedVar); // 유효
+}
+
+console.log(lexicalScopedVar); // 에러: lexicalScopedVar is not defined`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 var를 사용하여 함수 유효범위를 따르는 클로저</h4>`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function addClick(items) {
+    for (var i = 0; i < items.length; i++) {
+        items[i].onClick = function() {
+            return i;
+        };
+    }
+    return items;
+}
+
+const example = [{}, {}];
+const clickSet = addClick(example);
+console.log(clickSet[0].onClick()); // 2 (모든 onClick 함수가 마지막 값인 2를 참조)
+      `,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `<b>var를 사용</b>한 경우 함수 내부에서 만든 <b>클로저에서 외부 변수를 참조할 때 주의</b>가 필요합니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `<h4 class=${style.h4}>📝 let을 사용하여 클로저 문제를 해결한 코드</h4>`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function addClick(items) {
+    for (let i = 0; i < items.length; i++) {
+        items[i].onClick = function() {
+            return i;
+        };
+    }
+    return items;
+}
+
+const example = [{}, {}];
+const clickSet = addClick(example);
+console.log(clickSet[0].onClick()); // 0`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `let을 사용하면 블록 내에서 선언된 i 변수가 블록 유효 범위를 가지게 됩니다. 따라서 각 onClick 함수는 고유한 i 값을 가지며 클로저로서의 역할을 수행합니다. 위 코드에서 clickSet[0].onClick()를 호출하면 0이 반환됩니다. 이는 let을 사용하여 각각의 클로저가 자신만의 i를 기억하게 되어 마지막 값인 2가 아니라 각각의 인덱스를 반환하게 됐기 때문입니다.`,
       },
     ],
   },
