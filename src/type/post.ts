@@ -66,6 +66,7 @@ export enum ComponentType {
   TABLE = 'table',
   STRINGLIST = 'stringlist',
   NUMLIST = 'numlist',
+  H1 = 'h1',
   H2 = 'h2',
   H4 = 'h4',
   H3 = 'H3',

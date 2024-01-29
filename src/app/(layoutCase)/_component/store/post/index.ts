@@ -13,11 +13,11 @@ const initialValue = [
     title: '리액트와 불변성',
     date: '2024-01-15',
     folder: Folder.REACT,
-    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
+    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다.`,
     post: [
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>리액트에서 불변성을 지켜야 하는 이유는?</h2>`,
+        value: `리액트에서 불변성을 지켜야 하는 이유는?`,
       },
       {
         type: ComponentType.NORMAL,
@@ -42,7 +42,7 @@ const nextInfo={
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 불변성이 유지되지 않은 같은 참조를 가리키고 있는 데이터</h4>`,
+        value: `불변성이 유지되지 않은 같은 참조를 가리키고 있는 데이터`,
       },
       {
         type: ComponentType.CODE,
@@ -64,7 +64,7 @@ console.log(sameData === data); // true`,
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>불변성을 유지하면서 상태를 업데이트하는 방법</h2>`,
+        value: `불변성을 유지하면서 상태를 업데이트하는 방법`,
       },
       {
         type: ComponentType.CODE,
@@ -98,7 +98,7 @@ console.log(nextData === data) // false`,
     title: '함수형 프로그래밍',
     date: '2024-01-15',
     folder: Folder.JAVASCRIPT,
-    preview: `데이터를 함수를 이용해 새로운 데이터로 만들어 나가는 데이터 파이프 라인의 형태로 프로그래밍이 작동 하며 함수형 프로그래밍은 거의 모든 것을 순수 함수로 나누어 문제를 해결하는 기법으로, 작은 문제를 해결하기 위한 함수를 작성하여 가독성을 높이고 유지보수를 용이하게 해준다. (클로저, 하스켈, 리스프)`,
+    preview: `데이터를 함수를 이용해 새로운 데이터로 만들어 나가는 데이터 파이프 라인의 형태로 프로그래밍이 작동 하며 함수형 프로그래밍은 거의 모든 것을 순수 함수로 나누어 문제를 해결하는 기법으로, 작은 문제를 해결하기 위한 함수를 작성하여 가독성을 높이고 유지보수를 용이하게 해준다.`,
     post: [
       {
         type: ComponentType.NORMAL,
@@ -115,7 +115,7 @@ console.log(nextData === data) // false`,
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>함수형 vs. 절차형</h2>`,
+        value: `함수형 vs. 절차형`,
       },
       {
         type: ComponentType.NORMAL,
@@ -127,7 +127,7 @@ console.log(nextData === data) // false`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 절차형 프로그래밍</h4>`,
+        value: `절차형 프로그래밍`,
       },
       {
         type: ComponentType.NORMAL,
@@ -143,7 +143,7 @@ for(let i=0; i < stringNumber.length; i+=1){
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 함수형 프로그래밍</h4>`,
+        value: `함수형 프로그래밍`,
       },
       {
         type: ComponentType.NORMAL,
@@ -158,11 +158,11 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>선언형 vs. 명령형</h2>`,
+        value: `선언형 vs. 명령형`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 명령형</h4>`,
+        value: `명령형`,
       },
       {
         type: ComponentType.NORMAL,
@@ -170,7 +170,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h3 class=${style.h3}>control Flow</h3>`,
+        value: `control Flow`,
       },
       {
         type: 'normal',
@@ -188,7 +188,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 선언형</h4>`,
+        value: `선언형`,
       },
       {
         type: ComponentType.NORMAL,
@@ -196,7 +196,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h3 class=${style.h3}>control Flow</h3>`,
+        value: `control Flow`,
       },
       {
         type: 'data Flow',
@@ -211,7 +211,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>함수형 프로그래밍의 장점</h2>`,
+        value: `함수형 프로그래밍의 장점`,
       },
       {
         type: ComponentType.NORMAL,
@@ -235,12 +235,7 @@ let result = stringNumber.split(" ")
     title: '프론트 서버',
     date: '2024-01-15',
     folder: Folder.JAVASCRIPT,
-    preview: `브라우저 작동원리에 대해 공부하던 중 의문점이 발생했다
-
-    <b>"브라우저 주소창에 URL을 입력하면 브라우저는 HTTP GET 요청을 URL 프론트 서버로 전송한다.
-    보통 프론트 엔드가 있는 웹 서비스의 경우 HTML 파일을 결과로 반환한다."</b>
-    
-    라는 부분인데 프론트 서버의 존재가 정확히 어떤 일을 하는 것인지 궁금해 졌다.`,
+    preview: `브라우저 작동원리에 대해 공부하던 중 의문점이 발생했다.<b>"브라우저 주소창에 URL을 입력하면 브라우저는 HTTP GET 요청을 URL 프론트 서버로 전송한다.`,
     post: [
       {
         type: ComponentType.NORMAL,
@@ -266,11 +261,11 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>브라우저의 전체 흐름</h2>`,
+        value: `브라우저의 전체 흐름`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 SSR</h4>`,
+        value: `SSR`,
       },
       {
         type: ComponentType.NORMAL,
@@ -279,7 +274,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 SPA</h4>`,
+        value: `SPA`,
       },
       {
         type: ComponentType.NORMAL,
@@ -288,7 +283,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 프론트 서버(웹 서버)</h4>`,
+        value: `프론트 서버(웹 서버)`,
       },
       {
         type: ComponentType.STRINGLIST,
@@ -309,7 +304,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 웹서버를 이해하기에 가장 편했던 유투브 영상</h4>`,
+        value: `웹서버를 이해하기에 가장 편했던 유투브 영상</h4>`,
       },
       {
         type: ComponentType.NORMAL,
@@ -322,11 +317,11 @@ let result = stringNumber.split(" ")
     title: '브라우저에서 이벤트가 발생하고 전파되는 방식',
     date: '2024-01-15',
     folder: Folder.JAVASCRIPT,
-    preview: `이벤트 버블링과 이벤트 캡쳐는 브라우저에서 이벤트가 발생하고 전파되는 방식을 설명하는 개념입니다. `,
+    preview: `이벤트 버블링과 이벤트 캡쳐는 브라우저에서 이벤트가 발생하고 전파되는 방식을 설명하는 개념입니다. 이벤트 버블링은 특정 화면 요소에서 이벤트가 발생했을 때 해당 이벤트가 더 상위의 화면 요소들로 전달되어 가는 특성을 의미합니다. 이는 이벤트가 가장 하위의 요소에서 시작하여 상위 요소로 전파되는 방식입니다.`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 이벤트 버블링 - Event Bubbling</h4>`,
+        value: `이벤트 버블링 - Event Bubbling`,
       },
       {
         type: ComponentType.NORMAL,
@@ -361,7 +356,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 이벤트 캡쳐 - Event Capture</h4>`,
+        value: `이벤트 캡쳐 - Event Capture`,
       },
       {
         type: ComponentType.NORMAL,
@@ -396,7 +391,7 @@ function logEvent(event) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 stopPropagation()</h4>`,
+        value: `stopPropagation()`,
       },
       {
         type: ComponentType.NORMAL,
@@ -420,12 +415,11 @@ function logEvent(event) {
     title: '일반함수 VS 화살표 함수의 this 바인딩',
     date: '2023-03-20',
     folder: Folder.JAVASCRIPT,
-    preview: `일반 함수와 화살표 함수의 this 바인딩에 대한 차이에 대한 내용을 약간 각색하여 정리하겠습니다. 일반 함수에서 this는 함수가 호출될 때 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.
-    내부 함수의 this는 전역 객체(window)를 가리키므로 undefined 출력.`,
+    preview: `일반 함수와 화살표 함수의 this 바인딩에 대한 차이에 대한 내용을 약간 각색하여 정리하겠습니다. 일반 함수에서 this는 함수가 호출될 때 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 일반 함수</h4>`,
+        value: `일반 함수`,
       },
       {
         type: ComponentType.CODE,
@@ -435,19 +429,19 @@ function logEvent(event) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 화살표 함수</h4>`,
+        value: `화살표 함수`,
       },
       {
         type: ComponentType.CODE,
         value: `const foo = () => console.log('화살표 함수');`,
       },
       {
-        type: 'normal',
+        type: ComponentType.NORMAL,
         value: `두 함수는 기능적으로 완전히 동일하게 작동합니다.`,
       },
       {
         type: ComponentType.H2,
-        value: `<h4 class=${style.h2}>📝 JavaScript 일반 함수의 this 바인딩</h4>`,
+        value: `JavaScript 일반 함수의 this 바인딩`,
       },
       {
         type: ComponentType.CODE,
@@ -466,29 +460,14 @@ cat.foo1(); // undefined
       },
       {
         type: ComponentType.STRINGLIST,
-        value: `일반 함수에서 this는 함수가 호출될 때 함수가 어디에서 호출되었는지에 따라 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.</br>
-        전역스코프에서 실행(선언)이 되어 foo2 내부의 this는 지정되지 않아서 곧 전역 객체를 가리키게 됩니다.</br>
-        내부 함수의 this는 전역 객체(window)를 가리키므로 전역 객체에 name이란 속성은 존재하지 않아 undefined 출력 됩니다.</br>
+        value: `일반 함수에서 this는 함수가 호출될 때 함수가 어디에서 호출되었는지에 따라 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.
+        전역스코프에서 실행(선언)이 되어 foo2 내부의 this는 지정되지 않아서 곧 전역 객체를 가리키게 됩니다.
+        내부 함수의 this는 전역 객체(window)를 가리키므로 전역 객체에 name이란 속성은 존재하지 않아 undefined 출력 됩니다.
         이 내부함수가 global에서도 제대로 작동하기 위해서 우리는 저 내부함수에 객체의 this를 바인딩 할 필요가 있을 것입니다.`,
       },
       {
-        type: ComponentType.CODE,
-        value: `const cat = {
-  name: 'meow',
-  foo1: function() {
-    const foo2 = function() {
-      const that = this;
-      console.log(that.name);
-    }
-    foo2();
-  }
-};
-
-cat.foo1();	// meow`,
-      },
-      {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>📝 JavaScript 화살표 함수의 this 바인딩</h2>`,
+        value: `JavaScript 화살표 함수의 this 바인딩`,
       },
       {
         type: ComponentType.CODE,
@@ -512,7 +491,7 @@ cat.foo1(); // meow
       },
       {
         type: ComponentType.H2,
-        value: `<h4 class=${style.h2}>addEventListener()의 콜백함수</h4>`,
+        value: `addEventListener()의 콜백함수`,
       },
       {
         type: ComponentType.NORMAL,
@@ -537,7 +516,7 @@ button.addEventListener('click', function() {
       },
       {
         type: ComponentType.STRINGLIST,
-        value: `화살표 함수의 경우, this가 해당 이벤트 리스너를 호출한 문맥이 아닌 상위 스코프의 this를 가리키므로 비추천합니다. </br>
+        value: `화살표 함수의 경우, this가 해당 이벤트 리스너를 호출한 문맥이 아닌 상위 스코프의 this를 가리키므로 비추천합니다.
         일반 함수를 사용하면 this는 해당 이벤트가 발생한 엘리먼트를 가리키며, 버튼의 innerHTML을 변경하는 등의 작업이 의도한 대로 동작합니다.
         `,
       },

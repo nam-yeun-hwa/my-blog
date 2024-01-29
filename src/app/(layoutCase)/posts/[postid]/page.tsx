@@ -10,7 +10,8 @@ import { totalPostlist } from 'data/db';
 import Footer from 'app/_component/common/Footer';
 import Panel from 'app/_component/common/Panel';
 import Table from 'app/_component/detailPage/Table';
-import StringDot from 'app/_component/detailPage/StringDot';
+import StringDot from 'app/_component/detailPage/ListStyle';
+import HeadingString from 'app/_component/detailPage/Heading';
 
 type Props = {
   params: { postid: string };
@@ -67,6 +68,19 @@ export default function Post({ params, detail }: Props) {
               return <Table key={idx} table={value.value} />;
             if (value.type === ComponentType.STRINGLIST)
               return <StringDot key={idx} list={value.value} />;
+            if (
+              value.type === ComponentType.H2 ||
+              value.type === ComponentType.H3 ||
+              value.type === ComponentType.H4
+            ) {
+              return (
+                <HeadingString
+                  key={idx}
+                  headingType={value.type}
+                  headingValue={value.value}
+                />
+              );
+            }
             return (
               <div
                 key={idx}

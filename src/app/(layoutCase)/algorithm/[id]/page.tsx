@@ -10,7 +10,7 @@ import { algorithmPostlist } from 'data/db';
 import Footer from 'app/_component/common/Footer';
 import Panel from 'app/_component/common/Panel';
 import Table from 'app/_component/detailPage/Table';
-import StringDot from 'app/_component/detailPage/StringDot';
+import StringDot from 'app/_component/detailPage/ListStyle';
 
 type Props = {
   params: { id: string };

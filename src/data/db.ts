@@ -1,5 +1,5 @@
 import { ComponentType, Folder, Level } from 'type/post';
-import style from 'app/(layoutCase)/posts/[postid]/page.module.css';
+
 import tableStyle from 'app/_component/detailPage/table.module.css';
 /**
  * @constant totalPostlist
@@ -11,11 +11,11 @@ export const totalPostlist = [
     title: '리액트와 불변성',
     date: '2024-01-15',
     folder: Folder.REACT,
-    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
+    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다.`,
     post: [
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>리액트에서 불변성을 지켜야 하는 이유는?</h2>`,
+        value: `리액트에서 불변성을 지켜야 하는 이유는?`,
       },
       {
         type: ComponentType.NORMAL,
@@ -40,7 +40,7 @@ const nextInfo={
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 불변성이 유지되지 않은 같은 참조를 가리키고 있는 데이터</h4>`,
+        value: `불변성이 유지되지 않은 같은 참조를 가리키고 있는 데이터`,
       },
       {
         type: ComponentType.CODE,
@@ -62,7 +62,7 @@ console.log(sameData === data); // true`,
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>불변성을 유지하면서 상태를 업데이트하는 방법</h2>`,
+        value: `불변성을 유지하면서 상태를 업데이트하는 방법`,
       },
       {
         type: ComponentType.CODE,
@@ -96,7 +96,7 @@ console.log(nextData === data) // false`,
     title: '함수형 프로그래밍',
     date: '2024-01-15',
     folder: Folder.JAVASCRIPT,
-    preview: `데이터를 함수를 이용해 새로운 데이터로 만들어 나가는 데이터 파이프 라인의 형태로 프로그래밍이 작동 하며 함수형 프로그래밍은 거의 모든 것을 순수 함수로 나누어 문제를 해결하는 기법으로, 작은 문제를 해결하기 위한 함수를 작성하여 가독성을 높이고 유지보수를 용이하게 해준다. (클로저, 하스켈, 리스프)`,
+    preview: `데이터를 함수를 이용해 새로운 데이터로 만들어 나가는 데이터 파이프 라인의 형태로 프로그래밍이 작동 하며 함수형 프로그래밍은 거의 모든 것을 순수 함수로 나누어 문제를 해결하는 기법으로, 작은 문제를 해결하기 위한 함수를 작성하여 가독성을 높이고 유지보수를 용이하게 해준다.`,
     post: [
       {
         type: ComponentType.NORMAL,
@@ -113,7 +113,7 @@ console.log(nextData === data) // false`,
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>함수형 vs. 절차형</h2>`,
+        value: `함수형 vs. 절차형`,
       },
       {
         type: ComponentType.NORMAL,
@@ -125,7 +125,7 @@ console.log(nextData === data) // false`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 절차형 프로그래밍</h4>`,
+        value: `절차형 프로그래밍`,
       },
       {
         type: ComponentType.NORMAL,
@@ -141,7 +141,7 @@ for(let i=0; i < stringNumber.length; i+=1){
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 함수형 프로그래밍</h4>`,
+        value: `함수형 프로그래밍`,
       },
       {
         type: ComponentType.NORMAL,
@@ -156,11 +156,11 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>선언형 vs. 명령형</h2>`,
+        value: `선언형 vs. 명령형`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 명령형</h4>`,
+        value: `명령형`,
       },
       {
         type: ComponentType.NORMAL,
@@ -168,7 +168,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h3 class=${style.h3}>control Flow</h3>`,
+        value: `control Flow`,
       },
       {
         type: 'normal',
@@ -186,7 +186,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 선언형</h4>`,
+        value: `선언형`,
       },
       {
         type: ComponentType.NORMAL,
@@ -194,7 +194,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h3 class=${style.h3}>control Flow</h3>`,
+        value: `control Flow`,
       },
       {
         type: 'data Flow',
@@ -209,7 +209,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>함수형 프로그래밍의 장점</h2>`,
+        value: `함수형 프로그래밍의 장점`,
       },
       {
         type: ComponentType.NORMAL,
@@ -233,12 +233,7 @@ let result = stringNumber.split(" ")
     title: '프론트 서버',
     date: '2024-01-15',
     folder: Folder.JAVASCRIPT,
-    preview: `브라우저 작동원리에 대해 공부하던 중 의문점이 발생했다
-
-    <b>"브라우저 주소창에 URL을 입력하면 브라우저는 HTTP GET 요청을 URL 프론트 서버로 전송한다.
-    보통 프론트 엔드가 있는 웹 서비스의 경우 HTML 파일을 결과로 반환한다."</b>
-    
-    라는 부분인데 프론트 서버의 존재가 정확히 어떤 일을 하는 것인지 궁금해 졌다.`,
+    preview: `브라우저 작동원리에 대해 공부하던 중 의문점이 발생했다.<b>"브라우저 주소창에 URL을 입력하면 브라우저는 HTTP GET 요청을 URL 프론트 서버로 전송한다.`,
     post: [
       {
         type: ComponentType.NORMAL,
@@ -264,11 +259,11 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>브라우저의 전체 흐름</h2>`,
+        value: `브라우저의 전체 흐름`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 SSR</h4>`,
+        value: `SSR`,
       },
       {
         type: ComponentType.NORMAL,
@@ -277,7 +272,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 SPA</h4>`,
+        value: `SPA`,
       },
       {
         type: ComponentType.NORMAL,
@@ -286,7 +281,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 프론트 서버(웹 서버)</h4>`,
+        value: `프론트 서버(웹 서버)`,
       },
       {
         type: ComponentType.STRINGLIST,
@@ -307,7 +302,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 웹서버를 이해하기에 가장 편했던 유투브 영상</h4>`,
+        value: `웹서버를 이해하기에 가장 편했던 유투브 영상</h4>`,
       },
       {
         type: ComponentType.NORMAL,
@@ -320,11 +315,11 @@ let result = stringNumber.split(" ")
     title: '브라우저에서 이벤트가 발생하고 전파되는 방식',
     date: '2024-01-15',
     folder: Folder.JAVASCRIPT,
-    preview: `이벤트 버블링과 이벤트 캡쳐는 브라우저에서 이벤트가 발생하고 전파되는 방식을 설명하는 개념입니다. `,
+    preview: `이벤트 버블링과 이벤트 캡쳐는 브라우저에서 이벤트가 발생하고 전파되는 방식을 설명하는 개념입니다. 이벤트 버블링은 특정 화면 요소에서 이벤트가 발생했을 때 해당 이벤트가 더 상위의 화면 요소들로 전달되어 가는 특성을 의미합니다. 이는 이벤트가 가장 하위의 요소에서 시작하여 상위 요소로 전파되는 방식입니다.`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 이벤트 버블링 - Event Bubbling</h4>`,
+        value: `이벤트 버블링 - Event Bubbling`,
       },
       {
         type: ComponentType.NORMAL,
@@ -359,7 +354,7 @@ let result = stringNumber.split(" ")
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 이벤트 캡쳐 - Event Capture</h4>`,
+        value: `이벤트 캡쳐 - Event Capture`,
       },
       {
         type: ComponentType.NORMAL,
@@ -394,7 +389,7 @@ function logEvent(event) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 stopPropagation()</h4>`,
+        value: `stopPropagation()`,
       },
       {
         type: ComponentType.NORMAL,
@@ -418,12 +413,11 @@ function logEvent(event) {
     title: '일반함수 VS 화살표 함수의 this 바인딩',
     date: '2023-03-20',
     folder: Folder.JAVASCRIPT,
-    preview: `일반 함수와 화살표 함수의 this 바인딩에 대한 차이에 대한 내용을 약간 각색하여 정리하겠습니다. 일반 함수에서 this는 함수가 호출될 때 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.
-    내부 함수의 this는 전역 객체(window)를 가리키므로 undefined 출력.`,
+    preview: `일반 함수와 화살표 함수의 this 바인딩에 대한 차이에 대한 내용을 약간 각색하여 정리하겠습니다. 일반 함수에서 this는 함수가 호출될 때 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 일반 함수</h4>`,
+        value: `일반 함수`,
       },
       {
         type: ComponentType.CODE,
@@ -433,7 +427,7 @@ function logEvent(event) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 화살표 함수</h4>`,
+        value: `화살표 함수`,
       },
       {
         type: ComponentType.CODE,
@@ -445,7 +439,7 @@ function logEvent(event) {
       },
       {
         type: ComponentType.H2,
-        value: `<h4 class=${style.h2}>📝 JavaScript 일반 함수의 this 바인딩</h4>`,
+        value: `JavaScript 일반 함수의 this 바인딩`,
       },
       {
         type: ComponentType.CODE,
@@ -471,7 +465,7 @@ cat.foo1(); // undefined
       },
       {
         type: ComponentType.H2,
-        value: `<h2 class=${style.h2}>📝 JavaScript 화살표 함수의 this 바인딩</h2>`,
+        value: `JavaScript 화살표 함수의 this 바인딩`,
       },
       {
         type: ComponentType.CODE,
@@ -495,7 +489,7 @@ cat.foo1(); // meow
       },
       {
         type: ComponentType.H2,
-        value: `<h4 class=${style.h2}>addEventListener()의 콜백함수</h4>`,
+        value: `addEventListener()의 콜백함수`,
       },
       {
         type: ComponentType.NORMAL,
@@ -548,7 +542,7 @@ button.addEventListener('click', function() {
 
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 Object.assign()을 이용한 값이 중첩되지 않은 객체의 복사 (Shallow Copy)</h4>`,
+        value: `Object.assign()을 이용한 값이 중첩되지 않은 객체의 복사 (Shallow Copy)`,
       },
       {
         type: ComponentType.CODE,
@@ -584,7 +578,7 @@ console.log(updated);
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 Object.assign()을 이용한 값이 중첩된 객체의 복사 (Deep Copy)</h4>`,
+        value: `Object.assign()을 이용한 값이 중첩된 객체의 복사 (Deep Copy)`,
       },
       {
         type: ComponentType.NORMAL,
@@ -593,8 +587,8 @@ console.log(updated);
       {
         type: ComponentType.CODE,
         value: `const defaultEmployee = {
-  name : {
-        first : '',
+    name : {
+          first : '',
           last : ''
         }
     years : 0,
@@ -632,7 +626,7 @@ const employee2 = Object.assign(
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 Lodash를 이용한 깊은 복사 cloneDeep</h4>`,
+        value: `Lodash를 이용한 깊은 복사 cloneDeep`,
       },
       {
         type: ComponentType.NORMAL,
@@ -671,7 +665,7 @@ console.log(deepCopyResult);`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 JSON.stringify() 이용한 깊은 복사 cloneDeep</h4>`,
+        value: `JSON.stringify() 이용한 깊은 복사 cloneDeep`,
       },
       {
         type: ComponentType.NORMAL,
@@ -691,7 +685,7 @@ const deepCopy = JSON.parse(JSON.stringify(originalObject));
       },
       {
         type: ComponentType.NORMAL,
-        value: `하지만 이방법은 사용하기는 쉽지만 <b>다른 방법에비해 아주 느리다</b>고 알려져있다.`,
+        value: `하지만 이방법은 사용하기는 쉽지만 <b>다른 방법에비해 아주 느리다</b>고 알려져 있습니다.`,
       },
     ],
   },
@@ -700,11 +694,11 @@ const deepCopy = JSON.parse(JSON.stringify(originalObject));
     title: 'const, let, var',
     date: '2023-02-21',
     folder: Folder.JAVASCRIPT,
-    preview: `let은 재할당 할 수 있다는 점에서 var와 유사합니다. 그렇지만 var는 어휘적 유효범위(lexical scope)를 따르는 반면 let은 블록 유효범위를 따릅니다. 일단 블록 유효범위 변수는 if블록이나 for 반복문 같은 블록의 내부에만 존재한다고 알아두세요. 블록 밖에서는 블록 유효범위에 접근 할 수 없습니다. 즉, 변수를 선언한 중괄호를 벗어나면 변수가 존재하지 않습니다.`,
+    preview: `let은 재할당 할 수 있다는 점에서 var와 유사합니다. 그렇지만 var는 어휘적 유효범위(lexical scope)를 따르는 반면 let은 블록 유효범위를 따릅니다. 일단 블록 유효범위 변수는 if블록이나 for 반복문 같은 블록의 내부에만 존재한다고 알아두세요.`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 블록유효범위를 따르는 const</h4>`,
+        value: `블록유효범위를 따르는 const`,
       },
       {
         type: ComponentType.STRINGLIST,
@@ -722,7 +716,7 @@ for(let i = 0; i < cart.length; i++){
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 블록유효범위를 따르는 let</h4>`,
+        value: `블록유효범위를 따르는 let`,
       },
       {
         type: ComponentType.STRINGLIST,
@@ -746,7 +740,7 @@ console.log(blockScopedVar); // 에러: blockScopedVar is not defined`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 어휘적 유효범위(lexical scope)를 따르는 var</h4>`,
+        value: `어휘적 유효범위(lexical scope)를 따르는 var`,
       },
       {
         type: ComponentType.STRINGLIST,
@@ -765,23 +759,36 @@ console.log(lexicalScopedVar); // 에러: lexicalScopedVar is not defined`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 var를 사용하여 함수 유효범위를 따르는 클로저</h4>`,
+        value: `var를 사용하여 함수 유효범위를 따르는 클로저`,
       },
       {
         type: ComponentType.CODE,
-        value: `function addClick(items) {
-    for (var i = 0; i < items.length; i++) {
-        items[i].onClick = function() {
-            return i;
-        };
+        value: `// var를 사용한 클로저 예제
+function createClosureVar() {
+    var closuresVar = [];
+
+    for (var i = 0; i < 5; i++) {
+        closuresVar.push(function () {
+            console.log(i);
+        });
     }
-    return items;
+
+    return closuresVar;
 }
 
-const example = [{}, {}];
-const clickSet = addClick(example);
-console.log(clickSet[0].onClick()); // 2 (모든 onClick 함수가 마지막 값인 2를 참조)
-      `,
+var closuresVarArray = createClosureVar();
+
+// 클로저 호출
+for (var j = 0; j < closuresVarArray.length; j++) {
+    closuresVarArray[j](); // 모든 클로저가 5를 출력
+}`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `var를 사용한 경우, for 루프에서 생성된 클로저가 i를 참조하고 있습니다.
+        하지만 var는 함수 스코프를 갖기 때문에 for 루프가 종료된 후에도 i는 전역 스코프에 남아 있고, 클로저는 항상 전역 스코프에 있는 i를 참조합니다.
+        따라서 클로저를 호출할 때 모든 클로저가 i의 최종 값인 5를 출력합니다.
+        `,
       },
       {
         type: ComponentType.EMPHASIS,
@@ -789,39 +796,966 @@ console.log(clickSet[0].onClick()); // 2 (모든 onClick 함수가 마지막 값
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 let을 사용하여 클로저 문제를 해결한 코드</h4>`,
+        value: `let을 사용하여 클로저 문제를 해결한 코드`,
       },
       {
         type: ComponentType.CODE,
-        value: `function addClick(items) {
-    for (let i = 0; i < items.length; i++) {
-        items[i].onClick = function() {
-            return i;
-        };
+        value: `// let을 사용한 클로저 예제
+function createClosureLet() {
+    var closuresLet = [];
+
+    for (let i = 0; i < 5; i++) {
+        closuresLet.push(function () {
+            console.log(i);
+        });
     }
-    return items;
+
+    return closuresLet;
 }
 
-const example = [{}, {}];
-const clickSet = addClick(example);
-console.log(clickSet[0].onClick()); // 0`,
+var closuresLetArray = createClosureLet();
+
+// 클로저 호출
+for (let j = 0; j < closuresLetArray.length; j++) {
+    closuresLetArray[j](); // 각 클로저가 해당하는 값(0부터 4까지)을 출력
+}`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `let을 사용한 경우, for 루프에서 생성된 클로저가 i를 참조하고 있습니다. 
+        let은 블록 스코프를 갖기 때문에 각 클로저는 해당 블록에서의 i를 참조합니다.
+        따라서 클로저를 호출할 때 각각의 클로저는 자신이 생성된 시점의 i 값을 출력하게 됩니다.`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `쉽게 말해 let을 이용하면 for문이 반복될 때마다 값을 잠급니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `블록 유효범위 (Block Scope)`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `블록 유효범위는 중괄호 {}로 둘러싸인 영역을 가리킵니다.
+        let 및 const 키워드로 선언된 변수는 블록 유효 범위를 가집니다. 즉, 해당 변수는 그 변수가 선언된 블록 내에서만 유효하며 외부에서 접근할 수 없습니다.
+        블록은 주로 조건문 (if, else, for, while 등) 내부, 함수 내부, 또는 단독 중괄호 블록으로 정의됩니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `어휘적 유효범위 (Lexical Scope 또는 Static Scope)`,
       },
       {
         type: ComponentType.NORMAL,
-        value: `let을 사용하면 블록 내에서 선언된 i 변수가 블록 유효 범위를 가지게 됩니다. 따라서 각 onClick 함수는 고유한 i 값을 가지며 클로저로서의 역할을 수행합니다. 위 코드에서 clickSet[0].onClick()를 호출하면 0이 반환됩니다. 이는 let을 사용하여 각각의 클로저가 자신만의 i를 기억하게 되어 마지막 값인 2가 아니라 각각의 인덱스를 반환하게 됐기 때문입니다.`,
+        value: `어휘적 유효범위는 코드를 작성하는 시점에 결정되는 스코프의 종류입니다. 변수가 어디에서 선언되었는지에 따라 그 변수의 유효 범위가 정해집니다. 어휘적 유효범위는 함수를 어디에 작성했는지에 따라 함수의 스코프가 결정되는 것을 의미합니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function outer() {
+  let outerVar = 'I am outer';
+
+  function inner() {
+    let innerVar = 'I am inner';
+    console.log(outerVar); // outerVar는 어휘적 유효범위에 의해 접근 가능
+    console.log(innerVar); // innerVar는 현재 스코프에 선언되어 있어 직접 접근 가능
+  }
+
+  inner();
+
+  console.log(outerVar); // outerVar는 여전히 어휘적 유효범위에 의해 접근 가능
+  console.log(innerVar); // Error: innerVar는 outer 함수의 스코프를 벗어나서 접근 불가능
+}
+
+outer();`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위 예제에서 inner 함수는 자신의 스코프와 외부 함수인 outer 함수의 스코프에 접근할 수 있습니다. 이는 어휘적 유효범위에 의한 것입니다. 변수의 유효 범위는 코드를 작성하는 시점에 이미 정해져 있습니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `함수 유효범위 (Function Scope)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `함수 유효범위는 함수 내에서 선언된 변수가 함수 내부에서만 유효하다는 원칙을 나타냅니다. 함수 유효범위는 함수가 실행될 때마다 새로운 스코프가 생성되며, 함수 내에서 선언된 변수는 해당 함수 내에서만 접근할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function exampleFunction() {
+  let localVar = 'I am a local variable'; // 함수 유효범위에 속한 변수
+
+  if (true) {
+    let blockVar = 'I am a block-scoped variable'; // 블록 유효범위에 속한 변수
+    console.log(localVar); // 함수 유효범위 내에서 접근 가능
+    console.log(blockVar); // 블록 유효범위 내에서 접근 가능
+  }
+
+  console.log(localVar); // 함수 유효범위 내에서 접근 가능
+  console.log(blockVar); // Error: 블록 유효범위를 벗어난 곳에서는 접근 불가능
+}`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위 예제에서 localVar는 함수 유효범위 내에서 선언되어 함수 전체에서 접근 가능합니다. 하지만 blockVar는 블록 내에서만 유효한 변수이므로 블록 외부에서는 접근할 수 없습니다. </br></br>
+
+        요약하면, 어휘적 유효범위는 코드를 작성하는 시점에 변수의 스코프가 결정되며, 함수 유효범위는 함수가 실행될 때 생성되는 스코프입니다. 함수 유효범위는 어휘적 유효범위를 따르기 때문에 함수가 어디에 선언되었는지에 따라 스코프가 결정됩니다.`,
       },
     ],
   },
   {
     id: 8,
-    title: '게시물 등록',
-    date: '2024-01-15',
+    title: '클로저 (Closure)',
+    date: '2023-02-19',
     folder: Folder.JAVASCRIPT,
-    preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다. 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다. 아래처럼 기존 객체는 그대로 두고, 새로운 객체를 만들어 원하는 값을 덮어씌워야 한다.`,
+    preview: `비공개 변수는 클로저 함수 내부에 생성한 변수도 아니고, 매개변수도 아닌 변수를 의미합니다. 클로저를 말할 때는 스코프/컨텍스트/비공개 변수와 함수의 관계를 항상 같이 말해주어야 합니다. closure 함수 안에 console.log(name)이 있는데요.`,
     post: [
       {
-        type: 'normal',
-        value: `상태가 변경되었는지를 정확하게 판단하기 위해서는 불변성을 유지해야 하며 불변성을 유지하지 않으면 리액트가 제대로 동작하지 않고 성능 최적화가 무력화될 수 있다.`,
+        type: ComponentType.NORMAL,
+        value: `
+        클로저는 자바스크립트에서 매우 강력하고 중요한 개념 중 하나입니다. 클로저는 외부 변수(외부 렉시컬 환경에 있는 변수)를 기억하고 접근할 수 있는 함수입니다. 이를테면, 어떤 함수가 다른 함수 내에서 정의되고 그 함수가 외부 변수를 참조하면, 클로저가 형성됩니다.</br></br>
+        클로저는 함수가 선언될 때의 렉시컬 스코프(Lexical Scope)를 기억하여, 함수가 다른 스코프에서 호출되더라도 해당 스코프의 변수에 접근할 수 있게 하는 기능을 말합니다.`,
+      },
+      // {
+      //   type: ComponentType.H2,
+      //   value: '클로저 (Closure)',
+      // },
+      {
+        type: ComponentType.CODE,
+        value: `var makeClosure = function() {
+  var name = 'zero';
+  return function() {
+    console.log(name);
+  };
+};
+
+var closure = makeClosure();
+closure(); // 'zero'
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `makeClosure 함수가 실행될 때 name 변수가 생성되고, 반환된 내부 함수가 클로저 역할을 합니다. 클로저인 내부 함수는 외부 함수의 스코프에 접근할 수 있기 때문에 name 변수에 접근하여 값을 출력할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: '비공개 변수',
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `비공개 변수는 클로저를 사용하여 함수 내부에서만 접근할 수 있는 변수를 의미합니다. 이 변수는 함수 내부에서 선언되거나 함수의 매개변수로 전달되지 않으면서도 클로저를 통해 접근 가능합니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function makeCounter() {
+  let count = 0;
+
+  // 내부 함수(클로저)를 반환
+  return function() {
+    return count++;
+  };
+}
+
+// makeCounter 함수 호출로 클로저 생성
+let counter = makeCounter();
+
+// 클로저를 통해 외부 변수(count)에 접근하고 값을 변경
+console.log(counter()); // 0
+console.log(counter()); // 1
+console.log(counter()); // 2
+        
+        `,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `makeCounter 함수가 호출되면서 새로운 렉시컬 환경이 만들어지고, count 변수가 그 환경에 저장됩니다.
+        makeCounter 함수 내부에서 정의된 익명 함수(클로저)가 반환되면서 <b>외부 변수 count에 대한 참조를 유지</b>합니다.
+        반환된 익명 함수가 counter 변수에 할당되면서 클로저가 형성됩니다.
+        counter를 호출할 때마다 클로저는 외부 변수 count에 접근하여 값을 변경하고 반환합니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `클로저는 함수가 생성될 때의 렉시컬 스코프(어휘적 스코프)에 있는 변수에 대한 참조를 기억합니다. 이를 통해 함수가 나중에 호출될 때에도 해당 변수에 접근할 수 있습니다. 클로저는 함수형 프로그래밍, 비동기 작업, 정보 은닉 등 다양한 상황에서 사용되며, 자바스크립트에서 고유하고 강력한 특징 중 하나입니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: '이벤트 리스너와 클로저',
+      },
+      {
+        type: ComponentType.NORMAL,
+        value:
+          '이벤트 리스너와 클로저 관련 문제에 대한 설명에서, 클로저를 사용하여 각 이벤트 핸들러가 반복문의 각 단계에서 고유한 인덱스를 기억하도록 수정한 예제입니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `for (var i = 0; i < 5; i++) {
+  (function(j) {
+    $('#target' + j).on('click', function() {
+      alert(j);
+    });
+  })(i);
+}`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value:
+          '이렇게 하면 클로저를 통해 각 이벤트 핸들러가 자신만의 고유한 j 값을 기억하게 되어, 클릭할 때 각 버튼에 해당하는 인덱스가 올바르게 출력됩니다. 클로저를 사용하여 변수의 값을 고정시켜 이벤트 핸들러가 정상적으로 작동하도록 만들었습니다.',
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `같이 참고하면 좋은 링크 </br>
+        ${process.env.NEXT_PUBLIC_APP_API_BASE_URL} </br> 
+        https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0`,
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: '함수선언식 VS 함수표현식의 호이스팅(Hoisting)',
+    date: '2023-02-19',
+    folder: Folder.JAVASCRIPT,
+    preview: `호이스팅(Hoisting)은 JavaScript에서 변수와 함수 선언이 최상단으로 끌어올려지는 현상을 말합니다. 하지만 함수 선언식과 함수 표현식은 다르게 동작하므로 주의가 필요합니다.
+    `,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `호이스팅(Hoisting)은 JavaScript에서 변수와 함수 선언이 최상단으로 끌어올려지는 현상을 말합니다. 하지만 함수 선언식과 함수 표현식은 다르게 동작하므로 주의가 필요합니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `함수 선언식`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `함수 선언식은 전체가 호이스팅되기 때문에 함수를 선언하기 전에 호출해도 정상적으로 동작합니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `console.log(zero); // undefined
+sayWow(); // 'wow'
+
+function sayWow() {
+  console.log('wow');
+}
+
+var zero = 'zero';
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `함수 선언식인 sayWow는 전체가 끌어올려져서 호출 전에도 함수가 정의되어 있습니다. 아래 sayWow함수가 상단으로 끌여 올려진것과 같은 의미가 됩니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function sayWow() {
+  console.log('wow');
+}
+
+var zero;
+console.log(zero);
+sayWow();
+zero = 'zero';`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `함수 표현식`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `함수 표현식은 변수만 끌어올려지고 함수의 할당은 그대로 유지되기 때문에 호출하기 전에 변수에 함수를 할당해야 합니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `
+sayWow(); // 에러
+sayYeah(); // 에러
+
+var sayYeah = function() {
+  console.log('yeah');
+}
+
+function sayWow() {
+  console.log('wow');
+}
+`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value:
+          '함수 표현식인 sayYeah는 변수 선언만 호이스팅되어 sayYeah()를 호출하기 전에 함수를 할당해주지 않으면 에러가 발생합니다. 아래는 sayYeah가 호이스팅되어 상단으로 올려졌으나 값이 할당되지 않아 호출하면 에러를 발생시킵니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `var sayYeah;
+sayYeah(); // 에러
+
+sayYeah = function() {
+  console.log('yeah');
+}
+
+function sayWow() {
+  console.log('wow');
+}
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value:
+          '함수 표현식은 변수에 함수를 할당하는 형태이므로 변수 호이스팅은 발생하지만 함수의 할당은 유지되지 않아 함수를 먼저 호출할 수 없습니다. ',
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value:
+          '함수 표현식을 사용할 때는 변수에 함수가 할당된 이후에 호출하도록 유의해야 합니다.',
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `참고하면 좋은 링크</br>
+          https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0`,
+      },
+    ],
+  },
+  {
+    id: 10,
+    title: '컨텍스트와 실행 과정',
+    date: '2023-02-18',
+    folder: Folder.JAVASCRIPT,
+    preview: `호이스팅(Hoisting)은 JavaScript에서 변수와 함수 선언이 최상단으로 끌어올려지는 현상을 말합니다. 하지만 함수 선언식과 함수 표현식은 다르게 동작하므로 주의가 필요합니다.
+    `,
+    post: [
+      {
+        type: ComponentType.CODE,
+        value: `var name = 'zero'; 
+
+function wow(word) { 
+  console.log(word + ' ' + name); 
+}
+
+function say () { 
+  var name = 'nero'; 
+  console.log(name); 
+  wow('hello'); 
+}
+say();`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `일단 처음 브라우저가 스크립트를 로딩해서 실행하기 시작하는 순간 모든 것을 포함하는 전역 컨텍스트가 생깁니다. 모든 것을 관리하는 환경입니다. 페이지가 종료될 때까지 유지됩니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `1. 전역 컨텍스트(Global Context) 생성`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `전역 컨텍스트를 객체 형식으로 표현해보겠습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `변수객체: { name: 'zero', wow: Function, say: Function }
+scopeChain: ['전역 변수객체']
+this: window`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `전역 컨텍스트는 arguments(함수의 인자)가 없으며 variable은 해당 스코프의 변수들입니다. </br> name, wow, say가 있습니다.</br></br>
+        자신과 상위 스코프들의 변수객체인 scope chain생성 됩니다.</br>스코프 체인은 자기 자신인 전역 변수객체입니다.</br></br>
+        this는 따로 설정되어 있지 않으면 window입니다. </br>this를 바꾸는 방법이 바로 new를 호출하는 겁니다. </br>또는 함수에 다른 this 값을 bind할 수도 있습니다.</br></br>
+        일반 함수의 this가 왜 window인지 아시겠죠? </br>원래 기본적으로 window고 new나 bind같은 상황에서 this가 바뀌는 겁니다.
+        `,
+      },
+      {
+        type: ComponentType.H4,
+        value: `2. say 함수 호출 시 컨텍스트 생성`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `변수객체: { name: 'nero' }
+scopeChain: ['say 변수객체', '전역 변수객체']
+this: window`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `맨위 코드에서 say();호출 하는 순간 새로운 컨텍스트인 say함수 컨텍스트가 생깁니다. </br> 아까 전역 컨텍스트는 그대로 있습니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `say함수 실행`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `var name = 'nero';
+console.log(name); (결과: 'nero')
+wow('hello');;
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `say를 호출한 후 차례대로 say함수 내의 내용들이 실행하는데요.</br>
+        variable의 name에 nero를 대입해주고 나서 console.log(name);이 있습니다.</br></br>
+        
+        name 변수는 say 컨텍스트 안에서 찾으면 됩니다.</br>
+        variable에 name이 nero라고 되어 있네요. name이 콘솔에 찍힙니다.</br></br>
+        
+        그 다음엔 wow('hello')가 있습니다. </br>
+        say 컨텍스트 안에서 wow 변수를 찾을 수 없습니다.</br>
+        찾을 수 없다면 scope chain을 따라 올라가 상위 변수객체에서 찾습니다. 그래서 전역 변수객체에서 찾습니다. </br>전역 변수객체의 variable에 wow라는 함수가 있네요. 이걸 호출합니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `3. wow 함수 호출 시 컨텍스트 생성`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `변수객체: { arguments: { word: 'hello' } }
+scopeChain: ['wow 변수객체', '전역 변수객체']
+this: window`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `여기서 중요한 게 lexical scoping에 따라 wow 함수의 스코프 체인은 선언 시에 이미 정해져 있습니다. </br>
+        따라서 say 스코프는 wow 컨텍스트의 scope chain이 아닙니다. variable은 없고, this는 window입니다.</br></br>
+        이제 컨텍스트가 생긴 후 함수가 실행 됩니다. (say 함수는 아직 종료되지 않았습니다.)</br>
+       `,
+      },
+      {
+        type: ComponentType.H4,
+        value: `wow 함수 호출 실행`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `console.log(word + ' ' + name); 
+(word: 'hello', name: 'zero')
+(전역 컨텍스트의 name 변수를 참조)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: ` wow 함수 안에서 console.log(word + ' ' + name);이 있는데요.</br>
+        word랑 name 변수는 wow 컨텍스트에서 찾으시면 됩니다.</br></br>
+
+        word는 arguments에서 찾을 수 있고, name은 wow 변수객체에는 값이 없으니, scope chain을 따라 전역 스코프에서 찾을수 있습니다.</br></br>
+        전역 변수객체로 올라가니 variable에 name이 zero라고 되어 있네요. </br> 그래서 hello zero가 되는 겁니다. hello nero가 아니라요.</br> wow 컨텍스트에 따르면 wow 함수는 애초에 say 컨텍스트와 일절 관련이 없었던 겁니다.</br></br>
+
+        이제 wow 함수 종료 후 wow 컨텍스트가 사라지고, say 함수의 실행이 마무리됩니다. 따라서 say 컨텍스트도 사라지고, </br>마지막에 전역 컨텍스트도 사라집니다. 함수 실행, 변수 선언 등 모든 게 다 논리적입니다. </br></br>그래서 컨텍스트 개념을 이해하면 자바스크립트의 모든 문제들을 풀 수 있습니다. 정리하자면 `,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `전역 컨텍스트에 전역 변수가 선언되고, 함수 wow와 say가 변수객체에 할당됩니다.
+        say 함수가 호출되면 say 함수의 컨텍스트가 생성되고, 그 내부에서 name 변수가 'nero'로 초기화됩니다.
+        wow 함수가 say 함수 내에서 호출되면, wow 함수의 컨텍스트가 생성되고, 내부에서 word와 name 변수를 참조합니다.
+        wow 함수 내에서 name 변수는 전역 컨텍스트의 name 변수를 참조하여 'hello zero'를 출력합니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `참고 https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0`,
+      },
+    ],
+  },
+  {
+    id: 11,
+    title: '콜백 지옥(Callback Hell)과 프로미스(Promise)',
+    date: '2022-09-22',
+    folder: Folder.JAVASCRIPT,
+    preview: ` 비동기 프로그래밍에서 자주 발생하는 코드 구조의 한 종류로, 여러 비동기 동작이 중첩된 형태로 코드가 작성될 때 발생하는 가독성 저하와 유지보수의 어려움을 지칭합니다.`,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `콜백 지옥(Callback Hell)은 비동기 프로그래밍에서 자주 발생하는 코드 구조의 한 종류로, 여러 비동기 동작이 중첩된 형태로 코드가 작성될 때 발생하는 가독성 저하와 유지보수의 어려움을 지칭합니다. 주로 콜백 함수를 사용하는 상황에서 비동기적인 작업들이 중첩되어 발생하며, 코드가 길어질수록 가독성이 떨어지고 로직의 이해가 어려워지는 문제가 발생합니다. </br></br>
+
+      예를 들어, 서버에서 데이터를 받아오고, 그 데이터를 가공한 후 다시 서버에 전송하고, 그 응답을 받아와서 화면에 출력하는 일련의 비동기 동작들이 중첩되는 상황에서 콜백 지옥이 발생할 수 있습니다. 이러한 중첩된 콜백 함수들은 코드의 들여쓰기 수준이 깊어지고, 가독성이 떨어져 코드를 이해하기 어려워집니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `asyncFunction1(function(result1) {
+    asyncFunction2(result1, function(result2) {
+        asyncFunction3(result2, function(result3) {
+            // ...
+        });
+    });
+});`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이러한 중첩된 구조는 비동기 동작이 많아질수록 코드를 이해하기 어려워지며, 에러 처리 및 유지보수가 복잡해집니다.</br></br>
+
+        콜백 지옥을 해결하기 위한 방법으로는 Promise나 Async/Await와 같은 비동기 처리 방식을 활용하는 것이 있습니다. 이를 통해 코드의 가독성을 향상시키고, 비동기 동작들을 보다 명시적이고 관리하기 쉬운 형태로 구현할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `Promise나 Async/Await을 사용하여 콜백지옥을 해결하는 방법`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `콜백 지옥을 해결하기 위해 Promise나 Async/Await을 사용하는 것은 비동기 코드를 더 간결하고 가독성 있게 만들 수 있는 방법 중 하나입니다. 아래는 각각 Promise와 Async/Await을 사용하여 콜백 지옥을 해결하는 예제 코드입니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `1. Promise 사용`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function asyncFunction1() {
+      return new Promise((resolve) => {
+          // 비동기 작업 수행
+          setTimeout(() => {
+              console.log('Async Function 1');
+              resolve('Result from Async Function 1');
+          }, 1000);
+      });
+  }
+  
+  function asyncFunction2(result) {
+      return new Promise((resolve) => {
+          // 비동기 작업 수행
+          setTimeout(() => {
+              console.log('Async Function 2');
+              resolve('Result from Async Function 2');
+          }, 1000);
+      });
+  }
+  
+  function asyncFunction3(result) {
+      return new Promise((resolve) => {
+          // 비동기 작업 수행
+          setTimeout(() => {
+              console.log('Async Function 3');
+              resolve('Result from Async Function 3');
+          }, 1000);
+      });
+  }
+  
+  asyncFunction1()
+      .then((result1) => asyncFunction2(result1))
+      .then((result2) => asyncFunction3(result2))
+      .then((result3) => {
+          console.log('Final Result:', result3);
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
+      `,
+      },
+      {
+        type: ComponentType.H4,
+        value: `Async/Await 사용`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function asyncFunction1() {
+      return new Promise((resolve) => {
+          // 비동기 작업 수행
+          setTimeout(() => {
+              console.log('Async Function 1');
+              resolve('Result from Async Function 1');
+          }, 1000);
+      });
+  }
+  
+  function asyncFunction2(result) {
+      return new Promise((resolve) => {
+          // 비동기 작업 수행
+          setTimeout(() => {
+              console.log('Async Function 2');
+              resolve('Result from Async Function 2');
+          }, 1000);
+      });
+  }
+  
+  function asyncFunction3(result) {
+      return new Promise((resolve) => {
+          // 비동기 작업 수행
+          setTimeout(() => {
+              console.log('Async Function 3');
+              resolve('Result from Async Function 3');
+          }, 1000);
+      });
+  }
+  
+  async function runAsyncFunctions() {
+      try {
+          const result1 = await asyncFunction1();
+          const result2 = await asyncFunction2(result1);
+          const result3 = await asyncFunction3(result2);
+  
+          console.log('Final Result:', result3);
+      } catch (error) {
+          console.error('Error:', error);
+      }
+  }
+  
+  runAsyncFunctions();
+      `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위의 코드에서는 각각의 비동기 함수가 Promise를 반환하도록 작성되었고, 이를 순차적으로 호출하도록 then 또는 await을 사용하였습니다. async & await에서 예외를 처리하는 방법은 바로 try catch입니다. </br></br>
+        코드에서 발생한 네트워크 통신 오류뿐만 아니라 간단한 타입 오류 등의 일반적인 오류까지도 catch로 잡아낼 수 있습니다. 발견된 에러는 error 객체에 담기기 때문에 에러의 유형에 맞게 에러 코드를 처리해주시면 됩니다.</br></br>
+        프로미스를 사용하게 되면 프로미스 객체에 비동기 처리된 결과값이 저장되며 콜백의 경우 매번 비동기 함수를 호출하여 비동기처리된 결과값을 얻었다면 프로미스는 .then 메소드를 통해서 원하는 때에 저장되어 있는 비동기 값을 사용할 수 있습니다.</br></br>
+        Async & Await을 사용하면 비동기 코드를 동기 코드처럼 작성할 수 있습니다. 이로써 코드의 의도가 명확해지고 가독성이 향상됩니다. Async & Await을 사용하면 콜백 지옥을 피하고 비동기 코드를 구조적이고 명료하게 작성할 수 있습니다.`,
+      },
+    ],
+  },
+  {
+    id: 12,
+    title: '프로미스(Promise)의 세 가지 상태와 활용',
+    date: '2022-09-07',
+    folder: Folder.JAVASCRIPT,
+    preview: `프로미스를 사용할 때 알아야 하는 가장 기본적인 개념이 바로 프로미스의 상태(states)입니다. 여기서 말하는 상태란 프로미스의 처리 과정을 의미합니다. new Promise()로 프로미스를 생성하고 종료될 때까지 3가지 상태를 갖습니다..
+    `,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `프로미스는 비동기 처리를 위한 패턴 중 하나로, 세 가지 상태를 가지며 각각의 상태에 따라 처리 과정이 이뤄집니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `1. Pending(대기) 상태`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `프로미스가 생성되고 아직 비동기 처리가 완료되지 않은 초기 상태를 "대기" 상태라고 합니다. 아래는 프로미스를 생성하는 예제입니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const myPromise = new Promise((resolve, reject) => {
+  // 비동기 처리 로직...
+});
+        `,
+      },
+      {
+        type: ComponentType.H2,
+        value: `2. Fulfilled(이행) 상태`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `비동기 처리가 성공적으로 완료되면 프로미스는 "이행" 상태가 됩니다. resolve 함수를 호출하여 상태를 변경합니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const myPromise = new Promise((resolve, reject) => {
+  const data = "Success!";
+  resolve(data);
+});
+
+myPromise.then((result) => {
+  console.log(result); // "Success!"
+});
+        `,
+      },
+      {
+        type: ComponentType.H2,
+        value: `3. Rejected(실패) 상태`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `비동기 처리 중 오류가 발생하면 프로미스는 "실패" 상태가 됩니다. reject 함수를 호출하여 상태를 변경합니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const myPromise = new Promise((resolve, reject) => {
+  const error = new Error("Something went wrong!");
+  reject(error);
+});
+
+myPromise.catch((error) => {
+  console.error(error.message); // "Something went wrong!"
+});`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `프로미스를 사용하면 콜백 지옥을 피하고 비동기 코드를 더 간결하게 작성할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = true;
+      if (success) {
+        resolve("Data fetched successfully!");
+      } else {
+        reject("Error fetching data");
+      }
+    }, 2000);
+  });
+}
+
+fetchData()
+  .then((result) => {
+    console.log(result); // "Data fetched successfully!"
+  })
+  .catch((error) => {
+    console.error(error); // "Error fetching data"
+  });`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `프로미스를 사용하면 비동기 코드를 일관된 방식으로 처리하고, 세 가지 상태를 활용하여 처리 결과를 명확하게 다룰 수 있습니다. 이를 통해 코드의 가독성과 유지보수성이 향상됩니다.`,
+      },
+    ],
+  },
+  {
+    id: 13,
+    title: 'JWT와 토큰 관리 방법',
+    date: '2022-07-08',
+    folder: Folder.JAVASCRIPT,
+    preview: `액세스 토큰은 주로 인증된 사용자가 보호된 리소스에 접근할 수 있는 권한을 부여하는 데 사용되는 문자열입니다. 주로 웹 애플리케이션, 모바일 앱 등에서 사용자 인증 및 권한 부여에 쓰입니다. 여러 인증 프로토콜에서 사용되며, 대표적으로 OAuth 2.0에서 정의되어 있습니다.
+    `,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `JWT(JSON Web Token)는 JSON 객체를 사용하여 모바일이나 웹의 사용자 인증을 위해 사용하며 정보를 안전성 있게 암호화한 토큰을 의미한다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `Access Token`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `액세스 토큰은 주로 인증된 사용자가 보호된 리소스에 접근할 수 있는 권한을 부여하는 데 사용되는 문자열입니다. 주로 웹 애플리케이션, 모바일 앱 등에서 사용자 인증 및 권한 부여에 쓰입니다. 여러 인증 프로토콜에서 사용되며, 대표적으로 OAuth 2.0에서 정의되어 있으며</br></br>기본적으로 Access Token은 다음과 같은 특징을 가지고 있다.`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `<b>유효 기간(Expiration)</b> : Access Token은 일정 기간 동안만 유효하다. 일반적으로 짧은 시간(예: 2시간) 동안만 유효하며, 이 기간이 지나면 재발급이나 새로운 인증이 필요하다.
+
+        <b>권한 범위(범위)</b> : Access Token에는 사용자가 수행할 수 있는 특정 작업 또는 리소스에 대한 권한 범위가 지정된다. Scope는 해당 토큰으로 어떤 작업이 가능한지를 결정하는 데 사용된다.
+        
+        <b>발급자(Issuer)</b> : 토큰을 발급한 인증 서버(발급자)의 정보가 토큰에 포함될 수 있다. 클라이언트는 이 정보를 사용하여 토큰의 신뢰성을 확인할 수 있다.
+        
+        <b>서명(Signature)</b> : 보안을 강화하기 위해 토큰은 발급자에 의해 서명된다. 서명을 통해 토큰이 유효하며 조작되지 않았음을 검증할 수 있다.
+        
+        <b>사용자 식별 정보</b> : Access Token에는 사용자를 고유하게 식별할 수 있는 정보(사용자 ID 등)가 포함될 수 있다. 이를 통해 서버는 특정 사용자에 대한 작업을 수행할 수 있다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `Refresh token`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `access 토큰이 만료가 됐을 경우 access 토큰을 재발급 받을 수 있도록 서버에 요청할 수 있다. fresh token은 access token을 재발급받을 수 있는 token이다. 이 token은 서버에 저장되기 때문에(stateful) refresh token이 해커에 의해 탈취당했다고 판단되었을 때 서버에서 refresh token을 삭제함으로써 강제 로그아웃을 시킬 수 있다.</br></br>
+
+        이런 특징을 이용해서 access token + refresh token의 조합을 구성하면 access token의 경제적인 장점과 refresh token의 보안적인 장점을 둘 다 챙길 수 있다. access token은 보안 적으로 취약하니 2시간 정도로 짧게 가져가고, refresh token은 처리 비용이 많이 들기 때문에 2주 정도로 길게 가져가는 방식을 주로 사용한다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `client.interceptors.request.use(
+    function (config) {
+        const user = localStorage.getItem('user');
+        if (!user) {
+            config.headers["accessToken"] = null;
+            config.headers["refreshToken"] = null;
+            return config
+        }
+        const { accessToken, refreshToken } = JSON.parse(user)
+        config.headers["accessToken"] = accessToken;
+        config.headers["refreshToken"] = refreshToken;
+        return config
+    }
+)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `reqeust를 보낼때 localStorage에 token 정보가 있다면 헤더에 토큰 정보를 저장하고 없다면 null로 처리를 한다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `client.interceptors.response.use(
+    function (response) {
+        return response
+    },
+    async function (error) {
+      if (error.response && error.response.status === 403) {
+          try {
+              const originalRequest = error.config;
+              const data = await client.get('auth/refreshtoken')
+              if (data) {
+                  const {accessToken, refreshToken} = data.data
+                  localStorage.removeItem('user')
+                  localStorage.setItem('user', JSON.stringify(data.data, ['accessToken', 'refreshToken']))
+                  originalRequest.headers['accessToken'] = accessToken;
+                  originalRequest.headers['refreshToken'] = refreshToken;
+                  return await client.request(originalRequest);
+                  }
+          } catch (error){
+              localStorage.removeItem('user');
+              console.log(error);
+          }
+          return Promise.reject(error)
+      }
+      return Promise.reject(error)
+    }
+)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `response를 받았을 때, error가 발생했고 해당 error의 status가 403이라면 기존의 originalRequest를 auth/refreshtoken 으로 전달해 토큰을 재발급 받도록 한다.</br></br>
+        여기서 403 이외의 오류가 들어온다면 토큰 재발급에 실패한것으로 처리를 한다.</br></br>
+        재발급 받은 토큰을 다시 로컬스토리지에 저장 하고 헤더 부분에 토큰 정보를 변경하고 다시 originalRequest를 보낸다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import axios from 'axios';
+
+const client = axios.create({
+    baseURL: 'http://localhost:4000/'
+})
+
+client.interceptors.request.use(
+    function (config) {
+        const user = localStorage.getItem('user');
+        if (!user) {
+            config.headers["accessToken"] = null;
+            config.headers["refreshToken"] = null;
+            return config
+        }
+        const { accessToken, refreshToken } = JSON.parse(user)
+        config.headers["accessToken"] = accessToken;
+        config.headers["refreshToken"] = refreshToken;
+        return config
+    }
+)
+
+client.interceptors.response.use(
+    function (response) {
+        return response
+    },
+    async function (error) {
+      if (error.response && error.response.status === 403) {
+          try {
+              const originalRequest = error.config;
+              const data = await client.get('auth/refreshtoken')
+              if (data) {
+                  const {accessToken, refreshToken} = data.data
+                  localStorage.removeItem('user')
+                  localStorage.setItem('user', JSON.stringify(data.data, ['accessToken', 'refreshToken']))
+                  originalRequest.headers['accessToken'] = accessToken;
+                  originalRequest.headers['refreshToken'] = refreshToken;
+                  return await client.request(originalRequest);
+                  }
+          } catch (error){
+              localStorage.removeItem('user');
+              console.log(error);
+          }
+          return Promise.reject(error)
+      }
+      return Promise.reject(error)
+    }
+)
+
+export default client;`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `보안`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `CSRF(Cross Site Request Forgery)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `CSRF는 Cross-Site Request Forgery의 약자로, 한 사이트에서 인증된 사용자의 권한을 가로채어 다른 사이트에서 공격자가 의도한 동작을 수행하게 하는 공격이다. 이 공격은 사용자가 자신의 의지와 무관하게 공격자가 의도한 요청을 악의적인 웹사이트를 통해 전송함으로써 이루어진다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `CSRF 작동 원리`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `사용자가 특정 웹사이트에 로그인하여 인증을 받는다.
+          이 사용자가 다른 웹사이트(공격자의 사이트)를 방문한다.
+         공격자의 사이트에서는 사용자의 권한으로 특정 동작(예: 글쓰기, 계정 변경 등)을 요청하는 HTTP 요청을 생성한다.
+         이를 트리거하기 위해 공격자는 이미 로그인된 사용자의 브라우저에서 악의적인 요청을 보낼 수 있는 방법을 찾는다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `예시 시나리오`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `사용자 A가 은행 웹사이트에 로그인한다.
+        사용자 A가 악의적인 이메일 링크를 클릭하여 공격자의 웹사이트에 접속한다.
+        해당 웹사이트에서는 사용자 A의 권한으로 은행 웹사이트에 자동으로 자금 이체를 요청하는 HTTP 요청을 생성한다.
+        이를 통해 은행 웹사이트는 사용자 A의 권한으로 이체를 실행하게 된다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `XSS(Cross Site Scripting)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `XSS라고 불리는 이유는 CSS가 이미 약자가 있기 때문이고 code injection attack이라고도 한다.
+
+        XSS도 다양한 공격 방법이 있는데 우선은
+        <b>공격자가 의도하는 악의적인 js 코드를 피해자의 웹 브라우저에서 실행</b>시키는 것 정도로 알고 있으면 된다.
+        
+        이 방법으로 피해자 브라우저에 저장된 중요 정보들을 탈취 가능하다.`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `아무리 다른 공격(CSRF 등)에 대한 방비를 열심히 했다 해도 XSS가 뚫린다면 아무 소용이 없다. js코드로 의도하지 않은 request를 날린다던가 localStorage, 변수 값 등 모든 것이 탈취 가능하기 때문이다. XSS 공격 방지는 웹 보안의 뿌리이며 XSS 공격을 막는 것은 웹 보안을 위한 최소한의 조치이다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `해결 1) localStorage에 저장하는 방법`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `CSRF 공격에는 안전하다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `그 이유는 자동으로 request에 담기는 쿠키와는 다르게 js 코드에 의해 헤더에 담기므로 XSS를 뚫지 않는 이상 공격자가 정상적인 사용자인 척 request를 보내기가 어렵다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `XSS에 취약하다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `공격자가 localStorage에 접근하는 js 코드 한 줄만 주입하면 localStorage를 공격자가 내 집처럼 드나들 수 있다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `해결 2) cookie에 저장하는 방법`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `XSS 공격으로부터 localStorage에 비해 안전하다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `쿠키의 httpOnly 옵션을 사용하면 Js에서 쿠키에 접근 자체가 불가능하다.</br>
+        그래서 XSS 공격으로 쿠키 정보를 탈취할 수 없다.(httpOnly 옵션은 서버에서 설정할 수 있음) 하지만 XSS 공격으로부터 완전히 안전한 것은 아니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `httpOnly 옵션으로 쿠키의 내용을 볼 수 없다 해도 js로 request를 보낼 수 있으므로 자동으로 request에 실리는 쿠키의 특성 상 사용자의 컴퓨터에서 요청을 위조할 수 있기 때문이다.</br>
+        공격자가 귀찮을 뿐이지 XSS가 뚫린다면 httpOnly cookie도 안전하진 않다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `CSRF 공격에 취약하다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `자동으로 http request에 담아서 보내기 때문에 공격자가 request url만 안다면 사용자가 관련 link를 클릭하도록 유도하여 request를 위조하기 쉽다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `해결 3 : refresh token 사용하는 방법`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `가장 좋은 방법으로는 refresh token을 사용하는 방법이 있다. CSRF 공격으로부터 안전한 환경을 유지하기 위해 쿠키에 SameSite 속성을 설정하고, 리프레시 토큰을 활용하여 요청의 유효성을 검증하는 방법이다. 백엔드 api 개발자와 소통이 가능하다면 refresh token을 httpOnly 쿠키로 설정하고
+        url이 새로고침 될 때마다 refresh token을 request에 담아 새로운 accessToken을 발급 받는다. </br></br>
+        
+        발급 받은 accessToken은 js private variable에 저장한다.</br></br>
+        
+        이런 방식을 사용하는 경우, refresh token이 CSRF에 의해 사용된다 하더라도 공격자는 accessToken을 알 수 없다.</br></br>
+        
+        CSRF는 피해자의 컴퓨터를 제어할 수 있는 것이 아니기 때문이다. 요청을 위조하여 피해자가 의도하지 않은 서버 동작을 일으키는 공격방법이기 때문에 refresh token을 통해 받아온 response(accessToken)는 공격자가 확인할 수 없다.</br></br>
+        
+        따라서 쿠키를 사용하여 XSS를 막고 refresh token 방식을 이용하여 CSRF를 막을 수 있다.`,
       },
     ],
   },
@@ -842,7 +1776,7 @@ export const algorithmPostlist = [
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.H4,
@@ -850,7 +1784,7 @@ export const algorithmPostlist = [
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -859,7 +1793,7 @@ export const algorithmPostlist = [
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -915,7 +1849,7 @@ export const algorithmPostlist = [
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -927,7 +1861,7 @@ export const algorithmPostlist = [
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -935,7 +1869,7 @@ export const algorithmPostlist = [
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1021,7 +1955,7 @@ function solution(s) {
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1029,7 +1963,7 @@ function solution(s) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1037,7 +1971,7 @@ function solution(s) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `📝 입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1099,7 +2033,7 @@ function solution(s) {
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1109,7 +2043,7 @@ function solution(s) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1117,7 +2051,7 @@ function solution(s) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1193,7 +2127,7 @@ function solution(l, r) {
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1206,7 +2140,7 @@ function solution(l, r) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1218,7 +2152,7 @@ function solution(l, r) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1292,7 +2226,7 @@ function solution(l, r) {
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1303,7 +2237,7 @@ function solution(l, r) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1314,7 +2248,7 @@ function solution(l, r) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1380,7 +2314,7 @@ function solution(l, r) {
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1473,7 +2407,7 @@ function solution(l, r) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.STRINGLIST,
@@ -1489,7 +2423,7 @@ function solution(l, r) {
       },
       {
         type: 'h4',
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1565,7 +2499,7 @@ function solution(l, r) {
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1601,7 +2535,7 @@ function solution(l, r) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1613,7 +2547,7 @@ function solution(l, r) {
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1644,7 +2578,7 @@ function solution(l, r) {
         headgear에 해당하는 의상이 yellow_hat, green_turban이고 eyewear에 해당하는 의상이 blue_sunglasses이므로 아래와 같이 5개의 조합이 가능합니다.`,
       },
       {
-        type: ComponentType.NUMLIST,
+        type: ComponentType.STRINGLIST,
         value: `
 1. yellow_hat</br>
 2. blue_sunglasses</br>
@@ -1659,7 +2593,7 @@ function solution(l, r) {
 face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로 아래와 같이 3개의 조합이 가능합니다.`,
       },
       {
-        type: ComponentType.NUMLIST,
+        type: ComponentType.STRINGLIST,
         value: `
         예제 #2 </br>
         1. crow_mask</br>
@@ -1699,7 +2633,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
     post: [
       {
         type: 'h4',
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1710,7 +2644,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1721,7 +2655,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1788,7 +2722,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1799,7 +2733,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1809,7 +2743,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `📝 입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1891,7 +2825,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1901,7 +2835,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1915,7 +2849,7 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -1975,7 +2909,7 @@ console.log(solution(28, arr));`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1984,7 +2918,7 @@ console.log(solution(28, arr));`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -1997,7 +2931,7 @@ console.log(solution(28, arr));`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -2053,7 +2987,7 @@ console.log(solution(10, 3, arr));`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -2061,7 +2995,7 @@ console.log(solution(10, 3, arr));`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -2070,7 +3004,7 @@ console.log(solution(10, 3, arr));`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -2119,7 +3053,7 @@ let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -2128,7 +3062,7 @@ let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -2137,7 +3071,7 @@ let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -2191,7 +3125,7 @@ console.log(solution(str));`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -2222,7 +3156,7 @@ console.log(solution(str));`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -2231,7 +3165,7 @@ console.log(solution(str));`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -2278,7 +3212,7 @@ let str="352+*9-";
 console.log(solution(str));`,
       },
       {
-        type: ComponentType.NUMLIST,
+        type: ComponentType.STRINGLIST,
         value: `1. ( 여는 괄호를 만나면 스택에 푸쉬 해준다.</br>
           2. ) 닫기 괄호를 만나면 스택의 마지막 값이 ( 일 경우 레이저로 간주해 준다.</br>
           3. 레이저일 경우 스택에서 레이저 열기 괄호를 pop() 해준다.</br>
@@ -2299,7 +3233,7 @@ console.log(solution(str));`,
     post: [
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 문제 설명</h4>`,
+        value: `문제 설명`,
       },
       {
         type: ComponentType.NORMAL,
@@ -2314,7 +3248,7 @@ console.log(solution(str));`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 제한 사항</h4>`,
+        value: `제한 사항`,
       },
       {
         type: ComponentType.NORMAL,
@@ -2323,7 +3257,7 @@ console.log(solution(str));`,
       },
       {
         type: ComponentType.H4,
-        value: `<h4 class=${style.h4}>📝 입출력 예</h4>`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
