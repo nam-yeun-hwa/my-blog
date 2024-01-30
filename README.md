@@ -15,6 +15,26 @@ next.js 14버전을 이용하여 개인 블로그를 만들어 보도록 한다.
 - redux-toolkit 
 
 
+# 폴더구조
+
+<pre>
+├── public
+└── src
+    └── app
+         ├── _components --- 공통컴포넌트 
+         ├── @modal --- 모달
+         ├── algorithm --- 페이지
+         ├── archives --- 페이지
+         ├── algorithm --- 페이지
+         ├── categories --- 페이지
+         ├── posts - 페이지
+         │    ├── [postid] 
+         │    │      ├── page.module.css 
+         │    │      ├── page.tsx 
+         │    └── page.tsx 
+         ├── tags --- 페이지
+         └── update --- 페이지
+</pre>
 # Troubleshooting
 
 ## 이슈
