@@ -90,6 +90,7 @@ textarea:not([rows]) {
 
 /* 추가 */
 a {
+  color: #0056b2 !important;
   text-decoration: none;
 }
 
