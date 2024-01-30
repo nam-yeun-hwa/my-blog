@@ -63,14 +63,12 @@ export default function PostPageing() {
 
   return (
     <>
-      <main className={style.main_wrapper}>
-        <div className={style.post_list}>
-          {postList.map((value, idx) => {
-            return <Post key={value.id} post={value} />;
-          })}
-          <div ref={ref} style={{ height: '10px' }}></div>
-        </div>
-      </main>
+      <div className={style.post_list}>
+        {postList.map((value, idx) => {
+          return <Post key={value.id} post={value} />;
+        })}
+        <div ref={ref} style={{ height: '10px' }}></div>
+      </div>
     </>
   );
 }

@@ -108,8 +108,10 @@ function Layout({ children, modal }: Props) {
         <div className={style.container}>
           <BreadCrumb />
           <div className={style.contents}>
-            {children}
-            {modal}
+            <main className={style.inner_content}>
+              {children}
+              {modal}
+            </main>
             <Panel />
           </div>
         </div>

@@ -67,14 +67,12 @@ export default function AlgorithmPageing() {
   }, [inView, algorithmList, isFetching]);
   return (
     <>
-      <main className={style.main_wrapper}>
-        <div className={style.post_list}>
-          {algorithmList.map((value, idx) => {
-            return <AlgorithmPost key={value.id} post={value} />;
-          })}
-          <div ref={ref} style={{ height: '10px' }}></div>
-        </div>
-      </main>
+      <div className={style.post_list}>
+        {algorithmList.map((value, idx) => {
+          return <AlgorithmPost key={value.id} post={value} />;
+        })}
+        <div ref={ref} style={{ height: '10px' }}></div>
+      </div>
     </>
   );
 }

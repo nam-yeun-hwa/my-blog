@@ -6,6 +6,16 @@
   font-family: var(--font-IBM_Plex_Sans_KR);
 }
 
+.inner_content {
+  flex: 0 0 auto;
+  width: 75%;
+
+  overflow: scroll;
+
+  padding-right: 4.5rem !important;
+  padding-left: 1.5rem !important;
+}
+
 /* main wrapper : e */
 
 /* 사이드 메뉴 : start */
