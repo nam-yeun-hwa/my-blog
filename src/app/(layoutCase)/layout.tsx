@@ -6,6 +6,8 @@ import Image from 'next/image';
 import profileImg from '../../../public/profile1.jpg';
 import cx from 'classnames';
 import { ReactNode } from 'react';
+import BreadCrumb from 'app/_component/common/BreadCrumb';
+import Panel from 'app/_component/common/Panel';
 
 type Props = {
   children: ReactNode;
@@ -104,8 +106,12 @@ function Layout({ children, modal }: Props) {
       </aside>
       <div className={style.main_wrapper}>
         <div className={style.container}>
-          {children}
-          {modal}
+          <BreadCrumb />
+          <div className={style.contents}>
+            {children}
+            {modal}
+            <Panel />
+          </div>
         </div>
       </div>
     </>

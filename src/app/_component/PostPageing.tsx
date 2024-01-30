@@ -63,18 +63,14 @@ export default function PostPageing() {
 
   return (
     <>
-      <BreadCrumb />
-      <div className={style.contents}>
-        <main className={style.main_wrapper}>
-          <div className={style.post_list}>
-            {postList.map((value, idx) => {
-              return <Post key={value.id} post={value} />;
-            })}
-            <div ref={ref} style={{ height: '10px' }}></div>
-          </div>
-        </main>
-        <Panel />
-      </div>
+      <main className={style.main_wrapper}>
+        <div className={style.post_list}>
+          {postList.map((value, idx) => {
+            return <Post key={value.id} post={value} />;
+          })}
+          <div ref={ref} style={{ height: '10px' }}></div>
+        </div>
+      </main>
     </>
   );
 }
