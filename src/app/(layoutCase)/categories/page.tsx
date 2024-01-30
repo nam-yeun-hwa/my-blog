@@ -1,5 +1,9 @@
-import BreadCrumb from 'app/_component/common/BreadCrumb';
+import PageHeading from 'app/_component/common/PageHeading';
 
 export default function categories() {
-  return <>askfjalksdj</>;
+  return (
+    <article>
+      <PageHeading pageTitle="Categories" />
+    </article>
+  );
 }

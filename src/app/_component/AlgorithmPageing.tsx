@@ -8,12 +8,12 @@ import BreadCrumb from 'app/_component/common/BreadCrumb';
 import { algorithmPostlist } from 'data/db';
 import style from './postPageing.module.css';
 import Panel from 'app/_component/common/Panel';
-import Post from 'app/(layoutCase)/_component/Post';
+import Post from 'app/_component/Post';
 import {
   rdxSetAlgorithmData,
   rdxSetFetching,
 } from 'app/(layoutCase)/_component/store/algorithm/index';
-import AlgorithmPost from 'app/(layoutCase)/_component/AlgorithmPost';
+import AlgorithmPost from 'app/_component/AlgorithmPost';
 
 export default function AlgorithmPageing() {
   const { ref, inView } = useInView({
