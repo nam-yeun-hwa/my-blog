@@ -76,6 +76,10 @@ export default function about() {
       <br />
       <b> 2023-01-24 </b> <br />
       알고리즘 카테고리 생성
+      <br />
+      <br />
+      <b> 2023-01-30 </b> <br />
+      카테고리 페이지 개발 시작
     </div>
   );
 }
