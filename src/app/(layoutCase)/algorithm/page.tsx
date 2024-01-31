@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import AlgorithmPageing from 'app/_component/AlgorithmPageing';
 export default function algorithm() {
   return (
-    <Provider store={store}>
-      <AlgorithmPageing />
-    </Provider>
+    // <Provider store={store}>
+    <AlgorithmPageing />
+    // </Provider>
   );
 }
 

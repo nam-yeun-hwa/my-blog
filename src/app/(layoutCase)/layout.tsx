@@ -8,6 +8,8 @@ import cx from 'classnames';
 import { ReactNode } from 'react';
 import BreadCrumb from 'app/_component/common/BreadCrumb';
 import Panel from 'app/_component/common/Panel';
+import { Provider } from 'react-redux';
+import { store } from 'app/(layoutCase)/_component/store/index';
 
 type Props = {
   children: ReactNode;
@@ -86,10 +88,10 @@ function Layout({ children, modal }: Props) {
             >
               <Link className={style.nav_link} href={'/algorithm'}>
                 <i className={`fa-solid fa-mug-saucer ${style.ico}`}></i>
-                <span className={style.nav_txt}>ALGORITHM</span>
+                <span className={style.nav_txt}>CODEING</span>
               </Link>
             </li>
-            <li
+            {/* <li
               className={cx(
                 style.nav_item,
                 segment === 'about' && style.active,
@@ -99,7 +101,7 @@ function Layout({ children, modal }: Props) {
                 <i className={`fa-fw fas fa-info-circle ${style.ico}`}></i>
                 <span className={style.nav_txt}>UPDATE</span>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
         <div className="sidebar-bottom"></div>
@@ -109,8 +111,10 @@ function Layout({ children, modal }: Props) {
           <BreadCrumb />
           <div className={style.contents}>
             <main className={style.inner_content}>
-              {children}
-              {modal}
+              <Provider store={store}>
+                {children}
+                {modal}
+              </Provider>
             </main>
             <Panel />
           </div>

@@ -5,9 +5,9 @@ import { store } from 'app/(layoutCase)/_component/store/index';
 import { Provider } from 'react-redux';
 export default function posts() {
   return (
-    <Provider store={store}>
-      <PostPageing />
-    </Provider>
+    // <Provider store={store}>
+    <PostPageing />
+    // </Provider>
   );
 }
 

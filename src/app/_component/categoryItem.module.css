@@ -1,0 +1,30 @@
+.list_group_item:last-child {
+  border-radius: 0.625rem;
+  /* border-bottom: 0; */
+}
+
+.list_group_item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #212529;
+  text-decoration: none;
+  background-color: #fff;
+  border-bottom: 1px solid #dee2e6;
+  padding-left: 2rem;
+}
+
+.ico_list {
+  font-size: 86%;
+  color: gray;
+}
+
+.text_muted {
+  font-size: 0.875em;
+  color: #757575;
+}
+
+.categories_tit {
+  margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
+}
