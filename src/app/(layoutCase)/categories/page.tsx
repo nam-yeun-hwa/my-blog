@@ -16,8 +16,7 @@ export default function Categories() {
           <div
             className={cx(
               style.card_header,
-              toggle && style.card_categories_border,
-              toggle && style.card_categories_hide_border_bottom,
+              !toggle && style.card_categories_hide_border_bottom,
             )}
           >
             <span className={style.card_text}>
