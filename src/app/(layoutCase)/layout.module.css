@@ -79,6 +79,10 @@
   padding: 0px 18px;
 }
 
+.nav_item:hover {
+  background-color: var(--sidebar-hover-bg);
+}
+
 .nav_link {
   height: 40px;
   display: flex;
@@ -89,10 +93,6 @@
 }
 .active {
   color: var(--sidebar-active-color);
-  background-color: var(--sidebar-hover-bg);
-}
-
-.nav_item:hover {
   background-color: var(--sidebar-hover-bg);
 }
 
