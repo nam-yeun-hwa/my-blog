@@ -1,0 +1,141 @@
+.content {
+}
+
+.year {
+  font-size: 1.5rem;
+  font-weight: 300;
+  height: 3.5rem;
+  font-size: 1.5rem;
+  position: relative;
+  left: 2px;
+  margin-left: -4px;
+  display: block !important;
+  font-weight: 300;
+  overflow-wrap: break-word;
+  font-weight: 400;
+}
+
+.year::before {
+  height: 32px;
+  top: 24px;
+  left: 79px;
+  bottom: 16px;
+  content: '';
+  width: 4px;
+  position: relative;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.year::after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  left: 21.5px;
+  border: 3px solid;
+  background-color: #ffffff;
+  border-color: #c2c6cc;
+  box-shadow: 0 0 2px 0 #c2c6cc;
+  z-index: 1;
+}
+
+.list_unstyled {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.list_item {
+  font-size: 1.1rem;
+  line-height: 3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  background-image: linear-gradient(
+    to left,
+    #ffffff,
+    #fbfbfb,
+    #fbfbfb,
+    #fbfbfb,
+    #ffffff
+  );
+}
+
+.list_item::before {
+  top: 0;
+  left: 77px;
+  height: 3.1rem;
+  content: '';
+  width: 4px;
+  position: relative;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.075);
+  font-size: 1.1rem;
+  line-height: 3rem;
+  white-space: nowrap;
+}
+
+.list_link {
+  border-bottom: none;
+  margin-left: 2.5rem;
+  position: relative;
+  top: 0.1rem;
+  letter-spacing: 0.03rem;
+}
+
+.list_link::before {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  content: '';
+  border-radius: 50%;
+  float: left;
+  top: 1.35rem;
+  left: 71px;
+  background-color: #c2c6cc;
+  box-shadow: 0 0 3px 0 #c2c6cc;
+  z-index: 1;
+}
+
+.list_item:last-child::before {
+  height: 1.5rem;
+  top: 0;
+  left: 77px;
+}
+
+.date {
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  right: 0.5rem;
+}
+
+.day {
+  font-size: 15px;
+  font-family: Lato, sans-serif;
+  color: #34343c;
+  line-height: 3rem;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  right: 0.5rem;
+  letter-spacing: 0.03rem;
+}
+
+.month {
+  width: 1.4rem;
+  text-align: center;
+  color: #757575;
+  margin-left: 0.5rem !important;
+  font-size: 0.875em;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  right: 0.5rem;
+}

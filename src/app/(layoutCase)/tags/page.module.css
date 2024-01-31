@@ -1,0 +1,29 @@
+.content {
+}
+
+.tag_container {
+  flex-wrap: wrap !important;
+  margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
+  display: flex !important;
+}
+
+.tag_item {
+}
+
+.tag_item_link {
+  border-radius: 0.7em;
+  padding: 6px 8px 7px;
+  margin-right: 0.8rem;
+  line-height: 3rem;
+  letter-spacing: 0;
+  border: 1px solid #dee2e6 !important;
+  box-shadow: 0 0 3px 0 #e9ecef;
+}
+
+.text_muted {
+  margin-left: 0.6em;
+  font-size: 0.7em;
+  font-family: Oswald, sans-serif;
+  color: #757575;
+}
