@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 
 export default function page() {
   return (
-    <Provider store={store}>
-      <PostPageing />
-    </Provider>
+    // <Provider store={store}>
+    <PostPageing />
+    // </Provider>
   );
 }

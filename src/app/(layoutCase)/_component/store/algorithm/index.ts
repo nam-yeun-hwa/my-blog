@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ComponentType, Folder, IAlgorithmPost, IPost, Level } from 'type/post';
-import style from 'app/(layoutCase)/_component/post.module.css';
 import tableStyle from 'app/_component/detailPage/table.module.css';
 
 type algorithmType = {

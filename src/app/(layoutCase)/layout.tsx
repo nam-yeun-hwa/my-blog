@@ -88,7 +88,7 @@ function Layout({ children, modal }: Props) {
             >
               <Link className={style.nav_link} href={'/algorithm'}>
                 <i className={`fa-solid fa-mug-saucer ${style.ico}`}></i>
-                <span className={style.nav_txt}>CODEING</span>
+                <span className={style.nav_txt}>CODING</span>
               </Link>
             </li>
             {/* <li

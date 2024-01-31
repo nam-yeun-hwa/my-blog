@@ -735,7 +735,7 @@ console.log(blockScopedVar); // 에러: blockScopedVar is not defined`,
       },
       {
         type: ComponentType.EMPHASIS,
-        value: `var를 사용하는 경우에는 같은 유효범위에서 같은 이름의 변수를 다시 선언할 수 잇지만</br>
+        value: `var를 사용하는 경우에는 같은 유효범위에서 같은 이름의 변수를 다시 선언할 수 있지만</br>
         let과 const는 같은 이름이 변수를 다시 선언할 수 없습니다.`,
       },
       {
