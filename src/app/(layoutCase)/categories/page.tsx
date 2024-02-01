@@ -8,13 +8,12 @@ import cx from 'classnames';
 import CategoryItem from 'app/_component/CategoryItem';
 import { useSelector } from 'react-redux';
 import { RootState } from '../_component/store';
+import { totalPostlist } from 'data/db';
 
 export default function Categories() {
   const [toggle, setToggle] = useState(false);
 
-  const { postList, folderList } = useSelector(
-    (state: RootState) => state.postStore,
-  );
+  const { folderList } = useSelector((state: RootState) => state.postStore);
 
   return (
     <article>
@@ -35,7 +34,7 @@ export default function Categories() {
                 Blogging
               </Link>
               <span className={style.text_muted}>
-                {`${folderList.length} categories , ${postList.length} posts`}{' '}
+                {`${folderList.length} categories , ${totalPostlist.length} posts`}{' '}
               </span>
             </span>
             <button
@@ -52,13 +51,15 @@ export default function Categories() {
             className={cx(style.collapse, toggle && style.collapse_ani)}
           >
             <ul className={style.ul_list_group}>
-              {folderList.map((value, idx) => {
+              {totalPostlist.map((value, idx) => {
                 return (
                   <CategoryItem
                     key={idx}
-                    category={value}
+                    category={value.folder}
                     count={
-                      postList.filter((item) => item.folder === value).length
+                      totalPostlist.filter(
+                        (item) => item.folder === value.folder,
+                      ).length
                     }
                   />
                 );

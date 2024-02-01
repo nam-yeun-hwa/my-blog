@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ComponentType, Folder, IPost } from 'type/post';
 import style from 'app/(layoutCase)/_component/post.module.css';
+import { totalPostlist } from 'data/db';
 
 type postType = {
   postList: Array<IPost>;
@@ -534,14 +535,16 @@ const postStore = createSlice({
   initialState: {
     postList: initialValue,
     isFetching: false,
-    folderList: ['React', 'Javascript'],
+    folderList: Array.from(
+      new Set<string>(totalPostlist.map((item) => item.folder)),
+    ),
   } as postType,
   reducers: {
     rdxSetPostData(state, action: PayloadAction<Array<IPost>>) {
       state.postList = action.payload;
-      state.folderList = Array.from(
-        new Set<string>(state.postList.map((item) => item.folder)),
-      );
+      // state.folderList = Array.from(
+      //   new Set<string>(state.postList.map((item) => item.folder)),
+      // );
     },
     rdxSetFetching(state, action: PayloadAction<boolean>) {
       state.isFetching = action.payload;
