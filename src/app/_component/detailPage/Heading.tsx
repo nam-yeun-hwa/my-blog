@@ -1,4 +1,4 @@
-import style from 'app/(layoutCase)/posts/[postid]/page.module.css';
+import style from 'app/_component/common/postDetail.module.css';
 import { ComponentType } from 'type/post';
 
 type Props = {

@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import style from './page.module.css';
 import PageHeading from 'app/_component/common/PageHeading';
-import { useSelector } from 'react-redux';
-import { RootState } from 'app/(layoutCase)/_component/store';
 import dayjs from 'dayjs';
 import { totalPostlist } from 'data/db';
 require('dayjs/locale/en'); // 영어로 날짜 포맷을 사용하기 위해 영어 로케일을 추가
@@ -26,7 +24,10 @@ export default function ListbyCategory({ params }: Props) {
           .map((item) => {
             return (
               <li key={item.id} className={style.category_item_list}>
-                <Link href={``} className={style.tit}>
+                <Link
+                  href={`/categories/${params.categoryname}/${item.id}`}
+                  className={style.tit}
+                >
                   {item.title}
                 </Link>
                 <span className={style.dash}></span>
