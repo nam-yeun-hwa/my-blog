@@ -11,17 +11,10 @@ import { RootState } from '../_component/store';
 
 export default function Categories() {
   const [toggle, setToggle] = useState(false);
-  const [folderList, setFolderList] = useState<Array<string>>([]);
 
-  const { postList } = useSelector((state: RootState) => state.postStore);
-
-  useEffect(() => {
-    //폴더리스트 가져오기
-    const tempFolderList: Array<string> = Array.from(
-      new Set<string>(postList.map((item) => item.folder)),
-    );
-    setFolderList(tempFolderList);
-  }, [postList]);
+  const { postList, folderList } = useSelector(
+    (state: RootState) => state.postStore,
+  );
 
   return (
     <article>

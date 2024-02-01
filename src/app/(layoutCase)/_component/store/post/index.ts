@@ -5,6 +5,7 @@ import style from 'app/(layoutCase)/_component/post.module.css';
 type postType = {
   postList: Array<IPost>;
   isFetching: boolean;
+  folderList: Array<string>;
 };
 
 const initialValue = [
@@ -530,10 +531,17 @@ button.addEventListener('click', function() {
 ];
 const postStore = createSlice({
   name: 'postStore',
-  initialState: { postList: initialValue, isFetching: false } as postType,
+  initialState: {
+    postList: initialValue,
+    isFetching: false,
+    folderList: ['React', 'Javascript'],
+  } as postType,
   reducers: {
     rdxSetPostData(state, action: PayloadAction<Array<IPost>>) {
       state.postList = action.payload;
+      state.folderList = Array.from(
+        new Set<string>(state.postList.map((item) => item.folder)),
+      );
     },
     rdxSetFetching(state, action: PayloadAction<boolean>) {
       state.isFetching = action.payload;
