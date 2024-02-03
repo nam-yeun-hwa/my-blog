@@ -5,7 +5,7 @@ import style from './postDetail.module.css';
 import Link from 'next/link';
 import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
 import Prompts from 'app/_component/detailPage/Prompts';
-import { ComponentType, IPost } from 'type/post';
+import { ComponentType, IAlgorithmPost, IPost } from 'type/post';
 import { totalPostlist } from 'data/db';
 import Footer from 'app/_component/common/Footer';
 import Panel from 'app/_component/common/Panel';

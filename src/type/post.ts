@@ -5,7 +5,7 @@
 export interface IPost {
   id: number;
   title: string;
-  date: any;
+  date: string;
   folder: Folder;
   preview: string;
   post: Array<{ type: string; value: string }>;
