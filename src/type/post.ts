@@ -9,6 +9,7 @@ export interface IPost {
   folder: Folder;
   preview: string;
   post: Array<{ type: string; value: string }>;
+  tag?: Array<string>;
 }
 
 /**

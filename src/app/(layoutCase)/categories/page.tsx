@@ -8,7 +8,7 @@ import cx from 'classnames';
 import CategoryItem from 'app/_component/CategoryItem';
 import { useSelector } from 'react-redux';
 import { RootState } from '../_component/store';
-import { totalPostlist } from 'data/db';
+import { totalPostlist } from 'data/post_db';
 
 export default function Categories() {
   const [toggle, setToggle] = useState(false);

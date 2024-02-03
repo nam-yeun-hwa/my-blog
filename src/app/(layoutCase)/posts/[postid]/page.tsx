@@ -10,6 +10,6 @@ type Props = {
 // 엔터 값 검색 정규 표현식
 // var enterRegex = /^.*$/gm;
 
-export default function Post({ params }: Props) {
+export default function PostPage({ params }: Props) {
   return <PostDetail postid={params.postid} />;
 }

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
 import Prompts from 'app/_component/detailPage/Prompts';
 import { ComponentType, IAlgorithmPost, IPost } from 'type/post';
-import { totalPostlist } from 'data/db';
+import { totalPostlist } from 'data/post_db';
 import Footer from 'app/_component/common/Footer';
 import Panel from 'app/_component/common/Panel';
 import Table from 'app/_component/detailPage/Table';

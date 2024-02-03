@@ -5,7 +5,7 @@ import { RootState, store } from 'app/(layoutCase)/_component/store/index';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
 import BreadCrumb from 'app/_component/common/BreadCrumb';
-import { algorithmPostlist } from 'data/db';
+import { algorithmPostlist } from 'data/post_db';
 import style from './postPageing.module.css';
 import Panel from 'app/_component/common/Panel';
 import Post from 'app/_component/Post';

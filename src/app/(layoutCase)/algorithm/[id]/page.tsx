@@ -1,23 +1,19 @@
-'use client';
-
-import BreadCrumb from 'app/_component/common/BreadCrumb';
 import style from './page.module.css';
 import Link from 'next/link';
 import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
 import Prompts from 'app/_component/detailPage/Prompts';
 import { ComponentType, IPost } from 'type/post';
-import { algorithmPostlist } from 'data/db';
 import Footer from 'app/_component/common/Footer';
-import Panel from 'app/_component/common/Panel';
 import Table from 'app/_component/detailPage/Table';
 import StringDot from 'app/_component/detailPage/ListStyle';
+import { algorithmPostlist } from 'data/algorithm_db';
 
 type Props = {
   params: { id: string };
   detail: IPost;
 };
 
-export default function AlgoritmPage({ params, detail }: Props) {
+export default function AlgoritmPage({ params }: Props) {
   const { id, title, date, folder, post } =
     algorithmPostlist[parseInt(params.id) - 1];
 

@@ -1,6 +1,6 @@
 import PostPageing from 'app/_component/PostPageing';
 
-export default function posts() {
+export default function ListbyPosts() {
   return <PostPageing />;
 }
 

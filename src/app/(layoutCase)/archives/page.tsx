@@ -1,7 +1,7 @@
 import PageHeading from 'app/_component/common/PageHeading';
 import style from './page.module.css';
 import Link from 'next/link';
-import { totalPostlist } from 'data/db';
+import { totalPostlist } from 'data/post_db';
 import dayjs from 'dayjs';
 
 //데이타에서 사용된 년도

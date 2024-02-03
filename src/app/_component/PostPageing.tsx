@@ -5,7 +5,7 @@ import BreadCrumb from './common/BreadCrumb';
 import style from './postPageing.module.css';
 import { useEffect } from 'react';
 
-import { totalPostlist } from 'data/db';
+import { totalPostlist } from 'data/post_db';
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';
 import {

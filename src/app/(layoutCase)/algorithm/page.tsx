@@ -5,11 +5,7 @@ import { store } from 'app/(layoutCase)/_component/store/index';
 import { Provider } from 'react-redux';
 import AlgorithmPageing from 'app/_component/AlgorithmPageing';
 export default function algorithm() {
-  return (
-    // <Provider store={store}>
-    <AlgorithmPageing />
-    // </Provider>
-  );
+  return <AlgorithmPageing />;
 }
 
 //992px

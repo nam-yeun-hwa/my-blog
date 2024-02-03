@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ComponentType, Folder, IPost } from 'type/post';
 import style from 'app/(layoutCase)/_component/post.module.css';
-import { totalPostlist } from 'data/db';
+import { totalPostlist } from 'data/post_db';
 
 type postType = {
   postList: Array<IPost>;
