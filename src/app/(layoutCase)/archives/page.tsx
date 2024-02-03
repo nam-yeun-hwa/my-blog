@@ -1,10 +1,7 @@
-'use client';
-
 import PageHeading from 'app/_component/common/PageHeading';
 import style from './page.module.css';
 import Link from 'next/link';
 import { totalPostlist } from 'data/db';
-import { useEffect } from 'react';
 import dayjs from 'dayjs';
 
 //데이타에서 사용된 년도
@@ -19,6 +16,7 @@ const yearlyData = Array.from(year).map((year) => {
   });
 });
 
+//년도별 데이터 날짜 오름차순 정렬
 const sortedData = yearlyData.map((item) => {
   return item.sort((a, b) => {
     return new Date(a.date).getTime() - new Date(b.date).getTime();
@@ -26,18 +24,6 @@ const sortedData = yearlyData.map((item) => {
 });
 
 export default function Archives() {
-  // useEffect(() => {
-  //   const yearArray = new Set(
-  //     totalPostlist.map((item) => new Date(item.date).getFullYear()),
-  //   );
-
-  //   Array.from(yearArray).map((year) => {
-  //     return totalPostlist.filter((item) => {
-  //       return new Date(item.date).getFullYear() === year;
-  //     });
-  //   });
-  // }, []);
-
   return (
     <article>
       <PageHeading pageTitle="Archives" />
@@ -69,28 +55,4 @@ export default function Archives() {
       </div>
     </article>
   );
-}
-
-{
-  /* <li className={style.list_item}>
-<span className={style.day}>1 1</span>
-<span className={style.month}>Aug</span>
-<Link className={style.list_link} href="">
-  Customize the Favicon
-</Link>
-</li>
-<li className={style.list_item}>
-<span className={style.day}>09</span>
-<span className={style.month}>Aug</span>
-<Link className={style.list_link} href="">
-  Getting Started
-</Link>
-</li>
-<li className={style.list_item}>
-<span className={style.day}>08</span>
-<span className={style.month}>Aug</span>
-<Link className={style.list_link} href="">
-  Text and Typography
-</Link>
-</li> */
 }
