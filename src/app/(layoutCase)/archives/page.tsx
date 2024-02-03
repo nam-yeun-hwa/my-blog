@@ -42,7 +42,10 @@ export default function Archives() {
                       <span className={style.month}>
                         {dayjs(item.date).format('MMM')}
                       </span>
-                      <Link className={style.list_link} href="">
+                      <Link
+                        className={style.list_link}
+                        href={`/archives/${item.id}`}
+                      >
                         {item.title}
                       </Link>
                     </li>

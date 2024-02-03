@@ -17,7 +17,7 @@ type Props = {
   detail: IPost;
 };
 
-export default function page({ params, detail }: Props) {
+export default function AlgoritmPage({ params, detail }: Props) {
   const { id, title, date, folder, post } =
     algorithmPostlist[parseInt(params.id) - 1];
 
