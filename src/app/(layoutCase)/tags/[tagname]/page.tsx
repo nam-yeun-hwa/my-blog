@@ -22,7 +22,7 @@ export default function ListbyTag({ params }: Props) {
             return (
               <li key={item.id} className={style.category_item_list}>
                 <Link
-                  href={`/categories/${params.tagname}/${item.id}`}
+                  href={`/tags/${params.tagname}/${item.id}`}
                   className={style.tit}
                 >
                   {item.title}
