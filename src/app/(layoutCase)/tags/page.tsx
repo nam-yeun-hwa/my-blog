@@ -28,7 +28,7 @@ export default function Tags() {
           {Array.from(tagArray).map(([value, count], idx) => {
             return (
               <div key={idx} className="tag_item">
-                <Link className={style.tag_item_link} href="">
+                <Link className={style.tag_item_link} href={`/tags/${value}`}>
                   {value}
                   <span className={style.text_muted}>{count}</span>
                 </Link>
