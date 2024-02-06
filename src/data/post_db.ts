@@ -10,6 +10,7 @@ export const totalPostlist = [
     title: '리액트와 불변성',
     date: '2024-01-15',
     folder: Folder.REACT,
+    tag: ['React'],
     preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다.`,
     post: [
       {
@@ -95,6 +96,7 @@ console.log(nextData === data) // false`,
     title: '함수형 프로그래밍',
     date: '2024-01-15',
     folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
     preview: `데이터를 함수를 이용해 새로운 데이터로 만들어 나가는 데이터 파이프 라인의 형태로 프로그래밍이 작동 하며 함수형 프로그래밍은 거의 모든 것을 순수 함수로 나누어 문제를 해결하는 기법으로, 작은 문제를 해결하기 위한 함수를 작성하여 가독성을 높이고 유지보수를 용이하게 해준다.`,
     post: [
       {
@@ -314,6 +316,7 @@ let result = stringNumber.split(" ")
     title: '브라우저에서 이벤트가 발생하고 전파되는 방식',
     date: '2024-01-15',
     folder: Folder.JAVASCRIPT,
+    tag: ['browser'],
     preview: `이벤트 버블링과 이벤트 캡쳐는 브라우저에서 이벤트가 발생하고 전파되는 방식을 설명하는 개념입니다. 이벤트 버블링은 특정 화면 요소에서 이벤트가 발생했을 때 해당 이벤트가 더 상위의 화면 요소들로 전달되어 가는 특성을 의미합니다. 이는 이벤트가 가장 하위의 요소에서 시작하여 상위 요소로 전파되는 방식입니다.`,
     post: [
       {
@@ -412,6 +415,7 @@ function logEvent(event) {
     title: '일반함수 VS 화살표 함수의 this 바인딩',
     date: '2023-03-20',
     folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
     preview: `일반 함수와 화살표 함수의 this 바인딩에 대한 차이에 대한 내용을 약간 각색하여 정리하겠습니다. 일반 함수에서 this는 함수가 호출될 때 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.`,
     post: [
       {
@@ -529,6 +533,7 @@ button.addEventListener('click', function() {
     title: '중첩된 객체를 가진 객체의 깊은 복사 하는 방법',
     date: '2023-03-03',
     folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
     preview: `키-값 쌍이 여러 개인 객체가 있습니다. 문제는 객체가 완전하지 않다는 것입니다. 이 문제는 객체에 기존데이터가 있는 상태에서 새로운 필드를 추가하는 경우나 외부 API에서 데이터를 가져와 현재 데이터 모델에 연결해야 하는 경우에 자주 발생합니다. 어느 쪽이든 문제가 되는 부분은 같습니다.`,
     post: [
       {
@@ -693,6 +698,7 @@ const deepCopy = JSON.parse(JSON.stringify(originalObject));
     title: 'const, let, var',
     date: '2023-02-21',
     folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
     preview: `let은 재할당 할 수 있다는 점에서 var와 유사합니다. 그렇지만 var는 어휘적 유효범위(lexical scope)를 따르는 반면 let은 블록 유효범위를 따릅니다. 일단 블록 유효범위 변수는 if블록이나 for 반복문 같은 블록의 내부에만 존재한다고 알아두세요.`,
     post: [
       {
@@ -906,6 +912,7 @@ outer();`,
     title: '클로저 (Closure)',
     date: '2023-02-19',
     folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
     preview: `비공개 변수는 클로저 함수 내부에 생성한 변수도 아니고, 매개변수도 아닌 변수를 의미합니다. 클로저를 말할 때는 스코프/컨텍스트/비공개 변수와 함수의 관계를 항상 같이 말해주어야 합니다. closure 함수 안에 console.log(name)이 있는데요.`,
     post: [
       {
@@ -1012,6 +1019,7 @@ console.log(counter()); // 2
     title: '함수선언식 VS 함수표현식의 호이스팅(Hoisting)',
     date: '2023-02-19',
     folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
     preview: `호이스팅(Hoisting)은 JavaScript에서 변수와 함수 선언이 최상단으로 끌어올려지는 현상을 말합니다. 하지만 함수 선언식과 함수 표현식은 다르게 동작하므로 주의가 필요합니다.
     `,
     post: [
@@ -1120,6 +1128,7 @@ function sayWow() {
     folder: Folder.JAVASCRIPT,
     preview: `호이스팅(Hoisting)은 JavaScript에서 변수와 함수 선언이 최상단으로 끌어올려지는 현상을 말합니다. 하지만 함수 선언식과 함수 표현식은 다르게 동작하므로 주의가 필요합니다.
     `,
+    tag: ['Javascript'],
     post: [
       {
         type: ComponentType.CODE,
@@ -1255,6 +1264,7 @@ this: window`,
     date: '2022-09-22',
     folder: Folder.JAVASCRIPT,
     preview: ` 비동기 프로그래밍에서 자주 발생하는 코드 구조의 한 종류로, 여러 비동기 동작이 중첩된 형태로 코드가 작성될 때 발생하는 가독성 저하와 유지보수의 어려움을 지칭합니다.`,
+    tag: ['Javascript'],
     post: [
       {
         type: ComponentType.NORMAL,
@@ -1400,6 +1410,7 @@ this: window`,
     folder: Folder.JAVASCRIPT,
     preview: `프로미스를 사용할 때 알아야 하는 가장 기본적인 개념이 바로 프로미스의 상태(states)입니다. 여기서 말하는 상태란 프로미스의 처리 과정을 의미합니다. new Promise()로 프로미스를 생성하고 종료될 때까지 3가지 상태를 갖습니다..
     `,
+    tag: ['Javascript'],
     post: [
       {
         type: ComponentType.NORMAL,
@@ -1499,6 +1510,7 @@ fetchData()
     folder: Folder.JAVASCRIPT,
     preview: `액세스 토큰은 주로 인증된 사용자가 보호된 리소스에 접근할 수 있는 권한을 부여하는 데 사용되는 문자열입니다. 주로 웹 애플리케이션, 모바일 앱 등에서 사용자 인증 및 권한 부여에 쓰입니다. 여러 인증 프로토콜에서 사용되며, 대표적으로 OAuth 2.0에서 정의되어 있습니다.
     `,
+    tag: ['JWT', 'Token'],
     post: [
       {
         type: ComponentType.NORMAL,

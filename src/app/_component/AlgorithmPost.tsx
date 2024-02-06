@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { IAlgorithmPost, IPost } from 'type/post';
+import { IAlgorithmPost } from 'type/post';
 import style from './algorithmPost.module.css';
 
 type Props = {

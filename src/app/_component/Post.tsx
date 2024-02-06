@@ -1,11 +1,6 @@
-'use client';
-
 import Link from 'next/link';
 import style from './post.module.css';
 import { IPost } from 'type/post';
-import { useSelectedLayoutSegment } from 'next/navigation';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 type Props = {
   post: IPost;

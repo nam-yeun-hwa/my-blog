@@ -1,7 +1,6 @@
 'use client';
 
 import Post from 'app/_component/Post';
-import BreadCrumb from './common/BreadCrumb';
 import style from './postPageing.module.css';
 import { useEffect } from 'react';
 

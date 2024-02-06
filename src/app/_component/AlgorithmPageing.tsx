@@ -4,16 +4,14 @@ import { useEffect } from 'react';
 import { RootState, store } from 'app/(layoutCase)/_component/store/index';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
-import BreadCrumb from 'app/_component/common/BreadCrumb';
-import { algorithmPostlist } from 'data/post_db';
 import style from './postPageing.module.css';
-import Panel from 'app/_component/common/Panel';
-import Post from 'app/_component/Post';
+
 import {
   rdxSetAlgorithmData,
   rdxSetFetching,
 } from 'app/(layoutCase)/_component/store/algorithm/index';
 import AlgorithmPost from 'app/_component/AlgorithmPost';
+import { algorithmPostlist } from 'data/algorithm_db';
 
 export default function AlgorithmPageing() {
   const { ref, inView } = useInView({

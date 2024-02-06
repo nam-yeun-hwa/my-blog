@@ -20,5 +20,3 @@ export default function ListStyle({ list }: Props) {
     </ul>
   );
 }
-
-// 내일 ul 점 리스트와 넘버 리스트를 만들어 준다,
