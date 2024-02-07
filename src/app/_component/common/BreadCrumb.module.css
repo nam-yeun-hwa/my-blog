@@ -102,6 +102,20 @@
   color: rgb(78, 78, 78);
 }
 
+.topbar_txt::after {
+  content: '›';
+  padding: 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.topbar_txt:last-child::after {
+  content: none;
+}
+
+.topbar_txt:last-child {
+  color: #757575 !important;
+}
+
 /* 모바일 크기 일때 sideMenu가 사라지는 시점에 */
 @media (max-width: 849px) {
   .top_bar {

@@ -3,10 +3,14 @@
 import { useRef, useState } from 'react';
 import style from './breadCrumb.module.css';
 import cx from 'classnames';
+import { useSelectedLayoutSegments } from 'next/navigation';
+import Link from 'next/link';
+import { totalPostlist } from 'data/post_db';
 
 export default function BreadCrumb() {
   const [isFocused, setFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const allSegment = useSelectedLayoutSegments();
 
   const handleFocus = () => {
     setFocused(true);
@@ -20,7 +24,27 @@ export default function BreadCrumb() {
     <header className={style.topbar_wrapper}>
       <div className={style.top_bar}>
         <nav className={style.breadcrumb}>
-          <span>Home</span>
+          <span>
+            <Link className={style.topbar_txt} href={``}>
+              Home
+            </Link>
+            {Number(allSegment[allSegment.length - 1]) > 0 ? (
+              <Link className={style.topbar_txt} href={``}>
+                {
+                  totalPostlist[Number(allSegment[allSegment.length - 1]) - 1]
+                    .title
+                }
+              </Link>
+            ) : (
+              allSegment.map((linkName, idx) => {
+                return (
+                  <Link key={idx} className={style.topbar_txt} href={``}>
+                    {linkName.charAt(0).toUpperCase() + linkName.slice(1)}
+                  </Link>
+                );
+              })
+            )}
+          </span>
         </nav>
         <search className={cx(style.search, isFocused && style.search_active)}>
           <i className={`fas fa-search fa-fw ${style.search_ico}`}></i>
