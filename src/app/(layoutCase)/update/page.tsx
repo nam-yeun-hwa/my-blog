@@ -88,6 +88,10 @@ export default function about() {
       <br />
       <b> 2023-02-06 </b> <br />
       태그 카테고리 개발
+      <br />
+      <br />
+      <b> 2023-02-07 </b> <br />
+      BreadCrumb 라우터 경로 컴포넌트 개발
     </div>
   );
 }

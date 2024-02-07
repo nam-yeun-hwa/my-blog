@@ -4,7 +4,6 @@ import PageHeading from 'app/_component/common/PageHeading';
 import style from './page.module.css';
 import Link from 'next/link';
 import { totalPostlist } from 'data/post_db';
-import { useEffect } from 'react';
 
 //totalPostlist의 태그들 배열로 반환
 const tagArray = new Map();

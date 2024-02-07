@@ -1,5 +1,3 @@
-import { IPost } from 'type/post';
-
 import PostDetail from 'app/_component/common/PostDetail';
 
 type Props = {

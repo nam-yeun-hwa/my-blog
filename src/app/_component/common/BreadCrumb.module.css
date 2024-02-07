@@ -21,7 +21,7 @@
   padding-left: 0.5rem;
 }
 
-.search {
+/* .search {
   width: 100%;
   max-width: 200px;
   display: flex;
@@ -29,14 +29,14 @@
   border-radius: 1rem;
   border: 1px solid #f0f0f0;
   padding: 2px 0 0 0.5rem;
-}
-.search_ico {
+} */
+/* .search_ico {
   z-index: 2;
   font-size: 0.9rem;
   color: #c2c6cc;
-}
+} */
 
-.search_input {
+/* .search_input {
   height: auto;
   border: 0;
 
@@ -58,7 +58,7 @@
 
 .search_input_active::placeholder {
   color: #acacac;
-}
+} */
 
 .mobile_topbar {
   width: 100%;
@@ -130,9 +130,9 @@
 }
 
 @media (min-width: 1200px) {
-  .search {
+  /* .search {
     margin-right: 4rem;
-  }
+  } */
 
   .topbar_wrapper {
     padding-right: 1.5rem !important;
@@ -141,7 +141,7 @@
 }
 
 @media (min-width: 1650px) {
-  .search {
+  /* .search {
     margin-right: 4.8rem;
-  }
+  } */
 }
