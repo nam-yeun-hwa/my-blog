@@ -22,18 +22,22 @@ next.js 14버전을 이용하여 개인 블로그를 만들어 보도록 한다.
 └── src
     └── app
          ├── _components --- 공통컴포넌트 
-         ├── @modal --- 모달
-         ├── algorithm --- 페이지
-         ├── archives --- 페이지
-         ├── algorithm --- 페이지
-         ├── categories --- 페이지
-         ├── posts - 페이지
-         │    ├── [postid] 
-         │    │      ├── page.module.css 
-         │    │      ├── page.tsx 
-         │    └── page.tsx 
-         ├── tags --- 페이지
-         └── update --- 페이지
+         └── (layoutCase) --- 레이아웃 그룹
+               └── _components --- 공통컴포넌트 
+                      ├── contexts --- 컨텐스트 API
+                      ├── store --- redux-toolkit
+               ├── @modal --- 모달
+               ├── algorithm --- 페이지 카테고리
+               ├── archives --- 페이지 카테고리
+               ├── algorithm --- 페이지 카테고리
+               ├── categories --- 페이지 카테고리
+               ├── posts ---  페이지 카테고리 일반적 공통 구조 > [다이나믹라우팅 slug]에 따라 내부로 page.tsx가 더 들어 있는 정도로 차이가 있다.
+               │    ├── [postid] 
+               │    │      ├── page.module.css 
+               │    │      ├── page.tsx 
+               │    └── page.tsx 
+               ├── tags --- 페이지
+               └── update --- 페이지
 </pre>
 # Troubleshooting
 
