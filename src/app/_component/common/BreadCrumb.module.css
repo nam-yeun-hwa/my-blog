@@ -114,6 +114,7 @@
 
 .topbar_txt:last-child {
   color: #757575 !important;
+  pointer-events: none;
 }
 
 /* 모바일 크기 일때 sideMenu가 사라지는 시점에 */

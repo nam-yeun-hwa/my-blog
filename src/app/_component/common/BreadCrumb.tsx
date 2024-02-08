@@ -11,10 +11,12 @@ import { totalPostlist } from 'data/post_db';
 import { algorithmPostlist } from 'data/algorithm_db';
 import { IAlgorithmPost, IPost } from 'type/post';
 import SearchBar from './SearchBar';
+import { useEffect } from 'react';
 
 /**
  * @function RouteSwitch
  * @description 상위 라우트에 따른 현재 페이지 데이터 분기처리
+ * allSegment의 마지막 값이 숫자일때와(첫번째) 숫자가 아닐때(두번째)
  */
 type Props = {
   data: IPost | IAlgorithmPost;
@@ -22,6 +24,7 @@ type Props = {
 
 function RouteSwitch({ data }: Props) {
   const allSegment = useSelectedLayoutSegments();
+
   return (
     <>
       {!isNaN(Number(allSegment[allSegment.length - 1])) ? (
@@ -32,7 +35,11 @@ function RouteSwitch({ data }: Props) {
         <>
           {allSegment.map((linkName, idx) => {
             return (
-              <Link key={idx} className={style.topbar_txt} href={``}>
+              <Link
+                key={idx}
+                className={style.topbar_txt}
+                href={`/${linkName}`}
+              >
                 {linkName.charAt(0).toUpperCase() + linkName.slice(1)}
               </Link>
             );
@@ -56,7 +63,7 @@ export default function BreadCrumb() {
       <div className={style.top_bar}>
         <nav className={style.breadcrumb}>
           <span>
-            <Link className={style.topbar_txt} href={``}>
+            <Link className={style.topbar_txt} href={`/`}>
               Home
             </Link>
             {menuRouter !== 'algorithm' ? (
