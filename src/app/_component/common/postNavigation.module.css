@@ -23,6 +23,7 @@
 .post_navigation_pre:hover {
   background-color: #0d6efd;
   color: white;
+  border-right: 1px solid #0d6efd;
 }
 
 .post_navigation_pre::before {
@@ -55,6 +56,7 @@
 .post_navigation_next:hover {
   background-color: #0d6efd;
   color: white !important;
+  border: 1px solid #0d6efd;
 }
 .post_navigation_next::before {
   transition: all 0.35s ease-in-out;

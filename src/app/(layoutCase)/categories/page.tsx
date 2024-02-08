@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+'use client';
+
 import PageHeading from 'app/_component/common/PageHeading';
 import style from './page.module.css';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import CategoryItem from 'app/_component/CategoryItem';
 import { useSelector } from 'react-redux';
 import { RootState } from '../_component/store';
 import { totalPostlist } from 'data/post_db';
+import { useState } from 'react';
 
 export default function Categories() {
   const [toggle, setToggle] = useState(false);
