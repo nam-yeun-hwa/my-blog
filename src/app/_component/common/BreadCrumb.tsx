@@ -11,25 +11,67 @@ import { totalPostlist } from 'data/post_db';
 import { algorithmPostlist } from 'data/algorithm_db';
 import { IAlgorithmPost, IPost } from 'type/post';
 import SearchBar from './SearchBar';
-import { useEffect } from 'react';
+
+/**
+ * @function BreadCrumb
+ * @description BreadCrumb nav default 라우터, 페이지별 데이터 분기처리
+ */
+export default function BreadCrumb() {
+  const menuRouter = useSelectedLayoutSegment();
+
+  return (
+    <header className={style.topbar_wrapper}>
+      <div className={style.top_bar}>
+        <nav className={style.breadcrumb}>
+          <span>
+            <Link className={style.topbar_txt} href={`/`}>
+              Home
+            </Link>
+            {menuRouter !== 'algorithm' ? (
+              <RouteSwitch data={totalPostlist} />
+            ) : (
+              <RouteSwitch data={algorithmPostlist} />
+            )}
+          </span>
+        </nav>
+        <SearchBar />
+      </div>
+      <div className={style.mobile_topbar}>
+        <button className={style.sidebar_trigger}>
+          <i className={`fas fa-bars fa-fw ${style.sidebar_trigger_ico}`}></i>
+        </button>
+        <div className={style.mobile_topbar_title}>Carys</div>
+        <button className={style.search_trigger}>
+          <i className={`fas fa-search fa-fw ${style.search_trigger_ico}`}></i>
+        </button>
+      </div>
+    </header>
+  );
+}
 
 /**
  * @function RouteSwitch
- * @description 상위 라우트에 따른 현재 페이지 데이터 분기처리
- * allSegment의 마지막 값이 숫자일때와(첫번째) 숫자가 아닐때(두번째)
+ * @description 상위 라우트에 따른 현재 페이지 데이터를 Props로 받는다.
+ * allSegment의 마지막 값이 숫자일때와(1)와 숫자가 아닐때(2)
+ * 1. 숫자일때는 post 상세페이지에서 postid 값이 아닌 게시물의 제목을 표시
+ *  예) Home함수형 > 프로그래밍
+ *
+ * 2.숫자가 아닐때는 post list 경우로 전체 경로를 표시 해준다.
+ *  예) Home > Tags > Token
  */
 type Props = {
-  data: IPost | IAlgorithmPost;
+  data: Array<IPost> | Array<IAlgorithmPost>;
 };
 
 function RouteSwitch({ data }: Props) {
   const allSegment = useSelectedLayoutSegments();
+  const lastSegmentValue = Number(allSegment[allSegment.length - 1]) - 1;
 
   return (
     <>
-      {!isNaN(Number(allSegment[allSegment.length - 1])) ? (
+      {!isNaN(lastSegmentValue) ? (
         <Link className={style.topbar_txt} href={``}>
-          {data.title}
+          {data[lastSegmentValue].title}
         </Link>
       ) : (
         <>
@@ -47,54 +89,6 @@ function RouteSwitch({ data }: Props) {
         </>
       )}
     </>
-  );
-}
-
-/**
- * @function BreadCrumb
- * @description BreadCrumb nav default 라우터
- */
-export default function BreadCrumb() {
-  const allSegment = useSelectedLayoutSegments();
-  const menuRouter = useSelectedLayoutSegment();
-
-  return (
-    <header className={style.topbar_wrapper}>
-      <div className={style.top_bar}>
-        <nav className={style.breadcrumb}>
-          <span>
-            <Link className={style.topbar_txt} href={`/`}>
-              Home
-            </Link>
-            {menuRouter !== 'algorithm' ? (
-              <RouteSwitch
-                data={
-                  totalPostlist[Number(allSegment[allSegment.length - 1]) - 1]
-                }
-              />
-            ) : (
-              <RouteSwitch
-                data={
-                  algorithmPostlist[
-                    Number(allSegment[allSegment.length - 1]) - 1
-                  ]
-                }
-              />
-            )}
-          </span>
-        </nav>
-        <SearchBar />
-      </div>
-      <div className={style.mobile_topbar}>
-        <button className={style.sidebar_trigger}>
-          <i className={`fas fa-bars fa-fw ${style.sidebar_trigger_ico}`}></i>
-        </button>
-        <div className={style.mobile_topbar_title}>Carys</div>
-        <button className={style.search_trigger}>
-          <i className={`fas fa-search fa-fw ${style.search_trigger_ico}`}></i>
-        </button>
-      </div>
-    </header>
   );
 }
 
