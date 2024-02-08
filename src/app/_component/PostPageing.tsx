@@ -12,7 +12,6 @@ import {
   rdxSetFetching,
 } from 'app/(layoutCase)/_component/store/post';
 import { RootState } from 'app/(layoutCase)/_component/store';
-import Panel from './common/Panel';
 
 export default function PostPageing() {
   const { ref, inView } = useInView({

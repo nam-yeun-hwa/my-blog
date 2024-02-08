@@ -1,8 +1,7 @@
 'use client';
 
-import { useRef, useState } from 'react';
 import style from './breadCrumb.module.css';
-import cx from 'classnames';
+
 import {
   useSelectedLayoutSegment,
   useSelectedLayoutSegments,

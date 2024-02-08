@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import style from './page.module.css';
 import PageHeading from 'app/_component/common/PageHeading';

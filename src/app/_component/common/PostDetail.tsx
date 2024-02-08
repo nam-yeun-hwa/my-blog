@@ -8,6 +8,9 @@ import Footer from 'app/_component/common/Footer';
 import Table from 'app/_component/detailPage/Table';
 import StringDot from 'app/_component/detailPage/ListStyle';
 import HeadingString from 'app/_component/detailPage/Heading';
+import { useSelectedLayoutSegments } from 'next/navigation';
+import cx from 'classnames';
+import PostNavigation from './PostNavigation';
 
 type Props = {
   postid: string;
@@ -15,6 +18,7 @@ type Props = {
 
 export default function PostDetail({ postid }: Props) {
   const { title, post } = totalPostlist[parseInt(postid) - 1];
+
   return (
     <>
       <article className={style.detail}>
@@ -76,24 +80,7 @@ export default function PostDetail({ postid }: Props) {
           />
         );
       })}
-      <div className="row">
-        <nav className={style.post_navigation}>
-          <Link
-            className={style.post_navigation_pre}
-            href=""
-            aria-label="Older"
-          >
-            <p className={style.post_navigation_text}>이전 게시물</p>
-          </Link>
-          <Link
-            className={style.post_navigation_next}
-            href=""
-            aria-label="Newer"
-          >
-            <p className={style.post_navigation_text}>다음 게시물</p>
-          </Link>
-        </nav>
-      </div>
+      <PostNavigation postid={postid} />
       <Footer />
     </>
   );

@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 import PageHeading from 'app/_component/common/PageHeading';
 import style from './page.module.css';
