@@ -1,11 +1,13 @@
-import { IPost } from 'type/post';
-
 import PostDetail from 'app/_component/common/PostDetail';
+import { totalPostlist } from 'data/post_db';
 
 type Props = {
   params: { postid: string };
-  detail: IPost;
 };
+
+export function generateStaticParams() {
+  return totalPostlist.map((value) => ({ postid: value.id.toString() }));
+}
 
 export default function PostPage({ params }: Props) {
   return <PostDetail postid={params.postid} />;

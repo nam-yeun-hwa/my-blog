@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import style from './categoryItem.module.css';
-import categoryname from 'app/(layoutCase)/categories/[categoryname]/page';
 
 type Props = {
   category: string;

@@ -9,6 +9,13 @@ type Props = {
   params: { tagname: string };
 };
 
+export function generateStaticParams() {
+  const uniqueTags = Array.from(
+    new Set(totalPostlist.flatMap((value) => value.tag)),
+  );
+  return uniqueTags.map((value) => ({ tagname: value }));
+}
+
 export default function ListbyTag({ params }: Props) {
   return (
     <article>

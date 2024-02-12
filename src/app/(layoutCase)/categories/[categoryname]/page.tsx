@@ -9,6 +9,11 @@ type Props = {
   params: { categoryname: string };
 };
 
+export function generateStaticParams() {
+  const categoryFolder = ['React', 'Javascript'];
+  return categoryFolder.map((value) => ({ categoryname: value }));
+}
+
 export default function ListbyCategory({ params }: Props) {
   return (
     <article>

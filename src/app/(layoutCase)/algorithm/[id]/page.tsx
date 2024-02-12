@@ -10,8 +10,11 @@ import { algorithmPostlist } from 'data/algorithm_db';
 
 type Props = {
   params: { id: string };
-  detail: IPost;
 };
+
+export function generateStaticParams() {
+  return algorithmPostlist.map((value) => ({ id: value.id.toString() }));
+}
 
 export default function AlgoritmPage({ params }: Props) {
   const { id, title, date, folder, post } =
