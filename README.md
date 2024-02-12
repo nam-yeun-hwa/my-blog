@@ -129,6 +129,9 @@ body {
 }
 
 ```
+</br>
+</br>
+</br>
 
 # next.14 정적 배포하기
 
@@ -156,11 +159,13 @@ Error : Page[categoryname]/[postid] is missing "generateStaticParams()" so it ca
 - [categoryname] page.tsx 에서는 categoryname의 parms을 사용하고
 - [postid] page.tsx 에서는 postid parms을 사용하고 있었다.
 
+<pre>
 category ---  
  │    ├── [categoryname] 
  │    │      └── [postid]  
  │    │            └── page.tsx 
  └──  └── page.tsx 
+</pre>
     
 처음에는 다른 페이지와 동일 하게 아래와 같이 generateStaticParams() 구성 하였다.
 
