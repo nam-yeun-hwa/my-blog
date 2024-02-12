@@ -185,6 +185,15 @@
   }
 }
 
+@media (max-width: 1199px) {
+  .inner_content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+  }
+}
+
 /* 1650일때
 850일때  */
 

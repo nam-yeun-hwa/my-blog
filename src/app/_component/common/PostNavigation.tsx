@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import cx from 'classnames';
 import style from './postNavigation.module.css';
-import { useSelectedLayoutSegments } from 'next/navigation';
 import { totalPostlist } from 'data/post_db';
 import { useEffect, useState } from 'react';
 
@@ -14,7 +13,6 @@ type Props = {
 export default function PostNavigation({ postid }: Props) {
   const [preActive, setPreActive] = useState(false);
   const [nextActive, setNextActive] = useState(false);
-  const segment = useSelectedLayoutSegments();
 
   const currentPostid = parseInt(postid);
   const hasPreValue = totalPostlist.find(
