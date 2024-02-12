@@ -10,13 +10,15 @@ const tagArray = new Map();
 
 totalPostlist.forEach(({ tag }) => {
   tag?.forEach((item) => {
-    if (tagArray.has(item)) {
-      tagArray.set(item, tagArray.get(item) + 1);
-    } else {
-      tagArray.set(item, 1);
-    }
+    let value = tagArray.get(item) ? tagArray.get(item) + 1 : 1;
+    tagArray.set(item, value);
+    // if (tagArray.has(item)) {
+    //   tagArray.set(item, tagArray.get(item) + 1);
+    // } else {
+    //   tagArray.set(item, 1);
+    // }
   });
-}, []);
+});
 
 export default function Tags() {
   return (

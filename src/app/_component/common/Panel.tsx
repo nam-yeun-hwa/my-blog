@@ -1,5 +1,10 @@
 import Link from 'next/link';
 import style from './panel.module.css';
+import { totalPostlist } from 'data/post_db';
+
+const uniqueTags = Array.from(
+  new Set(totalPostlist.flatMap((post) => post.tag)),
+);
 
 export default function Panel() {
   return (
@@ -8,35 +13,27 @@ export default function Panel() {
         <section className={style.access_lastmod}>
           <h2 className={style.panel_heading}>Recently Updated</h2>
           <ul className={style.panel_recently}>
-            <li className={style.text_truncate}>
-              <Link href={'url'}>Writing a New Post</Link>
-            </li>
-            <li className={style.text_truncate}>
-              <Link href={'url'}>Getting Started</Link>
-            </li>
-            <li className={style.text_truncate}>
-              <Link href={'url'}>Text and Typography</Link>
-            </li>
-            <li className={style.text_truncate}>
-              <Link href={'url'}>Customize the Favicon</Link>
-            </li>
+            {totalPostlist.slice(0, 5).map((value) => {
+              return (
+                <li key={value.id} className={style.text_truncate}>
+                  <Link href={`/posts/${value.id}`}>{value.title}</Link>
+                </li>
+              );
+            })}
           </ul>
         </section>
         <section className={style.panel_tag_contain}>
           <h2 className={style.panel_heading}>Trending Tags</h2>
           <div className={style.panel_tag}>
-            <Link className={style.tag} href="url">
-              favicon
-            </Link>
-            <Link className={style.tag} href="url">
-              getting started
-            </Link>
-            <Link className={style.tag} href="url">
-              typography
-            </Link>
-            <Link className={style.tag} href="url">
-              writing
-            </Link>
+            {uniqueTags.map((value, id) => {
+              return (
+                value && (
+                  <Link key={id} className={style.tag} href={`/tags/${value}`}>
+                    {value}
+                  </Link>
+                )
+              );
+            })}
           </div>
         </section>
       </div>
