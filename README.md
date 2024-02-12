@@ -202,7 +202,7 @@ export function generateStaticParams() {
 
  🔗 해당 내용 관련 next.js 이미지
 <img width="673" alt="스크린샷 2024-02-12 오후 10 18 05" src="https://github.com/nam-yeun-hwa/list-filter-with-nextjs14/assets/138950568/baaca2d5-bb4d-4718-9e7a-caebe7ce4367">
-
+https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 
 </br>
 </br>
