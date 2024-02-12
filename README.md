@@ -160,7 +160,7 @@ https://nextjs.org/docs/app/building-your-application/deploying/static-exports
 - [postid] page.tsx 에서는 postid parms을 사용하고 있었다.
 
 <pre>
-category ---  
+category  
  │    ├── [categoryname] 
  │    │      └── [postid]  
  │    │            └── page.tsx 
@@ -190,7 +190,8 @@ export function generateStaticParams() {
 `app/products/[category]/[product]/page.tsx` 의 경로와 같은 경우에는 맨 마지막 page.tsx의 경우에는 상위 슬러그 값들을 generateStaticParams()에 같이 넣어주도록 되어 있는것 같았다.
 
  🔗 해당 내용 관련 next.js 이미지
-<img width="677" alt="스크린샷 2024-02-12 오후 9 42 52" src="https://github.com/nam-yeun-hwa/list-filter-with-nextjs14/assets/138950568/cafa3350-d56d-4a7f-883d-c3ac3098ed44">
+(넣어주기)
+
 </br>
 </br>
 ## 해결
