@@ -166,12 +166,19 @@ category
  │    │            └── page.tsx 
  └──  └── page.tsx 
 </pre>
-    
+
+</br>
+</br>
 처음에는 다른 페이지와 동일 하게 아래와 같이 generateStaticParams() 구성 하였다.
+
 
 📑 [categoryname] > page.tsx
 페이지의 categoryname 값을 슬러그로 받아 페이지를 표시 하는 페이지이다.
 ```
+type Props = {
+  params: { categoryname: string; };
+};
+
 export function generateStaticParams() {
   const categoryFolder = ['React', 'Javascript'];
   return categoryFolder.map((value) => ({ categoryname: value }));
@@ -181,21 +188,28 @@ export function generateStaticParams() {
 📑 [categoryname] > [postid] > page.tsx
 페이지의 id 값을 받아 페이지를 표시 할수 잇도록 id값을 슬러그로 받는 페이지이다.
 ```
+type Props = {
+  params: { postid: string };
+};
+
 export function generateStaticParams() {
   return totalPostlist.map((value) => ({ postid: value.id.toString() }));
 }
 ```
 
 그러나 똑같이 버그가 발생하였다. 고민을 여러차례 해본 후 generateStaticParams에 관련한 페이지를 자세히 보니 
-`app/products/[category]/[product]/page.tsx` 의 경로와 같은 경우에는 맨 마지막 page.tsx의 경우에는 상위 슬러그 값들을 generateStaticParams()에 같이 넣어주도록 되어 있는것 같았다.
+`app/products/[category]/[product]/page.tsx` 의 경로와 같이 슬러그안에 슬러그 폴더가 있는 경우에는 (다른 슬러그에 포함된) page.tsx의 경우에는 상위 슬러그 값들을 generateStaticParams()에 같이 넣어주도록 되어 있는것 같았다.
 
  🔗 해당 내용 관련 next.js 이미지
-(넣어주기)
+<img width="673" alt="스크린샷 2024-02-12 오후 10 18 05" src="https://github.com/nam-yeun-hwa/list-filter-with-nextjs14/assets/138950568/baaca2d5-bb4d-4718-9e7a-caebe7ce4367">
+
 
 </br>
 </br>
+
 ## 해결
 📑 [postid] page.tsx
+
 ```
 type Props = {
   params: { categoryname: string; postid: string };
