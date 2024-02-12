@@ -127,7 +127,86 @@ global.css에서 @font-face를 사용하였더니 해결 되었다.
 body {
   font-family: 'IBM Plex Sans KR', sans-serif;
 }
+
 ```
+
+# next.14 정적 배포하기
+
+📑 next.config.js 
+next.config.js파일에 `output: 'export'` 을 추가 해준다.
+next13이후에 아래 키워드를 추가하도록 변경 되었다.
+
+```
+  const nextConfig = {
+    output: 'export',
+  };
+  
+  module.exports = nextConfig;
+```
+https://nextjs.org/docs/app/building-your-application/deploying/static-exports
+
+
+## 정적 배포 이슈
+
+Error : Page[categoryname]/[postid] is missing "generateStaticParams()" so it cannot be used with "output: export" config.
+정적으로 페이지를 빌드 할 경우 슬러그를 받는 page.tsx에 generateStaticParams()를 넣어줘야 하는 이슈 였다.
+
+📑 페이지 카테고리 경로 (category)
+해당 페이지는 두개의 슬러그를 다이나믹 param으로 받고 있었고 
+- [categoryname] page.tsx 에서는 categoryname의 parms을 사용하고
+- [postid] page.tsx 에서는 postid parms을 사용하고 있었다.
+
+category ---  
+ │    ├── [categoryname] 
+ │    │      └── [postid]  
+ │    │            └── page.tsx 
+ └──  └── page.tsx 
+    
+처음에는 다른 페이지와 동일 하게 아래와 같이 generateStaticParams() 구성 하였다.
+
+📑 [categoryname] > page.tsx
+페이지의 categoryname 값을 슬러그로 받아 페이지를 표시 하는 페이지이다.
+```
+export function generateStaticParams() {
+  const categoryFolder = ['React', 'Javascript'];
+  return categoryFolder.map((value) => ({ categoryname: value }));
+}
+```
+
+📑 [categoryname] > [postid] > page.tsx
+페이지의 id 값을 받아 페이지를 표시 할수 잇도록 id값을 슬러그로 받는 페이지이다.
+```
+export function generateStaticParams() {
+  return totalPostlist.map((value) => ({ postid: value.id.toString() }));
+}
+```
+
+그러나 똑같이 버그가 발생하였다. 고민을 여러차례 해본 후 generateStaticParams에 관련한 페이지를 자세히 보니 
+`app/products/[category]/[product]/page.tsx` 의 경로와 같은 경우에는 맨 마지막 page.tsx의 경우에는 상위 슬러그 값들을 generateStaticParams()에 같이 넣어주도록 되어 있는것 같았다.
+<img width="677" alt="스크린샷 2024-02-12 오후 9 42 52" src="https://github.com/nam-yeun-hwa/list-filter-with-nextjs14/assets/138950568/cafa3350-d56d-4a7f-883d-c3ac3098ed44">
+
+## 해결
+📑 [postid] page.tsx
+```
+type Props = {
+  params: { categoryname: string; postid: string };
+};
+
+export function generateStaticParams() {
+  const categoryFolder = ['React', 'Javascript'];
+  return categoryFolder
+    .map((parent) => {
+      return totalPostlist.map((value) => {
+        return { categoryname: parent, postid: value.id.toString() };
+      });
+    })
+    .flat();
+}
+
+```
+postid의 값을 받는 page.tsx에서는 상위 슬러그 값인 categoryname의 값을 사용하지 않지만 위와 같이 generateStaticParams()의 값을 수정 한 후 yarn build로 빌드를 성공 할수 있었다.
+
+https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 
 
 
