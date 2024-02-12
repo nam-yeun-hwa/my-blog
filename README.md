@@ -151,7 +151,7 @@ https://nextjs.org/docs/app/building-your-application/deploying/static-exports
 
 ## 정적 배포 이슈
 
-Error : Page[categoryname]/[postid] is missing "generateStaticParams()" so it cannot be used with "output: export" config.
+## Error : Page[categoryname]/[postid] is missing "generateStaticParams()" so it cannot be used with "output: export" config.
 정적으로 페이지를 빌드 할 경우 슬러그를 받는 page.tsx에 generateStaticParams()를 넣어줘야 하는 이슈 였다.
 
 📑 페이지 카테고리 경로 (category)
