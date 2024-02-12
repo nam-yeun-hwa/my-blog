@@ -2,6 +2,9 @@ import Link from 'next/link';
 import style from './panel.module.css';
 import { totalPostlist } from 'data/post_db';
 
+/**
+ * totalPostlist의 tag[] 문자열을 중복하지 않고 결과값을 리턴
+ */
 const uniqueTags = Array.from(
   new Set(totalPostlist.flatMap((post) => post.tag)),
 );
