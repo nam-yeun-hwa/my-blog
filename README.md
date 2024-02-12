@@ -229,7 +229,6 @@ export function generateStaticParams() {
 ```
 postid의 값을 받는 page.tsx에서는 상위 슬러그 값인 categoryname의 값을 사용하지 않지만 위와 같이 generateStaticParams()의 값을 수정 한 후 yarn build로 빌드를 성공 할수 있었다.
 
-https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 
 
 
