@@ -31,6 +31,12 @@
   border-right: 1px solid var(--sidebar-border-color);
   padding-left: 0;
   padding-right: 0;
+  transition: transform 0.4s ease;
+  scrollbar-width: none;
+}
+
+.sidebar_move {
+  transform: translateX(0px) !important;
 }
 
 /* 프로필 사진 */
@@ -41,9 +47,10 @@
   padding-right: 20px;
 }
 
-.img {
+/* .img {
   border-radius: 50%;
-}
+  background-color: aquamarine;
+} */
 
 .blog_name_txt {
   font-size: 28px;
@@ -120,7 +127,12 @@
 .main_wrapper {
   display: flex;
   justify-content: center !important;
+  transition: transform 0.4s ease;
   /* flex-direction: column; */
+}
+
+.main_move {
+  transform: translateX(260px) !important;
 }
 
 .container {
@@ -170,7 +182,7 @@
     transition: transform 0.4s ease;
   }
   .sidebar {
-    transition: transform 0.4s ease;
+    /* transition: transform 0.4s ease; */
     transform: translateX(-260px);
     -webkit-transform: translateX(-260px);
   }

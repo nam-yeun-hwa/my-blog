@@ -1,6 +1,7 @@
 'use client';
 
 import style from './breadCrumb.module.css';
+import cx from 'classnames';
 
 import {
   useSelectedLayoutSegment,
@@ -11,13 +12,19 @@ import { totalPostlist } from 'data/post_db';
 import { algorithmPostlist } from 'data/algorithm_db';
 import { IAlgorithmPost, IPost } from 'type/post';
 import SearchBar from './SearchBar';
+import { useState } from 'react';
+
+type PropsBreadCrumb = {
+  moveToggle: () => void;
+};
 
 /**
  * @function BreadCrumb
  * @description BreadCrumb nav default 라우터, 페이지별 데이터 분기처리
  */
-export default function BreadCrumb() {
+export default function BreadCrumb({ moveToggle }: PropsBreadCrumb) {
   const menuRouter = useSelectedLayoutSegment();
+  const [moveSidebar, setMoveSidebar] = useState(false);
 
   return (
     <header className={style.topbar_wrapper}>
@@ -37,7 +44,7 @@ export default function BreadCrumb() {
         <SearchBar />
       </div>
       <div className={style.mobile_topbar}>
-        <button className={style.sidebar_trigger}>
+        <button className={style.sidebar_trigger} onClick={() => moveToggle()}>
           <i className={`fas fa-bars fa-fw ${style.sidebar_trigger_ico}`}></i>
         </button>
         <div className={style.mobile_topbar_title}>Carys</div>

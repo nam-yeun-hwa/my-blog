@@ -2,14 +2,13 @@
 import Link from 'next/link';
 import style from './layout.module.css';
 import { useSelectedLayoutSegment } from 'next/navigation';
-import Image from 'next/image';
-import profileImg from '../../../public/profile1.jpg';
 import cx from 'classnames';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import BreadCrumb from 'app/_component/common/BreadCrumb';
 import Panel from 'app/_component/common/Panel';
 import { Provider } from 'react-redux';
 import { store } from 'app/(layoutCase)/_component/store/index';
+import ImageLoader from 'app/_component/common/ImageLoader';
 
 type Props = {
   children: ReactNode;
@@ -18,19 +17,21 @@ type Props = {
 
 function Layout({ children, modal }: Props) {
   const segment = useSelectedLayoutSegment();
+  const [onToggle, setOnToggle] = useState(false);
+
+  const moveToggle = () => {
+    setOnToggle(!onToggle);
+  };
 
   return (
     <>
-      <aside id="sidebar" className={style.sidebar}>
+      <aside
+        id="sidebar"
+        className={cx(style.sidebar, onToggle && style.sidebar_move)}
+      >
         <header className={style.profile_wrapper}>
           <Link href={'/posts'}>
-            <Image
-              className={style.img}
-              src={profileImg}
-              alt="프로필 사진"
-              width={112}
-              height={112}
-            />
+            <ImageLoader />
           </Link>
           <h1 className={style.blog_name_txt}>my blog</h1>
           <p className={style.site_subtitle}>
@@ -106,9 +107,9 @@ function Layout({ children, modal }: Props) {
         </nav>
         <div className="sidebar-bottom"></div>
       </aside>
-      <div className={style.main_wrapper}>
+      <div className={cx(style.main_wrapper, onToggle && style.main_move)}>
         <div className={style.container}>
-          <BreadCrumb />
+          <BreadCrumb moveToggle={moveToggle} />
           <div className={style.contents}>
             <main className={style.inner_content}>
               <Provider store={store}>
