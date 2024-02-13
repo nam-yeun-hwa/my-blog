@@ -229,6 +229,72 @@ export function generateStaticParams() {
 ```
 postid의 값을 받는 page.tsx에서는 상위 슬러그 값인 categoryname의 값을 사용하지 않지만 위와 같이 generateStaticParams()의 값을 수정 한 후 yarn build로 빌드를 성공 할수 있었다.
 
+## 이슈 
+## 로컬에서는 잘보이던 이미지가 배포 후 보이지 않는 문제 
 
+<img width="200" height="auto" alt="이미지 링크가 깨진 이미지" src="https://nyhya.cafe24.com/git_img/issu01/no-profileimg.png">
 
+📑  **문제의 코드**
 
+프로젝트의 pulbic 폴더 안에 image 폴더에 이미지 파일이 들어 있었고 아래와 같이 코딩 하였었었으나 배포 후 이미지가 깨지는 문제가 발생 했다.
+
+```
+<Image
+  className={style.img}
+  src={'/image/profile1.jpg'}
+  alt="프로필 사진"
+  width={112}
+  height={112}
+/>
+```
+
+## 해결 
+
+📑 **수정한 코드**
+
+아래와 같이 next/image에 loader를 추가해 주었다. </br>
+loader 옵션은 아래와 같이 직접 코드상에서 지정할 수 있고 next.config.js의 images 섹션에서도 지정할 수 있다.
+```
+import Image, { ImageLoaderProps } from 'next/image';
+import style from './imageLoader.module.css';
+
+export default function ImageLoader() {
+  const myLoader = ({ src, width, quality }: ImageLoaderProps) => {
+    return `${
+      process.env.NEXT_PUBLIC_APP_API_BASE_URL
+    }/image/${src}?w=${width}&q=${quality || 75}`;
+  };
+  return (
+    <Image
+      loader={myLoader}
+      className={style.img}
+      src={'profile1.jpg'}
+      alt="프로필 사진"
+      width={112}
+      height={112}
+    />
+  );
+}
+
+```
+
+📑 **next.config.js 파일에 Image 컴포넌트에 대한 옵션을 지정 하기**
+
+```
+const nextConfig = {
+  images: {
+    domains: ['s3.amazonaws.com'],
+    loader: 'amazon',
+    path: 'https://s3.amazonaws.com/image',
+  },
+  Unoptimized: true,
+};
+
+module.exports = nextConfig;
+
+```
+- **loader** : 로더를 이용하면 컴포넌트에서는 상대 경로로 이미지 위치를 지정하지만, 빌드(build) 시에 절대 경로로 Next.js가 자동으로 변환해 준다.
+- **domains** : 여기서 지정된 호스트네임만 허용되며 그외의 외부 링크에 경우 에러를 발생시켜 next.config.js에 등록 하도록 했다.
+- **Unoptimized** : Unoptimized 속성은 Next.js에서 이미지 최적화를 비활성화하는 속성이다. 이를 사용하면 Next.js의 내장 이미지 최적화 기능을 비활성화하고, 원본 이미지를 그대로 사용할 수 있다. </br>
+일반적으로 Next.js에서 제공하는 <Image/> 컴포넌트는 이미지 최적화를 자동으로 처리하여 페이지 성능을 향상시키고, 사용자 경험을 개선한다. </br>
+하지만 때로는 원본 이미지를 사용하거나 외부 이미지 최적화 서비스를 사용하고 싶을 수 있고 그럴 때 Unoptimized 속성을 사용하면 된다.</br>
