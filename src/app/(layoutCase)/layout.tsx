@@ -18,9 +18,23 @@ type Props = {
 function Layout({ children, modal }: Props) {
   const segment = useSelectedLayoutSegment();
   const [onToggle, setOnToggle] = useState(false);
+  const [width, setWidth] = useState<null | number>(null);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      setWidth(window.innerWidth);
+    };
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => {
+      window.removeEventListener('resize', updateWidth);
+    };
+  }, []);
 
   const moveToggle = () => {
-    setOnToggle(!onToggle);
+    if (width && width <= 849) {
+      setOnToggle(!onToggle);
+    }
   };
 
   return (
