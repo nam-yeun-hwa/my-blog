@@ -45,6 +45,7 @@ function Layout({ children, modal }: Props) {
                 style.nav_item,
                 (segment === 'posts' || segment === null) && style.active,
               )}
+              onClick={moveToggle}
             >
               <Link href={'/posts'} className={style.nav_link}>
                 <i className={`fa-fw fas fa-home ${style.ico}`}></i>
@@ -56,6 +57,7 @@ function Layout({ children, modal }: Props) {
                 style.nav_item,
                 segment === 'categories' && style.active,
               )}
+              onClick={moveToggle}
             >
               <Link className={style.nav_link} href={'/categories'}>
                 <i className={`fa-fw fas fa-stream ${style.ico}`}></i>
@@ -64,6 +66,7 @@ function Layout({ children, modal }: Props) {
             </li>
             <li
               className={cx(style.nav_item, segment === 'tags' && style.active)}
+              onClick={moveToggle}
             >
               <Link className={style.nav_link} href={'/tags'}>
                 <i className={`fa-fw fas fa-tags ${style.ico}`}></i>
@@ -75,6 +78,7 @@ function Layout({ children, modal }: Props) {
                 style.nav_item,
                 segment === 'archives' && style.active,
               )}
+              onClick={moveToggle}
             >
               <Link className={style.nav_link} href={'/archives'}>
                 <i className={`fa-fw fas fa-archive ${style.ico}`}></i>
@@ -86,6 +90,7 @@ function Layout({ children, modal }: Props) {
                 style.nav_item,
                 segment === 'algorithm' && style.active,
               )}
+              onClick={moveToggle}
             >
               <Link className={style.nav_link} href={'/algorithm'}>
                 <i className={`fa-solid fa-mug-saucer ${style.ico}`}></i>
