@@ -8,7 +8,7 @@ export default function Footer() {
         <p className={style.copylight}>
           © 2024 bunny Chung. Some rights reserved.
         </p>
-        <p className={style.theme}>v1.0.0</p>
+        <p className={style.theme}>portfolio v1.0.0</p>
       </footer>
     </div>
   );

@@ -103,7 +103,7 @@ export default function about() {
       <br />
       <br />
       <b> 2023-02-13 </b> <br />
-      기본 배포버전 적용 v1.0.0
+      portfolio 기본 배포버전 적용 v1.0.0
     </div>
   );
 }
