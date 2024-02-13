@@ -49,7 +49,7 @@ src/app/page.tsx You cannot have two parallel pages that resolve to the same pat
 app의 page를 삭제하고 라우터 그룹의 page를 유지 하였다.
 
 ## 이슈
-yarn dev 명령 후 프로젝트가 화면에 3초 이상 나타지 않았다.
+yarn dev 명령 후 프로젝트가 화면에 3초 이상 나타나지 않았다.
 그리고 터미널에 아래와 같은 문구가 수없이 나타났다.
 
 ```shell
