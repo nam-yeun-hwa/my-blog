@@ -279,22 +279,36 @@ export default function ImageLoader() {
 ```
 
 📑 **next.config.js 파일에 Image 컴포넌트에 대한 옵션을 지정 하기**
+next.config.js 파일에서 images 설정을 사용하여 loader와 loaderFile 속성을 설정해 준다.
 
 ```
 const nextConfig = {
   images: {
-    domains: ['s3.amazonaws.com'],
-    loader: 'amazon',
+    loader: 'custom',
+    loaderFile: './my/image/loader.js',
     path: 'https://s3.amazonaws.com/image',
+    formats:['image/avif', 'image/webp']
   },
-  Unoptimized: true,
+  Unoptimized: false,
 };
 
 module.exports = nextConfig;
 
 ```
 - **loader** : 로더를 이용하면 컴포넌트에서는 상대 경로로 이미지 위치를 지정하지만, 빌드(build) 시에 절대 경로로 Next.js가 자동으로 변환해 준다.
+- **loaderFile** : loaderFile 속성은 커스텀 이미지 로더가 정의된 파일의 경로를 지정해준다. 아래 my/image/loader.js 파일을 기본으로 한다.
 - **domains** : 여기서 지정된 호스트네임만 허용되며 그외의 외부 링크에 경우 에러를 발생시켜 next.config.js에 등록 하도록 했다.
+- **formats** : formats 속성은 이미지를 어떤 형식으로 변환할지를 설정할 수 있습니다. 주로 웹P(WebP) 형식이나 AVIF 형식 등을 지정하여 이미지를 더 작은 용량으로 제공하여 성능을 향상시킬 수 있습니다.
 - **Unoptimized** : Unoptimized 속성은 Next.js에서 이미지 최적화를 비활성화하는 속성이다. 이를 사용하면 Next.js의 내장 이미지 최적화 기능을 비활성화하고, 원본 이미지를 그대로 사용할 수 있다. </br>
 일반적으로 Next.js에서 제공하는 <Image/> 컴포넌트는 이미지 최적화를 자동으로 처리하여 페이지 성능을 향상시키고, 사용자 경험을 개선한다. </br>
 하지만 때로는 원본 이미지를 사용하거나 외부 이미지 최적화 서비스를 사용하고 싶을 수 있고 그럴 때 Unoptimized 속성을 사용하면 된다.</br>
+
+📑 **my/image/loader.js**
+```
+'use client'
+
+export default function myImageLoader({ src, width, quality }) {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`
+}
+```
+https://nextjs.org/docs/pages/api-reference/components/image
