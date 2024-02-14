@@ -164,10 +164,12 @@ https://nextjs.org/docs/app/building-your-application/deploying/static-exports
 
 <pre>
 category  
- │    ├── [categoryname] 
- │    │      └── [postid]  
- │    │            └── page.tsx 
- └──  └── page.tsx 
+  ├── [categoryname] 
+  │      ├── [postid]  
+  │      │      └── page.tsx 
+  │      └── page.tsx 
+  └── page.tsx
+
 </pre>
 
 </br>
