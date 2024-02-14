@@ -7,6 +7,7 @@ import Footer from 'app/_component/common/Footer';
 import Table from 'app/_component/detailPage/Table';
 import StringDot from 'app/_component/detailPage/ListStyle';
 import { algorithmPostlist } from 'data/algorithm_db';
+import PostNavigation from 'app/_component/common/PostNavigation';
 
 type Props = {
   params: { id: string };
@@ -17,8 +18,16 @@ export function generateStaticParams() {
 }
 
 export default function AlgoritmPage({ params }: Props) {
+  const currentPostId = parseInt(params.id);
+  const prePostTitle = algorithmPostlist.find(
+    (value) => value.id === currentPostId - 1,
+  );
+  const nextPostTile = algorithmPostlist.find(
+    (value) => value.id === currentPostId + 1,
+  );
+
   const { id, title, date, folder, post } =
-    algorithmPostlist[parseInt(params.id) - 1];
+    algorithmPostlist[currentPostId - 1];
 
   return (
     <>
@@ -68,24 +77,12 @@ export default function AlgoritmPage({ params }: Props) {
           />
         );
       })}
-      <div className="row">
-        <nav className={style.post_navigation}>
-          <Link
-            className={style.post_navigation_pre}
-            href=""
-            aria-label="Older"
-          >
-            <p className={style.post_navigation_text}>이전 게시물</p>
-          </Link>
-          <Link
-            className={style.post_navigation_next}
-            href=""
-            aria-label="Newer"
-          >
-            <p className={style.post_navigation_text}>다음 게시물</p>
-          </Link>
-        </nav>
-      </div>
+      <PostNavigation
+        postid={currentPostId}
+        prePostTitle={prePostTitle}
+        nextPostTile={nextPostTile}
+        segment={'algorithm'}
+      />
       <Footer />
     </>
   );

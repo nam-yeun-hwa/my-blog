@@ -104,6 +104,10 @@ export default function about() {
       <br />
       <b> 2023-02-13 </b> <br />
       portfolio 기본 배포버전 적용 v1.0.0
+      <br />
+      <br />
+      <b> 2023-02-14 </b> <br />
+      베짱이가 되고싶은 개미로 컨셉 설정 ㅋㅋ
     </div>
   );
 }

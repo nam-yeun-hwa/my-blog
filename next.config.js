@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
-  Unoptimized: true,
+  // unoptimized: false,
 };
 
 module.exports = nextConfig;

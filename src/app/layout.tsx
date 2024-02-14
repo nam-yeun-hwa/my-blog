@@ -31,6 +31,16 @@ export default function RootLayout({ children }: Props) {
           as="style"
         />
       </head>
+      <title>Become a Bejjangyi</title>
+      {/* <title>Create Next Bejjangyi</title> */}
+      <meta
+        name="description"
+        content="App for an Ant Who Wants to Become a Bejjangyi"
+      />
+      {/* <meta property="og:title" content="Become a Bejjangyi" /> */}
+      {/* <meta property="og:type" content="website" /> */}
+      {/* <meta property="og:url" content="공유시 이동 url" /> */}
+      {/* <meta property="og:image" content="공유시 보여질 이미지 경로" /> */}
       <body>{children}</body>
     </html>
   );

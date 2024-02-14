@@ -3,24 +3,26 @@
 import Link from 'next/link';
 import cx from 'classnames';
 import style from './postNavigation.module.css';
-import { totalPostlist } from 'data/post_db';
+
+import { IAlgorithmPost, IPost } from 'type/post';
 import { useEffect, useState } from 'react';
+import { useSelectedLayoutSegment } from 'next/navigation';
 
 type Props = {
-  postid: string;
+  postid: number;
+  prePostTitle: IPost | IAlgorithmPost | undefined;
+  nextPostTile: IPost | IAlgorithmPost | undefined;
+  segment: string;
 };
 
-export default function PostNavigation({ postid }: Props) {
+export default function PostNavigation({
+  postid,
+  prePostTitle,
+  nextPostTile,
+  segment,
+}: Props) {
   const [preActive, setPreActive] = useState(false);
   const [nextActive, setNextActive] = useState(false);
-
-  const currentPostid = parseInt(postid);
-  const hasPreValue = totalPostlist.find(
-    (value) => value.id === currentPostid - 1,
-  );
-  const hasNextValue = totalPostlist.find(
-    (value) => value.id === currentPostid + 1,
-  );
 
   return (
     <div className="row">
@@ -29,9 +31,9 @@ export default function PostNavigation({ postid }: Props) {
           className={cx(
             style.post_navgation_common,
             style.post_navigation_pre,
-            !hasPreValue && style.post_not_cursor,
+            !prePostTitle && style.post_not_cursor,
           )}
-          href={`/posts/${currentPostid - 1}`}
+          href={`/${segment}/${postid - 1}`}
           aria-label="Older"
           onMouseEnter={() => setPreActive(true)}
           onMouseLeave={() => setPreActive(false)}
@@ -39,19 +41,19 @@ export default function PostNavigation({ postid }: Props) {
           <p
             className={cx(
               style.post_navigation_text,
-              hasPreValue && preActive && style.active_txt,
+              prePostTitle && preActive && style.active_txt,
             )}
           >
-            {hasPreValue?.title ?? '-'}
+            {prePostTitle?.title ?? '-'}
           </p>
         </Link>
         <Link
           className={cx(
             style.post_navgation_common,
             style.post_navigation_next,
-            !hasNextValue && style.post_not_cursor,
+            !nextPostTile && style.post_not_cursor,
           )}
-          href={`/posts/${currentPostid + 1}`}
+          href={`/${segment}/${postid + 1}`}
           aria-label="Newer"
           onMouseEnter={() => setNextActive(true)}
           onMouseLeave={() => setNextActive(false)}
@@ -59,10 +61,10 @@ export default function PostNavigation({ postid }: Props) {
           <p
             className={cx(
               style.post_navigation_text,
-              hasNextValue && nextActive && style.active_txt,
+              nextPostTile && nextActive && style.active_txt,
             )}
           >
-            {hasNextValue?.title ?? '-'}
+            {nextPostTile?.title ?? '-'}
           </p>
         </Link>
       </nav>

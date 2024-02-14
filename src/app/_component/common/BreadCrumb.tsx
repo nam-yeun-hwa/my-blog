@@ -1,7 +1,7 @@
 'use client';
 
 import style from './breadCrumb.module.css';
-import cx from 'classnames';
+// import cx from 'classnames';
 
 import {
   useSelectedLayoutSegment,
@@ -12,7 +12,7 @@ import { totalPostlist } from 'data/post_db';
 import { algorithmPostlist } from 'data/algorithm_db';
 import { IAlgorithmPost, IPost } from 'type/post';
 import SearchBar from './SearchBar';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 type PropsBreadCrumb = {
   moveToggle: () => void;
@@ -24,7 +24,7 @@ type PropsBreadCrumb = {
  */
 export default function BreadCrumb({ moveToggle }: PropsBreadCrumb) {
   const menuRouter = useSelectedLayoutSegment();
-  const [moveSidebar, setMoveSidebar] = useState(false);
+  // const [moveSidebar, setMoveSidebar] = useState(false);
 
   return (
     <header className={style.topbar_wrapper}>

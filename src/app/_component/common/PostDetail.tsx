@@ -16,7 +16,14 @@ type Props = {
 };
 
 export default function PostDetail({ postid }: Props) {
-  const { title, post } = totalPostlist[parseInt(postid) - 1];
+  const currentPostId = parseInt(postid);
+  const prePostTitle = totalPostlist.find(
+    (value) => value.id === currentPostId - 1,
+  );
+  const nextPostTile = totalPostlist.find(
+    (value) => value.id === currentPostId + 1,
+  );
+  const { title, post } = totalPostlist[currentPostId - 1];
 
   return (
     <>
@@ -79,7 +86,12 @@ export default function PostDetail({ postid }: Props) {
           />
         );
       })}
-      <PostNavigation postid={postid} />
+      <PostNavigation
+        postid={currentPostId}
+        prePostTitle={prePostTitle}
+        nextPostTile={nextPostTile}
+        segment={'posts'}
+      />
       <Footer />
     </>
   );
