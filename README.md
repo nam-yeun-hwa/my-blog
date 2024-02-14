@@ -9,7 +9,7 @@ next.js 14버전을 이용하여 개인 블로그를 만들어 보도록 한다.
   
 # 배포 url
 https://nam-yeun-hwa.github.io/ </br></br>
-2024.2.14 v1.0.0
+2024.2.14 v1.0.0-alpha.1
 
 
 # 기술 스택
