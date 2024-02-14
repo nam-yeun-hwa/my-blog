@@ -315,3 +315,25 @@ export default function myImageLoader({ src, width, quality }) {
 }
 ```
 https://nextjs.org/docs/pages/api-reference/components/image
+
+
+## CSS
+## 첫번째 문자를 대문자로 표시
+변수 linkName의 첫번째 문자를 대문자로 표시하는 부분에서 처음 사용했던 방법은 자바스크립트를 사용 하였었다.
+```
+  <span className={style.upper_case}>
+    {linkName.charAt(0).toUpperCase() + linkName.slice(1)}
+  </span>
+```
+
+css에서 첫문자를 대문자로 변경 하였다.
+유의점은 span태그에서는 적용되지 않았고 p태그에서만 적용 되었다.
+
+## style.module.css
+```
+  <p className={style.upper_case}>{linkName}</p>
+  
+  .upper_case::first-letter {
+    text-transform: uppercase; /* 첫 글자를 대문자로 변경합니다. */
+  }
+```
