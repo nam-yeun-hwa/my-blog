@@ -8,7 +8,6 @@ import Footer from 'app/_component/common/Footer';
 import Table from 'app/_component/detailPage/Table';
 import StringDot from 'app/_component/detailPage/ListStyle';
 import HeadingString from 'app/_component/detailPage/Heading';
-import cx from 'classnames';
 import PostNavigation from './PostNavigation';
 
 type Props = {

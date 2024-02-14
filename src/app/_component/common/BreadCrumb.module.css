@@ -21,45 +21,6 @@
   padding-left: 0.5rem;
 }
 
-/* .search {
-  width: 100%;
-  max-width: 200px;
-  display: flex;
-  align-items: center;
-  border-radius: 1rem;
-  border: 1px solid #f0f0f0;
-  padding: 2px 0 0 0.5rem;
-} */
-/* .search_ico {
-  z-index: 2;
-  font-size: 0.9rem;
-  color: #c2c6cc;
-} */
-
-/* .search_input {
-  height: auto;
-  border: 0;
-
-  font-weight: 400;
-  line-height: 1.5;
-  color: #757575;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  outline: none;
-  margin: 2px 0px;
-}
-
-.search_input::placeholder {
-  color: #757575;
-}
-
-.search_active {
-  border-color: #b8b8b8;
-}
-
-.search_input_active::placeholder {
-  color: #acacac;
-} */
-
 .mobile_topbar {
   width: 100%;
   display: none;
@@ -100,6 +61,13 @@
   word-break: keep-all;
   white-space: nowrap;
   color: rgb(78, 78, 78);
+}
+
+.upper_case {
+  display: inline-block;
+}
+.upper_case::first-letter {
+  text-transform: uppercase; /* 첫 글자를 대문자로 변경합니다. */
 }
 
 .topbar_txt::after {

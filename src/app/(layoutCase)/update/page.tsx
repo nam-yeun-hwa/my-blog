@@ -108,6 +108,11 @@ export default function about() {
       <br />
       <b> 2023-02-14 </b> <br />
       베짱이가 되고싶은 개미로 컨셉 설정 ㅋㅋ
+      <br />
+      <br />
+      <b> 2023-02-14 </b> <br />
+      portfolio v1.0.0-alpha.1 - post와 algorithm페이지 하단 이전게시물
+      다음게시물 컴포넌트로 분리
     </div>
   );
 }

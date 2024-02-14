@@ -1,8 +1,6 @@
 'use client';
 
 import style from './breadCrumb.module.css';
-// import cx from 'classnames';
-
 import {
   useSelectedLayoutSegment,
   useSelectedLayoutSegments,
@@ -12,7 +10,6 @@ import { totalPostlist } from 'data/post_db';
 import { algorithmPostlist } from 'data/algorithm_db';
 import { IAlgorithmPost, IPost } from 'type/post';
 import SearchBar from './SearchBar';
-// import { useState } from 'react';
 
 type PropsBreadCrumb = {
   moveToggle: () => void;
@@ -89,7 +86,7 @@ function RouteSwitch({ data }: Props) {
                 className={style.topbar_txt}
                 href={`/${linkName}`}
               >
-                {linkName.charAt(0).toUpperCase() + linkName.slice(1)}
+                <p className={style.upper_case}>{linkName}</p>
               </Link>
             );
           })}
