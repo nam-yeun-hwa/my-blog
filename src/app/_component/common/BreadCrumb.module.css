@@ -61,6 +61,7 @@
   word-break: keep-all;
   white-space: nowrap;
   color: rgb(78, 78, 78);
+  padding-left: 12px;
 }
 
 .upper_case {

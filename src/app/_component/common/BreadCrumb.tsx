@@ -44,7 +44,7 @@ export default function BreadCrumb({ moveToggle }: PropsBreadCrumb) {
         <button className={style.sidebar_trigger} onClick={() => moveToggle()}>
           <i className={`fas fa-bars fa-fw ${style.sidebar_trigger_ico}`}></i>
         </button>
-        <div className={style.mobile_topbar_title}>Carys</div>
+        <div className={style.mobile_topbar_title}>be come 💡</div>
         <button className={style.search_trigger}>
           <i className={`fas fa-search fa-fw ${style.search_trigger_ico}`}></i>
         </button>
