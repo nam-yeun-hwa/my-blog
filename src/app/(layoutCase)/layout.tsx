@@ -9,6 +9,7 @@ import Panel from 'app/_component/common/Panel';
 import { Provider } from 'react-redux';
 import { store } from 'app/(layoutCase)/_component/store/index';
 import ImageLoader from 'app/_component/common/ImageLoader';
+import { MOBILE_WIDTH } from 'app/_component/constant/Constant';
 
 type Props = {
   children: ReactNode;
@@ -18,11 +19,11 @@ type Props = {
 function Layout({ children, modal }: Props) {
   const segment = useSelectedLayoutSegment();
   const [onToggle, setOnToggle] = useState(false);
-  const [width, setWidth] = useState<null | number>(null);
+  const [browserWidth, setBrowserWidth] = useState<null | number>(null);
 
   useEffect(() => {
     const updateWidth = () => {
-      setWidth(window.innerWidth);
+      setBrowserWidth(window.innerWidth);
     };
     updateWidth();
     window.addEventListener('resize', updateWidth);
@@ -32,7 +33,7 @@ function Layout({ children, modal }: Props) {
   }, []);
 
   const moveToggle = () => {
-    if (width && width <= 849) {
+    if (browserWidth && browserWidth <= MOBILE_WIDTH.MOBILE_APPLY_SIZE) {
       setOnToggle(!onToggle);
     }
   };
