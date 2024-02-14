@@ -42,6 +42,11 @@ https://nam-yeun-hwa.github.io/ </br></br>
                ├── tags --- 페이지
                └── update --- 페이지
 </pre>
+
+
+# Architecture 💡
+(추후예정)
+
 # Troubleshooting
 
 ## 이슈
