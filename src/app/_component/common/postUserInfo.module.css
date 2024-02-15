@@ -1,0 +1,35 @@
+.h1 {
+  font-size: 1.92rem;
+  color: var(--heading-color);
+  font-weight: 500;
+  font-family: var(--font-IBM_Plex_Sans_KR);
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.time {
+  font-weight: 500;
+}
+
+.author {
+  font-weight: 500;
+}
+
+.author:hover {
+  text-decoration: underline;
+  color: #d63384;
+}
+
+.update::before {
+  content: '•';
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.post_meta {
+  color: var(--text-muted-color) !important;
+  font-size: 0.85rem;
+  line-height: 1.75;
+}

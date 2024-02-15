@@ -10,6 +10,8 @@ import StringDot from 'app/_component/detailPage/ListStyle';
 import HeadingString from 'app/_component/detailPage/Heading';
 import PostNavigation from './PostNavigation';
 
+import PostUserInfo from './PostUserInfo';
+
 type Props = {
   postid: string;
 };
@@ -22,38 +24,11 @@ export default function PostDetail({ postid }: Props) {
   const nextPostTile = totalPostlist.find(
     (value) => value.id === currentPostId + 1,
   );
-  const { title, post } = totalPostlist[currentPostId - 1];
-
+  const { title, post, date } = totalPostlist[currentPostId - 1];
+  // createdAt
   return (
     <>
-      <article className={style.detail}>
-        <header>
-          <h1 className={style.h1}>{title}</h1>
-        </header>
-      </article>
-      <div className={style.post_meta}>
-        <span>
-          Posted
-          <time className={style.time}> Aug 8, 2019</time>
-        </span>
-        <span className={style.update}>
-          Updated
-          <time className={style.time}> Sep 23, 2023</time>
-        </span>
-      </div>
-      <div>
-        <span className={style.post_meta}>
-          By{' '}
-          <em>
-            <Link
-              href="https://github.com/nam-yeun-hwa"
-              className={style.author}
-            >
-              Carys Chung
-            </Link>
-          </em>
-        </span>
-      </div>
+      <PostUserInfo title={title} date={date} />
 
       {post.map((value, idx) => {
         if (value.type === ComponentType.EMPHASIS)

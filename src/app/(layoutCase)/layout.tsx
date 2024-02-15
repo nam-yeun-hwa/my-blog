@@ -9,7 +9,7 @@ import Panel from 'app/_component/common/Panel';
 import { Provider } from 'react-redux';
 import { store } from 'app/(layoutCase)/_component/store/index';
 import ImageLoader from 'app/_component/common/ImageLoader';
-import { MOBILE_WIDTH } from 'app/_component/constant/Constant';
+import { MOBILE_WIDTH } from 'app/_component/constant/constant';
 
 type Props = {
   children: ReactNode;
