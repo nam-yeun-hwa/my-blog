@@ -1,4 +1,10 @@
-import { ComponentType, Folder, Level } from 'type/post';
+import {
+  AlgorithmPlatform,
+  ComponentType,
+  Folder,
+  IAlgorithmPost,
+  Level,
+} from 'type/post';
 import tableStyle from 'app/_component/detailPage/table.module.css';
 
 /**
@@ -11,8 +17,9 @@ export const algorithmPostlist = [
     title: '배열의 길이를 2의 거듭제곱으로 만들기',
     date: '2023-12-24',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '코딩 기초 트레이닝',
+    lv: Level.Lv0,
+    platform: AlgorithmPlatform.PROGRAMMERS,
     post: [
       {
         type: ComponentType.H4,
@@ -84,8 +91,9 @@ export const algorithmPostlist = [
     title: '괄호 회전하기',
     date: '2023-12-24',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '월간 코드 챌린지 시즌2',
+    platform: AlgorithmPlatform.PROGRAMMERS,
+    lv: Level.Lv2,
     post: [
       {
         type: ComponentType.H4,
@@ -190,7 +198,8 @@ export const algorithmPostlist = [
     title: '최대공약수와 최소공배수, N개의 최소공배수',
     date: '2023-12-24',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    part_title: '연습문제',
+    platform: AlgorithmPlatform.PROGRAMMERS,
     lv: Level.Lv1,
     post: [
       {
@@ -268,8 +277,9 @@ export const algorithmPostlist = [
     title: '배열 만들기 2',
     date: '2023-12-24',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '코딩 기초 트레이닝',
+    platform: AlgorithmPlatform.PROGRAMMERS,
+    lv: Level.Lv0,
     post: [
       {
         type: ComponentType.H4,
@@ -362,8 +372,9 @@ export const algorithmPostlist = [
     title: '겹치는 선분의 길이',
     date: '2023-12-24',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '코딩테스트 입문',
+    platform: AlgorithmPlatform.PROGRAMMERS,
+    lv: Level.Lv0,
     post: [
       {
         type: ComponentType.H4,
@@ -461,7 +472,8 @@ export const algorithmPostlist = [
     title: '완주하지 못한 선수',
     date: '2023-12-24',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    part_title: '해시',
+    platform: AlgorithmPlatform.PROGRAMMERS,
     lv: Level.Lv1,
     post: [
       {
@@ -549,8 +561,9 @@ export const algorithmPostlist = [
     title: '로또의 최고 순위와 최저 순위',
     date: '2023-12-24',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
+    part_title: '2021 Dev-Matching: 웹 백엔드 개발자(상반기)',
     lv: Level.Lv1,
+    platform: AlgorithmPlatform.PROGRAMMERS,
     post: [
       {
         type: ComponentType.H4,
@@ -734,8 +747,9 @@ export const algorithmPostlist = [
     title: '의상',
     date: '2023-12-24',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '해시',
+    platform: AlgorithmPlatform.PROGRAMMERS,
+    lv: Level.Lv2,
     post: [
       {
         type: ComponentType.H4,
@@ -864,101 +878,13 @@ export const algorithmPostlist = [
     ],
   },
   {
-    id: 9,
-    title: '완주하지 못한 선수',
-    date: '2023-12-24',
-    folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
-    post: [
-      {
-        type: 'h4',
-        value: `문제 설명`,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.</br></br>
-  
-          마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.
-          `,
-      },
-      {
-        type: ComponentType.H4,
-        value: `제한 사항`,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다. </br>
-          completion의 길이는 participant의 길이보다 1 작습니다.</br>
-          참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.</br>
-          참가자 중에는 동명이인이 있을 수 있습니다.`,
-      },
-      {
-        type: ComponentType.H4,
-        value: `입출력 예`,
-      },
-      {
-        type: ComponentType.TABLE,
-        value: `
-          <table>
-            <thead>
-              <th>participant</th>
-              <th>completion</th>
-              <th>return</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>["leo", "kiki", "eden"]</td>
-                <td>["eden", "kiki"]</td>
-                <td>"leo"</td>
-              </tr>
-              <tr>
-                <td>["marina", "josipa", "nikola", "vinko", "filipa"]</td>
-                <td>["josipa", "filipa", "marina", "nikola"]</td>
-                <td>"vinko"</td>
-              </tr>
-              <tr>
-              <td>["mislav", "stanko", "mislav", "ana"]</td>
-              <td>["stanko", "ana", "mislav"]</td>
-              <td>"mislav"</td>
-            </tr>
-            </tbody>
-          </table>
-          `,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `예제 #1
-          "leo"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다. </br></br>
-          
-          예제 #2</br>
-          "vinko"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</br></br>
-          
-          예제 #3</br>
-          "mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.`,
-      },
-
-      {
-        type: ComponentType.CODE,
-        value: `function solution(participant, completion) {
-      completion.sort();
-      participant.sort();
-      
-      return participant.find((참가자,i) => {
-          let 완주자 = completion[i];
-          if(!완주자 || 참가자 !== 완주자) return 참가자;
-      });
-  }`,
-      },
-    ],
-  },
-  {
     id: 10,
     title: '멘토링(블루투포스 대표적 문제)',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '자바스크립트 알고리즘 문제풀이 입문',
+    platform: AlgorithmPlatform.INFLEAN,
+    lv: Level.LvNone,
     post: [
       {
         type: ComponentType.H4,
@@ -1060,8 +986,9 @@ export const algorithmPostlist = [
     title: '졸업 선물',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '자바스크립트 알고리즘 문제풀이 입문',
+    platform: AlgorithmPlatform.INFLEAN,
+    lv: Level.LvNone,
     post: [
       {
         type: ComponentType.H4,
@@ -1144,8 +1071,9 @@ export const algorithmPostlist = [
     title: 'K번째 큰 수',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '자바스크립트 알고리즘 문제풀이 입문',
+    platform: AlgorithmPlatform.INFLEAN,
+    lv: Level.LvNone,
     post: [
       {
         type: ComponentType.H4,
@@ -1222,8 +1150,9 @@ export const algorithmPostlist = [
     title: '괄호문자제거',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '자바스크립트 알고리즘 문제풀이 입문',
+    platform: AlgorithmPlatform.INFLEAN,
+    lv: Level.LvNone,
     post: [
       {
         type: ComponentType.H4,
@@ -1288,8 +1217,9 @@ export const algorithmPostlist = [
     title: '후위식 연산(postfix)',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '자바스크립트 알고리즘 문제풀이 입문',
+    platform: AlgorithmPlatform.INFLEAN,
+    lv: Level.LvNone,
     post: [
       {
         type: ComponentType.H4,
@@ -1360,8 +1290,9 @@ export const algorithmPostlist = [
     title: '쇠막대기',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '자바스크립트 알고리즘 문제풀이 입문',
+    platform: AlgorithmPlatform.INFLEAN,
+    lv: Level.LvNone,
     post: [
       {
         type: ComponentType.H4,
@@ -1468,8 +1399,9 @@ export const algorithmPostlist = [
     title: '공주 구하기',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
-    part_title: '2024 KAKAO WINTER INTERNSHIP',
-    lv: Level.Lv1,
+    part_title: '자바스크립트 알고리즘 문제풀이 입문',
+    platform: AlgorithmPlatform.INFLEAN,
+    lv: Level.LvNone,
     post: [
       {
         type: ComponentType.H4,

@@ -28,7 +28,7 @@ export default function AlgorithmPost({ post }: Props) {
               <i className={`fa-solid fa-layer-group ${style.ico_folder}`}></i>
               <span className={style.categories}> {post.lv} </span>
               <i className={`fa-solid fa-sitemap ${style.ico_folder}`}></i>
-              <span className={style.categories}> 프로그래머스 </span>
+              <span className={style.categories}> {post.platform} </span>
               <i className={`far fa-folder-open fa-fw ${style.ico_folder}`}></i>
               <span className={style.categories}> {post.folder} </span>
             </div>

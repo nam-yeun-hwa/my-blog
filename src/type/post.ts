@@ -23,6 +23,7 @@ export interface IAlgorithmPost {
   folder: Folder;
   part_title: string;
   lv: Level;
+  platform: AlgorithmPlatform;
   post: Array<{ type: string; value: string }>;
 }
 
@@ -51,6 +52,8 @@ export enum Folder {
  * @description 알고리즘 레벨
  */
 export enum Level {
+  LvNone = '난이도 표시 없음',
+  Lv0 = 'LEVEL0',
   Lv1 = 'LEVEL1',
   Lv2 = 'LEVEL2',
   Lv3 = 'LEVEL3',
@@ -71,4 +74,10 @@ export enum ComponentType {
   H2 = 'h2',
   H4 = 'h4',
   H3 = 'H3',
+}
+
+export enum AlgorithmPlatform {
+  PROGRAMMERS = '프로그래머스',
+  INFLEAN = '인프런',
+  BAEKJOON = '백준',
 }
