@@ -242,11 +242,14 @@ export function generateStaticParams() {
 postid의 값을 받는 page.tsx에서는 상위 슬러그 값인 categoryname의 값을 사용하지 않지만 위와 같이 generateStaticParams()의 값을 수정 한 후 yarn build로 빌드를 성공 할수 있었다.
 
 ## 이슈 
-## 로컬에서는 잘보이던 이미지가 배포 후 보이지 않는 문제 
+## next/image 사용시 로컬에서는 잘보이던 이미지가 배포 후 보이지 않는 문제 
 
-<img width="200" height="auto" alt="이미지 링크가 깨진 이미지" src="https://nyhya.cafe24.com/git_img/issu01/no-profileimg.png">
+**img 태그를 사용하면 정적 배포 후에도 에러가 발생하지 않고 간단하게 화면에 표시 되었지만 next/image를 사용하면 아래와 같은 이점이 있어 next/image를 유지 하였다.** </br></br>
+next/image는 이미지를 자동으로 적절한 크기로 조정하고, 필요한 경우에는 이미지를 **WebP 또는 AVIF 형식으로 변환**하여 **더 작은 용량으로 압축**할수 있으며 기본적으로 **레이지 로딩**을 지원하여 페이지의 성능을 향상시킨다. 이는 페이지 스크롤 시에 화면에 보이는 이미지만 로드되고, 나머지 이미지는 필요할 때까지 로드되지 않는다는 이점이 있다.
 
 📑  **문제의 코드**
+
+<img width="200" height="auto" alt="이미지 링크가 깨진 이미지" src="https://nyhya.cafe24.com/git_img/issu01/no-profileimg.png">
 
 프로젝트의 pulbic 폴더 안에 image 폴더에 이미지 파일이 들어 있었고 아래와 같이 코딩 하였었었으나 배포 후 이미지가 깨지는 문제가 발생 했다.
 
@@ -307,6 +310,10 @@ const nextConfig = {
 module.exports = nextConfig;
 
 ```
+
+
+
+
 - **loader** : 로더를 이용하면 컴포넌트에서는 상대 경로로 이미지 위치를 지정하지만, 빌드(build) 시에 절대 경로로 Next.js가 자동으로 변환해 준다.
 - **loaderFile** : loaderFile 속성은 커스텀 이미지 로더가 정의된 파일의 경로를 지정해준다. 아래 my/image/loader.js 파일을 기본으로 한다.
 - **domains** : 여기서 지정된 호스트네임만 허용되며 그외의 외부 링크에 경우 에러를 발생시켜 next.config.js에 등록 하도록 했다.
