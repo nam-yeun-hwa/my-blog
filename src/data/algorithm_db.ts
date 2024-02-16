@@ -15,7 +15,7 @@ export const algorithmPostlist = [
   {
     id: 1,
     title: '배열의 길이를 2의 거듭제곱으로 만들기',
-    date: '2023-12-24',
+    date: '2023-12-24 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '코딩 기초 트레이닝',
     lv: Level.Lv0,
@@ -89,7 +89,7 @@ export const algorithmPostlist = [
   {
     id: 2,
     title: '괄호 회전하기',
-    date: '2023-12-24',
+    date: '2023-12-24 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '월간 코드 챌린지 시즌2',
     platform: AlgorithmPlatform.PROGRAMMERS,
@@ -196,7 +196,7 @@ export const algorithmPostlist = [
   {
     id: 3,
     title: '최대공약수와 최소공배수, N개의 최소공배수',
-    date: '2023-12-24',
+    date: '2023-12-24 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '연습문제',
     platform: AlgorithmPlatform.PROGRAMMERS,
@@ -275,7 +275,7 @@ export const algorithmPostlist = [
   {
     id: 4,
     title: '배열 만들기 2',
-    date: '2023-12-24',
+    date: '2023-12-24 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '코딩 기초 트레이닝',
     platform: AlgorithmPlatform.PROGRAMMERS,
@@ -370,7 +370,7 @@ export const algorithmPostlist = [
   {
     id: 5,
     title: '겹치는 선분의 길이',
-    date: '2023-12-24',
+    date: '2023-12-24 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '코딩테스트 입문',
     platform: AlgorithmPlatform.PROGRAMMERS,
@@ -470,7 +470,7 @@ export const algorithmPostlist = [
   {
     id: 6,
     title: '완주하지 못한 선수',
-    date: '2023-12-24',
+    date: '2023-12-24 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '해시',
     platform: AlgorithmPlatform.PROGRAMMERS,
@@ -559,7 +559,7 @@ export const algorithmPostlist = [
   {
     id: 7,
     title: '로또의 최고 순위와 최저 순위',
-    date: '2023-12-24',
+    date: '2023-12-24 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '2021 Dev-Matching: 웹 백엔드 개발자(상반기)',
     lv: Level.Lv1,
@@ -745,7 +745,7 @@ export const algorithmPostlist = [
   {
     id: 8,
     title: '의상',
-    date: '2023-12-24',
+    date: '2023-12-24 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '해시',
     platform: AlgorithmPlatform.PROGRAMMERS,
@@ -880,7 +880,7 @@ export const algorithmPostlist = [
   {
     id: 9,
     title: '멘토링(블루투포스 대표적 문제)',
-    date: '2023-11-08',
+    date: '2023-11-08 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '자바스크립트 알고리즘 문제풀이 입문',
     platform: AlgorithmPlatform.INFLEAN,
@@ -983,7 +983,7 @@ export const algorithmPostlist = [
   },
   {
     id: 10,
-    title: '졸업 선물',
+    title: '졸업 선물 22:11:33',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
     part_title: '자바스크립트 알고리즘 문제풀이 입문',
@@ -1068,7 +1068,7 @@ export const algorithmPostlist = [
   },
   {
     id: 11,
-    title: 'K번째 큰 수',
+    title: 'K번째 큰 수 22:11:33',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
     part_title: '자바스크립트 알고리즘 문제풀이 입문',
@@ -1147,7 +1147,7 @@ export const algorithmPostlist = [
   },
   {
     id: 12,
-    title: '괄호문자제거',
+    title: '괄호문자제거 22:11:33',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
     part_title: '자바스크립트 알고리즘 문제풀이 입문',
@@ -1215,7 +1215,7 @@ export const algorithmPostlist = [
   {
     id: 13,
     title: '후위식 연산(postfix)',
-    date: '2023-11-08',
+    date: '2023-11-08 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '자바스크립트 알고리즘 문제풀이 입문',
     platform: AlgorithmPlatform.INFLEAN,
@@ -1288,7 +1288,7 @@ export const algorithmPostlist = [
   {
     id: 14,
     title: '쇠막대기',
-    date: '2023-11-08',
+    date: '2023-11-08 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '자바스크립트 알고리즘 문제풀이 입문',
     platform: AlgorithmPlatform.INFLEAN,
@@ -1397,7 +1397,7 @@ export const algorithmPostlist = [
   {
     id: 15,
     title: '공주 구하기',
-    date: '2023-11-08',
+    date: '2023-11-08 22:11:33',
     folder: Folder.ALGORITHM,
     part_title: '자바스크립트 알고리즘 문제풀이 입문',
     platform: AlgorithmPlatform.INFLEAN,

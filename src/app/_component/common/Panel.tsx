@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import style from './panel.module.css';
-import { totalPostlist } from 'data/post_db';
+import { sortedTotalPostlist, totalPostlist } from 'data/post_db';
 
 /**
  * totalPostlist의 tag[] 문자열을 중복하지 않고 결과값을 리턴
@@ -16,7 +16,7 @@ export default function Panel() {
         <section className={style.access_lastmod}>
           <h2 className={style.panel_heading}>Recently Updated</h2>
           <ul className={style.panel_recently}>
-            {totalPostlist.slice(0, 5).map((value) => {
+            {sortedTotalPostlist.slice(0, 5).map((value) => {
               return (
                 <li key={value.id} className={style.text_truncate}>
                   <Link href={`/posts/${value.id}`}>{value.title}</Link>
