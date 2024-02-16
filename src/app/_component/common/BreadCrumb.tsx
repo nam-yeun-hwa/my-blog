@@ -21,7 +21,6 @@ type PropsBreadCrumb = {
  */
 export default function BreadCrumb({ moveToggle }: PropsBreadCrumb) {
   const menuRouter = useSelectedLayoutSegment();
-  // const [moveSidebar, setMoveSidebar] = useState(false);
 
   return (
     <header className={style.topbar_wrapper}>
@@ -69,13 +68,16 @@ type Props = {
 
 function RouteSwitch({ data }: Props) {
   const allSegment = useSelectedLayoutSegments();
-  const lastSegmentValue = Number(allSegment[allSegment.length - 1]) - 1;
+  const lastSegmentValue = Number(allSegment[allSegment.length - 1]);
+  // const { title } = data.find(
+  //   (value) => value.id === lastSegmentValue,
+  // ) as IPost;
 
   return (
     <>
       {!isNaN(lastSegmentValue) ? (
         <Link className={style.topbar_txt} href={``}>
-          {data[lastSegmentValue].title}
+          {data.find((value) => value.id === lastSegmentValue)?.title}
         </Link>
       ) : (
         <>

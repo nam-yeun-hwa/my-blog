@@ -31,7 +31,7 @@ export default function RootLayout({ children }: Props) {
           as="style"
         />
       </head>
-      <title>Become a Bejjangyi</title>
+      <title>be come 💡</title>
       {/* <title>Create Next Bejjangyi</title> */}
       <meta
         name="description"

@@ -4,7 +4,7 @@ import Post from 'app/_component/Post';
 import style from './postPageing.module.css';
 import { useEffect } from 'react';
 
-import { totalPostlist } from 'data/post_db';
+import { sortedTotalPostlist, totalPostlist } from 'data/post_db';
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -37,11 +37,13 @@ export default function PostPageing() {
    * @description 새 게시물 업데이트
    */
   const fetchData = async () => {
-    const lastId = postList.length ? postList[postList.length - 1].id : 0;
-    const total = totalPostlist.length;
+    const lastId = postList.length ? postList.length : 0;
+    const total = sortedTotalPostlist.length;
     const nextPage = lastId + 5 < total ? lastId + 5 : lastId + 5 + (total % 5);
 
-    let updateData = postList.concat(totalPostlist.slice(lastId, nextPage));
+    let updateData = postList.concat(
+      sortedTotalPostlist.slice(lastId, nextPage),
+    );
     dispatch(rdxSetPostData(updateData));
     await delay(500);
   };
@@ -50,7 +52,7 @@ export default function PostPageing() {
    * @description inView에 따라 게시물을 업데이트 할수 있도록 로드 해준다.
    */
   useEffect(() => {
-    let hasNextPage = postList.length < totalPostlist.length;
+    let hasNextPage = postList.length < sortedTotalPostlist.length;
     if (inView && !isFetching && hasNextPage) {
       dispatch(rdxSetFetching(true));
       fetchData().then(() => {

@@ -7,7 +7,7 @@ type algorithmType = {
   isFetching: boolean;
 };
 
-const initialValue = algorithmPostlist.slice(0, 5);
+const initialValue = algorithmPostlist.slice(0, 10);
 
 const algorithmStore = createSlice({
   name: 'algorithmStore',

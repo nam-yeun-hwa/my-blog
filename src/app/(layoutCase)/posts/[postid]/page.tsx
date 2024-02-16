@@ -1,12 +1,12 @@
 import PostDetail from 'app/_component/common/PostDetail';
-import { totalPostlist } from 'data/post_db';
+import { sortedTotalPostlist, totalPostlist } from 'data/post_db';
 
 type Props = {
   params: { postid: string };
 };
 
 export function generateStaticParams() {
-  return totalPostlist.map((value) => ({ postid: value.id.toString() }));
+  return sortedTotalPostlist.map((value) => ({ postid: value.id.toString() }));
 }
 
 export default function PostPage({ params }: Props) {

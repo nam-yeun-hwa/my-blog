@@ -2,8 +2,8 @@ import style from './postDetail.module.css';
 import Link from 'next/link';
 import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
 import Prompts from 'app/_component/detailPage/Prompts';
-import { ComponentType } from 'type/post';
-import { totalPostlist } from 'data/post_db';
+import { ComponentType, IPost } from 'type/post';
+import { sortedTotalPostlist, totalPostlist } from 'data/post_db';
 import Footer from 'app/_component/common/Footer';
 import Table from 'app/_component/detailPage/Table';
 import StringDot from 'app/_component/detailPage/ListStyle';
@@ -18,13 +18,15 @@ type Props = {
 
 export default function PostDetail({ postid }: Props) {
   const currentPostId = parseInt(postid);
-  const prePostTitle = totalPostlist.find(
-    (value) => value.id === currentPostId - 1,
-  );
-  const nextPostTile = totalPostlist.find(
-    (value) => value.id === currentPostId + 1,
-  );
-  const { title, post, date } = totalPostlist[currentPostId - 1];
+  const prePostTitle = sortedTotalPostlist.find((value) => {
+    return value.id === currentPostId - 1;
+  }) as IPost;
+  const nextPostTile = sortedTotalPostlist.find((value) => {
+    return value.id === currentPostId + 1;
+  }) as IPost;
+  const { title, post, date } = sortedTotalPostlist.find((value) => {
+    return value.id === currentPostId;
+  }) as IPost;
   // createdAt
   return (
     <>
@@ -62,8 +64,8 @@ export default function PostDetail({ postid }: Props) {
       })}
       <PostNavigation
         postid={currentPostId}
-        prePostTitle={prePostTitle}
-        nextPostTile={nextPostTile}
+        prePostTitle={nextPostTile}
+        nextPostTile={prePostTitle}
         segment={'posts'}
       />
       <Footer />

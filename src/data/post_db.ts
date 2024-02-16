@@ -1770,4 +1770,302 @@ export default client;`,
       },
     ],
   },
+  {
+    id: 14,
+    title: 'GIT 명령어',
+    date: '2024-02-06',
+    folder: Folder.GIT,
+    preview: `설정 및 설정 모든 커밋에서 사용할 사용자 이름과 사용할 이메일 주소를 설정합니다. git config --global user.name "your name" git config --global user.email your email address ".`,
+    tag: ['GIT'],
+    post: [
+      {
+        type: ComponentType.H2,
+        value: `설정 및 설정 💡`,
+      },
+      {
+        type: ComponentType.H4,
+        value:
+          '모든 커밋에서 사용할 사용자 이름과 사용할 이메일 주소를 설정합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git config --global user.name "your name"
+git config --global user.email "your email address"`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `프로젝트 시작하기 💡`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '새로운 로컬 저장소를 초기화합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git init "project-name"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '기존 프로젝트와 버전 이력을 복제합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git clone "git url"`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `변경 및 스테이징 💡`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '작업 디렉터리에서 수정된 파일의 상태를 보여줍니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git status`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '파일을 스테이징 영역에 추가합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git add "file"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '모든 수정된 파일을 스테이징 영역에 추가합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git add .`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '설명적인 메시지와 함께 스테이징된 파일을 커밋합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git commit -m"commit your message"`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `커밋 관리 💡`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '마지막 커밋을 수정합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git commit --amend`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '커밋 메시지를 변경하지 않고 마지막 커밋을 수정합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git commit --amend --no-edit`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '압축된 커밋 이력을 표시합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git log --oneline`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '커밋 이력을 그래픽 형식으로 표시합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git log --graph`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '다른 기본 팁 위에 변경 사항을 다시 적용합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git rebase "your branch"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '지정된 변경 사항을 취소하는 새로운 커밋을 만듭니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git revert "your commit"`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `브랜치 및 병합 💡`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '저장소에 있는 모든 브랜치를 나열합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git branch`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '새로운 브랜치를 생성합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git branch "branch name"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '지정된 브랜치로 전환합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git checkout "branch name"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '지정된 브랜치의 이력을 현재 브랜치에 병합합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git merge "branch name"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '지정된 브랜치를 삭제합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git branch -d "branch name"`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `프로젝트 시작 및 업데이트 💡`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '로컬 브랜치 커밋을 원격 저장소 브랜치에 업로드합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git push "alias" "branch name"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '원격 브랜치 변경 사항을 현재 로컬 브랜치에 통합합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git pull`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `검사 및 비교 💡`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '현재 브랜치의 버전 이력을 표시합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git log"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '특정 파일의 변경 사항을 표시합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git log --follow "file name"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '두 브랜치 사이의 콘텐츠 차이를 표시합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git diff "branchB"`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `특정 커밋 사용하기 💡`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '지정된 커밋의 메타데이터와 콘텐츠 변경 사항을 표시합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git show "commit"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '지정된 커밋에서 소개된 변경 사항을 현재 브랜치에 적용합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git cherry-pick "commit"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '현재 브랜치 팁을 지정된 커밋 위로 이동합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git reset --soft "commit"`,
+      },
+      {
+        type: ComponentType.H4,
+        value:
+          '현재 브랜치 팁을 지정된 커밋으로 이동합니다. 변경 사항을 스테이징하지 않습니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git reset "commit"`,
+      },
+      {
+        type: ComponentType.H4,
+        value:
+          '작업 디렉터리를 지정된 커밋으로 재설정하고 모든 변경 사항을 삭제합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git reset --hard "commit"`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `변경 사항 되돌리기 💡`,
+      },
+      {
+        type: ComponentType.H4,
+        value:
+          '지정된 커밋 이후의 모든 커밋을 취소하고 변경 사항을 로컬로 유지합니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git reset "commit"`,
+      },
+      {
+        type: ComponentType.H4,
+        value: '지정된 커밋 이후의 모든 변경 사항을 지웁니다.',
+      },
+      {
+        type: ComponentType.CODE,
+        value: `git reset --hard "commit"`,
+      },
+    ],
+  },
 ];
+
+/**
+ * @description 날짜별로 SORT
+ */
+export const sortedTotalPostlist = totalPostlist.sort((a, b) => {
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+});

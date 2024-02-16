@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IPost } from 'type/post';
-import { totalPostlist } from 'data/post_db';
+import { sortedTotalPostlist, totalPostlist } from 'data/post_db';
 
 type postType = {
   postList: Array<IPost>;
@@ -8,7 +8,7 @@ type postType = {
   folderList: Array<string>;
 };
 
-const initialValue = totalPostlist.slice(0, 5);
+const initialValue = sortedTotalPostlist.slice(0, 5);
 
 const postStore = createSlice({
   name: 'postStore',

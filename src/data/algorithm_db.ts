@@ -878,7 +878,7 @@ export const algorithmPostlist = [
     ],
   },
   {
-    id: 10,
+    id: 9,
     title: '멘토링(블루투포스 대표적 문제)',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
@@ -982,7 +982,7 @@ export const algorithmPostlist = [
     ],
   },
   {
-    id: 11,
+    id: 10,
     title: '졸업 선물',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
@@ -1067,7 +1067,7 @@ export const algorithmPostlist = [
     ],
   },
   {
-    id: 12,
+    id: 11,
     title: 'K번째 큰 수',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
@@ -1146,7 +1146,7 @@ export const algorithmPostlist = [
     ],
   },
   {
-    id: 13,
+    id: 12,
     title: '괄호문자제거',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
@@ -1213,7 +1213,7 @@ export const algorithmPostlist = [
     ],
   },
   {
-    id: 14,
+    id: 13,
     title: '후위식 연산(postfix)',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
@@ -1286,7 +1286,7 @@ export const algorithmPostlist = [
     ],
   },
   {
-    id: 15,
+    id: 14,
     title: '쇠막대기',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
@@ -1395,7 +1395,7 @@ export const algorithmPostlist = [
     ],
   },
   {
-    id: 16,
+    id: 15,
     title: '공주 구하기',
     date: '2023-11-08',
     folder: Folder.ALGORITHM,
