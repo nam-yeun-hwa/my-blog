@@ -3,6 +3,7 @@ import style from './page.module.css';
 import PageHeading from 'app/_component/common/PageHeading';
 import dayjs from 'dayjs';
 import { totalPostlist } from 'data/post_db';
+import { Folder } from 'type/post';
 require('dayjs/locale/en'); // 영어로 날짜 포맷을 사용하기 위해 영어 로케일을 추가
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  const categoryFolder = ['React', 'Javascript'];
+  const categoryFolder = Object.values(Folder);
   return categoryFolder.map((value) => ({ categoryname: value }));
 }
 

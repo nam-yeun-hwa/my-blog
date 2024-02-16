@@ -79,10 +79,10 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(arr) {
-     const length = arr.length;
-     const totalLength = 2 ** Math.ceil(Math.log2(length));
-     return [...arr, ...new Array(totalLength - length).fill(0)];
-  }`,
+    const length = arr.length;
+    const totalLength = 2 ** Math.ceil(Math.log2(length));
+    return [...arr, ...new Array(totalLength - length).fill(0)];
+}`,
       },
     ],
   },
@@ -257,18 +257,18 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(n, m) {
-            let 최대공약수 = 0;
-           
-           const [min, max] = [n, m].sort((a, b) => a - b);
-       
-           for (let i = 1; i <= min; i++) {
-              if (min % i === 0 && max % i === 0) 최대공약수 = i;
-           }
-           
-           const 최소공배수 = (min * max) / 최대공약수;
-       
-           return [최대공약수, 최소공배수];
-       }`,
+    let 최대공약수 = 0;
+    
+    const [min, max] = [n, m].sort((a, b) => a - b);
+
+    for (let i = 1; i <= min; i++) {
+      if (min % i === 0 && max % i === 0) 최대공약수 = i;
+    }
+    
+    const 최소공배수 = (min * max) / 최대공약수;
+
+    return [최대공약수, 최소공배수];
+}`,
       },
     ],
   },
@@ -343,27 +343,27 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `// l 이상 r이하
-  // 오름차순으로 저장한 배열을 return 
-  // 정수가 없다면, -1
-  function everyFunction(value){
-          return value < 38;
-  }
-  
-  function solution(l, r) {
-      var answer = [];
-      
-      for(let i=l; i<=r; i++){
-          // 숫자 "0"과 "5"로만 이루어진 모든 정수
-          
-          if(i%5 !== 0) continue;
+// 오름차순으로 저장한 배열을 return 
+// 정수가 없다면, -1
+function everyFunction(value){
+        return value < 38;
+}
+
+function solution(l, r) {
+    var answer = [];
+    
+    for(let i=l; i<=r; i++){
+        // 숫자 "0"과 "5"로만 이루어진 모든 정수
         
-          if(![...String(i)].every(a => a === '5' || a === '0')) continue;
-          
-          answer.push(i);
-      }
+        if(i%5 !== 0) continue;
       
-      return answer.length > 0 ? answer : [-1];
-  }`,
+        if(![...String(i)].every(a => a === '5' || a === '0')) continue;
+        
+        answer.push(i);
+    }
+    
+    return answer.length > 0 ? answer : [-1];
+}`,
       },
     ],
   },
@@ -451,19 +451,19 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(lines) {
-    const table = Array.from({ length: 200 }, () => new Set())
-    lines.forEach(([a, b], index) => {
-      for (let i = a; i < b; i++) {
-        table[i + 100].add(index)
-      }
-    })
-  
-    let count = 0
-    table.forEach((line) => {
-      if ([...line].length > 1) count++
-    })
-    return count
-  }`,
+  const table = Array.from({ length: 200 }, () => new Set())
+  lines.forEach(([a, b], index) => {
+    for (let i = a; i < b; i++) {
+      table[i + 100].add(index)
+    }
+  })
+
+  let count = 0
+  table.forEach((line) => {
+    if ([...line].length > 1) count++
+  })
+  return count
+}`,
       },
     ],
   },
@@ -545,14 +545,14 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(participant, completion) {
-      completion.sort();
-      participant.sort();
-      
-      return participant.find((참가자,i) => {
-          let 완주자 = completion[i];
-          if(!완주자 || 참가자 !== 완주자) return 참가자;
-      });
-  }`,
+    completion.sort();
+    participant.sort();
+    
+    return participant.find((참가자,i) => {
+        let 완주자 = completion[i];
+        if(!완주자 || 참가자 !== 완주자) return 참가자;
+    });
+}`,
       },
     ],
   },
@@ -725,20 +725,20 @@ export const algorithmPostlist = [
         type: ComponentType.CODE,
         value: `function solution(lottos, win_nums) {
      
-      //최고순위
-      let best = lottos.filter(v => {
-          return win_nums.includes(v) || v === 0;
-      }).length;
-  
-        
-      //최저순위
-      let lowest = lottos.filter(v => {
-          return win_nums.includes(v);
-      }).length;
+    //최고순위
+    let best = lottos.filter(v => {
+        return win_nums.includes(v) || v === 0;
+    }).length;
+
       
-      
-      return [best > 0 ? Math.abs(7 - best) : 6 , lowest > 0 ? Math.abs(7.- lowest) : 6];
-  }`,
+    //최저순위
+    let lowest = lottos.filter(v => {
+        return win_nums.includes(v);
+    }).length;
+    
+    
+    return [best > 0 ? Math.abs(7 - best) : 6 , lowest > 0 ? Math.abs(7.- lowest) : 6];
+}`,
       },
     ],
   },
@@ -857,23 +857,23 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(clothes) {
-        let answer = 1;
-        const closet = new Map();
-        clothes.forEach(v => {
-            const [ value, category] = v;
-            let count = closet.get(category) + 1 || 1;
-            closet.set(category, count);
-        })
-        
-        
-        for(const [key, value] of closet){
-            answer *= value+1;
-        }
-        
-        return answer-1;
+    let answer = 1;
+    const closet = new Map();
+    clothes.forEach(v => {
+        const [ value, category] = v;
+        let count = closet.get(category) + 1 || 1;
+        closet.set(category, count);
+    })
+    
+    
+    for(const [key, value] of closet){
+        answer *= value+1;
     }
     
-    // 아무 옷을 안입는 경우때문에 -1 `,
+    return answer-1;
+}
+
+// 아무 옷을 안입는 경우때문에 -1 `,
       },
     ],
   },
@@ -957,27 +957,27 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(test){
-      let answer=0;
-      m=test.length;
-      n=test[0].length;
-      for(let i=1; i <=n; i++){
-          for(let j=1; j<=n; j++){
-              let cnt=0;
-              for(let k=0; k < m; k++){
-                  let pi=pj=0;
-                  for(let s=0; s < n; s++){
-                    //멘토가 3일 경우 s 등수 1, 2, 1
-                      if(test[k][s]===i) pi=s;
-                      //멘티가 1일 경우 s 등수 3, 4, 2 
-                      if(test[k][s]===j) pj=s;
-                  }
-                  if(pi < pj) cnt++;
+  let answer=0;
+  m=test.length;
+  n=test[0].length;
+  for(let i=1; i <=n; i++){
+      for(let j=1; j<=n; j++){
+          let cnt=0;
+          for(let k=0; k < m; k++){
+              let pi=pj=0;
+              for(let s=0; s < n; s++){
+                //멘토가 3일 경우 s 등수 1, 2, 1
+                  if(test[k][s]===i) pi=s;
+                  //멘티가 1일 경우 s 등수 3, 4, 2 
+                  if(test[k][s]===j) pj=s;
               }
-              if(cnt===m) answer++;
+              if(pi < pj) cnt++;
           }
+          if(cnt===m) answer++;
       }
-      return answer;
-  }`,
+  }
+  return answer;
+}`,
       },
     ],
   },
@@ -1042,27 +1042,27 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(m, product){
-      let answer=0;
-      let n=product.length;
-      product.sort((a, b)=>(a[0]+a[1])-(b[0]+b[1]));
-      for(let i=0; i<n; i++){
-          let money=m-(product[i][0]/2+product[i][1]);
-          let cnt=1;
-          for(let j=0; j<n; j++){
-          //★★★현재 오름차순으로 정렬되있기 때문에 뒤에 나올 선물들의 값들이 더 작을 경우가 없기 때문에 break 해준다.
-              if(j!==i && (product[j][0]+product[j][1])>money) break;
-              if(j!==i && (product[j][0]+product[j][1])<=money){
-                  money-=(product[j][0]+product[j][1]);
-                  cnt++;
-              }
-          }
-          answer=Math.max(answer, cnt);
-      }  
-      return answer;
-  }
-  
-  let arr=[[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]];
-  console.log(solution(28, arr));`,
+    let answer=0;
+    let n=product.length;
+    product.sort((a, b)=>(a[0]+a[1])-(b[0]+b[1]));
+    for(let i=0; i<n; i++){
+        let money=m-(product[i][0]/2+product[i][1]);
+        let cnt=1;
+        for(let j=0; j<n; j++){
+        //★★★현재 오름차순으로 정렬되있기 때문에 뒤에 나올 선물들의 값들이 더 작을 경우가 없기 때문에 break 해준다.
+            if(j!==i && (product[j][0]+product[j][1])>money) break;
+            if(j!==i && (product[j][0]+product[j][1])<=money){
+                money-=(product[j][0]+product[j][1]);
+                cnt++;
+            }
+        }
+        answer=Math.max(answer, cnt);
+    }  
+    return answer;
+}
+
+let arr=[[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]];
+console.log(solution(28, arr));`,
       },
     ],
   },
@@ -1125,23 +1125,23 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(n, k, card){
-      let answer;
-      let tmp = new Set();
-      for(let i=0; i<n; i++){
-          for(let j=i+1; j<n; j++){
-              for(let k=j+1; k<n; k++){
-                  tmp.add(card[i]+card[j]+card[k]);
-              }
-          }
-      }
-      //new Set()을 배열로 만들기 > Array.from(tmp)
-      let a=Array.from(tmp).sort((a, b)=>b-a);
-      answer=a[k-1];
-      return answer;
-  }
-  
-  let arr=[13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
-  console.log(solution(10, 3, arr));`,
+    let answer;
+    let tmp = new Set();
+    for(let i=0; i<n; i++){
+        for(let j=i+1; j<n; j++){
+            for(let k=j+1; k<n; k++){
+                tmp.add(card[i]+card[j]+card[k]);
+            }
+        }
+    }
+    //new Set()을 배열로 만들기 > Array.from(tmp)
+    let a=Array.from(tmp).sort((a, b)=>b-a);
+    answer=a[k-1];
+    return answer;
+}
+
+let arr=[13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+console.log(solution(10, 3, arr));`,
       },
     ],
   },
@@ -1195,20 +1195,20 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(s){  
-      let answer;
-      let stack=[];
-      for(let x of s){
-          if(x===')'){
-          //★★★★★★ 
-              while(stack.pop()!=='(');
-          }
-          else stack.push(x);
-      }
-      answer=stack.join('');
-      return answer;
-  }
-  
-  let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";`,
+    let answer;
+    let stack=[];
+    for(let x of s){
+        if(x===')'){
+        //★★★★★★ 
+            while(stack.pop()!=='(');
+        }
+        else stack.push(x);
+    }
+    answer=stack.join('');
+    return answer;
+}
+
+let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";`,
       },
     ],
   },
@@ -1263,25 +1263,25 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(s){  
-      let answer;
-      let stack=[];
-      for(let x of s){
-          if(!isNaN(x)) stack.push(Number(x));
-          else{
-              let rt=stack.pop();
-              let lt=stack.pop();
-              if(x==='+') stack.push(lt+rt);
-              else if(x==='-') stack.push(lt-rt);
-              else if(x==='*') stack.push(lt*rt);
-              else if(x==='/') stack.push(lt/rt);
-          }
-      }
-      answer=stack[0];
-      return answer;
-  }
-  
-  let str="352+*9-";
-  console.log(solution(str));`,
+    let answer;
+    let stack=[];
+    for(let x of s){
+        if(!isNaN(x)) stack.push(Number(x));
+        else{
+            let rt=stack.pop();
+            let lt=stack.pop();
+            if(x==='+') stack.push(lt+rt);
+            else if(x==='-') stack.push(lt-rt);
+            else if(x==='*') stack.push(lt*rt);
+            else if(x==='/') stack.push(lt/rt);
+        }
+    }
+    answer=stack[0];
+    return answer;
+}
+
+let str="352+*9-";
+console.log(solution(str));`,
       },
     ],
   },
@@ -1362,25 +1362,25 @@ export const algorithmPostlist = [
       {
         type: ComponentType.CODE,
         value: `function solution(s){  
-      let answer;
-      let stack=[];
-      for(let x of s){
-          if(!isNaN(x)) stack.push(Number(x));
-          else{
-              let rt=stack.pop();
-              let lt=stack.pop();
-              if(x==='+') stack.push(lt+rt);
-              else if(x==='-') stack.push(lt-rt);
-              else if(x==='*') stack.push(lt*rt);
-              else if(x==='/') stack.push(lt/rt);
-          }
-      }
-      answer=stack[0];
-      return answer;
-  }
-  
-  let str="352+*9-";
-  console.log(solution(str));`,
+    let answer;
+    let stack=[];
+    for(let x of s){
+        if(!isNaN(x)) stack.push(Number(x));
+        else{
+            let rt=stack.pop();
+            let lt=stack.pop();
+            if(x==='+') stack.push(lt+rt);
+            else if(x==='-') stack.push(lt-rt);
+            else if(x==='*') stack.push(lt*rt);
+            else if(x==='/') stack.push(lt/rt);
+        }
+    }
+    answer=stack[0];
+    return answer;
+}
+
+let str="352+*9-";
+`,
       },
       {
         type: ComponentType.STRINGLIST,

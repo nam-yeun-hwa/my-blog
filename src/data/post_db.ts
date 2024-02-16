@@ -1776,7 +1776,7 @@ export default client;`,
     date: '2024-02-16 22:11:33',
     folder: Folder.GIT,
     preview: `설정 및 설정 모든 커밋에서 사용할 사용자 이름과 사용할 이메일 주소를 설정합니다. git config --global user.name "your name" git config --global user.email your email address ".`,
-    tag: ['GIT'],
+    tag: ['git'],
     post: [
       {
         type: ComponentType.H2,

@@ -9,7 +9,7 @@ export default function Footer() {
         <p className={style.copylight}>
           © 2024 {GITHUB.AUTHOR} Some rights reserved.
         </p>
-        <p className={style.theme}>portfolio v1.0.0-alpha.0</p>
+        <p className={style.theme}>portfolio v1.0.0-alpha.3</p>
       </footer>
     </div>
   );

@@ -12,11 +12,6 @@ totalPostlist.forEach(({ tag }) => {
   tag?.forEach((item) => {
     let value = tagArray.get(item) ? tagArray.get(item) + 1 : 1;
     tagArray.set(item, value);
-    // if (tagArray.has(item)) {
-    //   tagArray.set(item, tagArray.get(item) + 1);
-    // } else {
-    //   tagArray.set(item, 1);
-    // }
   });
 });
 
