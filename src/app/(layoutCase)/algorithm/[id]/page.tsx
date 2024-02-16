@@ -57,8 +57,8 @@ export default function AlgoritmPage({ params }: Props) {
       })}
       <PostNavigation
         postid={currentPostId}
-        prePostTitle={prePostTitle}
-        nextPostTile={nextPostTile}
+        prePostTitle={nextPostTile}
+        nextPostTile={prePostTitle}
         segment={'algorithm'}
       />
       <Footer />
