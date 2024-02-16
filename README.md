@@ -217,8 +217,6 @@ export function generateStaticParams() {
 https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 
 </br>
-</br>
-
 ## 해결
 📑 [postid] page.tsx
 
