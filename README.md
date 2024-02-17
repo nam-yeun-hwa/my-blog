@@ -248,9 +248,9 @@ export default function myImageLoader({ src, width, quality }) {
 ```
 https://nextjs.org/docs/pages/api-reference/components/image
 
-## font 적용하기
+# font 적용하기
 
-## 폰트가 적용되는 것을 확인한 방법 case 1
+## 폰트가 적용되는 것을 확인한 방법 : stylesheet 사용
 가장 상위 layout의 head에 구글폰트 stylesheet를 넣어주는 방법이다.
 
 📄 layout.tsx
@@ -434,6 +434,7 @@ module.exports = {
 
 ```
 폰트가 적용되는 듯 하였으나 적용되지 않았다.
+다시 시도해 보아야 겠다.
 </br>
 
 ## CSS
