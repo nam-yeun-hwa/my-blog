@@ -78,9 +78,8 @@
 .content {
   margin-top: 2rem;
   overflow-wrap: break-word;
-  /* color: #34343c; */
   color: #4e4e55;
-  line-height: 1.6;
+  line-height: 2;
 }
 
 @media (min-width: 850px) {

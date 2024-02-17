@@ -1,9 +1,8 @@
 import style from './postDetail.module.css';
-import Link from 'next/link';
 import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
 import Prompts from 'app/_component/detailPage/Prompts';
 import { ComponentType, IPost } from 'type/post';
-import { sortedTotalPostlist, totalPostlist } from 'data/post_db';
+import { sortedTotalPostlist } from 'data/post_db';
 import Footer from 'app/_component/common/Footer';
 import Table from 'app/_component/detailPage/Table';
 import StringDot from 'app/_component/detailPage/ListStyle';
