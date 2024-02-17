@@ -248,7 +248,7 @@ export default function myImageLoader({ src, width, quality }) {
 ```
 https://nextjs.org/docs/pages/api-reference/components/image
 
-## font 적용
+## font 적용하기
 
 ## 폰트가 적용되는 것을 확인한 방법 case 1
 가장 상위 layout의 head에 구글폰트 stylesheet를 넣어주는 방법이다.
@@ -356,7 +356,7 @@ Retrying 1/3...
 The user aborted a request.
 ```
 
-## 폰트가 적용되지 않았던 방법 case 2
+## 폰트가 적용되지 않았던 방법 : tailwind.config.js 사용 
 localFont와 @font-face를 사용해 보았으나 어쩐일인지 폰트가 적용되지 않아서 다음 시도는 tailwind.config.js에 font-family를 등록하여 사용하는 방법을 시도해 보았다.
 
 
