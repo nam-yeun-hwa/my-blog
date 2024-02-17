@@ -356,7 +356,7 @@ Retrying 1/3...
 The user aborted a request.
 ```
 
-## 폰트가 적용되는 것을 확인한 방법 case 2
+## 폰트가 적용되지 않았던 방법 case 2
 localFont와 @font-face를 사용해 보았으나 어쩐일인지 폰트가 적용되지 않아서 다음 시도는 tailwind.config.js에 font-family를 등록하여 사용하는 방법을 시도해 보았다.
 
 
@@ -433,7 +433,7 @@ module.exports = {
 };
 
 ```
-폰트가 잘 적용되는 것을 확인 하였다.
+폰트가 적용되는 듯 하였으나 적용되지 않았다.
 </br>
 
 ## CSS
