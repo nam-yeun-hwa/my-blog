@@ -217,7 +217,6 @@ export function generateStaticParams() {
 https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 
 </br>
-</br>
 
 ## 해결
 📑 [postid] page.tsx
@@ -293,7 +292,7 @@ export default function ImageLoader() {
 
 ```
 
-📑 **next.config.js 파일에 Image 컴포넌트에 대한 옵션을 지정 하기**
+📑 **next.config.js 파일에 Image 컴포넌트에 대한 옵션을 지정 하기** </br>
 next.config.js 파일에서 images 설정을 사용하여 loader와 loaderFile 속성을 설정해 준다.
 
 ```
