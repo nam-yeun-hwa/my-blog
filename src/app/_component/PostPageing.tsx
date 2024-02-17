@@ -7,11 +7,8 @@ import { useEffect } from 'react';
 import { sortedTotalPostlist, totalPostlist } from 'data/post_db';
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  rdxSetPostData,
-  rdxSetFetching,
-} from 'app/(layoutCase)/_component/store/post';
-import { RootState } from 'app/(layoutCase)/_component/store';
+import { rdxSetPostData, rdxSetFetching } from 'store/post';
+import { RootState } from 'store';
 
 export default function PostPageing() {
   const { ref, inView } = useInView({

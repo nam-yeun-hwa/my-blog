@@ -1,15 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
-import { RootState, store } from 'app/(layoutCase)/_component/store/index';
+import { RootState, store } from 'store/index';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
 import style from './postPageing.module.css';
 
-import {
-  rdxSetAlgorithmData,
-  rdxSetFetching,
-} from 'app/(layoutCase)/_component/store/algorithm/index';
+import { rdxSetAlgorithmData, rdxSetFetching } from 'store/algorithm/index';
 import AlgorithmPost from 'app/_component/AlgorithmPost';
 import { algorithmPostlist } from 'data/algorithm_db';
 

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import cx from 'classnames';
 import CategoryItem from 'app/_component/CategoryItem';
 import { useSelector } from 'react-redux';
-import { RootState } from '../_component/store';
+import { RootState } from '../../../store';
 import { totalPostlist } from 'data/post_db';
 import { useState } from 'react';
 
