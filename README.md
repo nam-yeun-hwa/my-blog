@@ -49,7 +49,7 @@ https://nam-yeun-hwa.github.io/ </br></br>
 
 # Troubleshooting
 
-## 이슈
+## 이슈 1
 ```shell
 src/app/page.tsx You cannot have two parallel pages that resolve to the same path. Please check /page and /(layoutCase)/page. Refer to the route group docs for more information: https://nextjs.org/docs/app/building-your-application/routing/route-groups   
 ```
@@ -76,7 +76,7 @@ next13이후에 아래 키워드를 추가하도록 변경 되었다.
 https://nextjs.org/docs/app/building-your-application/deploying/static-exports
 
 
-## 정적 배포 이슈
+## 이슈 2
 
 ## Error : Page[categoryname]/[postid] is missing "generateStaticParams()" so it cannot be used with "output: export" config.
 정적으로 페이지를 빌드 할 경우 슬러그를 받는 page.tsx에 generateStaticParams()를 넣어줘야 하는 이슈 였다.
@@ -157,11 +157,10 @@ export function generateStaticParams() {
 ```
 postid의 값을 받는 page.tsx에서는 상위 슬러그 값인 categoryname의 값을 사용하지 않지만 위와 같이 generateStaticParams()의 값을 수정 한 후 yarn build로 빌드를 성공 할수 있었다.
 
-## 이슈 
+## 이슈 3
 ## next/image 사용시 로컬에서는 잘보이던 이미지가 배포 후 보이지 않는 문제 
 
-**img 태그를 사용하면 정적 배포 후에도 에러가 발생하지 않고 간단하게 화면에 표시 되었지만 next/image를 사용하면 아래와 같은 이점이 있어 next/image를 유지 하였다.** </br></br>
-next/image는 이미지를 자동으로 적절한 크기로 조정하고, 필요한 경우에는 이미지를 **WebP 또는 AVIF 형식으로 변환**하여 **더 작은 용량으로 압축**할수 있으며 기본적으로 **레이지 로딩**을 지원하여 페이지의 성능을 향상시킨다. 이는 페이지 스크롤 시에 화면에 보이는 이미지만 로드되고, 나머지 이미지는 필요할 때까지 로드되지 않는다는 이점이 있다.
+
 
 📑  **문제의 코드**
 
@@ -178,6 +177,9 @@ next/image는 이미지를 자동으로 적절한 크기로 조정하고, 필요
   height={112}
 />
 ```
+
+**img 태그를 사용하면 정적 배포 후에도 에러가 발생하지 않고 간단하게 화면에 표시 되었지만 next/image를 사용하면 아래와 같은 이점이 있어 next/image를 유지 하기로 하였다.** </br></br>
+next/image는 이미지를 자동으로 적절한 크기로 조정하고, 필요한 경우에는 이미지를 **WebP 또는 AVIF 형식으로 변환**하여 **더 작은 용량으로 압축**할수 있으며 기본적으로 **레이지 로딩**을 지원하여 페이지의 성능을 향상시킨다. 이는 페이지 스크롤 시에 화면에 보이는 이미지만 로드되고, 나머지 이미지는 필요할 때까지 로드되지 않는다는 이점이 있다.
 
 ## 해결 
 
@@ -438,15 +440,14 @@ module.exports = {
 </br>
 
 ## CSS
-## 첫번째 문자를 대문자로 표시
+## 첫번째 문자를 대문자로 표시 
 변수 linkName의 첫번째 문자를 대문자로 표시하는 부분에서 처음 사용했던 방법은 자바스크립트를 사용 하였었다.
 ```
   <span className={style.upper_case}>
     {linkName.charAt(0).toUpperCase() + linkName.slice(1)}
   </span>
 ```
-
-css에서 첫문자를 대문자로 변경 하였다.
+자바스크립트로 대문자를 변경하여 표시 하던 내용을 css에서 첫문자를 대문자로 변경 하는 식으로 코드 리팩토링
 유의점은 span태그에서는 적용되지 않았고 p태그에서만 적용 되었다.
 
 ## style.module.css
