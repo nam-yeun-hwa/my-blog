@@ -80,7 +80,12 @@ https://nextjs.org/docs/app/building-your-application/deploying/static-exports
 
 ## Error : Page[categoryname]/[postid] is missing "generateStaticParams()" so it cannot be used with "output: export" config.
 정적으로 페이지를 빌드 할 경우 슬러그를 받는 page.tsx에 generateStaticParams()를 넣어줘야 하는 이슈 였다.
-
+</br>
+</br>
+Next.js 14의 generateStaticParams() 함수는 정적 생성(Static Generation)을 위한 매개변수를 생성하는 데 사용된다. 정적 생성은 미리 렌더링된 페이지를 생성하여 서버 측에서 캐싱하고 클라이언트에 제공함으로써 초기 로딩 속도를 향상시키는 기술이다.
+예를 들어, 블로그 애플리케이션의 경우 generateStaticParams() 함수를 사용하여 각 블로그 포스트의 URL을 생성하고, 해당 URL에 대한 포스트 데이터를 가져오기 위한 매개변수를 생성할 수 있다. 이렇게 생성된 매개변수는 정적 생성된 페이지에서 사용되어 해당 포스트의 데이터를 가져와서 렌더링할 수 있다.
+</br>
+</br>
 📑 페이지 카테고리 경로 (category)
 해당 페이지는 두개의 슬러그를 다이나믹 param으로 받고 있었고 
 - [categoryname] page.tsx 에서는 categoryname의 parms을 사용하고
@@ -99,9 +104,11 @@ category
 </br>
 </br>
 처음에는 다른 페이지와 동일 하게 아래와 같이 generateStaticParams() 구성 하였다.
+</br>
+</br>
 
-
-📑 [categoryname] > page.tsx
+📑 page.tsx </br></br>
+페이지 폴더 구성 : [categoryname] > page.tsx </br>
 페이지의 categoryname 값을 슬러그로 받아 페이지를 표시 하는 페이지이다.
 ```
 type Props = {
@@ -114,8 +121,9 @@ export function generateStaticParams() {
 }
 ```
 
-📑 [categoryname] > [postid] > page.tsx
-페이지의 id 값을 받아 페이지를 표시 할수 잇도록 id값을 슬러그로 받는 페이지이다.
+📑 page.tsx </br></br>
+페이지 폴더 구성 : [categoryname] > [postid] > page.tsx </br>
+페이지의 postid 값을 받아 페이지를 표시 할수 있도록 postid값을 슬러그로 받는 페이지이다.
 ```
 type Props = {
   params: { postid: string };
@@ -136,7 +144,9 @@ https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 </br>
 
 ## 해결
-📑 [postid] page.tsx
+
+에러를 발생하게 하는 페이지 [categoryname] > [postid] > page.tsx의 코드를 아래와 같이 수정 하였다. </br>
+📑 page.tsx </br></br>
 
 ```
 type Props = {
@@ -228,9 +238,6 @@ const nextConfig = {
 module.exports = nextConfig;
 
 ```
-
-
-
 
 - **loader** : 로더를 이용하면 컴포넌트에서는 상대 경로로 이미지 위치를 지정하지만, 빌드(build) 시에 절대 경로로 Next.js가 자동으로 변환해 준다.
 - **loaderFile** : loaderFile 속성은 커스텀 이미지 로더가 정의된 파일의 경로를 지정해준다. 아래 my/image/loader.js 파일을 기본으로 한다.
