@@ -49,7 +49,7 @@ https://nam-yeun-hwa.github.io/ </br></br>
 
 # Troubleshooting
 
-## 이슈
+## 이슈 1
 ```shell
 src/app/page.tsx You cannot have two parallel pages that resolve to the same path. Please check /page and /(layoutCase)/page. Refer to the route group docs for more information: https://nextjs.org/docs/app/building-your-application/routing/route-groups   
 ```
@@ -76,11 +76,16 @@ next13이후에 아래 키워드를 추가하도록 변경 되었다.
 https://nextjs.org/docs/app/building-your-application/deploying/static-exports
 
 
-## 정적 배포 이슈
+## 이슈 2
 
 ## Error : Page[categoryname]/[postid] is missing "generateStaticParams()" so it cannot be used with "output: export" config.
 정적으로 페이지를 빌드 할 경우 슬러그를 받는 page.tsx에 generateStaticParams()를 넣어줘야 하는 이슈 였다.
-
+</br>
+</br>
+Next.js 14의 generateStaticParams() 함수는 정적 생성(Static Generation)을 위한 매개변수를 생성하는 데 사용된다. 정적 생성은 미리 렌더링된 페이지를 생성하여 서버 측에서 캐싱하고 클라이언트에 제공함으로써 초기 로딩 속도를 향상시키는 기술이다.
+예를 들어, 블로그 애플리케이션의 경우 generateStaticParams() 함수를 사용하여 각 블로그 포스트의 URL을 생성하고, 해당 URL에 대한 포스트 데이터를 가져오기 위한 매개변수를 생성할 수 있다. 이렇게 생성된 매개변수는 정적 생성된 페이지에서 사용되어 해당 포스트의 데이터를 가져와서 렌더링할 수 있다.
+</br>
+</br>
 📑 페이지 카테고리 경로 (category)
 해당 페이지는 두개의 슬러그를 다이나믹 param으로 받고 있었고 
 - [categoryname] page.tsx 에서는 categoryname의 parms을 사용하고
@@ -99,9 +104,11 @@ category
 </br>
 </br>
 처음에는 다른 페이지와 동일 하게 아래와 같이 generateStaticParams() 구성 하였다.
+</br>
+</br>
 
-
-📑 [categoryname] > page.tsx
+📑 page.tsx </br></br>
+페이지 폴더 구성 : [categoryname] > page.tsx </br>
 페이지의 categoryname 값을 슬러그로 받아 페이지를 표시 하는 페이지이다.
 ```
 type Props = {
@@ -114,8 +121,9 @@ export function generateStaticParams() {
 }
 ```
 
-📑 [categoryname] > [postid] > page.tsx
-페이지의 id 값을 받아 페이지를 표시 할수 잇도록 id값을 슬러그로 받는 페이지이다.
+📑 page.tsx </br></br>
+페이지 폴더 구성 : [categoryname] > [postid] > page.tsx </br>
+페이지의 postid 값을 받아 페이지를 표시 할수 있도록 postid값을 슬러그로 받는 페이지이다.
 ```
 type Props = {
   params: { postid: string };
@@ -136,7 +144,9 @@ https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 </br>
 
 ## 해결
-📑 [postid] page.tsx
+
+에러를 발생하게 하는 페이지 [categoryname] > [postid] > page.tsx의 코드를 아래와 같이 수정 하였다. </br>
+📑 page.tsx </br></br>
 
 ```
 type Props = {
@@ -157,11 +167,10 @@ export function generateStaticParams() {
 ```
 postid의 값을 받는 page.tsx에서는 상위 슬러그 값인 categoryname의 값을 사용하지 않지만 위와 같이 generateStaticParams()의 값을 수정 한 후 yarn build로 빌드를 성공 할수 있었다.
 
-## 이슈 
+## 이슈 3
 ## next/image 사용시 로컬에서는 잘보이던 이미지가 배포 후 보이지 않는 문제 
 
-**img 태그를 사용하면 정적 배포 후에도 에러가 발생하지 않고 간단하게 화면에 표시 되었지만 next/image를 사용하면 아래와 같은 이점이 있어 next/image를 유지 하였다.** </br></br>
-next/image는 이미지를 자동으로 적절한 크기로 조정하고, 필요한 경우에는 이미지를 **WebP 또는 AVIF 형식으로 변환**하여 **더 작은 용량으로 압축**할수 있으며 기본적으로 **레이지 로딩**을 지원하여 페이지의 성능을 향상시킨다. 이는 페이지 스크롤 시에 화면에 보이는 이미지만 로드되고, 나머지 이미지는 필요할 때까지 로드되지 않는다는 이점이 있다.
+
 
 📑  **문제의 코드**
 
@@ -178,6 +187,9 @@ next/image는 이미지를 자동으로 적절한 크기로 조정하고, 필요
   height={112}
 />
 ```
+
+**img 태그를 사용하면 정적 배포 후에도 에러가 발생하지 않고 간단하게 화면에 표시 되었지만 next/image를 사용하면 아래와 같은 이점이 있어 next/image를 유지 하기로 하였다.** </br></br>
+next/image는 이미지를 자동으로 적절한 크기로 조정하고, 필요한 경우에는 이미지를 **WebP 또는 AVIF 형식으로 변환**하여 **더 작은 용량으로 압축**할수 있으며 기본적으로 **레이지 로딩**을 지원하여 페이지의 성능을 향상시킨다. 이는 페이지 스크롤 시에 화면에 보이는 이미지만 로드되고, 나머지 이미지는 필요할 때까지 로드되지 않는다는 이점이 있다.
 
 ## 해결 
 
@@ -226,9 +238,6 @@ const nextConfig = {
 module.exports = nextConfig;
 
 ```
-
-
-
 
 - **loader** : 로더를 이용하면 컴포넌트에서는 상대 경로로 이미지 위치를 지정하지만, 빌드(build) 시에 절대 경로로 Next.js가 자동으로 변환해 준다.
 - **loaderFile** : loaderFile 속성은 커스텀 이미지 로더가 정의된 파일의 경로를 지정해준다. 아래 my/image/loader.js 파일을 기본으로 한다.
@@ -438,15 +447,14 @@ module.exports = {
 </br>
 
 ## CSS
-## 첫번째 문자를 대문자로 표시
+## 첫번째 문자를 대문자로 표시 
 변수 linkName의 첫번째 문자를 대문자로 표시하는 부분에서 처음 사용했던 방법은 자바스크립트를 사용 하였었다.
 ```
   <span className={style.upper_case}>
     {linkName.charAt(0).toUpperCase() + linkName.slice(1)}
   </span>
 ```
-
-css에서 첫문자를 대문자로 변경 하였다.
+자바스크립트로 대문자를 변경하여 표시 하던 내용을 css에서 첫문자를 대문자로 변경 하는 식으로 코드 리팩토링
 유의점은 span태그에서는 적용되지 않았고 p태그에서만 적용 되었다.
 
 ## style.module.css
