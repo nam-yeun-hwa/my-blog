@@ -76,8 +76,21 @@ export enum ComponentType {
   H3 = 'H3',
 }
 
+/**
+ * @enum AlgorithmPlatform
+ * @description 알고리즘 플랫폼
+ */
 export enum AlgorithmPlatform {
   PROGRAMMERS = '프로그래머스',
   INFLEAN = '인프런',
   BAEKJOON = '백준',
+}
+
+/**
+ * @enum iconType
+ * @description 포스트 meta
+ */
+export enum IConImageType {
+  ICON_CATEGORY = 'category',
+  ICON_TYPE = 'tag',
 }

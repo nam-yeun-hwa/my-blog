@@ -2064,15 +2064,15 @@ git config --global user.email "your email address"`,
   {
     id: 15,
     title: '리액트(React) vs 뷰(Vue)',
-    date: '2022-08-15',
-    forder: Folder.REACT,
+    date: '2022-08-15 22:11:33',
+    folder: Folder.REACT,
     tag: ['React', 'Vue'],
     preview: `react는 UI 라이브러리이며 JSX(Javascript XML)형태로 코드를 작성하여 Javascript 문법을 응용하기 때문에 Javascript만으로 UI로직과 DOM을 구현한다. Vue는 제공되는 html 기반의 템플릿이 있어 쉽고 빠르게 제작이 가능하여 진입장벽이 낮으며 개발자간 코드 통일성이 있으며 소규모 프로젝트에 용이하다.`,
     post: [
       {
         type: ComponentType.NORMAL,
         value: `
-        리액트(React)와 뷰(Vue.js)는 모두 현대적인 프론트엔드 JavaScript 라이브러리 및 프레임워크로, 웹 애플리케이션의 사용자 인터페이스(UI)를 개발하기 위해 사용된다. 이 두 기술은 각각 고유한 특징과 장단점을 가지고 있다. </br></br>
+        리액트(React)와 뷰(Vue.js)는 모두 현대적인 프론트엔드 JavaScript 라이브러리 및 프레임워크로, 웹 애플리케이션의 사용자 인터페이스(UI)를 개발하기 위해 사용된다. 이 두 기술의 각각 고유한 특징과 장단점에 대해 이야기 해보고자 한다. </br></br>
 
         react는 UI 라이브러리이며 JSX(Javascript XML)형태로 코드를 작성하여 UI로직과 DOM을 구현한다. 자바스크립트를 사용하기 때문에 자바스크립트 문법에 능숙해야 하며 커스터마이징 및 자유도가 높은편이다. 또한 커뮤니티 형성이 잘 되어있고 큰 프로젝트에 용이하다.</br></br>
 
