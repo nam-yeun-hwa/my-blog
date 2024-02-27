@@ -2160,7 +2160,7 @@ git config --global user.email "your email address"`,
   },
   {
     id: 16,
-    title: '콜스택 (Call Stack)과 이벤트 루프(Event Loop Queue)',
+    title: '브라우저의 JavaScript 코드 실행 과정 - 콜스택과 이벤트 루프',
     date: '2024-02-28 01:20:33',
     folder: Folder.REACT,
     tag: ['React', 'Vue'],
@@ -2240,6 +2240,69 @@ sayHello();`,
       {
         type: ComponentType.NORMAL,
         value: `이벤트 루프 큐는 비동기 작업의 완료 또는 이벤트 발생을 기다리는 대기열입니다. 비동기 함수의 콜백 함수나 이벤트 처리기는 이벤트 루프 큐에 추가되어 대기하다가 콜스택이 비어있을 때 실행됩니다. 이벤트 루프는 콜스택이 비어있을 때마다 큐에서 작업을 꺼내어 콜스택에 추가하여 실행될 수 있도록 합니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `이벤트 루프와 호출 스택 1`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `setTimeout(() => {
+  console.log('hello');
+}, 0); // 작업 큐에 콜백이 추가됨
+
+console.log('world');
+
+// 출력 결과:
+// world
+// hello
+`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `1. setTimeout(() => { console.log('hello'); }, 0); 코드가 실행됩니다.`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `
+        setTimeout 함수가 호출되어 타이머가 설정됩니다. 이때 콜백 함수는 태스크 큐에 추가됩니다.
+        현재 호출 스택: [setTimeout()]`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `2. console.log('world'); 코드가 실행됩니다.`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `
+        "world"가 콘솔에 출력됩니다.
+        현재 호출 스택: [setTimeout()]`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `3. 호출 스택에서는 더 이상 실행할 코드가 없으므로 이벤트 루프가 작동합니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `4. 이벤트 루프는 호출 스택이 비어있는지 확인하고, 비어있다면 작업 큐에 있는 콜백 함수를 호출 스택에 추가하여 실행합니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `5. 작업 큐에 있는 콜백 함수가 호출 스택에 추가되어 실행됩니다.`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `
+        "hello"가 콘솔에 출력됩니다.
+        현재 호출 스택: []`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이렇게 되면 "world"가 먼저 출력되고, 그 후 "hello"가 출력됩니다. 이는 setTimeout의 시간 지연이 0ms로 설정되었더라도, 해당 콜백 함수가 작업 큐에 추가되고 이벤트 루프를 통해 호출 스택에 올라가기 때문입니다. 따라서 JavaScript의 비동기성에 의해 콜백 함수의 실행이 이루어집니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `이벤트 루프와 호출 스택 2`,
       },
       {
         type: ComponentType.CODE,
@@ -2329,6 +2392,51 @@ sayHello();`,
       {
         type: ComponentType.NORMAL,
         value: `이렇게 비동기 함수가 추가되면, 해당 비동기 함수의 콜백 함수가 이벤트 루프를 통해 적절한 시점에 호출되어 실행됩니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `JavaScript 코드 실행이 브라우저의 성능과 사용자 경험에 미치는 영향`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `웹 브라우저는 콜 스택에 실행 컨텍스트가 존재하는 동안, 즉 실행 중인 함수가 존재하는 동안에는 먹통이 되어 버립니다. 브라우저는 대개 60fps로 동작하기 때문에, 대략 16ms 안에 코드의 실행을 완료하지 못하면 브라우저의 애니메이션이 뚝뚝 끊기는 현상이 나타납니다. 이는 사용자 경험에 악영향을 미칠 수 있습니다. `,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `
+// 동기적인 처리 예제
+function syncExample() {
+  console.log("시작");
+  for (let i = 0; i < 1000000000; i++) {
+    // 매우 오랜 시간이 걸리는 작업
+  }
+  console.log("종료");
+}
+
+// 비동기적인 처리 예제
+function asyncExample() {
+  console.log("시작");
+  setTimeout(function() {
+    console.log("비동기 처리 완료");
+  }, 2000); // 2초 후에 콜백 함수 실행
+  console.log("종료");
+}
+
+// 동기적인 처리 실행
+syncExample();
+
+// 비동기적인 처리 실행
+asyncExample();
+
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위 코드에서 syncExample 함수는 매우 오랜 시간이 걸리는 반복문을 포함하고 있어, 실행 중에는 다른 작업이 불가능합니다. 이 함수가 실행 중일 때는 브라우저가 먹통이 되어 버리고, 애니메이션이 끊겨 보일 수 있습니다. </br></br>
+
+        asyncExample 함수는 비동기적으로 처리됩니다. setTimeout 함수를 사용하여 비동기적으로 콜백 함수를 실행하도록 하였기 때문에, 이 함수가 실행되는 동안에도 다른 작업이 가능합니다. 이는 브라우저가 뚝뚝 끊기는 현상을 방지하는 데 도움이 됩니다.</br></br>
+        
+        따라서, 비동기적인 처리를 통해 브라우저가 먹통이 되는 현상을 방지할 수 있으며, 사용자 경험을 향상시킬 수 있습니다.`,
       },
     ],
   },
