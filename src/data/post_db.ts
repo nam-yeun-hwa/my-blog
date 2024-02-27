@@ -2158,6 +2158,180 @@ git config --global user.email "your email address"`,
       },
     ],
   },
+  {
+    id: 16,
+    title: '콜스택 (Call Stack)과 이벤트 루프(Event Loop Queue)',
+    date: '2024-02-28 01:20:33',
+    folder: Folder.REACT,
+    tag: ['React', 'Vue'],
+    preview: `콜스택은 현재 실행 중인 함수의 호출을 기록하는 자료 구조입니다. 함수가 호출되면 해당 함수의 정보가 스택에 추가되고, 함수의 실행이 완료되면 스택에서 제거됩니다. 따라서 콜스택은 함수의 호출 순서를 추적하고, 실행 중인 함수의 컨텍스트를 관리합니다.`,
+    post: [
+      { type: ComponentType.H2, value: `콜스택 (Call Stack)` },
+      {
+        type: ComponentType.NORMAL,
+        value: `콜스택은 현재 실행 중인 함수의 호출을 기록하는 자료 구조입니다. 함수가 호출되면 해당 함수의 정보가 스택에 추가되고, 함수의 실행이 완료되면 스택에서 제거됩니다. 따라서 콜스택은 함수의 호출 순서를 추적하고, 실행 중인 함수의 컨텍스트를 관리합니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `실행 컨텍스트가 생성되고 콜스택에 쌓이는 과정`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function greet(name) {
+  let greeting = "Hello, " + name + "!";
+  console.log(greeting);
+}
+
+function sayHello() {
+  greet("Alice");
+}
+
+sayHello();`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        1. sayHello() 함수가 호출되면서 새로운 실행 컨텍스트가 생성되고 호출 스택에 추가됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: [sayHello()]`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        2. sayHello() 함수 내에서 greet("Alice")가 호출되면서 또 다른 실행 컨텍스트가 생성되고 호출 스택에 추가됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: [sayHello(), greet("Alice")]`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        3. greet("Alice") 함수 내에서 변수 greeting이 생성되고 값이 할당됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: [sayHello(), greet("Alice")]`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        4. console.log(greeting)이 실행되고 호출 스택에서 greet("Alice") 실행 컨텍스트가 제거됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: [sayHello()]`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        5. sayHello() 함수 내의 모든 코드가 실행되고 호출 스택에서 해당 실행 컨텍스트가 제거됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: []`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `이벤트 루프 큐 (Event Loop Queue)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이벤트 루프 큐는 비동기 작업의 완료 또는 이벤트 발생을 기다리는 대기열입니다. 비동기 함수의 콜백 함수나 이벤트 처리기는 이벤트 루프 큐에 추가되어 대기하다가 콜스택이 비어있을 때 실행됩니다. 이벤트 루프는 콜스택이 비어있을 때마다 큐에서 작업을 꺼내어 콜스택에 추가하여 실행될 수 있도록 합니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function greet(name) {
+  let greeting = "Hello, " + name + "!";
+  console.log(greeting);
+}
+
+function sayHello() {
+  greet("Alice");
+  setTimeout(function() {
+    console.log("비동기 함수 실행 완료");
+  }, 1000); // 1초 후에 실행됨
+}
+
+sayHello();`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        1. sayHello() 함수가 호출되면서 새로운 실행 컨텍스트가 생성되고 호출 스택에 추가됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: [sayHello()]`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        2. sayHello() 함수 내에서 greet("Alice")가 호출되면서 또 다른 실행 컨텍스트가 생성되고 호출 스택에 추가됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: [sayHello(), greet("Alice")]`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        3. greet("Alice") 함수 내에서 변수 greeting이 생성되고 값이 할당됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: [sayHello(), greet("Alice")]`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        4. console.log(greeting)이 실행되고 호출 스택에서 greet("Alice") 실행 컨텍스트가 제거됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: [sayHello()]`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        5. setTimeout 함수가 호출되어 타이머가 설정됩니다. 이때 비동기적으로 실행되므로 호출 스택에는 추가되지 않습니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택:[sayHello()]`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        6. sayHello() 함수 내의 모든 코드가 실행되었지만, 아직 타이머가 만료되지 않았으므로 이벤트 루프에서 대기합니다.`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        7. 1초 후, 타이머가 만료되면 설정된 콜백 함수가 이벤트 루프 큐에 추가됩니다.`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        8. 이벤트 루프는 호출 스택이 비어있는지 확인하고, 비어있다면 이벤트 루프 큐에서 콜백 함수를 꺼내와 호출 스택에 추가하여 실행합니다.`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `
+        9. 비동기 함수 실행 완료" 메시지가 출력되고 호출 스택에서 해당 실행 컨텍스트가 제거됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `　호출 스택: []`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이렇게 비동기 함수가 추가되면, 해당 비동기 함수의 콜백 함수가 이벤트 루프를 통해 적절한 시점에 호출되어 실행됩니다.`,
+      },
+    ],
+  },
 ];
 
 /**
