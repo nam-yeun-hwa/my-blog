@@ -1009,7 +1009,6 @@ console.log(counter()); // 2
       {
         type: ComponentType.NORMAL,
         value: `같이 참고하면 좋은 링크 </br>
-        ${process.env.NEXT_PUBLIC_APP_API_BASE_URL} </br> 
         https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0`,
       },
     ],
@@ -1121,143 +1120,151 @@ function sayWow() {
       },
     ],
   },
-  {
-    id: 4,
-    title: '컨텍스트와 실행 과정',
-    date: '2023-02-18 22:11:33',
-    folder: Folder.JAVASCRIPT,
-    preview: `호이스팅(Hoisting)은 JavaScript에서 변수와 함수 선언이 최상단으로 끌어올려지는 현상을 말합니다. 하지만 함수 선언식과 함수 표현식은 다르게 동작하므로 주의가 필요합니다.
-    `,
-    tag: ['Javascript'],
-    post: [
-      {
-        type: ComponentType.CODE,
-        value: `var name = 'zero'; 
+  //   {
+  //     id: 4,
+  //     title: '컨텍스트와 실행 과정',
+  //     date: '2023-02-18 22:11:33',
+  //     folder: Folder.JAVASCRIPT,
+  //     preview: `자바스크립트에서 실행 컨텍스트(execution context)는 코드가 실행될 때 생성되는 환경을 말합니다. 실행 컨텍스트는 코드의 실행에 필요한 정보를 담고 있으며, 변수 및 함수의 스코프, 변수의 값, this 등의 정보를 포함합니다. 실행 컨텍스트는 스택(Stack) 자료구조로 관리되며, 코드의 실행이 시작될 때마다 새로운 실행 컨텍스트가 스택의 맨 위에 추가되고, 코드의 실행이 종료될 때 해당 실행 컨텍스트가 스택에서 제거됩니다..
+  //     `,
+  //     tag: ['Javascript'],
+  //     post: [
+  //       {
+  //         type: ComponentType.H2,
+  //         value: `실행 컨텍스트(execution context)`,
+  //       },
+  //       {
+  //         type: ComponentType.NORMAL,
+  //         value: `자바스크립트에서 실행 컨텍스트(execution context)는 코드가 실행될 때 생성되는 환경을 말합니다. 실행 컨텍스트는 코드의 실행에 필요한 정보를 담고 있으며, 변수 및 함수의 스코프, 변수의 값, this 등의 정보를 포함합니다. `,
+  //       },
+  //       {
+  //         type: ComponentType.CODE,
+  //         value: `var name = 'zero';
 
-function wow(word) { 
-  console.log(word + ' ' + name); 
-}
+  // function wow(word) {
+  //   console.log(word + ' ' + name);
+  // }
 
-function say () { 
-  var name = 'nero'; 
-  console.log(name); 
-  wow('hello'); 
-}
-say();`,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `일단 처음 브라우저가 스크립트를 로딩해서 실행하기 시작하는 순간 모든 것을 포함하는 전역 컨텍스트가 생깁니다. 모든 것을 관리하는 환경입니다. 페이지가 종료될 때까지 유지됩니다.`,
-      },
-      {
-        type: ComponentType.H4,
-        value: `1. 전역 컨텍스트(Global Context) 생성`,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `전역 컨텍스트를 객체 형식으로 표현해보겠습니다.`,
-      },
-      {
-        type: ComponentType.CODE,
-        value: `변수객체: { name: 'zero', wow: Function, say: Function }
-scopeChain: ['전역 변수객체']
-this: window`,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `전역 컨텍스트는 arguments(함수의 인자)가 없으며 variable은 해당 스코프의 변수들입니다. </br> name, wow, say가 있습니다.</br></br>
-        자신과 상위 스코프들의 변수객체인 scope chain생성 됩니다.</br>스코프 체인은 자기 자신인 전역 변수객체입니다.</br></br>
-        this는 따로 설정되어 있지 않으면 window입니다. </br>this를 바꾸는 방법이 바로 new를 호출하는 겁니다. </br>또는 함수에 다른 this 값을 bind할 수도 있습니다.</br></br>
-        일반 함수의 this가 왜 window인지 아시겠죠? </br>원래 기본적으로 window고 new나 bind같은 상황에서 this가 바뀌는 겁니다.
-        `,
-      },
-      {
-        type: ComponentType.H4,
-        value: `2. say 함수 호출 시 컨텍스트 생성`,
-      },
-      {
-        type: ComponentType.CODE,
-        value: `변수객체: { name: 'nero' }
-scopeChain: ['say 변수객체', '전역 변수객체']
-this: window`,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `맨위 코드에서 say();호출 하는 순간 새로운 컨텍스트인 say함수 컨텍스트가 생깁니다. </br> 아까 전역 컨텍스트는 그대로 있습니다.`,
-      },
-      {
-        type: ComponentType.H4,
-        value: `say함수 실행`,
-      },
-      {
-        type: ComponentType.CODE,
-        value: `var name = 'nero';
-console.log(name); (결과: 'nero')
-wow('hello');;
-        `,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `say를 호출한 후 차례대로 say함수 내의 내용들이 실행하는데요.</br>
-        variable의 name에 nero를 대입해주고 나서 console.log(name);이 있습니다.</br></br>
-        
-        name 변수는 say 컨텍스트 안에서 찾으면 됩니다.</br>
-        variable에 name이 nero라고 되어 있네요. name이 콘솔에 찍힙니다.</br></br>
-        
-        그 다음엔 wow('hello')가 있습니다. </br>
-        say 컨텍스트 안에서 wow 변수를 찾을 수 없습니다.</br>
-        찾을 수 없다면 scope chain을 따라 올라가 상위 변수객체에서 찾습니다. 그래서 전역 변수객체에서 찾습니다. </br>전역 변수객체의 variable에 wow라는 함수가 있네요. 이걸 호출합니다.`,
-      },
-      {
-        type: ComponentType.H4,
-        value: `3. wow 함수 호출 시 컨텍스트 생성`,
-      },
-      {
-        type: ComponentType.CODE,
-        value: `변수객체: { arguments: { word: 'hello' } }
-scopeChain: ['wow 변수객체', '전역 변수객체']
-this: window`,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `여기서 중요한 게 lexical scoping에 따라 wow 함수의 스코프 체인은 선언 시에 이미 정해져 있습니다. </br>
-        따라서 say 스코프는 wow 컨텍스트의 scope chain이 아닙니다. variable은 없고, this는 window입니다.</br></br>
-        이제 컨텍스트가 생긴 후 함수가 실행 됩니다. (say 함수는 아직 종료되지 않았습니다.)</br>
-       `,
-      },
-      {
-        type: ComponentType.H4,
-        value: `wow 함수 호출 실행`,
-      },
-      {
-        type: ComponentType.CODE,
-        value: `console.log(word + ' ' + name); 
-(word: 'hello', name: 'zero')
-(전역 컨텍스트의 name 변수를 참조)`,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: ` wow 함수 안에서 console.log(word + ' ' + name);이 있는데요.</br>
-        word랑 name 변수는 wow 컨텍스트에서 찾으시면 됩니다.</br></br>
+  // function say () {
+  //   var name = 'nero';
+  //   console.log(name);
+  //   wow('hello');
+  // }
+  // say();`,
+  //       },
+  //       {
+  //         type: ComponentType.NORMAL,
+  //         value: `일단 처음 브라우저가 스크립트를 로딩해서 실행하기 시작하는 순간 모든 것을 포함하는 전역 컨텍스트가 생깁니다. 모든 것을 관리하는 환경입니다. 페이지가 종료될 때까지 유지됩니다.`,
+  //       },
+  //       {
+  //         type: ComponentType.H4,
+  //         value: `1. 전역 컨텍스트(Global Context) 생성`,
+  //       },
+  //       {
+  //         type: ComponentType.NORMAL,
+  //         value: `전역 컨텍스트를 객체 형식으로 표현해보겠습니다.`,
+  //       },
+  //       {
+  //         type: ComponentType.CODE,
+  //         value: `변수객체: { name: 'zero', wow: Function, say: Function }
+  // scopeChain: ['전역 변수객체']
+  // this: window`,
+  //       },
+  //       {
+  //         type: ComponentType.NORMAL,
+  //         value: `전역 컨텍스트는 arguments(함수의 인자)가 없으며 variable은 해당 스코프의 변수들입니다. </br> name, wow, say가 있습니다.</br></br>
+  //         자신과 상위 스코프들의 변수객체인 scope chain생성 됩니다.</br>스코프 체인은 자기 자신인 전역 변수객체입니다.</br></br>
+  //         this는 따로 설정되어 있지 않으면 window입니다. </br>this를 바꾸는 방법이 바로 new를 호출하는 겁니다. </br>또는 함수에 다른 this 값을 bind할 수도 있습니다.</br></br>
+  //         일반 함수의 this가 왜 window인지 아시겠죠? </br>원래 기본적으로 window고 new나 bind같은 상황에서 this가 바뀌는 겁니다.
+  //         `,
+  //       },
+  //       {
+  //         type: ComponentType.H4,
+  //         value: `2. say 함수 호출 시 컨텍스트 생성`,
+  //       },
+  //       {
+  //         type: ComponentType.CODE,
+  //         value: `변수객체: { name: 'nero' }
+  // scopeChain: ['say 변수객체', '전역 변수객체']
+  // this: window`,
+  //       },
+  //       {
+  //         type: ComponentType.NORMAL,
+  //         value: `맨위 코드에서 say();호출 하는 순간 새로운 컨텍스트인 say함수 컨텍스트가 생깁니다. </br> 아까 전역 컨텍스트는 그대로 있습니다.`,
+  //       },
+  //       {
+  //         type: ComponentType.H4,
+  //         value: `say함수 실행`,
+  //       },
+  //       {
+  //         type: ComponentType.CODE,
+  //         value: `var name = 'nero';
+  // console.log(name); (결과: 'nero')
+  // wow('hello');;
+  //         `,
+  //       },
+  //       {
+  //         type: ComponentType.NORMAL,
+  //         value: `say를 호출한 후 차례대로 say함수 내의 내용들이 실행하는데요.</br>
+  //         variable의 name에 nero를 대입해주고 나서 console.log(name);이 있습니다.</br></br>
 
-        word는 arguments에서 찾을 수 있고, name은 wow 변수객체에는 값이 없으니, scope chain을 따라 전역 스코프에서 찾을수 있습니다.</br></br>
-        전역 변수객체로 올라가니 variable에 name이 zero라고 되어 있네요. </br> 그래서 hello zero가 되는 겁니다. hello nero가 아니라요.</br> wow 컨텍스트에 따르면 wow 함수는 애초에 say 컨텍스트와 일절 관련이 없었던 겁니다.</br></br>
+  //         name 변수는 say 컨텍스트 안에서 찾으면 됩니다.</br>
+  //         variable에 name이 nero라고 되어 있네요. name이 콘솔에 찍힙니다.</br></br>
 
-        이제 wow 함수 종료 후 wow 컨텍스트가 사라지고, say 함수의 실행이 마무리됩니다. 따라서 say 컨텍스트도 사라지고, </br>마지막에 전역 컨텍스트도 사라집니다. 함수 실행, 변수 선언 등 모든 게 다 논리적입니다. </br></br>그래서 컨텍스트 개념을 이해하면 자바스크립트의 모든 문제들을 풀 수 있습니다. 정리하자면 `,
-      },
-      {
-        type: ComponentType.STRINGLIST,
-        value: `전역 컨텍스트에 전역 변수가 선언되고, 함수 wow와 say가 변수객체에 할당됩니다.
-        say 함수가 호출되면 say 함수의 컨텍스트가 생성되고, 그 내부에서 name 변수가 'nero'로 초기화됩니다.
-        wow 함수가 say 함수 내에서 호출되면, wow 함수의 컨텍스트가 생성되고, 내부에서 word와 name 변수를 참조합니다.
-        wow 함수 내에서 name 변수는 전역 컨텍스트의 name 변수를 참조하여 'hello zero'를 출력합니다.`,
-      },
-      {
-        type: ComponentType.NORMAL,
-        value: `참고 https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0`,
-      },
-    ],
-  },
+  //         그 다음엔 wow('hello')가 있습니다. </br>
+  //         say 컨텍스트 안에서 wow 변수를 찾을 수 없습니다.</br>
+  //         찾을 수 없다면 scope chain을 따라 올라가 상위 변수객체에서 찾습니다. 그래서 전역 변수객체에서 찾습니다. </br>전역 변수객체의 variable에 wow라는 함수가 있네요. 이걸 호출합니다.`,
+  //       },
+  //       {
+  //         type: ComponentType.H4,
+  //         value: `3. wow 함수 호출 시 컨텍스트 생성`,
+  //       },
+  //       {
+  //         type: ComponentType.CODE,
+  //         value: `변수객체: { arguments: { word: 'hello' } }
+  // scopeChain: ['wow 변수객체', '전역 변수객체']
+  // this: window`,
+  //       },
+  //       {
+  //         type: ComponentType.NORMAL,
+  //         value: `여기서 중요한 게 lexical scoping에 따라 wow 함수의 스코프 체인은 선언 시에 이미 정해져 있습니다. </br>
+  //         따라서 say 스코프는 wow 컨텍스트의 scope chain이 아닙니다. variable은 없고, this는 window입니다.</br></br>
+  //         이제 컨텍스트가 생긴 후 함수가 실행 됩니다. (say 함수는 아직 종료되지 않았습니다.)</br>
+  //        `,
+  //       },
+  //       {
+  //         type: ComponentType.H4,
+  //         value: `wow 함수 호출 실행`,
+  //       },
+  //       {
+  //         type: ComponentType.CODE,
+  //         value: `console.log(word + ' ' + name);
+  // (word: 'hello', name: 'zero')
+  // (전역 컨텍스트의 name 변수를 참조)`,
+  //       },
+  //       {
+  //         type: ComponentType.NORMAL,
+  //         value: ` wow 함수 안에서 console.log(word + ' ' + name);이 있는데요.</br>
+  //         word랑 name 변수는 wow 컨텍스트에서 찾으시면 됩니다.</br></br>
+
+  //         word는 arguments에서 찾을 수 있고, name은 wow 변수객체에는 값이 없으니, scope chain을 따라 전역 스코프에서 찾을수 있습니다.</br></br>
+  //         전역 변수객체로 올라가니 variable에 name이 zero라고 되어 있네요. </br> 그래서 hello zero가 되는 겁니다. hello nero가 아니라요.</br> wow 컨텍스트에 따르면 wow 함수는 애초에 say 컨텍스트와 일절 관련이 없었던 겁니다.</br></br>
+
+  //         이제 wow 함수 종료 후 wow 컨텍스트가 사라지고, say 함수의 실행이 마무리됩니다. 따라서 say 컨텍스트도 사라지고, </br>마지막에 전역 컨텍스트도 사라집니다. 함수 실행, 변수 선언 등 모든 게 다 논리적입니다. </br></br>그래서 컨텍스트 개념을 이해하면 자바스크립트의 모든 문제들을 풀 수 있습니다. 정리하자면 `,
+  //       },
+  //       {
+  //         type: ComponentType.STRINGLIST,
+  //         value: `전역 컨텍스트에 전역 변수가 선언되고, 함수 wow와 say가 변수객체에 할당됩니다.
+  //         say 함수가 호출되면 say 함수의 컨텍스트가 생성되고, 그 내부에서 name 변수가 'nero'로 초기화됩니다.
+  //         wow 함수가 say 함수 내에서 호출되면, wow 함수의 컨텍스트가 생성되고, 내부에서 word와 name 변수를 참조합니다.
+  //         wow 함수 내에서 name 변수는 전역 컨텍스트의 name 변수를 참조하여 'hello zero'를 출력합니다.`,
+  //       },
+  //       {
+  //         type: ComponentType.NORMAL,
+  //         value: `참고 https://www.zerocho.com/category/JavaScript/post/5741d96d094da4986bc950a0`,
+  //       },
+  //     ],
+  //   },
   {
     id: 3,
     title: '콜백 지옥(Callback Hell)과 프로미스(Promise)',
@@ -2444,8 +2451,8 @@ asyncExample();
     id: 17,
     title: '주소창에 google.com을 입력하면 생기는 일',
     date: '2024-03-02 00:05:33',
-    folder: Folder.JAVASCRIPT,
-    tag: ['browser', 'HTTP프로토콜'],
+    folder: Folder.NETWORK,
+    tag: ['browser', 'HTTP-Protocol'],
     preview: `사용자가 입력한 url 주소 중에서 도메인 네임을 DNS 서버에서 검색한다. 
     DNS 서버에서 해당 도메인 네임에 해당하는 IP주소를 찾아 사용자가 입력한 URL 정보와 함께 전달한다.`,
     post: [
