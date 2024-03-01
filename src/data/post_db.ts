@@ -2440,6 +2440,138 @@ asyncExample();
       },
     ],
   },
+  {
+    id: 17,
+    title: '주소창에 google.com을 입력하면 생기는 일',
+    date: '2024-03-02 00:05:33',
+    folder: Folder.JAVASCRIPT,
+    tag: ['browser', 'HTTP프로토콜'],
+    preview: `사용자가 입력한 url 주소 중에서 도메인 네임을 DNS 서버에서 검색한다. 
+    DNS 서버에서 해당 도메인 네임에 해당하는 IP주소를 찾아 사용자가 입력한 URL 정보와 함께 전달한다.`,
+    post: [
+      {
+        type: ComponentType.NUMLIST,
+        value:
+          '1. 사용자가 입력한 url 주소 중에서 도메인 네임을 DNS 서버에서 검색한다. </br> 　DNS 서버에서 해당 도메인 네임에 해당하는 IP주소를 찾아 사용자가 입력한 URL 정보와 함께 전달한다.',
+      },
+      {
+        type: ComponentType.H4,
+        value: `URL에서 도메인 네임 추출`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `도메인 네임은 일반적으로 "www.example.com"과 같은 형식을 갖습니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `URL 정보와 함께 전달`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `https://www.example.com:8080/path/to/resource?id=123&name=example#section1`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `
+        프로토콜: https
+호스트: www.example.com
+포트: 8080
+경로: /path/to/resource
+쿼리 문자열: ?id=123&name=example
+프래그먼트: #section1
+`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `2. 웹 페이지 URL + IP 주소는 HTTP 프로토콜을 사용하여 HTTP 요청 메세지를 생성한다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `//일반적으로 HTTP 요청 메시지는 아래와 같은 형식을 갖습니다.
+
+GET / HTTP/1.1
+Host: www.example.com
+`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `HTTP 요청 메시지의 내용에는 요청한 페이지의 경로, HTTP 메소드(GET, POST 등), 헤더(Host 등), 요청 바디 등이 포함됩니다.`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `3. HTTP 요청 메세지는 TCP/IP 네트워크를 통해 TCP 프로토콜을 사용하여 인터넷을 거쳐 해당 IP 주소의 컴퓨터로 전송된다 이렇게 도착한 HTTP 요청 메세지는 HTTP 프로토콜을 사용하여 웹 페이지 URL 정보로 변환된다.`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `웹 서버는 HTTP 요청 메시지를 분석하여 요청된 작업을 수행하고, 이에 대한 응답을 클라이언트에게 반환합니다.`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `4. 웹 서버는 도착한 웹 페이지 URL 정보에 해당하는 데이터를 검색한다.`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `5. 검색된 웹 페이지 데이터는 또다시 HTTP 프로토콜을 사용하여 HTTP 응답 메세지를 생성한다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `HTTP 응답 메시지 생성`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `HTTP 응답 메시지는 일반적으로 상태 코드, 헤더 및 본문으로 구성됩니다. 아래는 간단한 HTTP 응답 메시지를 생성하는 JavaScript 코드입니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `// 상태 코드
+const statusCode = 200;
+
+// 헤더 설정
+const headers = {
+  'Content-Type': 'text/plain', // 텍스트 형식의 응답
+  'Content-Length': 12 // 본문의 길이
+};
+
+// 응답 본문
+const responseBody = 'Hello, World!';
+
+// HTTP 응답 메시지 생성
+const httpResponse = 'HTTP/1.1 \${statusCode} OK\\r\\n' +
+                      Object.keys(headers).map(key => \${key}: \${headers[key]}).join('\\r\\n') + '\\r\\n' +
+                      '\\r\\n' +
+                      responseBody;
+
+console.log(httpResponse);
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위 코드는 다음과 같은 HTTP 응답 메시지를 생성합니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `HTTP/1.1 200 OK
+Content-Type: text/plain
+Content-Length: 12
+
+Hello, World!
+        `,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `이렇게 생성된 HTTP 응답 메시지는 클라이언트에게 전송될 수 있으며, 클라이언트는 이를 해석하여 적절한 작업을 수행합니다.`,
+      },
+      {
+        type: ComponentType.NUMLIST,
+        value: `6. 이렇게 생성된 HTTP 응답 메세지는 TCP 프로토콜을 사용하여 인터넷을 거쳐 원래 컴퓨터로 전달된다.`,
+      },
+
+      {
+        type: ComponentType.NUMLIST,
+        value: `7. 도착한 HTTP 응답 메세지는 HTTP 프로토콜을 이용하여 웹 페이지 데이터로 변환되고, 웹 브라우저에 의해 출력되어 사용자가 볼 수 있게 된다.`,
+      },
+    ],
+  },
 ];
 
 /**
