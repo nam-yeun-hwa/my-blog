@@ -5,7 +5,6 @@ import { sortedTotalPostlist, totalPostlist } from 'data/post_db';
 type postType = {
   postList: Array<IPost>;
   isFetching: boolean;
-  folderList: Array<string>;
 };
 
 const initialValue = sortedTotalPostlist.slice(0, 5);
@@ -15,9 +14,6 @@ const postStore = createSlice({
   initialState: {
     postList: initialValue,
     isFetching: false,
-    folderList: Array.from(
-      new Set<string>(totalPostlist.map((item) => item.folder)),
-    ),
   } as postType,
   reducers: {
     rdxSetPostData(state, action: PayloadAction<Array<IPost>>) {

@@ -2584,7 +2584,7 @@ Hello, World!
     title: '이벤트 바인딩이란?',
     date: '2024-03-06 00:21:33',
     folder: Folder.JAVASCRIPT,
-    tag: ['javascript'],
+    tag: ['Javascript'],
     preview: `이벤트 바인딩이란, 발생하는 이벤트와 그 후에 어떤일이 일어나는지 알려주는 콜백함수와 연결해준 다는 뜻이다. 이벤트 바인딩이는 총 3가지 방법이 있는데, HTML이벤트 핸들러, 전통적인 DOM핸들러, EventListener을 이용한 핸들러가있다.`,
     post: [
       {
@@ -2750,7 +2750,7 @@ Hello, World!
     title: 'RESTful API이란?',
     date: '2024-03-06 00:22:33',
     folder: Folder.JAVASCRIPT,
-    tag: ['javascript'],
+    tag: ['Javascript'],
     preview: `RESTful API는 HTTP 프로토콜을 기반으로하는 웹 서비스 아키텍처입니다. 자원, 메소드, 메시지 등을 정의하여 클라이언트-서버 간의 통신을 가능하게 합니다. 또한, RESTful API는 표준 HTTP 메소드(GET, POST, PUT, DELETE)를 사용하여 서버와 통신합니다.    `,
     post: [
       {
