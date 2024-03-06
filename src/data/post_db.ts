@@ -2745,6 +2745,84 @@ Hello, World!
       },
     ],
   },
+  {
+    id: 19,
+    title: 'RESTful API이란?',
+    date: '2024-03-06 00:22:33',
+    folder: Folder.JAVASCRIPT,
+    tag: ['javascript'],
+    preview: `RESTful API는 HTTP 프로토콜을 기반으로하는 웹 서비스 아키텍처입니다. 자원, 메소드, 메시지 등을 정의하여 클라이언트-서버 간의 통신을 가능하게 합니다. 또한, RESTful API는 표준 HTTP 메소드(GET, POST, PUT, DELETE)를 사용하여 서버와 통신합니다.    `,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `RESTful API는 HTTP 프로토콜을 기반으로하는 웹 서비스 아키텍처입니다. 자원, 메소드, 메시지 등을 정의하여 클라이언트-서버 간의 통신을 가능하게 합니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `메시지(Message)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `
+        메시지는 클라이언트와 서버 간의 통신에서 전달되는 데이터의 내용을 나타냅니다. RESTful API에서 메시지는 요청(Request)과 응답(Response)로 구분됩니다. </br></br>
+
+        <b>요청 메시지</b>는 클라이언트가 서버로 보내는 데이터입니다. 이 데이터에는 요청의 목적과 함께 필요한 정보가 포함될 수 있습니다. 주로 JSON 형식으로 데이터가 전송됩니다.
+        요청 메시지에는 요청하는 자원의 식별, 자원의 상태 변경을 위한 데이터, 요청하는 작업의 종류(메소드) 등이 포함될 수 있습니다.</br></br>
+        
+        <b>응답 메시지</b>는 서버가 클라이언트로 보내는 데이터입니다. 클라이언트의 요청에 대한 응답으로 서버는 해당 요청에 대한 처리 결과를 클라이언트에게 전달합니다. 마찬가지로 주로 JSON 형식으로 데이터가 전송됩니다.
+응답 메시지에는 요청에 대한 처리 결과(성공 또는 실패), 요청한 자원의 데이터, 추가적인 정보(예를 들어, HTTP 상태 코드) 등이 포함될 수 있습니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `자원(Resource)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `자원은 RESTful API의 핵심 개념 중 하나입니다. URI란 웹상의 자료의 id 즉, 내가 올린 블로그 글의 특정 id를 입력해줘야 글을 볼수 있는 것처럼 URI는 인터넷 자원을 나타내는 서버에 있는 정보의 표현입니다(고유 식별자). 일반적으로 웹에서는 URI(Uniform Resource Identifier)를 사용하여 자원을 식별합니다. 예를 들어, /todos는 "할일 목록"이라는 자원을 나타내며, /todos/1은 ID가 1인 특정 할일을 나타냅니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `메소드(Method) 메시지`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `메소드 메시지는 클라이언트가 서버에게 요청하는 작업의 종류를 나타냅니다. RESTful API에서는 주로 다음과 같은 네 가지 메소드를 사용합니다.`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `<b>GET</b>: 서버에서 자원을 가져오기 위해 사용됩니다. 클라이언트가 서버에게 특정 자원에 대한 정보를 요청할 때 사용됩니다. 예를 들어, /todos에 GET 요청을 보내면 모든 할일 목록을 가져올 수 있습니다.
+        <b>POST</b>: 서버에 새로운 자원을 생성하기 위해 사용됩니다. 클라이언트가 서버에게 새로운 자원을 추가하려는 경우 사용됩니다. 예를 들어, /todos에 POST 요청을 보내면 새로운 할일을 추가할 수 있습니다.
+        <b>PUT</b>: 서버의 자원을 수정하기 위해 사용됩니다. 클라이언트가 서버에게 특정 자원을 수정하려는 경우 사용됩니다. 예를 들어, /todos/1에 PUT 요청을 보내면 ID가 1인 할일을 수정할 수 있습니다.
+        <b>DELETE</b>: 서버에서 자원을 삭제하기 위해 사용됩니다. 클라이언트가 서버에게 특정 자원을 삭제하려는 경우 사용됩니다. 예를 들어, /todos/2에 DELETE 요청을 보내면 ID가 2인 할일을 삭제할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `REST의 주요 특징`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `1. 유니폼 인터페이스`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `REST API는 HTTP 프로토콜을 기반으로 하며, HTTP URI를 통해 자원을 명시하고, HTTP 메소드(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD(Create, Read, Update, Delete) 작업을 수행합니다.
+        이러한 특성으로 인해 REST API는 간단하고 일관된 인터페이스를 제공하며, 다양한 플랫폼 및 언어에 종속되지 않고 사용할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `2. 무상태성(Statelessness)`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `REST API는 상태를 관리하지 않는 stateless한 특성을 가집니다. 즉, 클라이언트의 각 요청은 서버에 필요한 모든 정보를 포함하고 있어야 합니다.
+        서버는 각 요청을 독립적으로 처리하고, 클라이언트의 세션 상태를 유지할 필요가 없습니다. 이는 서버의 부하를 줄이고, 확장성을 높이는데 도움이 됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이와 같은 특징들로 REST API는 인터넷 상의 자원을 표현하고, 다양한 플랫폼 및 언어 간의 통신을 간소화하며, 확장성 있는 시스템을 구축하는 데 사용됩니다.`,
+      },
+    ],
+  },
 ];
 
 /**
