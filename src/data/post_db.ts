@@ -2579,6 +2579,172 @@ Hello, World!
       },
     ],
   },
+  {
+    id: 18,
+    title: '이벤트 바인딩이란?',
+    date: '2024-03-06 00:21:33',
+    folder: Folder.JAVASCRIPT,
+    tag: ['javascript'],
+    preview: `이벤트 바인딩이란, 발생하는 이벤트와 그 후에 어떤일이 일어나는지 알려주는 콜백함수와 연결해준 다는 뜻이다. 이벤트 바인딩이는 총 3가지 방법이 있는데, HTML이벤트 핸들러, 전통적인 DOM핸들러, EventListener을 이용한 핸들러가있다.`,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `이벤트 바인딩은 발생하는 이벤트와 그 후에 어떤 일이 일어나는지를 알려주는 콜백 함수를 연결해주는 것을 말합니다. 이벤트 바인딩이는 총 3가지 방법이 있는데, HTML이벤트 핸들러, 전통적인 DOM핸들러, EventListener을 이용한 핸들러가있습니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `HTML 이벤트 핸들러`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;title>HTML Event Handler Example</title>
+&lt;style>
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+&lt;/style>
+&lt;/head>
+&lt;body>
+
+<!-- HTML 이벤트 핸들러를 사용하여 버튼에 직접 이벤트를 할당합니다. -->
+&lt;button onclick="handleClick()">Click me</button>
+
+&lt;script>
+    // 이벤트 핸들러 함수를 정의합니다.
+    function handleClick() {
+        console.log('Button clicked!');
+    }
+&lt;/script>
+
+&lt;/body>
+&lt;/html>
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이 예제는 버튼을 클릭할 때마다 콘솔에 메시지를 출력하는 HTML 이벤트 핸들러를 보여줍니다. 여기서는 버튼 요소의 onclick 속성을 사용하여 이벤트 핸들러를 바로 지정합니다. 이 방법은 HTML과 JavaScript가 혼용되는 문제가 있으며, 추천되는 방법은 아닙니다. 대신 JavaScript 코드에서 이벤트 핸들러를 바인딩하는 방법을 사용하는 것이 더 권장됩니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `전통적인 DOM 핸들러`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;title>DOM Event Handler Example</title>
+&lt;style>
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+&lt;/style>
+&lt;/head>
+&lt;body>
+
+<!-- DOM 이벤트 핸들러를 사용하여 버튼에 이벤트를 할당합니다. -->
+&lt;button id="myButton">Click me</button>
+
+&lt;script>
+    // 대상 요소를 가져옵니다.
+    const myButton = document.getElementById('myButton');
+
+    // 이벤트 핸들러 함수를 정의합니다.
+    function handleClick(event) {
+        console.log('Button clicked!');
+        console.log('Event:', event);
+    }
+
+    // DOM 이벤트 핸들러를 사용하여 이벤트를 바인딩합니다.
+    myButton.onclick = handleClick;
+&lt;/script>
+
+&lt;/body>
+&lt;/html>
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이 예제는 버튼을 클릭할 때마다 콘솔에 메시지를 출력하는 전통적인 DOM 이벤트 핸들러를 보여줍니다. 여기서는 버튼 요소의 onclick 속성에 함수를 할당하여 이벤트 핸들러를 지정합니다. 이 방법은 HTML 이벤트 핸들러와 달리 JavaScript 코드로 이벤트 핸들러를 바인딩하므로 HTML과 JavaScript의 혼용 문제를 해결합니다. 그러나 하나의 이벤트에 하나의 핸들러만 할당할 수 있고, 핸들러에 인수를 전달하는 것이 불가능하며, 여러 개의 핸들러가 할당된 경우 마지막에 추가된 핸들러만 실행됩니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `EventListener을 이용한 핸들러`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;title>Event Binding Example</title>
+&lt;style>
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+&lt;/style>
+&lt;/head>
+&lt;body>
+
+&lt;button id="myButton">Click me</button>
+
+&lt;script>
+    // 대상 요소를 가져옵니다.
+    const myButton = document.getElementById('myButton');
+
+    // 콜백 함수를 정의합니다.
+    function handleClick(event) {
+        console.log('Button clicked!');
+        console.log('Event:', event);
+    }
+
+    function handleAnotherClick(event) {
+        console.log('Another button clicked!');
+        console.log('Event:', event);
+    }
+
+    // addEventListener를 사용하여 이벤트를 바인딩합니다.
+    myButton.addEventListener('click', handleClick);
+    myButton.addEventListener('click', handleAnotherClick);
+
+    // 이벤트를 캡쳐링하는 핸들러를 추가할 수도 있습니다.
+    myButton.addEventListener('click', function(event) {
+        console.log('Capturing event...');
+    }, true);
+
+    // 이벤트 핸들러를 제거할 수도 있습니다.
+    // myButton.removeEventListener('click', handleClick);
+
+    // 다수의 이벤트 핸들러를 추가할 수 있습니다.
+    // 다음 코드는 위의 코드와 동일한 효과를 냅니다.
+    // myButton.onclick = handleClick;
+    // myButton.onclick = handleAnotherClick;
+
+    &lt;/script>
+
+&lt;/body>
+&lt;/html>`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이 예제는 버튼을 클릭할 때마다 콘솔에 메시지를 출력하는 간단한 이벤트 핸들러를 보여줍니다. 여기서 addEventListener를 사용하여 이벤트를 바인딩하고, 하나의 이벤트에 여러 개의 핸들러를 추가할 수 있습니다. 캡쳐링과 버블링을 지원하며, HTML뿐만 아니라 DOM 요소에도 적용됩니다.`,
+      },
+    ],
+  },
 ];
 
 /**
