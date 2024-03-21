@@ -2913,6 +2913,178 @@ greet.apply(person, ['Good morning']); // "Good morning, Alice!"`,
       },
     ],
   },
+  {
+    id: 22,
+    title: '화살표 함수와 일반함수의 차이점',
+    date: '2024-03-21 18:55:02',
+    folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
+    preview: `화살표함수는 함수를 간단하게 표현할 수 있는 ES6문법 이다. 일반 함수는 this가 동적으로 바인딩되는 반면, 화살표 함수는 바로 상위 스코프의 this와 같으며 화살표함수는 프로토타입 프로퍼티를 가지고있지 않기때문에 생성자 함수로 사용이어렵다. `,
+    post: [
+      {
+        type: ComponentType.H2,
+        value: `선언방식`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `일반 함수 선언 방식`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `
+function square(x) {
+  return x * x;
+}
+        `,
+      },
+      {
+        type: ComponentType.H4,
+        value: `화살표 함수 선언 방식       
+        `,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `
+const square = (x) => {
+  return x * x;
+};        
+        `,
+      },
+      {
+        type: ComponentType.H2,
+        value: `this 바인딩`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `일반 함수는 this가 동적으로 바인딩되는 반면 화살표 함수는 바로 상위 스코프의 this와 같다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `일반함수`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const cat = {
+  name: 'meow',
+  foo1: function() {
+    const foo2 = function() {
+      console.log(this.name);
+    }
+    foo2();
+  }
+};
+
+cat.foo1();	// undefined`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `cat.foo1() 메소드 호출 시 내부 함수 foo2가 실행됨
+      함수가 호출됐으므로 foo2 내부의 this는 지정되지 않아서 곧 전역 객체를 가리킴
+      전역 객체에 name이란 속성은 존재하지 않으므로 undefined가 뜸`,
+      },
+
+      {
+        type: ComponentType.EMPHASIS,
+        value: `일반 함수는 함수를 호출할 때 함수가 어디에서 호출되었는지에 따라 this에 바인딩할 객체가 동적으로 결정된다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `화살표 함수`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const cat = {
+  name: 'meow',
+  foo1: function() {
+    const foo2 = () => {
+      console.log(this.name);
+    }
+    foo2();
+  }
+};
+
+cat.foo1();	// meow
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `화살표 함수에서의 this는 자기가 정의된 스코프에 존재하는 this를 가르킨다. 즉 자기의 상위에 있는 스코프의 this를 가르키는 것이다. 따라서 내부함수에 어떠한 바인딩도 하지 않았지만 화살표 함수로 함수를 정의했기 때문에 this가 cat 가르키게 된다.`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `화살표 함수는 함수를 선언할 때 this에 바인딩할 객체가 정적으로 결정된다. 동적으로 결정되는 일반 함수와는 달리 화살표 함수의 this 언제나 상위 스코프의 this를 가리키는 것이다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `생성자 함수로 사용`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `화살표함수는 프로토타입 프로퍼티를 가지고있지 않기 때문에 생성자 함수로 사용이 어렵다. 여기서 생성자 함수란 new 키워드를 사용하여 객체의 속성과 메서드를 정의하며 해당 객체를 생성하는 데 사용된다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `// 일반함수 생성자 함수 정의
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// 객체 생성
+var person1 = new Person('John', 30);
+var person2 = new Person('Alice', 25);
+
+console.log(person1.name); // 출력: John
+console.log(person2.age); // 출력: 25
+        `,
+      },
+      {
+        type: ComponentType.H2,
+        value: `arguments 전달`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `일반함수에서는 함수 내에서 모든 전달된 인자를 포함하고 있는 arguments변수가 전달되어 사용할 수 있지만, 화살표 함수에서는 arguments변수가 전달되지 않는다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `일반 함수`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function regularFunction() {
+  console.log(arguments);
+}
+
+regularFunction(1, 2, 3); // 출력: { '0': 1, '1': 2, '2': 3 
+}`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `화살표 함수`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const arrowFunction = () => {
+  console.log(arguments);
+}
+
+arrowFunction(1, 2, 3); // Error: arguments is not defined`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `화살표 함수에서는 arguments를 사용할 수 없기 때문에 위와 같은 코드는 에러를 발생시킨다. 대신에 화살표 함수에서는 Rest parameters를 사용하여 모든 전달된 인자를 받고, args 배열에 저장한 후 출력할수 있다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const arrowFunctionWithRest = (...args) => {
+  console.log(args);
+}
+
+arrowFunctionWithRest(1, 2, 3); // 출력: [1, 2, 3]`,
+      },
+    ],
+  },
 ];
 
 /**
