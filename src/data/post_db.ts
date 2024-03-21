@@ -2860,6 +2860,59 @@ performAsyncTask();
       },
     ],
   },
+  {
+    id: 21,
+    title: '.call과 .apply의 차이점',
+    date: '2024-03-21 13:30:02',
+    folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
+    preview: `this가 함수 호출식에 따라 객체를 가르켰다면 call apply bind는 함수가 직접 실행문맥을 결정한다. 그 중 call과 apply는 함수를 호출해서 실행한다. 두번째로 쓰이는 매개변수가 배열일 경우 apply를 사용한다.`,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `call과 apply는 함수를 호출하는 메서드입니다. 이 두 메서드를 사용하면 함수의 this 값을 명시적으로 설정할 수 있습니다.
+      call과 apply의 첫 번째 매개변수는 함수 내부에서 this가 가리킬 객체를 설정합니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function greet() {
+    console.log(\`Hello, \${this.name}!\`);
+}
+
+const person = {
+    name: 'Alice'
+};
+
+greet.call(person); // "Hello, Alice!"
+greet.apply(person); // "Hello, Alice!"`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `여기서 call과 apply를 사용하여 greet 함수를 호출할 때, this는 person 객체를 가리킵니다. 따라서 Hello, Alice!가 출력됩니다.
+
+        하지만 두번째 매개변수를 전달하는 방식에서는 차이가 있습니다. `,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function greet(greeting) {
+    console.log(\`\${greeting}, \${this.name}!\`);
+}
+
+const person = {
+    name: 'Alice'
+};
+
+greet.call(person, 'Good morning'); // "Good morning, Alice!"
+greet.apply(person, ['Good morning']); // "Good morning, Alice!"`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `call은 매개변수를 직접 나열하여 전달하는 반면, apply는 매개변수를 배열로 묶어 전달합니다.
+
+        `,
+      },
+    ],
+  },
 ];
 
 /**
