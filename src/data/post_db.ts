@@ -3149,6 +3149,89 @@ console.log(element.id); // "myDiv"`,
       },
     ],
   },
+  {
+    id: 24,
+    title: 'Function.prototype.bind()',
+    date: '2024-03-22 10:43:02',
+    folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
+    preview: `HTML(하이퍼텍스트 마크업 언어)에서 속성(Attribute)과 프로퍼티(Property)는 특정 요소에 대한 정보를 지정하는 데 사용되는 용어입니다. 그러나 두 용어 간에는 몇 가지 차이가 있습니다.`,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `함수 메소드 call, apply, bind는 첫번째 매개 변수로 this 값을 명시적으로 지정할 수 있다는 공통점이 있다.
+
+      `,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `function greet() {
+    console.log(\`Hello, \${this.name}!\`);
+}
+
+const person = {
+    name: 'Alice'
+};
+
+greet.call(person); // "Hello, Alice!"
+greet.apply(person); // "Hello, Alice!"
+  `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위 코드에서 call과 apply를 사용하여 greet 함수를 호출할 때, this는 person 객체를 가리켜 this값을 명시적으로 지정해 주었다. 단, bind는 call, apply와 달리 새로운 함수를 반환한다는 특징이 있다. 아래는 bind를 사용한 예제이다.`,
+      },
+
+      {
+        type: ComponentType.CODE,
+        value: `const module = {
+  x: 42,
+  getX: function() {
+    return this.x;
+  }
+};
+
+const unboundGetX = module.getX;
+console.log(unboundGetX()); // undefined
+`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `코드에서 module 객체에는 x라는 속성과 getX라는 메서드가 있다.
+      unboundGetX는 getX 메서드를 가리키는데 이때 this는 호출 시점에 따라 결정된다. 그러므로 unboundGetX()를 호출하면 this는 전역객체를 가리키므로 x는 정의되지 않은 것으로 취급되어 undefined를 반환한다.
+     `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이번에는 bind 메서드를 사용한 예제를 보도록 하자. `,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `const module = {
+  x: 42,
+  getX: function() {
+    return this.x;
+  }
+};
+
+const unboundGetX = module.getX;
+const boundGetX = unboundGetX.bind(module);
+console.log(boundGetX()); // 42`,
+      },
+
+      {
+        type: ComponentType.NORMAL,
+        value: `위에서 unboundGetX 함수를 module 객체에 바인딩하여 boundGetX를 생성한다.
+      이제 boundGetX()를 호출하면 this는 module 객체를 가리키므로 x의 값인 42를 반환한다.
+      `,
+      },
+
+      {
+        type: ComponentType.NORMAL,
+        value: `bind를 사용하면 함수의 this를 명시적으로 지정할 수 있어서, 함수를 다른 컨텍스트에서 호출할 때 유용하다. 또한 매개변수를 미리 지정하여 부분적으로 함수를 실행하는 것도 가능하다.`,
+      },
+    ],
+  },
 ];
 
 /**
