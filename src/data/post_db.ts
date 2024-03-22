@@ -3020,7 +3020,7 @@ cat.foo1();	// meow
       },
       {
         type: ComponentType.NORMAL,
-        value: `화살표함수는 프로토타입 프로퍼티를 가지고있지 않기 때문에 생성자 함수로 사용이 어렵다. 여기서 생성자 함수란 new 키워드를 사용하여 객체의 속성과 메서드를 정의하며 해당 객체를 생성하는 데 사용된다.`,
+        value: `화살표함수는 프로토타입 프로퍼티를 가지고있지 않기 때문에 생성자 함수로 사용이 어렵다.</br>여기서 생성자 함수란 new 키워드를 사용하여 객체의 속성과 메서드를 정의하며 해당 객체를 생성하는 데 사용된다.`,
       },
       {
         type: ComponentType.CODE,
@@ -3082,6 +3082,70 @@ arrowFunction(1, 2, 3); // Error: arguments is not defined`,
 }
 
 arrowFunctionWithRest(1, 2, 3); // 출력: [1, 2, 3]`,
+      },
+    ],
+  },
+  {
+    id: 23,
+    title:
+      'HTML(하이퍼텍스트 마크업 언어)에서 속성(Attribute)과 프로퍼티(Property)',
+    date: '2024-03-22 10:23:02',
+    folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
+    preview: `HTML(하이퍼텍스트 마크업 언어)에서 속성(Attribute)과 프로퍼티(Property)는 특정 요소에 대한 정보를 지정하는 데 사용되는 용어입니다. 그러나 두 용어 간에는 몇 가지 차이가 있습니다.`,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `HTML(하이퍼텍스트 마크업 언어)에서 속성(Attribute)과 프로퍼티(Property)는 특정 요소에 대한 정보를 지정하는 데 사용되는 용어입니다. 그러나 두 용어 간에는 몇 가지 차이가 있습니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `속성(Attribute)`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `HTML 요소에 대한 부가적인 정보를 지정하는 데 사용됩니다.
+        이름과 값의 쌍으로 구성됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `예를 들면 다음과 같습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `&lt;a href="https://www.example.com">링크&lt;/a>`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `위의 예에서 href는 속성이며, "https://www.example.com"은 해당 속성의 값입니다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `프로퍼티(Property)`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `JavaScript에서 DOM(문서 객체 모델)을 통해 HTML 요소에 접근할 때 사용되는 용어입니다.
+        HTML 요소의 속성은 대응하는 DOM 객체의 프로퍼티로 매핑됩니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `예를 들면 다음과 같습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `&lt;div id="myDiv">내 디브&lt;/div>
+
+var element = document.getElementById("myDiv");
+console.log(element.id); // "myDiv"`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `위의 예에서 HTML에서는 id라는 속성을 사용하고, JavaScript에서는 id라는 프로퍼티를 사용하여 해당 값을 가져옵니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `간단히 말하면, 속성은 HTML에서 정의되어 있고 문서를 렌더링할 때 사용되며, 프로퍼티는 JavaScript를 통해 DOM을 조작할 때 사용됩니다. 일반적으로 두 용어가 상호 운용되기 때문에 많은 경우에는 두 용어를 혼용하여 사용하는 것이 일반적입니다.`,
       },
     ],
   },
