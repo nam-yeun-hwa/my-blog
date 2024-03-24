@@ -45,7 +45,7 @@ export const algorithmPostlist = [
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <tr>
                 <th>arr</th>
@@ -122,7 +122,7 @@ export const algorithmPostlist = [
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <tr>
                 <th>s</th>
@@ -220,7 +220,7 @@ export const algorithmPostlist = [
       },
       {
         type: ComponentType.H4,
-        value: `📝 입출력 예`,
+        value: `입출력 예`,
       },
       {
         type: ComponentType.TABLE,
@@ -306,7 +306,7 @@ export const algorithmPostlist = [
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <tr>
                 <th>L</th>
@@ -408,7 +408,7 @@ function solution(l, r) {
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <tr>
                 <th>lines</th>
@@ -505,7 +505,7 @@ function solution(l, r) {
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <th>participant</th>
               <th>completion</th>
@@ -577,7 +577,7 @@ function solution(l, r) {
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+        <table class=${tableStyle.table}>
             <thead>
               <th>순위</th>
               <th>당첨 내용</th>
@@ -620,7 +620,7 @@ function solution(l, r) {
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <tr>
                 <th>당첨 번호</th>
@@ -681,7 +681,7 @@ function solution(l, r) {
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <tr>
                 <th>lottos</th>
@@ -765,7 +765,7 @@ function solution(l, r) {
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <th>종류</th>
               <th>이름</th>
@@ -806,7 +806,7 @@ function solution(l, r) {
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <tr>
                 <th>clothes</th>
@@ -914,7 +914,7 @@ function solution(l, r) {
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <th>arr</th>
               <th>result</th>
@@ -1021,7 +1021,7 @@ function solution(l, r) {
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <th>arr</th>
               <th>result</th>
@@ -1104,7 +1104,7 @@ console.log(solution(28, arr));`,
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <th>n</th>
               <th>k</th>
@@ -1178,7 +1178,7 @@ console.log(solution(10, 3, arr));`,
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <th>s</th>
               <th>result</th>
@@ -1246,7 +1246,7 @@ let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";`,
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <th>str</th>
               <th>result</th>
@@ -1341,7 +1341,7 @@ console.log(solution(str));`,
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <th>s</th>
               <th>result</th>
@@ -1434,7 +1434,7 @@ let str="352+*9-";
       {
         type: ComponentType.TABLE,
         value: `
-          <table>
+          <table class=${tableStyle.table}>
             <thead>
               <th>N</th>
               <th>K</th>

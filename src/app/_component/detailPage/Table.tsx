@@ -1,3 +1,5 @@
+import style from './table.module.css';
+
 type Props = {
   table: string;
 };
