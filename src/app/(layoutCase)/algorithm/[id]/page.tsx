@@ -10,6 +10,7 @@ import PostNavigation from 'app/_component/common/PostNavigation';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import PostUserInfo from 'app/_component/common/PostUserInfo';
+import HeadingString from 'app/_component/detailPage/Heading';
 
 dayjs.locale('ko');
 dayjs.extend(relativeTime);
@@ -47,6 +48,19 @@ export default function AlgoritmPage({ params }: Props) {
           return <Table key={idx} table={value.value} />;
         if (value.type === ComponentType.STRINGLIST)
           return <StringDot key={idx} list={value.value} />;
+        if (
+          value.type === ComponentType.H2 ||
+          value.type === ComponentType.H3 ||
+          value.type === ComponentType.H4
+        ) {
+          return (
+            <HeadingString
+              key={idx}
+              headingType={value.type}
+              headingValue={value.value}
+            />
+          );
+        }
         return (
           <div
             key={idx}
