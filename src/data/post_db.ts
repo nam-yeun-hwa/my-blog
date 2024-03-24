@@ -3233,6 +3233,79 @@ console.log(boundGetX()); // 42`,
       },
     ],
   },
+  {
+    id: 25,
+    title:
+      '브라우저 렌더링 중 스크립트 태그를 만날 때 파싱이 중단되는 문제와 해결',
+    date: '2024-03-24 11:41:02',
+    folder: Folder.JAVASCRIPT,
+    tag: ['Javascript'],
+    preview: `브라우저는 async 속성을 가진 스크립트를 만나면 HTML 파싱과 함께 스크립트 파일의 다운로드를 동시에 시작합니다.
+    스크립트 파일이 다운로드되고 실행될 준비가 되면, HTML 파싱은 멈추고 스크립트가 실행됩니다.`,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `브라우저 렌더링 중 스크립트 태그를 만날 때 파싱이 중단되는 문제를 해결하는 몇 가지 방법 중 비동기적으로 스크립트 로드하는 방법을 설명하려 합니다.
+         async나 defer 속성을 사용하여 스크립트를 비동기적으로 로드할 수 있습니다. 이를 통해 스크립트 로드가 병렬적으로 이루어지므로 페이지 파싱이 중단되지 않습니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `HTML 코드`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title>Async vs Defer&lt;/title&gt;
+&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1>Async vs Defer 예제&gt;/h1&gt;
+    &lt;script src="script.js" async&gt;/script&gt;
+    &lt;script src="script.js" defer&gt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `script.js`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `console.log("이 부분은 스크립트가 실행되어야 하는 내용입니다.");`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `여기서 async와 defer 속성을 가진 &lt;script> 태그가 있습니다. 이 두 가지 속성의 차이를 살펴보겠습니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `async 속성`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `브라우저는 async 속성을 가진 스크립트를 만나면 HTML 파싱과 함께 스크립트 파일의 다운로드를 동시에 시작합니다.
+              스크립트 파일이 다운로드되고 실행될 준비가 되면, HTML 파싱은 멈추고 스크립트가 실행됩니다.
+              따라서 console.log가 실행될 때까지 HTML 파싱은 멈추게 됩니다.`,
+      },
+      {
+        type: ComponentType.H4,
+        value: `defer 속성`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `브라우저는 defer 속성을 가진 스크립트를 만나면 HTML 파싱을 계속하면서 스크립트 파일의 다운로드를 시작합니다.
+              스크립트 파일은 DOM 생성이 완료된 직후에 실행됩니다. 즉, DOMContentLoaded 이벤트가 발생한 후에 실행됩니다.
+              따라서 console.log가 실행될 때까지 HTML 파싱은 멈추지 않습니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이러한 방법 중에서 적합한 방법을 선택하여 사용하면 됩니다. 일반적으로 비동기 로드나 스크립트 위치 이동이 가장 효과적인 해결책일 수 있습니다.`,
+      },
+    ],
+  },
 ];
 
 /**
