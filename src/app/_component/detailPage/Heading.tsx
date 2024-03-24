@@ -1,4 +1,5 @@
-import style from 'app/_component/common/postDetail.module.css';
+// import style from 'app/_component/common/postDetail.module.css';
+import style from './heading.module.css';
 import { ComponentType } from 'type/post';
 
 type Props = {

@@ -13,9 +13,11 @@
   font-family: var(--font-IBM_Plex_Sans_KR);
 }
 
-.detail {
-  /* padding-right: 0.25rem !important; */
-  /* padding-left: 0.25rem !important; */
+.content {
+  margin-top: 2rem;
+  overflow-wrap: break-word;
+  color: #4e4e55;
+  line-height: 2;
 }
 
 .post_meta {
@@ -42,50 +44,6 @@
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
-
-.h1 {
-  font-size: 1.92rem;
-  color: var(--heading-color);
-  font-weight: 500;
-  font-family: var(--font-IBM_Plex_Sans_KR);
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-  letter-spacing: 0.2px;
-}
-
-.h2 {
-  color: var(--heading-color);
-  font-weight: 500;
-  font-family: var(--font-IBM_Plex_Sans_KR);
-  margin-right: 0.5rem !important;
-  font-size: 1.54rem;
-  color: #2a2a2a;
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
-  line-height: 1.4;
-  text-wrap: wrap;
-}
-
-.h4 {
-  color: var(--heading-color);
-  font-weight: 500;
-  font-family: var(--font-IBM_Plex_Sans_KR);
-  margin-right: 0.5rem !important;
-  font-size: 1rem;
-  color: #2a2a2a;
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
-  line-height: 1.4;
-  text-wrap: wrap;
-}
-
-/* .content {
-  margin-top: 2rem;
-  overflow-wrap: break-word;
-  color: #4e4e55;
-  line-height: 1.6;
-} */
 
 .post_navigation {
   display: flex;
