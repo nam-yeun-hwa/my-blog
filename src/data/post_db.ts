@@ -3159,7 +3159,8 @@ console.log(element.id); // "myDiv"`,
     post: [
       {
         type: ComponentType.NORMAL,
-        value: `함수 메소드 call, apply, bind는 첫번째 매개 변수로 this 값을 명시적으로 지정할 수 있다는 공통점이 있다.
+        value: `Function.prototype.bind는 자바스크립트에서 함수를 생성하고 호출할 때 this 키워드의 값을 고정시키는 메소드이다. </br> 이 메소드를 사용하면 함수를 호출할 때 함수 내부에서 사용되는 this가 특정한 객체로 고정된다.
+        </br>함수 메소드 call, apply, bind가 공통적으로 첫번째 매개 변수를 this 값으로 지정할 수 있다.
 
       `,
       },
