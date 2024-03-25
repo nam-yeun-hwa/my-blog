@@ -13,6 +13,7 @@ export default function Panel() {
   return (
     <aside className={style.panel_wrapper}>
       <div className={style.access}>
+        {/* 최신게시물 : start */}
         <section className={style.access_lastmod}>
           <h2 className={style.panel_heading}>Recently Updated</h2>
           <ul className={style.panel_recently}>
@@ -25,6 +26,8 @@ export default function Panel() {
             })}
           </ul>
         </section>
+        {/* 최신게시물 : end */}
+        {/* 트렌딩 태그 : start */}
         <section className={style.panel_tag_contain}>
           <h2 className={style.panel_heading}>Trending Tags</h2>
           <div className={style.panel_tag}>
@@ -39,6 +42,7 @@ export default function Panel() {
             })}
           </div>
         </section>
+        {/* 트렌딩 태그 : end */}
       </div>
     </aside>
   );

@@ -86,9 +86,11 @@ function RouteSwitch({ data }: Props) {
               <Link
                 key={idx}
                 className={style.topbar_txt}
-                href={`/${linkName}`}
+                href={`/${decodeURIComponent(linkName)}`}
               >
-                <p className={style.upper_case}>{linkName}</p>
+                <p className={style.upper_case}>
+                  {decodeURIComponent(linkName)}
+                </p>
               </Link>
             );
           })}
@@ -97,39 +99,6 @@ function RouteSwitch({ data }: Props) {
     </>
   );
 }
-
-// Number(allSegment[allSegment.length - 1]) > 0 ? (
-//   <Link className={style.topbar_txt} href={``}>
-//     {
-//       totalPostlist[Number(allSegment[allSegment.length - 1]) - 1]
-//         .title
-//     }
-//   </Link>
-// )
-
-// allSegment.map((linkName, idx) => {
-//   return (
-//     <Link key={idx} className={style.topbar_txt} href={``}>
-//       {linkName.charAt(0).toUpperCase() + linkName.slice(1)}
-//     </Link>
-//   );
-// })
-
-//  <search className={cx(style.search, isFocused && style.search_active)}>
-//           <i className={`fas fa-search fa-fw ${style.search_ico}`}></i>
-//           <input
-//             id="search"
-//             ref={inputRef}
-//             className={cx(
-//               style.search_input,
-//               isFocused && style.search_input_active,
-//             )}
-//             onFocus={handleFocus}
-//             onBlur={handleBlur}
-//             placeholder="Search..."
-//             autoComplete="off"
-//           />
-//         </search>
 
 /* "Breadcrumb"은 길을 잃지 않도록 도와주는 나침반과 같은 역할을 하는 정보를 나타냅니다. 
   특히 웹 디자인 및 사용자 인터페이스에서 "breadcrumb"은 사용자가 현재 위치한 페이지의 경로를 
