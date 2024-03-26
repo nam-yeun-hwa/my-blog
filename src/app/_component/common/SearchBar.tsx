@@ -10,8 +10,8 @@ export default function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const filteredItems = totalPostlist.filter((postItem) =>
-      postItem.post.some((postValue) => {
+    const filteredItems = totalPostlist.filter((postList) =>
+      postList.post.some((postValue) => {
         return postValue.value
           .toLowerCase()
           .includes(searchQuery.toLowerCase());
