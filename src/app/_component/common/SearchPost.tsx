@@ -11,7 +11,7 @@ export default function SearchPost({ post }: Props) {
     <article>
       <header>
         <h2>
-          <Link href={''}>Customize the Favicon</Link>
+          <Link href={''}>찾는 문자열</Link>
           <PostMeta iconType={IConImageType.ICON_CATEGORY} />
         </h2>
         <p>
