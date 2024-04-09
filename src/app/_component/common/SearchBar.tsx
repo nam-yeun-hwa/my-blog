@@ -3,11 +3,14 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import style from './searchBar.module.css';
 import cx from 'classnames';
 import { totalPostlist } from 'data/post_db';
+import { useDispatch } from 'react-redux';
+import { rdxSearchPostList } from 'store/searchFilterlist';
 
 export default function SearchBar() {
   const [isFocused, setFocused] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('브라우저');
+  const [searchQuery, setSearchQuery] = useState('앓');
   const inputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const filteredItems = totalPostlist.filter((postList) =>
@@ -26,7 +29,9 @@ export default function SearchBar() {
       '찾은 포스트',
       filteredItems,
     );
-  }, [searchQuery]);
+
+    dispatch(rdxSearchPostList(filteredItems));
+  }, [searchQuery, dispatch]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);

@@ -6,8 +6,8 @@ import cx from 'classnames';
 import { ReactNode, useEffect, useState } from 'react';
 import BreadCrumb from 'app/_component/common/BreadCrumb';
 import Panel from 'app/_component/common/Panel';
-import { Provider } from 'react-redux';
-import { store } from 'store/index';
+import { Provider, useSelector } from 'react-redux';
+import { RootState, store } from 'store/index';
 import ImageLoader from 'app/_component/common/ImageLoader';
 import { MOBILE_WIDTH } from 'app/_component/constant/constant';
 
@@ -31,6 +31,10 @@ function Layout({ children, modal }: Props) {
       window.removeEventListener('resize', updateWidth);
     };
   }, []);
+
+  // const { searchPostFilterList } = useSelector(
+  //   (state: RootState) => state.searchFilterList,
+  // );
 
   const moveToggle = () => {
     if (browserWidth && browserWidth <= MOBILE_WIDTH.MOBILE_APPLY_SIZE) {
@@ -127,20 +131,18 @@ function Layout({ children, modal }: Props) {
         </nav>
         <div className="sidebar-bottom"></div>
       </aside>
-      <div className={cx(style.main_wrapper, onToggle && style.main_move)}>
-        <div className={style.container}>
-          <BreadCrumb moveToggle={moveToggle} />
-          <div className={style.contents}>
-            <main className={style.inner_content}>
-              <Provider store={store}>
-                {children}
-                {modal}
-              </Provider>
-            </main>
-            <Panel />
+      <Provider store={store}>
+        <div className={cx(style.main_wrapper, onToggle && style.main_move)}>
+          <div className={style.container}>
+            <BreadCrumb moveToggle={moveToggle} />
+            {modal}
+            <div className={style.contents}>
+              <main className={style.inner_content}>{children}</main>
+              <Panel />
+            </div>
           </div>
         </div>
-      </div>
+      </Provider>
     </>
   );
 }

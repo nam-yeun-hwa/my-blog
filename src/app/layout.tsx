@@ -3,6 +3,8 @@ import { Inter, IBM_Plex_Sans_KR } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 import './style-reset.css';
+import { Provider, useSelector } from 'react-redux';
+import { RootState, store } from 'store/index';
 
 type Props = {
   children: React.ReactNode;

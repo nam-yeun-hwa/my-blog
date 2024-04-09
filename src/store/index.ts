@@ -4,11 +4,13 @@ import postStore from './post';
 
 import { configureStore } from '@reduxjs/toolkit';
 import algorithmStore from './algorithm';
+import searchFilterStore from './searchFilterlist';
 
 export const store = configureStore({
   reducer: {
     postStore: postStore.reducer,
     algorithmStore: algorithmStore.reducer,
+    searchFilterList: searchFilterStore.reducer,
   },
 });
 

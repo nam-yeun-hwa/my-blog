@@ -1,0 +1,7 @@
+.contents {
+  position: absolute;
+  width: 100%;
+  font-family: var(--font-IBM_Plex_Sans_KR);
+  background-color: white;
+  z-index: 999;
+}
