@@ -10,6 +10,7 @@ import { Provider, useSelector } from 'react-redux';
 import { RootState, store } from 'store/index';
 import ImageLoader from 'app/_component/common/ImageLoader';
 import { MOBILE_WIDTH } from 'app/_component/constant/constant';
+import useWindowSize from 'hook/useWindowSize';
 
 type Props = {
   children: ReactNode;
@@ -19,25 +20,31 @@ type Props = {
 function Layout({ children, modal }: Props) {
   const segment = useSelectedLayoutSegment();
   const [onToggle, setOnToggle] = useState(false);
-  const [browserWidth, setBrowserWidth] = useState<null | number>(null);
+  // const [browserWidth, setBrowserWidth] = useState<null | number>(null);
+  const windowSize = useWindowSize();
+  // /**
+  //  * @description 현재 브라우저 사이즈
+  //  */
+  // useEffect(() => {
+  //   const updateWidth = () => {
+  //     setBrowserWidth(window.innerWidth);
+  //   };
+  //   updateWidth();
+  //   window.addEventListener('resize', updateWidth);
+  //   return () => {
+  //     window.removeEventListener('resize', updateWidth);
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    const updateWidth = () => {
-      setBrowserWidth(window.innerWidth);
-    };
-    updateWidth();
-    window.addEventListener('resize', updateWidth);
-    return () => {
-      window.removeEventListener('resize', updateWidth);
-    };
-  }, []);
-
-  // const { searchPostFilterList } = useSelector(
-  //   (state: RootState) => state.searchFilterList,
-  // );
-
+  /**
+   * @function moveToggle
+   * @description 모바일사이즈보다 브라우저 사이즈가 작을 경우 sideMenu 안으로 숨기기
+   */
   const moveToggle = () => {
-    if (browserWidth && browserWidth <= MOBILE_WIDTH.MOBILE_APPLY_SIZE) {
+    if (
+      windowSize.width &&
+      windowSize.width <= MOBILE_WIDTH.MOBILE_APPLY_SIZE
+    ) {
       setOnToggle(!onToggle);
     }
   };
