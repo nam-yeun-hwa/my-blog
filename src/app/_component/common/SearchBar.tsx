@@ -8,7 +8,7 @@ import { rdxSearchPostList } from 'store/searchFilterlist';
 
 export default function SearchBar() {
   const [isFocused, setFocused] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('앓');
+  const [searchQuery, setSearchQuery] = useState('브라우저');
   const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
 

@@ -1,17 +1,16 @@
 'use client';
-import Link from 'next/link';
+
 import style from './layout.module.css';
-import { useSelectedLayoutSegment } from 'next/navigation';
 import cx from 'classnames';
-import { ReactNode, useEffect, useState } from 'react';
-import BreadCrumb from 'app/_component/common/BreadCrumb';
-import Panel from 'app/_component/common/Panel';
+import { ReactNode, useState } from 'react';
+
 import { Provider, useSelector } from 'react-redux';
 import { RootState, store } from 'store/index';
-import ImageLoader from 'app/_component/common/ImageLoader';
+
 import { MOBILE_WIDTH } from 'app/_component/constant/constant';
 import useWindowSize from 'hook/useWindowSize';
 import SideMenu from 'app/_component/common/SideMenu';
+import Contents from 'app/_component/common/Contents';
 
 type Props = {
   children: ReactNode;
@@ -41,14 +40,17 @@ function Layout({ children, modal }: Props) {
 
       <Provider store={store}>
         <div className={cx(style.main_wrapper, onToggle && style.main_move)}>
-          <div className={style.container}>
+          <Contents modal={modal} moveToggle={moveToggle}>
+            {children}
+          </Contents>
+          {/* <div className={style.container}>
             <BreadCrumb moveToggle={moveToggle} />
             {modal}
             <div className={style.contents}>
               <main className={style.inner_content}>{children}</main>
               <Panel />
             </div>
-          </div>
+          </div> */}
         </div>
       </Provider>
     </>
