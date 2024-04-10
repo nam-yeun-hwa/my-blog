@@ -1,0 +1,145 @@
+/* 사이드 메뉴 : start */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-y: auto;
+  width: 260px;
+  z-index: 99;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border-color);
+  padding-left: 0;
+  padding-right: 0;
+  transition: transform 0.4s ease;
+  scrollbar-width: none;
+}
+
+.sidebar_move {
+  transform: translateX(0px) !important;
+}
+
+/* 프로필 사진 */
+.profile_wrapper {
+  margin-top: 56px;
+  margin-bottom: 40px;
+  padding-left: 56px;
+  padding-right: 20px;
+}
+
+.blog_name_txt {
+  font-size: 28px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: var(--site-title-color);
+  font-weight: 800;
+  font-family: var(--font-IBM_Plex_Sans_KR);
+}
+
+.site_subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--site-subtitle-color);
+  font-style: italic !important;
+  margin: 4px 0 0 0;
+}
+
+/* 메뉴 리스트 */
+.nav {
+  padding: 0px 44px;
+  margin: 0;
+}
+
+.nav_item {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 10px;
+  list-style: none;
+  transition: color 0.15s ease-in-out, background-color 0.3s ease-in-out,
+    border-color 0.15s ease-in-out;
+  margin-bottom: 4px;
+  padding: 0px 18px;
+}
+
+.nav_item:hover {
+  background-color: var(--sidebar-hover-bg);
+}
+
+.nav_link {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--sidebar-active-color);
+  text-decoration: none;
+}
+.active {
+  color: var(--sidebar-active-color);
+  background-color: var(--sidebar-hover-bg);
+}
+
+.ico {
+  font-size: 15px;
+  height: 18px;
+  opacity: 0.8;
+  margin-right: 20px;
+  color: var(--sidebar-muted-color);
+}
+
+.nav_txt {
+  display: flex;
+  align-items: center;
+  line-height: 18px;
+  font-size: 14px;
+  color: var(--sidebar-muted-color);
+  font-weight: 700;
+}
+
+/* 사이드 메뉴 : end */
+
+.main_move {
+  transform: translateX(260px) !important;
+}
+
+@media (min-width: 1650px) {
+  .sidebar {
+    width: 300px;
+  }
+}
+
+@media (min-width: 850px) {
+}
+
+@media (min-width: 1400px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 576px) {
+}
+
+@media (max-width: 849px) {
+  .sidebar {
+    /* transition: transform 0.4s ease; */
+    transform: translateX(-260px);
+    -webkit-transform: translateX(-260px);
+  }
+}
+
+@media (min-width: 850px) {
+}
+
+@media (max-width: 1199px) {
+}
+
+/* 1650일때
+  850일때  */
+
+/* 컨텐츠 페이지 : end */
