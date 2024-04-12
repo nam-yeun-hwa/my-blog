@@ -3,6 +3,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 import style from './layout.module.css';
+import SearchPost from 'app/_component/common/SearchPost';
 
 export default function Page() {
   const { searchPostFilterList } = useSelector(
@@ -13,7 +14,7 @@ export default function Page() {
       {searchPostFilterList.length > 0 ? (
         <>
           {searchPostFilterList.map((value) => {
-            return <>{value.preview}</>;
+            return <SearchPost key={value.id} post={value} />;
           })}
         </>
       ) : null}

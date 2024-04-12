@@ -4,8 +4,8 @@ import style from './layout.module.css';
 import cx from 'classnames';
 import { ReactNode, useState } from 'react';
 
-import { Provider, useSelector } from 'react-redux';
-import { RootState, store } from 'store/index';
+import { Provider } from 'react-redux';
+import { store } from 'store/index';
 
 import { MOBILE_WIDTH } from 'app/_component/constant/constant';
 import useWindowSize from 'hook/useWindowSize';
@@ -14,10 +14,10 @@ import Contents from 'app/_component/common/Contents';
 
 type Props = {
   children: ReactNode;
-  modal: ReactNode;
+  search: ReactNode;
 };
 
-function Layout({ children, modal }: Props) {
+function Layout({ children, search }: Props) {
   const [onToggle, setOnToggle] = useState(false);
   const windowSize = useWindowSize();
 
@@ -40,7 +40,7 @@ function Layout({ children, modal }: Props) {
 
       <Provider store={store}>
         <div className={cx(style.main_wrapper, onToggle && style.main_move)}>
-          <Contents modal={modal} moveToggle={moveToggle}>
+          <Contents modal={search} moveToggle={moveToggle}>
             {children}
           </Contents>
           {/* <div className={style.container}>
