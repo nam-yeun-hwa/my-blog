@@ -6,6 +6,8 @@ type Props = {
 
 export default function PostMeta({ iconType }: Props) {
   return (
-    <>{iconType === IConImageType.ICON_CATEGORY && <div>icon category</div>}</>
+    <>
+      {iconType === IConImageType.ICON_CATEGORY && <div>fontawesome icon</div>}
+    </>
   );
 }

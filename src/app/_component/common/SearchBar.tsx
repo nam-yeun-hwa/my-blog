@@ -8,31 +8,40 @@ import { rdxSearchPostList } from 'store/searchFilterlist';
 
 export default function SearchBar() {
   const [isFocused, setFocused] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('브라우저');
+  const [searchQuery, setSearchQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const filteredItems = totalPostlist.filter((postList) =>
-      postList.post.some((postValue) => {
-        return postValue.value
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
-      }),
-    );
+    if (searchQuery.length > 0) {
+      const filteredItems = totalPostlist.filter((postList) =>
+        postList.post.some((postValue) => {
+          return postValue.value
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase());
+        }),
+      );
 
-    console.log(
-      '검색한 문자열',
-      '[',
-      searchQuery,
-      ']',
-      '찾은 포스트',
-      filteredItems,
-    );
+      console.log(
+        '검색한 문자열',
+        '[',
+        searchQuery,
+        ']',
+        '찾은 포스트',
+        filteredItems,
+      );
 
-    dispatch(rdxSearchPostList(filteredItems));
+      dispatch(rdxSearchPostList(filteredItems));
+    } else {
+      dispatch(rdxSearchPostList([]));
+    }
   }, [searchQuery, dispatch]);
 
+  /**
+   * @function handleInputChange
+   * @param event
+   * @description 검색단어
+   */
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };

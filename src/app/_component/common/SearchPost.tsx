@@ -1,25 +1,23 @@
 import Link from 'next/link';
 import { IAlgorithmPost, IConImageType, IPost } from 'type/post';
 import PostMeta from './atomic/PostMeta';
+import style from './searchPost.module.css';
 
 type Props = {
-  post: IPost | IAlgorithmPost;
+  post: IPost;
 };
 
 export default function SearchPost({ post }: Props) {
   return (
-    <article>
+    <article className={style.searchBox}>
       <header>
-        <h2>
-          <Link href={''}>찾는 문자열</Link>
+        <h2 className={style.hidden}>
+          <Link className={style.title} href={''}>
+            {post.title}
+          </Link>
           <PostMeta iconType={IConImageType.ICON_CATEGORY} />
         </h2>
-        <p>
-          The favicons of Chirpy are placed in the directory
-          assets/img/favicons/. You may want to replace them with your own. The
-          following sections will guide you to create and replace the default
-          favicons...
-        </p>
+        <p className={style.preview}>{post.preview}</p>
       </header>
     </article>
   );
