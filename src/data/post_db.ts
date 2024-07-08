@@ -6,6 +6,374 @@ import { ComponentType, Folder, Level } from 'type/post';
  */
 export const totalPostlist = [
   {
+    id: 14,
+    title: '테스트 주도 개발(Test driven devlopment, TDD)',
+    date: '2024-07-08 22:13:16',
+    folder: Folder.TDD,
+    tag: ['테스트 주도 개발'],
+    preview: `테스트 코드를 먼저 작성하는 테스트 주도 개발 방벙론은 테스트 프레임워크를 사용하여 자동화된 테스트 시스템에서 미리 정의된 사양을 바탕으로 실패하는 테스트 명새를 작성하고`,
+    post: [
+      {
+        type: ComponentType.NORMAL,
+        value: `소프트웨어를 전문적으로 개발하는 기업들은 서비스의 안정적인 운영과 서비스의 품질을 확보하기 위해 테스트 코드를 작성하고 관리하고 있다. 다시 말하면 서비스의 품질을 확보하기 위해서는 테스트 코드 작성이 필수라는 것이다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `테스트 주도 개발이라는 개념이 나오기 전에는 우리가 지금까지 해온 것과 같이 움직이는 소프트웨어를 개발한 후 해당 소프트 웨어에 대한 테스트 코드를 작성하는 방식을 사용해 왔다. 이 방식을 사용하면 다음과 같은 문제점들이 있다.`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `다른 사람이 작성한 소스 코드 또는 내가 예전에 작성한 코드에 대해 테스트 코드를 작성해야 하는데 이 코드가 어떻게 동작하는지 알 수 없거나 기억할 수 없음으로 코드를 다시 분석하고 테스트 코드를 작성해야 한다.
+        작성된 코드가 테스트하기 쉽게 작성되어 있지 않다. 따라서 테스트 코드를 작성하기가 불가능 하거나 테스트 코드를 작성하기 위해 이미 작성된 코드를 수정해야 할 경우가 발생한다. 이때 기존 코드의 수정으로 인해 예기치 않은 문제가 발생할 수 있다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `이런 문제를 해결하기 위해 켄트백(Kent Beck)은 테스트 코드를 먼저 작성하는 테스트 주도 개발론을 제안하게 되었다. 테스트 줃 개발 방벙론은 테스트 프레임워크 등을 사용하여 자동화된 테스트 시스템에서 미리 정의된 사양을 바탕으로`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `실패하는 테스트 명세를 작성하고 그 테스트 명세를 통과하기 위한 최소한의 코드를 작성한다. 마지막으로 해당 코드를 리팩토링 하는 것으로 개발을 마치는 프로세스이다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `Jest 테스트 프레임워크로 테스트 코드 작성하기`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `describe 함수 `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `describe함수는 jest가 제공하는 함수로써 여러 테스트를 한 그룹으로 묶고 설명을 붙이기 위해 사용한다.`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `첫번째 매개변수는 명령 프롬프트에 표시할 설명
+        두번째 매개변수는 여러 테스트를 그룹으로 묶을 콜백 함수`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `describe('test index.js file', () => {
+
+});`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `it 함수`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `it함수는 실제 테스트가 실행되는 테스트 명세를 작성할 때 사용한다.`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `첫번째 매개변수는 테스트 명세의 설명
+        두 번째 매개변수에는 실제로 테스트를 실행하는 테스트 코드를 작성`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `it('sum 1+2 to equal 3', () => {
+      
+});`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `expect 함수`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `expect 함수는 주로 테스트 프레임워크에서 테스트 결과를 확인하기 위해 사용되는 메서드나 함수이다.`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `expect 함수는 테스트 대상이 특정 조건을 만족하는지, 즉 예상된 동작을 수행하는지를 검증하는 역할.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `it('sum 1+2 to equal 3', () => {
+      expect(sum(1,2)).toBe(3);
+});`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `여기서 sum(1,2)는 테스트 대상이 실제로 생성한 값이고, 3는 기대하는 값입니다. toBe는 일치 여부를 확인하는 메서드입니다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `expect는 단순한 값 비교 외에도 다양한 일치 조건을 제공합니다. 예를 들어, 두 객체가 동일한지, 배열이 특정 요소를 포함하는지, 함수가 특정 예외를 던지는지 등을 확인할 수 있습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `// 객체나 배열의 동등성 비교
+expect(actualValue).toEqual(expectedValue); 
+
+// 배열이 특정 아이템을 포함하는지
+expect(array).toContain(item); 
+
+// 함수가 특정 오류를 던지는지
+expect(() => functionCall()).toThrow(ErrorType); 
+        `,
+      },
+      {
+        type: ComponentType.H2,
+        value: `@testing-library로 리액트 컴포넌트 테스트 코드 작성 하기`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `@testing-library는 DOM 테스팅 라이브러리(DOM Testing Library)이다. @testing-library는 사용자 중심 방식으로 UI 컴포넌트를 테스트하는데 도움을 주는 라이브러리이며
+        리액트 컴포넌트의 테스트 코드 작성을 도와준다. </br></br>
+        
+        테스트 코드를 작성할 때 컴포넌트 세부 구현사항을 포함하지 않으면서도 신뢰할 수 있는 테스트 코드 작성에 도움을 준다. 이렇게 컴포넌트의 세부 구현 사항을 포함하지 않은 테스트 코드를 작성하면 컴포넌트의 세부 구현 부분을 리팩토링 하여도 테스트 코드를 수정할 필요가 없다, 이로 인해 한번 작성한 테스트 코드는 긴 시간 유지할 수 있으며 오랜 기간 유지 가능하여 테스트 코드를 자주 수정하지 않아도 되므로 개발 생산성을 향상 시켜 준다.`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `App.js 컴포넌트 - 렌더링 테스트`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from 'testing-library/react';
+import App from './App.js';
+        
+test('renders learn react link', ()=>{
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+})`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `test`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `test 함수(it 함수와 같은 역할을 하는 함수)를 사용하여 테스트 명세를 작성한 테스트 코드이다.`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `render`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `리액트 컴포넌트를 화면에 표시하기 위함`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `screen`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `리액트 컴포넌트가 표시된 화면을 의미한다.`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `GetByText`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `getByText 함수는 주어진 텍스트를 포함하는 DOM 요소를 찾는 데 사용된다. 렌더링된 컴포넌트에서 screen.GetByText를 통해 화면에서 'learn react'라는 글자를 가지고 있는 돔 요소를 찾는다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from '@testing-library/react';
+import App from './App';
+        
+test('renders Hello World text', () => {
+  render(<App />);
+  const textElement = screen.getByText('Hello World');
+  expect(textElement).toBeInTheDocument();
+\});
+        `,
+      },
+      {
+        type: ComponentType.H3,
+        value: `toBeInTheDocument`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `요소를 찾아 jest expect().toBeInTheDocument()를 사용하여 돔에 표시되어 있는지 확인 한다. </br>
+
+        render 함수는 메모리상에 돔을 만들고 screen을 통해 해당 돔에 접근 하는 것을 의미한다.
+        react-testing-library의 render 함수를 사용하여 App이라는 컴포넌트를 렌더링 하였다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `React Testing Library의 주요 쿼리 함수`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `getByText`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `주어진 텍스트를 포함하는 요소를 찾습니다.</br>
+        ex) screen.getByText(/learn react/i)는 대소문자를 구분하지 않고 "learn react"라는 텍스트를 포함하는 요소를 찾습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from '@testing-library/react';
+import App from './App';
+        
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+        `,
+      },
+      {
+        type: ComponentType.H3,
+        value: `getByRole`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `특정 역할(예: 버튼, 링크)을 가진 요소를 찾습니다.</br>
+        screen.getByRole('button', { name: /submit/i })은 "submit" 텍스트를 가진 버튼을 찾습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from '@testing-library/react';
+import App from './App';
+        
+test('renders submit button', () => {
+  render(<App />);
+  const buttonElement = screen.getByRole('button', { name: /submit/i });
+  expect(buttonElement).toBeInTheDocument();
+});
+        `,
+      },
+      {
+        type: ComponentType.H3,
+        value: `getByLabelText`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `특정 라벨 텍스트와 연결된 요소(주로 폼 필드)를 찾습니다.</br>
+        screen.getByLabelText('Username')은 "Username" 라벨을 가진 입력 필드를 찾습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from '@testing-library/react';
+import LoginForm from './LoginForm';
+        
+test('finds the username input', () => {
+  render(<LoginForm />);
+  const inputElement = screen.getByLabelText('Username');
+  expect(inputElement).toBeInTheDocument();
+});
+        `,
+      },
+
+      {
+        type: ComponentType.H3,
+        value: `getByPlaceholderText`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `특정 플레이스홀더 텍스트를 가진 입력 요소를 찾습니다. </br>
+        screen.getByPlaceholderText('Enter your username')은 "Enter your username" 플레이스홀더를 가진 입력 필드를 찾습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from '@testing-library/react';
+import LoginForm from './LoginForm';
+        
+test('finds the input by placeholder', () => {
+  render(<LoginForm />);
+  const inputElement = screen.getByPlaceholderText('Enter your username');
+  expect(inputElement).toBeInTheDocument();
+});
+        `,
+      },
+      {
+        type: ComponentType.H3,
+        value: `getByAltText`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `주어진 alt 텍스트를 가진 이미지를 찾습니다.</br>
+        screen.getByAltText('Profile Picture')은 "Profile Picture" alt 텍스트를 가진 이미지를 찾습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from '@testing-library/react';
+import Profile from './Profile';
+        
+test('finds the profile picture', () => {
+  render(<Profile />);
+  const imageElement = screen.getByAltText('Profile Picture');
+  expect(imageElement).toBeInTheDocument();
+});
+        `,
+      },
+      {
+        type: ComponentType.H3,
+        value: `getByTestId`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `data-testid 속성을 사용하여 요소를 찾습니다. </br>
+        screen.getByTestId('custom-element')은 data-testid="custom-element" 속성을 가진 요소를 찾습니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from '@testing-library/react';
+import Component from './Component';
+        
+test('finds element by test id', () => {
+  render(<Component />);
+  const element = screen.getByTestId('custom-element');
+  expect(element).toBeInTheDocument();
+});
+        `,
+      },
+      {
+        type: ComponentType.H3,
+        value: `queryByText`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `요소가 존재하지 않거나, 하나만 존재할 때 사용합니다. 존재하지 않으면 null을 반환합니다. </br>
+        getByText는 요소가 없으면 에러를 던집니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from '@testing-library/react';
+import App from './App';
+        
+test('does not find non-existing text', () => {
+  render(<App />);
+  const textElement = screen.queryByText('Non-existing Text');
+  expect(textElement).toBeNull();
+});
+        `,
+      },
+      {
+        type: ComponentType.H3,
+        value: `findByText`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `비동기적으로 요소를 찾을 때 사용합니다. 주로 요소가 나중에 렌더링될 경우에 사용합니다. 반환 값은 Promise입니다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import { render, screen } from '@testing-library/react';
+import App from './App';
+        
+test('renders welcome message', async () => {
+  render(<App />);
+  const messageElement = await screen.findByText(/welcome/i);
+  expect(messageElement).toBeInTheDocument();
+});
+        `,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: ``,
+      },
+    ],
+  },
+  {
     id: 13,
     title: '리액트와 불변성',
     date: '2024-01-15 22:11:33',

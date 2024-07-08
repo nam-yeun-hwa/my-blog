@@ -46,6 +46,7 @@ export enum Folder {
   GIT = 'Git',
   AWS = 'Aws',
   NETWORK = 'network',
+  TDD = 'tdd',
 }
 
 /**
