@@ -39,6 +39,14 @@ export const totalPostlist = [
         value: `Jest 테스트 프레임워크로 테스트 코드 작성하기`,
       },
       {
+        type: ComponentType.NORMAL,
+        value: `Jest는 주로 JavaScript 및 TypeScript 애플리케이션을 테스트하기 위해 사용되는 JavaScript 테스팅 프레임워크로 특히 React 애플리케이션 테스트에 최적화되어 있다. 페이스북(현 메타)에서 개발했으며,  React 외에도 다른 JavaScript 프레임워크나 라이브러리와도 잘 작동한다.`,
+      },
+      {
+        type: ComponentType.H2,
+        value: `Jest의 주요 쿼리 함수`,
+      },
+      {
         type: ComponentType.H3,
         value: `describe 함수 `,
       },
@@ -82,12 +90,9 @@ export const totalPostlist = [
       },
       {
         type: ComponentType.NORMAL,
-        value: `expect 함수는 주로 테스트 프레임워크에서 테스트 결과를 확인하기 위해 사용되는 메서드나 함수이다.`,
+        value: `expect 함수는 주로 테스트 프레임워크에서 테스트 결과를 확인하기 위해 사용되는 메서드나 함수이다. expect 함수는 테스트 대상이 특정 조건을 만족하는지, 즉 예상된 동작을 수행하는지를 검증하는 역할이다.`,
       },
-      {
-        type: ComponentType.STRINGLIST,
-        value: `expect 함수는 테스트 대상이 특정 조건을 만족하는지, 즉 예상된 동작을 수행하는지를 검증하는 역할.`,
-      },
+
       {
         type: ComponentType.CODE,
         value: `it('sum 1+2 to equal 3', () => {
@@ -95,12 +100,12 @@ export const totalPostlist = [
 });`,
       },
       {
-        type: ComponentType.NORMAL,
-        value: `여기서 sum(1,2)는 테스트 대상이 실제로 생성한 값이고, 3는 기대하는 값입니다. toBe는 일치 여부를 확인하는 메서드입니다.`,
+        type: ComponentType.STRINGLIST,
+        value: `여기서 sum(1,2)는 테스트 대상이 실제로 생성한 값이고, 3는 기대하는 값이며 toBe는 일치 여부를 확인하는 메서드이다.`,
       },
       {
         type: ComponentType.NORMAL,
-        value: `expect는 단순한 값 비교 외에도 다양한 일치 조건을 제공합니다. 예를 들어, 두 객체가 동일한지, 배열이 특정 요소를 포함하는지, 함수가 특정 예외를 던지는지 등을 확인할 수 있습니다.`,
+        value: `expect는 단순한 값 비교 외에도 다양한 일치 조건을 제공한다. 예를 들어, 두 객체가 동일한지, 배열이 특정 요소를 포함하는지, 함수가 특정 예외를 던지는지 등을 확인할 수 있다.`,
       },
       {
         type: ComponentType.CODE,
@@ -368,8 +373,52 @@ test('renders welcome message', async () => {
         `,
       },
       {
+        type: ComponentType.H2,
+        value: `참고할만한 예제들`,
+      },
+      {
         type: ComponentType.NORMAL,
-        value: ``,
+        value: `&lt;App />에 대한 Jest 테스트 스위트를 작성한 것으로 <App /> 컴포넌트가 올바르게 렌더링되는지를 확인하는 하나의 테스트 케이스를 포함하고 있다.`,
+      },
+      {
+        type: ComponentType.KEYWORD,
+        value: `render,getElementByClassName,toHaveLength,toHaveAttribute`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `describe('&lt;App />', ()=>{
+it('renders component correctly', ()=>{      
+      ① const { container } = render(<App />);              
+      ② expect(container.getElementByClassName('App-logo')).toHaveLength(1);       
+      ③ expect(container.getElementByClassName('App-logo')[0]).toHaveAttribute('src','logo.svg');
+    })
+})`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `① 이 줄은 <App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
+        ② 이 줄은 container 안에 'App-logo' 클래스를 가진 요소가 하나 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveLength(1)는 요소의 길이가 1인지 확인한다.
+        ③ 이 줄은 'App-logo' 클래스를 가진 첫 번째 요소가 'src' 속성을 가지고 있으며, 그 값이 'logo.svg'인지 확인한다. toHaveAttribute('src', 'logo.svg')는 요소의 src 속성이 'logo.svg'인지를 확인한다.`,
+      },
+      {
+        type: ComponentType.KEYWORD,
+        value: `render,getElementsByTagName,toHaveLength,toHaveTextContext`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `describe('<App /\>', ()=>{
+it('renders component correctly', ()=>{
+      ①const { container } = render(<App /\>);  
+      ② expect(container.getElementsByTagName('p')).toHaveLength(1);
+      ③ expect(container.getElementsByTagName('p')[0]).toHaveTextContext('Edit src/App.js and save to reload.')
+   })
+})`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `① 이 줄은 <App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
+        ② 이 줄은 container 안에 <p> 태그를 가진 요소가 하나 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveLength(1)는 해당 요소의 길이가 1인지 확인한다.
+        ③ 이 줄은 <p> 태그를 가진 첫 번째 요소가 'Edit src/App.js and save to reload.'라는 텍스트 내용을 가지고 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveTextContent('Edit src/App.js and save to reload.')는 해당 요소의 텍스트 내용이 정확히 일치하는지를 확인한다.`,
       },
     ],
   },
