@@ -377,6 +377,10 @@ test('renders welcome message', async () => {
         value: `참고할만한 예제들`,
       },
       {
+        type: ComponentType.H3,
+        value: `예제 [1] - 컴포넌트가 올바르게 렌더링되는지를 확인하는 테스트 케이스`,
+      },
+      {
         type: ComponentType.NORMAL,
         value: `&lt;App />에 대한 Jest 테스트 스위트를 작성한 것으로 <App /> 컴포넌트가 올바르게 렌더링되는지를 확인하는 하나의 테스트 케이스를 포함하고 있다.`,
       },
@@ -396,9 +400,13 @@ it('renders component correctly', ()=>{
       },
       {
         type: ComponentType.STRINGLIST,
-        value: `① 이 줄은 <App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
+        value: `① 이 줄은 &lt;App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
         ② 이 줄은 container 안에 'App-logo' 클래스를 가진 요소가 하나 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveLength(1)는 요소의 길이가 1인지 확인한다.
         ③ 이 줄은 'App-logo' 클래스를 가진 첫 번째 요소가 'src' 속성을 가지고 있으며, 그 값이 'logo.svg'인지 확인한다. toHaveAttribute('src', 'logo.svg')는 요소의 src 속성이 'logo.svg'인지를 확인한다.`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `예제 [2] - <img /> 테스트 코드`,
       },
       {
         type: ComponentType.KEYWORD,
@@ -406,7 +414,7 @@ it('renders component correctly', ()=>{
       },
       {
         type: ComponentType.CODE,
-        value: `describe('<App /\>', ()=>{
+        value: `describe('&lt;App /\>', ()=>{
 it('renders component correctly', ()=>{
       ①const { container } = render(<App /\>);  
       ② expect(container.getElementsByTagName('p')).toHaveLength(1);
@@ -416,9 +424,62 @@ it('renders component correctly', ()=>{
       },
       {
         type: ComponentType.STRINGLIST,
-        value: `① 이 줄은 <App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
+        value: `① 이 줄은 &lt;App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
         ② 이 줄은 container 안에 <p> 태그를 가진 요소가 하나 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveLength(1)는 해당 요소의 길이가 1인지 확인한다.
-        ③ 이 줄은 <p> 태그를 가진 첫 번째 요소가 'Edit src/App.js and save to reload.'라는 텍스트 내용을 가지고 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveTextContent('Edit src/App.js and save to reload.')는 해당 요소의 텍스트 내용이 정확히 일치하는지를 확인한다.`,
+        ③ 이 줄은 &lt;p> 태그를 가진 첫 번째 요소가 'Edit src/App.js and save to reload.'라는 텍스트 내용을 가지고 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveTextContent('Edit src/App.js and save to reload.')는 해당 요소의 텍스트 내용이 정확히 일치하는지를 확인한다.`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `예제 [3] - <p/> 테스트`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `describe('&lt;App /\>', ()=>{
+  it('renders component correctly', ()=>{
+      const { container } = render(<App /\>);    
+      expect(container).toMatchSnapshot();
+    })
+})`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `toMatchSnapshot가 실행되면 src/snapshots/App.test.js.snap이라는 파일이 생성된 것을 확인 할 수 있다. 파일을 열어 내용을 확인해 보면 App 컴포넌트가 화면에 렌더링될 때 표시되는 HTML 내용이 저장된 것을 확인 할 수 있다.</br>
+        저장된 스냅샷은 App 컴포넌트가 수정되어 화면에 표시되는 HTML 구조가 변경되면 에러를 표시하게 된다. 이렇게 스냅샷은 화면에 표시되는 컴포넌트가 변경되었는지 감지하기 위한 테스트로 많이 사용된다.`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `만약 컴포넌트를 수정하여 화면 표시가 변경된 것이 의도된 수정이었다면 스냅샷 테스트로 저장된 파일을 업데이트해 주어야 한다. 명령프롬프트에 에러가 표시된 상태에서 키보드 'u'키를 누르면 스냅샷으로 생성된 파일이 업데이트 된다. 그러면 새롭게 업데이트된 스냅샷 파일이 다시 기준이 되어 변경을 감지하고 에러를 표시하게 된다.`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `예제 [4] - 테스트 코드 스냅샷 (화면에 표시되는 내용이 변경 되었는지 체크)`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `Button 컴포넌트는 Props만을 가지는 단순 컴포넌트이다.
+        Button 컴포넌트가 화면에 잘 표시 되는지, Props가 잘 적용되는지를 확인하도록 한다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `import React from 'react';
+import { render, screen } from 'testing-library/react';
+import 'jest-styled-components';
+import {Button} from './index';
+
+describe('&lt;Button />', ()=>{
+  it('renders component correctly', ()=>{
+      const { container } = render(&lt;Button label="Button Test" /\>);
+        
+        const label = screen.getByText("button Test");
+        expect(label).toBeInTheDocument();
+
+    const parent = label.parentElement;
+        expect(parent).toHaveStyleRule('background-color', '#304FFE');
+        expect(parent).toHaveStyleRule('background-color', '#1E40FF', { modifier:'hover'});
+        
+        expect(container).toMatchSnapshot();
+    })
+})`,
       },
     ],
   },
