@@ -452,7 +452,11 @@ it('renders component correctly', ()=>{
       },
       {
         type: ComponentType.H3,
-        value: `예제 [4] - 테스트 코드 스냅샷 (화면에 표시되는 내용이 변경 되었는지 체크)`,
+        value: `예제 [4] - 스냅샷 (화면에 표시되는 내용이 변경 되었는지 체크)`,
+      },
+      {
+        type: ComponentType.KEYWORD,
+        value: `getByText,parentElement,toHaveStyleRule`,
       },
       {
         type: ComponentType.NORMAL,
@@ -468,18 +472,71 @@ import {Button} from './index';
 
 describe('&lt;Button />', ()=>{
   it('renders component correctly', ()=>{
-      const { container } = render(&lt;Button label="Button Test" /\>);
-        
-        const label = screen.getByText("button Test");
-        expect(label).toBeInTheDocument();
+        ① const { container } = render(&lt;Button label="Button Test" /\>);
 
-    const parent = label.parentElement;
-        expect(parent).toHaveStyleRule('background-color', '#304FFE');
-        expect(parent).toHaveStyleRule('background-color', '#1E40FF', { modifier:'hover'});
+        ② const label = screen.getByText("button Test");
+           expect(label).toBeInTheDocument();
+
+        ③ const parent = label.parentElement;
+        ④ expect(parent).toHaveStyleRule('background-color', '#304FFE');
+          expect(parent).toHaveStyleRule('background-color', '#1E40FF', { modifier:'hover'});
         
-        expect(container).toMatchSnapshot();
+        ⑤ expect(container).toMatchSnapshot();
     })
 })`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `
+        ① render 함수는 &lt;Button label="Button Test" />를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당한다. </br></br>
+② screen.getByText를 사용하여 "Button Test"라는 텍스트를 가진 요소를 찾는다. 
+expect로 해당 요소가 문서에 존재하는지 확인한다.</br></br>
+③ label 요소의 부모 요소(parentElement)를 가져온다.</br></br>
+
+④ expect를 사용하여 부모 요소가 특정 스타일 규칙을 가지고 있는지 확인한다. jest-styled-components의 toHaveStyleRule을 사용하여 다음 두 가지 스타일 규칙을 확인한다.</br>`,
+      },
+      {
+        type: ComponentType.STRINGLIST,
+        value: `기본 배경색이 #304FFE인지
+        hover 상태에서 배경색이 #1E40FF인지`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `backgroundColor과 hoverColor은 우리가 screen.getByText로 찾은 Label 컴포넌트가 아닌 Label 컴포넌트의 부모 요소인 Container 컴포넌트에 설정이 된다. 따라서 label.parentElement를 사용해 Label 컴포넌트의 부모 요소(Container 컴포넌트)에 접근하여 값이 잘 설정 되었는지 확인 한다.</br></br>
+
+        Button 컴포넌트는 Props로 BackgroundClolor과 hoverColor이 설정되어 있지 않으면 기본값이 설정되도록 개발 되었다. backgroundColor과 hoverColor가 설정되어 있지 않은 상황에서 기본값이 잘 설정되는지 확인하기 위해 jest-styled-components의 새로운 Matcher인 toHaveStyleRule를 사용하여 확인 하도록 한다.`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `⑤ 마지막으로, container의 현재 상태를 스냅샷으로 저장하여 이후 테스트 실행 시 컴포넌트의 출력이 변하지 않았는지 확인합니다.`,
+      },
+      {
+        type: ComponentType.H3,
+        value: `예제 [4] - onClick 함수 테스트`,
+      },
+      {
+        type: ComponentType.NORMAL,
+        value: `Button 컴포넌트의 onClick 함수를 테스트 하기 위한 테스트 명세이다.`,
+      },
+      {
+        type: ComponentType.CODE,
+        value: `it('clicks the button', () => {
+  const handlerClick = jest.fn();
+    render(&lt;Button label="Button Test" onClick={handlerClick} />)
+    
+    const label = screen.getByText('Button Test');
+    expect(handleClick).toHaveBeenCalledTimes(0);
+    fireEvent.click(label);
+    expect(handlerClick).toHaveBeenCalledTime(1);
+});`,
+      },
+      {
+        type: ComponentType.EMPHASIS,
+        value: `<b>모의 함수(Mocking functions)</b></br>
+        onClick 이벤트에는 사실 어떤 함수가 연결될지 알 수가 없다. jest에서는 이처럼 어떤 이벤트를 통해 함수가 호출되는지를 확인하기 위해 모의 함수(Mocking functions)를 사용한다. 모의 함수를 사용하여 onClick 이벤트를 테스트 한다.</br></br>
+
+jest의 모의함수(jest.fn)을 사용하여 handlerClick 변수를 선언하고 Button 컴포넌트의 Props로 onClick을 통해 전달 해준다.
+        `,
       },
     ],
   },
