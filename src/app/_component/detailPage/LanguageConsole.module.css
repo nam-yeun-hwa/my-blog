@@ -100,7 +100,7 @@
 }
 
 .console_code {
-  overflow: scroll;
+  overflow: auto;
   color: #3a3a3a;
   padding: 15px 30px 25px;
   margin: 0;
