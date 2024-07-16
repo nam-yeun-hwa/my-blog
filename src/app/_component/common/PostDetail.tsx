@@ -10,6 +10,7 @@ import HeadingString from 'app/_component/detailPage/Heading';
 import PostNavigation from './PostNavigation';
 
 import PostUserInfo from './PostUserInfo';
+import KeywordWord from '../detailPage/Keyword';
 
 type Props = {
   postid: string;
@@ -40,6 +41,9 @@ export default function PostDetail({ postid }: Props) {
           return <Table key={idx} table={value.value} />;
         if (value.type === ComponentType.STRINGLIST)
           return <StringDot key={idx} list={value.value} />;
+        if(value.type === ComponentType.KEYWORD){
+          return <KeywordWord key={idx} keyword={value.value}/>
+        }
         if (
           value.type === ComponentType.H2 ||
           value.type === ComponentType.H3 ||

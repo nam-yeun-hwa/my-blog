@@ -551,6 +551,10 @@ expect로 해당 요소가 문서에 존재하는지 확인한다.</br></br>
 jest의 모의함수(jest.fn)을 사용하여 handlerClick 변수를 선언하고 Button 컴포넌트의 Props로 onClick을 통해 전달 해준다.
         `,
       },
+      {
+        type: ComponentType.H3,
+        value: `예제 [5] - <Input /> 입력된 값이 일치 체크`,
+      },
     ],
   },
   {
