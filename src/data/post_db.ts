@@ -521,14 +521,27 @@ expect로 해당 요소가 문서에 존재하는지 확인한다.</br></br>
       {
         type: ComponentType.CODE,
         value: `it('clicks the button', () => {
-  const handlerClick = jest.fn();
-    render(&lt;Button label="Button Test" onClick={handlerClick} />)
-    
-    const label = screen.getByText('Button Test');
-    expect(handleClick).toHaveBeenCalledTimes(0);
-    fireEvent.click(label);
-    expect(handlerClick).toHaveBeenCalledTime(1);
+    ① const handlerClick = jest.fn(); 
+    ② render(&lt;Button label="Button Test" onClick={handlerClick} />); 
+    ③ const label = screen.getByText('Button Test'); 
+    ④ expect(handleClick).toHaveBeenCalledTimes(0); 
+    ⑤ fireEvent.click(label); 
+    ⑥ expect(handlerClick).toHaveBeenCalledTimes(1); 
 });`,
+      },{
+        type:ComponentType.NORMAL,
+        value:`
+        ① 클릭 핸들러 함수로 jest.fn()을 사용하여 mock 함수 생성 </br>
+        ② Button 컴포넌트를 렌더링하고, onClick props에 mock 함수 전달</br>
+        ③ 화면에서 "Button Test" 라는 텍스트를 가진 요소를 찾음</br>
+        ④ 클릭 이벤트가 발생하지 않았는지 확인</br>
+        ⑤ 찾은 요소에 클릭 이벤트를 발생시킴</br>
+        ⑥ 클릭 이벤트 핸들러가 한 번 호출되었는지 확인</br>
+        `
+      },
+      {
+        type:ComponentType.NORMAL,
+        value:`그다음 화면에 표시된 버튼 컴포넌트를 찾아서 아직 해당 컴포넌트를 클릭하지 않았음을 확인하기 위해 toHaveBeenCalledTimes 함수를 사용하여 우리가 만든 모의함수가 잘 호출되었는지 확인해준다.`
       },
       {
         type: ComponentType.EMPHASIS,
