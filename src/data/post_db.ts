@@ -399,7 +399,7 @@ it('renders component correctly', ()=>{
 })`,
 			},
 			{
-				type: ComponentType.STRINGLIST,
+				type: ComponentType.NORMAL,
 				value: `① 이 줄은 &lt;App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
         ② 이 줄은 container 안에 'App-logo' 클래스를 가진 요소가 하나 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveLength(1)는 요소의 길이가 1인지 확인한다.
         ③ 이 줄은 'App-logo' 클래스를 가진 첫 번째 요소가 'src' 속성을 가지고 있으며, 그 값이 'logo.svg'인지 확인한다. toHaveAttribute('src', 'logo.svg')는 요소의 src 속성이 'logo.svg'인지를 확인한다.`,
@@ -423,7 +423,7 @@ it('renders component correctly', ()=>{
 })`,
 			},
 			{
-				type: ComponentType.STRINGLIST,
+				type: ComponentType.NORMAL,
 				value: `① 이 줄은 &lt;App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
         ② 이 줄은 container 안에 <p> 태그를 가진 요소가 하나 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveLength(1)는 해당 요소의 길이가 1인지 확인한다.
         ③ 이 줄은 &lt;p> 태그를 가진 첫 번째 요소가 'Edit src/App.js and save to reload.'라는 텍스트 내용을 가지고 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveTextContent('Edit src/App.js and save to reload.')는 해당 요소의 텍스트 내용이 정확히 일치하는지를 확인한다.`,
