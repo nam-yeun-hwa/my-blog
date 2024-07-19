@@ -557,6 +557,14 @@ jest의 모의함수(jest.fn)을 사용하여 handlerClick 변수를 선언하�
 				value: `예제 [5] - <Input /> 입력된 값이 일치 체크`,
 			},
 			{
+				type: ComponentType.KEYWORD,
+				value: `getByDisplayValue,getByPlaceholderText,fireEvent,fireEvent.change`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `getByDisplayValue를 이용하여 input을 찾아 렌더링 하는 예제`,
+			},
+			{
 				type: ComponentType.CODE,
 				value: `import React from 'react';
 import { render, screen, fireEvent } from 'testing-library/react';
@@ -565,11 +573,11 @@ import {Input} from './index';
 
 describe('&lt;Input />', ()=>{
 	it('renders component correctly', ()=>{
-    	① const { container } = render(&lt;Input value="default value" /\>);
+      ① const { container } = render(&lt;Input value="default value" /\>);
       ② const label = screen.getByDisplayValue("default value");
       ③ expect(label).toBeInTheDocument();
       ④ expect(container).toMatchSnapshot();
-    })
+   })
 })`,
 			},
 			{
@@ -579,10 +587,55 @@ describe('&lt;Input />', ()=>{
 			{
 				type: ComponentType.NORMAL,
 				value: `① render 함수는 &lt;Input /> 컴포넌트를 렌더링합니다. 여기서 value prop으로 "default value"를 설정합니다.</br>
-				② screen.getByDisplayValue 함수는 주어진 값("default value")을 표시하는 요소를 검색합니다.</br>
+② screen.getByDisplayValue 함수는 주어진 값("default value")을 표시하는 요소를 검색합니다.</br>
 　여기서는 &lt;Input /> 컴포넌트가 "default value"라는 값을 가진 입력 필드를 렌더링하는지 확인합니다.</br>
 ③ expect 함수는 단언(assertion)을 정의합니다. 여기서는 label 요소가 문서 내에 존재하는지 확인합니다.
 　toBeInTheDocument 매처는 요소가 실제로 DOM에 존재하는지 확인합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Input 컴포넌트는 Button 컴포넌트와 다르게 필수 Props가 존재하지 않는다. 따라서 화면에 표시되었는지를 알기 위해 검색(Query)할 방법이 없다. </br>
+
+그래서 Input 컴포넌트의 필수가 아닌 Props인 value값을 설정하고 react-testing-library의 screen.getByDisplayValue를 사용하여 input 컴포넌트를 찾는다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `getByPlaceholderText를 이용하여 input을 찾아 렌더링 하는 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `it('renders placeholder correctly', ()=>{
+    render(&lt;Input placeholder="default placeholder" /\>);
+
+    const input = screen.getByPlaceholderText("default placeholder");
+    expect(input).toBeInTheDocument();        
+})`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `fireEvent를 이용하여 이벤트 테스트 하는 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import { render, screen, fireEvent } from 'testing-library/react';
+
+it('renders placeholder correctly', ()=>{
+    render(&lt;Input placeholder="default placeholder" /\>);
+        
+    const input = screen.getByPlaceholderText("default placeholder") as HTMLInputElement;
+        
+    fireEvent.change(input, {target:{ value:'study react'}})
+    expect(input.value).toBe('study react')
+})`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Input 컴포넌트의 placeholder를 사용하여 Input 컴포넌트를 화면에 표시하고 해당컴포넌트를 getByPlaceholderText를 통해 찾았다. 이렇게 찾은 컴포넌트는 기본적으로 HTMLElement타입이다. 하지만 HTML의 input 태그를 사용하고 있으므로, 타입스크립트의 as를 사용하여 HTMLInputElement로 타입변환을 해준다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `fireEvent의 change함수로 실제 사용자가 데이터를 입력하는 테스트 코드를 작성 해준다.
+앞에서 찾은 Input 컴포넌트에 데이터를 입력해주고 입력된 데이터가 실제로 화면에 잘 표시 되고 있는지를 확인하기 위해 toBe를 사용하여 input, value값이 우리가 fireEvent를 사용하여 입력한 값과 같은지 확인 하였다.`,
 			},
 		],
 	},
