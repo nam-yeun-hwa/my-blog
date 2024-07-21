@@ -6,7 +6,7 @@ import { ComponentType, Folder, Level } from 'type/post';
  */
 export const totalPostlist = [
 	{
-		id: 14,
+		id: 26,
 		title: '테스트 주도 개발(Test driven devlopment, TDD)',
 		date: '2024-07-08 22:13:16',
 		folder: Folder.TDD,
