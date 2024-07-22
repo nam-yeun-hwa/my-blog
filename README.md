@@ -47,22 +47,14 @@ https://nam-yeun-hwa.github.io/ </br></br>
 # Architecture 💡
 (추후예정)
 
-# Troubleshooting
 
-## 이슈 1
-```shell
-src/app/page.tsx You cannot have two parallel pages that resolve to the same path. Please check /page and /(layoutCase)/page. Refer to the route group docs for more information: https://nextjs.org/docs/app/building-your-application/routing/route-groups   
-```
-라우터 그룹으로 폴더를 생성하면(layoutCase) app 폴더에 page가 동시에 있을 경우 에러가 나오는 것 같다.
-app의 page를 삭제하고 라우터 그룹의 page를 유지 하였다.
+# next.14 정적 배포하기 
 
-
-
-# next.14 정적 배포하기
 정적 파일로 빌드된 Next.js 애플리케이션은 빌드 시에 서버 사이드 렌더링(SSR)을 수행하여 HTML 파일에 렌더링된 컨텐츠를 포함한다. 따라서 클라이언트가 페이지를 요청할 때마다 서버가 필요하지 않고, 단순히 미리 렌더링된 HTML 파일을 제공하여 페이지를 서빙하며 이러한 방식으로 정적 파일로 빌드된 Next.js 애플리케이션은 SSR을 지원하면서도 서버가 없는 환경에서도 동작할 수 있다. 
 
 
-📑 **next.config.js**
+📑 **next.config.js** </br>
+
 next.config.js파일에 `output: 'export'` 을 추가 해준다.
 next13이후에 아래 키워드를 추가하도록 변경 되었다.
 
@@ -76,8 +68,19 @@ next13이후에 아래 키워드를 추가하도록 변경 되었다.
 https://nextjs.org/docs/app/building-your-application/deploying/static-exports
 
 
-## 이슈 2
+# Troubleshooting
 
+## 이슈 1
+## Error : src/app/page.tsx You cannot have two parallel pages that resolve to the same path. Please check /page and /(layoutCase)/page. Refer to the route group docs for more information: https://nextjs.org/docs/app/building-your-application/routing/route-groups   
+
+라우터 그룹으로 폴더를 생성하면(layoutCase) app 폴더에 page가 동시에 있을 경우 에러가 나오는 것 같다.
+app의 page를 삭제하고 라우터 그룹의 page를 유지 하였다.
+
+그렇게 이슈해결!
+
+
+
+## 이슈 2
 ## Error : Page[categoryname]/[postid] is missing "generateStaticParams()" so it cannot be used with "output: export" config.
 정적으로 페이지를 빌드 할 경우 슬러그를 받는 page.tsx에 generateStaticParams()를 넣어줘야 하는 이슈 였다.
 </br>
@@ -169,7 +172,6 @@ postid의 값을 받는 page.tsx에서는 상위 슬러그 값인 categoryname�
 
 ## 이슈 3
 ## next/image 사용시 로컬에서는 잘보이던 이미지가 배포 후 보이지 않는 문제 
-
 
 
 📑  **문제의 코드**
