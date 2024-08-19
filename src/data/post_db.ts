@@ -18,9 +18,8 @@ export const totalPostlist = [
 				value: `데이타베이스 생성하기`,
 			},
 			{
-				type: ComponentType.STRINGLIST,
-				value: `nodejs라는 데이타 베이스 생성
-        use nodejs;로 생성한 데이타베이스 선택`,
+				type: ComponentType.NORMAL,
+				value: `nodejs라는 데이타 베이스 생성하고 use nodejs; 명령어로 생성한 데이타베이스 선택하는 예제`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -30,17 +29,29 @@ mysql> use nodejs;
 Database changed`,
 			},
 			{
+				type: ComponentType.NORMAL,
+				value: `CREATE SCHEMA 'nodejs' DEFAULT CHARACTER SET utf8; 명령어는 MySQL 데이터베이스에서 새로운 스키마(데이터베이스)를 생성하는 SQL 명령어이다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `CREATE SCHEMA 'nodejs';`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 명령어는 새로운 스키마(또는 데이터베이스)인 'nodejs'를 생성한다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `DEFAULT CHARACTER SET utf8;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `스키마에서 기본으로 사용할 문자 세트를 UTF-8로 설정한다. UTF-8은 다양한 언어와 문자를 지원하는 유니코드 인코딩 방식이다.  즉, 이 명령어는 'nodejs'라는 이름의 데이터베이스를 생성하고, 그 데이터베이스 내에서 모든 테이블이 UTF-8 문자 세트를 기본으로 사용하도록 설정한다. </br></br></br>`,
+			},
+
+			{
 				type: ComponentType.H3,
-				value: `MySQL 프롬프트에서 테이블 생성`,
-			},
-			{
-				type: ComponentType.STRINGLIST,
-				value: `- CREATE TABLE [데이타베이스명.테이블명]으로 테이블 생성
-        - 사용자 정보를 저장하는 테이블 `,
-			},
-			{
-				type: ComponentType.H4,
-				value: `댓글테이블 예제)`,
+				value: `MySQL 프롬프트에서 댓글테이블 생성`,
 			},
 			{
 				type: ComponentType.CODE,
