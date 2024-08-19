@@ -6,6 +6,82 @@ import { ComponentType, Folder, Level } from 'type/post';
  */
 export const totalPostlist = [
 	{
+		id: 27,
+		title: '데이터베이스 기본편',
+		date: '2024-08-19 17:54:16',
+		folder: Folder.DATABASE,
+		tag: ['mysql', 'database'],
+		preview: `데이타베이스 생성하고 기본 값들에 대해 설명한다.`,
+		post: [
+			{
+				type: ComponentType.H3,
+				value: `데이타베이스 생성하기`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `nodejs라는 데이타 베이스 생성
+        use nodejs;로 생성한 데이타베이스 선택`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `mysql> CREATE SCHEMA ‘nodejs’ DEFAULT CHARACTER SET utf8;
+Query Ok, 1 row affected (0,01 sec)
+mysql> use nodejs;
+Database changed`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `MySQL 프롬프트에서 테이블 생성`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `- CREATE TABLE [데이타베이스명.테이블명]으로 테이블 생성
+        - 사용자 정보를 저장하는 테이블 `,
+			},
+			{
+				type: ComponentType.H4,
+				value: `댓글테이블 예제)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `mysql> CREATE TABLE nodejs.comments(
+-> id INT NOT NULL AUTO_INCREMENT,
+-> commenter INT NOT NULL, //댓글단사람 아이디 
+-> comment VARCHAR(100) NOT NULL, //100글짜까지 커멘트 
+-> created_at DATETIME NOT NULL DEFAULT now(), 생성일 날짜시간 유저가 값을 입력하지 않을경우에 현재날짜시간을 입력해줌
+-> PRIMARY KEY(id)
+-> INDEX commenter_idx (commenter ASC),
+-> CONSTRAINT commenter
+-> FOREIGN KEY (commenter)
+-> REFERENCES nodejs.users (id)
+-> ON DELETE CASCADE
+-> ON UPDATE CASCADE
+-> COMMENT =“댓글”
+-> DEFAULT CHARSET=utf8mn4
+-> ENGIME=InnoDB;
+)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `INT : 정수 자료형
+        VARCHAR : 문자열 자료형, 가변길이(CHAR은 고정길이)
+        TEXT : 긴 문자열은 TEXT로 별도저장(소설, 일기 등)
+        DATETIME : 날짜 자료형 저장
+        TINYINT : -128에서 127까지 저장하지만 여기서는 1 또는 0만 저장해 불값으로 사용
+        NOT NULL : 빈값은 허용하지 않음
+        AUTO_INCREMENT  : 숫자 자료형인 경우 다음 로우가 저장될때 자동으로 1증가
+        UNSIGNED : 0과 양수만 허용
+        ZEROFILL : 숫자의 자리수가 고정된 경우 빈자리에 0을 넣음
+        DEFAULT now() : 날짜 컬럼의 기본값을 현지 시간으로`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'위 내용은 https://www.inflearn.com/course/lecture?courseSlug=%EB%85%B8%EB%93%9C-js-%EA%B5%90%EA%B3%BC%EC%84%9C&unitId=143595&tab=curriculum 를 기반으로 작성 되었습니다.',
+			},
+		],
+	},
+	{
 		id: 26,
 		title: '테스트 주도 개발(Test driven devlopment, TDD)',
 		date: '2024-07-08 22:13:16',
