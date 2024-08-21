@@ -7,14 +7,14 @@ import { ComponentType, Folder, Level } from 'type/post';
 export const totalPostlist = [
 	{
 		id: 27,
-		title: '데이터베이스 기본편',
+		title: '데이터베이스 예제를 보면서 이해하기 기본편',
 		date: '2024-08-19 17:54:16',
 		folder: Folder.DATABASE,
 		tag: ['mysql', 'database'],
 		preview: `데이타베이스 생성하고 기본 값들에 대해 설명한다.`,
 		post: [
 			{
-				type: ComponentType.H3,
+				type: ComponentType.H2,
 				value: `데이타베이스 생성하기`,
 			},
 			{
@@ -50,7 +50,7 @@ Database changed`,
 			},
 
 			{
-				type: ComponentType.H3,
+				type: ComponentType.H2,
 				value: `MySQL 프롬프트에서 댓글테이블 생성`,
 			},
 			{
@@ -68,7 +68,7 @@ Database changed`,
 -> ON DELETE CASCADE
 -> ON UPDATE CASCADE
 -> COMMENT =“댓글”
--> DEFAULT CHARSET=utf8mn4
+-> DEFAULT CHARSET=utf8mb4
 -> ENGIME=InnoDB;
 )`,
 			},
@@ -84,6 +84,108 @@ Database changed`,
         UNSIGNED : 0과 양수만 허용
         ZEROFILL : 숫자의 자리수가 고정된 경우 빈자리에 0을 넣음
         DEFAULT now() : 날짜 컬럼의 기본값을 현지 시간으로`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `column 세부 옵션 설명`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `INDEX commenter_idx (commenter ASC)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `INDEX는 데이터베이스에서 특정 열의 값을 기반으로 빠르게 데이터를 검색할 수 있도록 인덱스를 생성하는 명령어로
+        댓글검색시 자주 사용하는 commenter에 INDEX를 걸어주고 코맨터 컬럼 을 오름차순으로 인덱싱 하겠다는 뜻이다. 
+        `,
+			},
+			{
+				type: ComponentType.H3,
+				value: `CONSTRAINT commenter`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `* CONSTRAINT는 특정 제약 조건에 이름을 부여하는 명령어로
+        * commenter에 특정 제약조건을 부여 하겠다라는 명령어이다. 
+        `,
+			},
+			{
+				type: ComponentType.H3,
+				value: `FOREIGN KEY (commenter)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `* FFOREIGN KEY는 테이블 간의 관계를 정의하는 명령어이다.
+        * (commenter)는 이 외래 키가 참조할 테이블의 열(column)을 나타내며 이 경우, commenter 열이 외래 키 역할을 한다.
+        `,
+			},
+			{
+				type: ComponentType.H3,
+				value: `REFERENCES nodejs.users (id)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `* REFERENCES는 외래 키가 참조할 테이블과 열을 지정한다.
+        * nodejs.users는 참조할 대상 테이블을 나타내며, id는 그 테이블에서 참조할 *열 이다.
+        따라서, commenter 열은 nodejs 스키마(테이블)의 users 테이블에 있는 id 열을 참조하게 되며
+        `,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `이는 * commenter 열의 값이 * users 테이블의 *id 열에 있는 값 중 하나여야 함을 의미한다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이 SQL 구문은 외래 키(Foreign Key)를 정의하여 테이블 간의 참조 무결성을 설정하는 명령문이다 
+        `,
+			},
+			{
+				type: ComponentType.H3,
+				value: `ON DELETE CASCADE`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `* ON DELETE CASCADE는 참조된 레코드가 삭제될 때 이 외래 키를 가진 레코드도 자동으로 삭제되도록 설정한다.
+        예를 들어, users 테이블에서 특정 id를 가진 사용자가 삭제되면, 이 id를 참조하는 모든 commenter 레코드도 자동으로 삭제된다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `ON UPDATE CASCADE`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `* ON UPDATE CASCADE는 참조된 레코드의 기본 키(즉, id)가 업데이트될 때, 이 외래 키를 가진 레코드의 값도 자동으로 업데이트되도록 설정한다.
+        예를 들어, users 테이블의 특정 id 값이 변경되면, 이 id를 참조하는 모든 commenter 열의 값도 자동으로 업데이트된다.
+        `,
+			},
+			{
+				type: ComponentType.H3,
+				value: `DEFAULT CHARSET=utf8mb4`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `* DEFAULT CHARSET는 테이블 또는 데이터베이스에서 문자열 열(column)에 사용할 기본 문자 집합(문자열 데이터의 인코딩 방식)을 지정한다.
+      * utf8mb4는 MySQL에서 제공하는 문자 집합 중 하나로 유니코드의 모든 문자를 표현할 수 있으며, 특히 이모지(emoji)나 특수 문자를 제대로 저장할 수 있다.
+        `,
+			},
+			{
+				type: ComponentType.H3,
+				value: `UNIQUE INDEX name_QNIQUE (name ASC)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이 명령문은 데이터베이스의 특정 테이블에 대해 고유 인덱스를 생성한다.
+        INDEX는 데이터베이스에서 특정 열의 값을 기반으로 빠르게 데이터를 검색할 수 있도록 인덱스를 생성하는 명령어이다. </br></br>
+        
+* <b>UNIQUE INDEX</b> 는 인덱스가 고유해야 함을 의미하며 이 인덱스를 적용한 열(column)에는 중복된 값이 있을 수 없다.</br>
+* <b>name_QNIQUE</b>는 생성할 인덱스의 이름이며 인덱스 이름은 데이터베이스 내에서 고유해야 하며, 쿼리에서 사용하기 위한 식별자로 사용된다.</br>
+* <b>(name ASC)</b>는 name은 인덱스를 생성할 열(column)의 이름을 나타내며 ASC는 오름차순(ascending)으로 인덱스를 생성하겠다는 의미이다. 이 인덱스를 사용하여 데이터를 검색할 때 오름차순으로 정렬된 결과를 빠르게 얻을 수 있다.</br>
+</br>예로 users라는 테이블이 있고, 이 테이블에서 name 열에 대해 고유한 인덱스를 생성하고 싶다면 다음과 같은 쿼리를 사용할 수 있다.
+         `,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `CREATE UNIQUE INDEX name_QNIQUE ON users(name ASC);`,
 			},
 			{
 				type: ComponentType.NORMAL,
