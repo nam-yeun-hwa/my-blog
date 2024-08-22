@@ -78,7 +78,7 @@ Database changed`,
         VARCHAR : 문자열 자료형, 가변길이(CHAR은 고정길이)
         TEXT : 긴 문자열은 TEXT로 별도저장(소설, 일기 등)
         DATETIME : 날짜 자료형 저장
-        TINYINT : -128에서 127까지 저장하지만 여기서는 1 또는 0만 저장해 불값으로 사용
+        TINYINT : -128에서 127까지 저장할수있다. 1 또는 0만 저장해 불값으로 사용 가능
         NOT NULL : 빈값은 허용하지 않음
         AUTO_INCREMENT  : 숫자 자료형인 경우 다음 로우가 저장될때 자동으로 1증가
         UNSIGNED : 0과 양수만 허용
@@ -105,8 +105,8 @@ Database changed`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `* CONSTRAINT는 특정 제약 조건에 이름을 부여하는 명령어로
-        * commenter에 특정 제약조건을 부여 하겠다라는 명령어이다. 
+				value: `CONSTRAINT는 특정 제약 조건에 이름을 부여하는 명령어로
+        commenter에 특정 제약조건을 부여 하겠다라는 명령어이다. 
         `,
 			},
 			{
@@ -115,7 +115,7 @@ Database changed`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `* FFOREIGN KEY는 테이블 간의 관계를 정의하는 명령어이다.
+				value: `FOREIGN KEY는 테이블 간의 관계를 정의하는 명령어이다.
         * (commenter)는 이 외래 키가 참조할 테이블의 열(column)을 나타내며 이 경우, commenter 열이 외래 키 역할을 한다.
         `,
 			},
@@ -125,14 +125,14 @@ Database changed`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `* REFERENCES는 외래 키가 참조할 테이블과 열을 지정한다.
-        * nodejs.users는 참조할 대상 테이블을 나타내며, id는 그 테이블에서 참조할 *열 이다.
+				value: `REFERENCES는 외래 키가 참조할 테이블과 열을 지정한다.
+        nodejs.users는 참조할 대상 테이블을 나타내며, id는 그 테이블에서 참조할 열 이다.
         따라서, commenter 열은 nodejs 스키마(테이블)의 users 테이블에 있는 id 열을 참조하게 되며
         `,
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				value: `이는 * commenter 열의 값이 * users 테이블의 *id 열에 있는 값 중 하나여야 함을 의미한다.`,
+				value: `이는 commenter 열의 값이 users 테이블의 id 열에 있는 값 중 하나여야 함을 의미한다.`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -145,7 +145,7 @@ Database changed`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `* ON DELETE CASCADE는 참조된 레코드가 삭제될 때 이 외래 키를 가진 레코드도 자동으로 삭제되도록 설정한다.
+				value: `ON DELETE CASCADE는 참조된 레코드가 삭제될 때 이 외래 키를 가진 레코드도 자동으로 삭제되도록 설정한다.
         예를 들어, users 테이블에서 특정 id를 가진 사용자가 삭제되면, 이 id를 참조하는 모든 commenter 레코드도 자동으로 삭제된다.`,
 			},
 			{
@@ -154,7 +154,7 @@ Database changed`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `* ON UPDATE CASCADE는 참조된 레코드의 기본 키(즉, id)가 업데이트될 때, 이 외래 키를 가진 레코드의 값도 자동으로 업데이트되도록 설정한다.
+				value: `ON UPDATE CASCADE는 참조된 레코드의 기본 키(즉, id)가 업데이트될 때, 이 외래 키를 가진 레코드의 값도 자동으로 업데이트되도록 설정한다.
         예를 들어, users 테이블의 특정 id 값이 변경되면, 이 id를 참조하는 모든 commenter 열의 값도 자동으로 업데이트된다.
         `,
 			},
@@ -164,8 +164,8 @@ Database changed`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `* DEFAULT CHARSET는 테이블 또는 데이터베이스에서 문자열 열(column)에 사용할 기본 문자 집합(문자열 데이터의 인코딩 방식)을 지정한다.
-      * utf8mb4는 MySQL에서 제공하는 문자 집합 중 하나로 유니코드의 모든 문자를 표현할 수 있으며, 특히 이모지(emoji)나 특수 문자를 제대로 저장할 수 있다.
+				value: `DEFAULT CHARSET는 테이블 또는 데이터베이스에서 문자열 열(column)에 사용할 기본 문자 집합(문자열 데이터의 인코딩 방식)을 지정한다.
+      utf8mb4는 MySQL에서 제공하는 문자 집합 중 하나로 유니코드의 모든 문자를 표현할 수 있으며, 특히 이모지(emoji)나 특수 문자를 제대로 저장할 수 있다.
         `,
 			},
 			{
@@ -187,11 +187,7 @@ Database changed`,
 				type: ComponentType.CODE,
 				value: `CREATE UNIQUE INDEX name_QNIQUE ON users(name ASC);`,
 			},
-			{
-				type: ComponentType.NORMAL,
-				value:
-					'위 내용은 https://www.inflearn.com/course/lecture?courseSlug=%EB%85%B8%EB%93%9C-js-%EA%B5%90%EA%B3%BC%EC%84%9C&unitId=143595&tab=curriculum 를 기반으로 작성 되었습니다.',
-			},
+
 			{
 				type: ComponentType.H2,
 				value: `테이블 CRUD`,
@@ -209,12 +205,12 @@ Query OK, 1 row affected (0.01 sec)`,
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				value: `문자열은 작은 따옴표(')로 감싸야 합니다.`,
+				value: `문자열은 작은 따옴표(')로 감싸야 한다.`,
 			},
 			{
 				type: ComponentType.NORMAL,
 				value:
-					'이 SQL 쿼리는 nodejs 데이터베이스의 users 테이블에 이름이 zero이고, 나이가 24세이며, 미혼이고, "자기소개 커멘트"라는 코멘트를 가진 새로운 사용자를 추가하는 명령이다. id와 create_at은 자동으로 생성된다.',
+					'위 SQL 쿼리는 nodejs 데이터베이스의 users 테이블에 이름이 zero이고, 나이가 24세이며, 미혼이고, "자기소개 커멘트"라는 코멘트를 가진 새로운 사용자를 추가하는 명령이다. id와 create_at은 자동으로 생성된다.',
 			},
 			{
 				type: ComponentType.CODE,
@@ -222,7 +218,7 @@ Query OK, 1 row affected (0.01 sec)`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `이 쿼리는 nodejs.comments 테이블에 사용자 ID가 1인 사용자가 "안녕하세요. commenter1의 댓글입니다."라는 댓글을 추가하는 명령이다.</br></br>`,
+				value: `위 SQL 쿼리는 nodejs.comments 테이블에 사용자 ID가 1인 사용자가 "안녕하세요. commenter1의 댓글입니다."라는 댓글을 추가하는 명령이다.</br></br>`,
 			},
 			{
 				type: ComponentType.H3,
@@ -362,6 +358,11 @@ Query OK, 1 row affected (0.01 sec)`,
 			{
 				type: ComponentType.NORMAL,
 				value: `* 정렬된 결과 집합에서 첫 번째 행을 건너뛰고 두 번째 행부터 시작한다. 이 경우, 내림차순으로 정렬된 사용자 목록에서 두 번째로 나이가 많은 사용자가 선택된다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'위 내용은 https://www.inflearn.com/course/lecture?courseSlug=%EB%85%B8%EB%93%9C-js-%EA%B5%90%EA%B3%BC%EC%84%9C&unitId=143595&tab=curriculum 를 기반으로 작성 되었습니다.',
 			},
 		],
 	},
