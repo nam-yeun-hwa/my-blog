@@ -192,6 +192,177 @@ Database changed`,
 				value:
 					'위 내용은 https://www.inflearn.com/course/lecture?courseSlug=%EB%85%B8%EB%93%9C-js-%EA%B5%90%EA%B3%BC%EC%84%9C&unitId=143595&tab=curriculum 를 기반으로 작성 되었습니다.',
 			},
+			{
+				type: ComponentType.H2,
+				value: `테이블 CRUD`,
+			},
+			{ type: ComponentType.H3, value: 'CREATE 생성' },
+			{
+				type: ComponentType.NORMAL,
+				value: 'INSERT INTO 테이블 (컬럼명들) VALUES (값들)',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `
+mysql> INSERT INTO nodejs.users (name, age, married, comment) VALUES ('zero', 24, 0, '자기소개 커멘트');
+Query OK, 1 row affected (0.01 sec)`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `문자열은 작은 따옴표(')로 감싸야 합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'이 SQL 쿼리는 nodejs 데이터베이스의 users 테이블에 이름이 zero이고, 나이가 24세이며, 미혼이고, "자기소개 커멘트"라는 코멘트를 가진 새로운 사용자를 추가하는 명령이다. id와 create_at은 자동으로 생성된다.',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `mysql> INSERT INTO nodejs.comments (commenter, comment) VALUES(1, ‘안녕하세요. commenter1의 댓글입니다. )`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이 쿼리는 nodejs.comments 테이블에 사용자 ID가 1인 사용자가 "안녕하세요. commenter1의 댓글입니다."라는 댓글을 추가하는 명령이다.</br></br>`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `READ 조회`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: 'SELECT 컬럼 FROM 테이블명',
+			},
+			{
+				type: ComponentType.CODE,
+				value: 'mysql> SELECT * FROM nodejs.users;',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `SELECT는 데이터베이스에서 데이터를 조회하는 데 사용된다.
+        * 는 테이블의 모든 열(columns)을 조회하겠다는 뜻으로 모든 컬럼을 선택한다는 의미이다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: 'mysql> SELECT name, married FROM nodejs.users;',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 SQL 쿼리는 nodejs라는 데이터베이스 안에 있는 users라는 테이블에서 name과 married라는 두 개의 컬럼(열)의 데이터를 선택(select)하여 
+        조회하는 명령이다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `WHERE 조건문과 AND `,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `여러가지 조건을 동시에 만족하는 것을 찾아준다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value:
+					'mysql> SELECT name, age, FROM nodejs.users WHERE married = 1 AND age > 30;',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `쿼리의 내용은 married 필드가 1(즉, 결혼한 상태)이고 age 필드가 30세 이상인 사용자들의 name(이름)과 age(나이)를 조회한다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `WHERE 조건문과 OR `,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `OR로 여러가지 조건 중 하나 이상을 만족하는 것을 찾아준다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value:
+					'mysql> SELECT id, name FROM nodejs.users WHERE married = 0 OR age > 30;',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `쿼리의 내용은 결혼하지 않은 사용자(married가 0인 사용자) 또는 나이가 30세를 초과하는 사용자(age > 30)의 id와 name을 가져온다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `ORDER BY로 특정 컬럼을 순서대로 정렬 한값 가져오기`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `DESC는 내림차순
+        ASC는 오름차순`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: 'mysql> SELECT id, name FROM nodejs.users ORDER BY age DESC;',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `nodejs 데이터베이스의 users 테이블에서 사용자들의 id와 name을 조회하고, age(나이) 값을 기준으로 내림차순(나이가 많은 순서대로)으로 정렬하는 명령이다. </br></br>`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `LIMIT으로 조회할 개수 제한`,
+			},
+			{
+				type: ComponentType.CODE,
+				value:
+					'mysql> SELECT id, name FROM nodejs.users ORDER BY age DESC LIMIT 1;',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>ORDER BY age DESC</b>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `age(나이) 필드를 기준으로 내림차순(나이가 많은 순서)으로 정렬한다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>LIMIT 1</b>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `결과 집합에서 가장 첫 번째 행만 가져온다. 즉, 정렬된 결과 중 첫 번째 사용자(나이가 가장 많은 사용자) 하나만 선택한다.</br></br>`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `OFFSET으로 앞의 로우들 스킵하기`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `OFFSET 2면 세번째 것부터 찾음`,
+			},
+			{
+				type: ComponentType.CODE,
+				value:
+					'mysql> SELECT id, name FROM nodejs.users ORDER BY age DESC LIMIT 1 OFFSET 1;',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>ORDER BY age DESC</b>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `* age(나이) 필드를 기준으로 내림차순(나이가 많은 순서)으로 결과를 정렬해준다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>LIMIT 1</b>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `* 결과에서 하나의 행만 선택 하지만 이 행은 기본적으로 정렬된 결과의 첫 번째가 아닌, OFFSET 값이 적용된 다음 행이다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>OFFSET 1</b>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `* 정렬된 결과 집합에서 첫 번째 행을 건너뛰고 두 번째 행부터 시작한다. 이 경우, 내림차순으로 정렬된 사용자 목록에서 두 번째로 나이가 많은 사용자가 선택된다.`,
+			},
 		],
 	},
 	{
