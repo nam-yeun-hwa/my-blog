@@ -190,9 +190,8 @@ Database changed`,
 
 			{
 				type: ComponentType.H2,
-				value: `테이블 CRUD`,
+				value: `[테이블] - CREATE 생성`,
 			},
-			{ type: ComponentType.H3, value: 'CREATE 생성' },
 			{
 				type: ComponentType.NORMAL,
 				value: 'INSERT INTO 테이블 (컬럼명들) VALUES (값들)',
@@ -221,8 +220,8 @@ Query OK, 1 row affected (0.01 sec)`,
 				value: `위 SQL 쿼리는 nodejs.comments 테이블에 사용자 ID가 1인 사용자가 "안녕하세요. commenter1의 댓글입니다."라는 댓글을 추가하는 명령이다.</br></br>`,
 			},
 			{
-				type: ComponentType.H3,
-				value: `READ 조회`,
+				type: ComponentType.H2,
+				value: `[테이블] - READ 조회`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -358,6 +357,46 @@ Query OK, 1 row affected (0.01 sec)`,
 			{
 				type: ComponentType.NORMAL,
 				value: `* 정렬된 결과 집합에서 첫 번째 행을 건너뛰고 두 번째 행부터 시작한다. 이 경우, 내림차순으로 정렬된 사용자 목록에서 두 번째로 나이가 많은 사용자가 선택된다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `[테이블] - UPDATE 수정`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `UPDATE 테이블명 SET 칼럼=새값 WHERE 조건`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `mysql> UPDATE nodejs.users SET comment = ‘여기 comment의 내용을 변경합니다.’ WHERE id=2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1 Changed: 1 Warnings: 0`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `nodejs.users 테이블에서 id 값이 2인 행을 찾아서 해당 행의 comment 컬럼의 값을 '바꿀 내용'으로 업데이트한다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `UPDATE시 WHERE를 빼먹으면 모든 사람의 comment가 변경되니 주의해야 한다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `[테이블] - DELETE 삭제`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `DELETE FROM 테이블명 WHERE 조건`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `mysql> DELETE FROM nodejs.users WHERE id = 2;
+Query OK, 1 row affected (0.00 sec)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `nodejs.users 테이블에서 id 값이 2인 행을 찾아
+        해당 행을 테이블에서 삭제한다.`,
 			},
 			{
 				type: ComponentType.NORMAL,
