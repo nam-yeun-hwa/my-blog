@@ -48,6 +48,7 @@ export enum Folder {
 	NETWORK = 'network',
 	TDD = 'tdd',
 	DATABASE = 'database',
+	TAILWIND = 'Tailwind',
 }
 
 /**

@@ -1,10 +1,193 @@
 import { ComponentType, Folder, Level } from 'type/post';
 
+type postData = {
+	id: number;
+	title: string;
+	date: string;
+	folder: Folder;
+	tag: string[];
+	preview: string;
+	post: { type: ComponentType; value: string }[];
+};
+
 /**
  * @constant totalPostlist
  * @description post 데이타
  */
-export const totalPostlist = [
+export const totalPostlist: postData[] = [
+	{
+		id: 28,
+		title: 'Tailwind 사용하기',
+		date: '2024-09-22 12:51',
+		folder: Folder.HTMLCSS,
+		tag: ['CSS', 'Tailwind'],
+		preview:
+			'Tailwind를 사용하시 쉽도록 기존 css를 기준으로 도표화 하여 설명 하고 있다.',
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `Tailwind는 유틸리티 퍼스트(Utility-first) CSS 프레임워크입니다. 이는 기본적으로 미리 정의된 클래스를 활용해 빠르게 스타일링할 수 있도록 도와주는 프레임워크를 의미합니다. 기존의 CSS 방식과는 다르게 Tailwind는 별도의 스타일 시트를 작성하는 대신, HTML 클래스에 직접 스타일링 관련 유틸리티 클래스들을 추가하는 방식으로 작업합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `유틸리티 클래스`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Tailwind는 각 스타일을 단일 클래스에 캡슐화합니다. <br/>예를 들어, text-center, bg-blue-500, p-4와 같은 클래스를 조합해 텍스트 정렬, 배경색 설정, 패딩 등을 간단하게 적용할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `반응형 디자인`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Tailwind는 기본적으로 반응형 디자인을 쉽게 처리할 수 있도록 도와줍니다. <br/>예를 들어, md:text-center와 같이 특정 화면 크기에서만 적용될 스타일을 정의할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `미리 정의된 테마`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Tailwind는 색상, 글꼴 크기, 여백 등을 미리 정의된 값으로 제공하며, 이를 쉽게 커스터마이징할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `유연성`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Tailwind는 매우 유연하여 프로젝트의 스타일 가이드를 따르면서도 세부적으로 다양한 스타일을 적용할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `JIT(Just-In-Time)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `필요할 때마다 스타일을 생성해 주는 JIT 모드를 지원하여, 사용하지 않는 CSS 클래스가 빌드에 포함되지 않도록 합니다. 이로 인해 빌드 크기를 크게 줄일 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `TailWind 사용 예시`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `기본 폰트 크기 클래스`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: `
+		<div class="table-wrapper"> 
+      <table>
+        <thead>
+          <tr>
+            <th>클래스</th>
+            <th>크기 (rem)</th>
+            <th>크기 (픽셀)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>text-xs</td>
+            <td>0.75rem</td>
+            <td>12px</td>
+          </tr>
+					<tr>
+            <td>text-sm</td>
+            <td>0.875rem</td>
+            <td>14px</td>
+          </tr>
+					<tr>
+            <td>text-base</td>
+            <td>1rem</td>
+            <td>16px</td>
+          </tr>
+					<tr>
+            <td>text-lg</td>
+            <td>1.125rem</td>
+            <td>18px</td>
+          </tr>
+					<tr>
+            <td>text-xl</td>
+            <td>1.25rem</td>
+						<td>20px</td>
+          </tr>
+					<tr>
+            <td>text-2xl</td>
+						<td>1.5rem</td>
+						<td>24px</td>
+          </tr>
+					<tr>
+            <td>text-3xl</td>
+						<td>1.875rem</td>
+            <td>30px</td>
+          </tr>
+        </tbody>
+      </table>
+		</div>
+      `,
+			},
+			{
+				type: ComponentType.H3,
+				value: `기본 폰트 두께 클래스`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: `
+		<div class="table-wrapper"> 
+      <table>
+        <thead>
+          <tr>
+            <th>클래스</th>
+            <th>굵기 (font-weight)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>font-thin </td>
+            <td>100</td>
+          </tr>
+					<tr>
+            <td>font-extralight </td>
+            <td>200</td>
+          </tr>
+					<tr>
+            <td>font-light </td>
+            <td>300</td>
+          </tr>
+					<tr>
+            <td>font-normal </td>
+            <td>400</td>
+          </tr>
+					<tr>
+            <td>font-medium </td>
+            <td>500</td>
+          </tr>
+					<tr>
+            <td>font-semibold </td>
+            <td>600</td>
+          </tr>
+					<tr>
+            <td>font-bold </td>
+            <td>700</td>
+          </tr>
+					<tr>
+            <td>font-extrabold </td>
+            <td>800</td>
+          </tr>
+					<tr>
+            <td>font-black</td>
+            <td>900</td>
+          </tr>
+        </tbody>
+      </table>
+		</div>
+      `,
+			},
+		],
+	},
 	{
 		id: 27,
 		title: '데이터베이스 예제를 보면서 이해하기 기본편',
@@ -1267,6 +1450,7 @@ let result = stringNumber.split(" ")
 		title: '프론트 서버',
 		date: '2024-01-15 22:11:33',
 		folder: Folder.JAVASCRIPT,
+		tag: ['FrontEnd'],
 		preview: `브라우저 작동원리에 대해 공부하던 중 의문점이 발생했다.<b>"브라우저 주소창에 URL을 입력하면 브라우저는 HTTP GET 요청을 URL 프론트 서버로 전송한다.`,
 		post: [
 			{
@@ -4344,6 +4528,15 @@ console.log(boundGetX()); // 42`,
 				value: `이러한 방법 중에서 적합한 방법을 선택하여 사용하면 됩니다. 일반적으로 비동기 로드나 스크립트 위치 이동이 가장 효과적인 해결책일 수 있습니다.`,
 			},
 		],
+	},
+	{
+		id: 26,
+		title: ' Tailwind CSS를 사용한 스타일링',
+		date: '2024-09-20 08:24:02',
+		folder: Folder.TAILWIND,
+		tag: ['TAILWIND'],
+		preview: `Tailwind CSS는 유틸리티 기반의 CSS 프레임워크로, 사전 정의된 클래스를 통해 빠르게 스타일을 적용할 수 있습니다. Tailwind를 사용하는 기본적인 방법은 각 HTML 요소에 클래스 이름을 추가해 스타일을 적용하는 방식입니다. 예를 들어, 다음은 Tailwind의 사용법을 간단히 설명한 것입니다.`,
+		post: [],
 	},
 ];
 

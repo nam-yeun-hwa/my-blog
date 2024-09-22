@@ -1,36 +1,79 @@
 :root {
-  --site-title-color: rgb(113, 113, 113);
-  --site-subtitle-color: #717171;
-  --sidebar-bg: #f6f8fa;
-  --sidebar-border-color: #efefef;
-  --sidebar-muted-color: #545454;
-  --sidebar-active-color: #1d1d1d;
-  --sidebar-hover-bg: rgb(223, 233, 241, 0.64);
-  --sidebar-btn-bg: white;
-  --sidebar-btn-color: #8e8e8e;
+	--site-title-color: rgb(113, 113, 113);
+	--site-subtitle-color: #717171;
+	--sidebar-bg: #f6f8fa;
+	--sidebar-border-color: #efefef;
+	--sidebar-muted-color: #545454;
+	--sidebar-active-color: #1d1d1d;
+	--sidebar-hover-bg: rgb(223, 233, 241, 0.64);
+	--sidebar-btn-bg: white;
+	--sidebar-btn-color: #8e8e8e;
 
-  --heading-color: #2a2a2a;
-  --site-title-color: rgb(113, 113, 113);
-  --site-subtitle-color: #717171;
+	--heading-color: #2a2a2a;
+	--site-title-color: rgb(113, 113, 113);
+	--site-subtitle-color: #717171;
 
-  --text-muted-color: #757575;
+	--text-muted-color: #757575;
 
-  --font-IBM_Plex_Sans_KR: 'IBM Plex Sans KR';
-  body {
-    background: var(--main-bg);
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-      env(safe-area-inset-bottom) env(safe-area-inset-left);
-    color: var(--text-color);
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif, sans-serif !important;
-    margin: 0;
-  }
+	--font-IBM_Plex_Sans_KR: 'IBM Plex Sans KR';
+	body {
+		background: var(--main-bg);
+		padding: env(safe-area-inset-top) env(safe-area-inset-right)
+			env(safe-area-inset-bottom) env(safe-area-inset-left);
+		color: var(--text-color);
+		-webkit-font-smoothing: antialiased;
+		font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif, sans-serif !important;
+		margin: 0;
+	}
 
-  .row {
-    display: block;
-  }
+	.row {
+		display: block;
+	}
 
-  /* 
+	/**
+		테이블 CSS
+	**/
+	.table-wrapper {
+		overflow-x: auto;
+		margin-bottom: 1.5rem;
+		margin-top: 30px;
+	}
+	table {
+		min-width: 70%;
+		caption-side: bottom;
+		border-collapse: collapse;
+	}
+
+	thead {
+		border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+	}
+
+	tr {
+		border-color: inherit;
+		border-style: solid;
+		border-width: 0;
+	}
+
+	tr:nth-child(2n + 1) {
+		background-color: #fbfcfd;
+	}
+
+	tr {
+		border-bottom: 1px solid #eaeaea;
+	}
+
+	th {
+		padding: 0.47rem 1rem;
+		font-size: 88%;
+		white-space: nowrap;
+	}
+
+	td {
+		padding: 0.4rem 1rem;
+		font-size: 95%;
+		white-space: nowrap;
+	}
+	/* 
   @font-face {
     font-family: 'IBM Plex Sans KR';
     src: url('https://nam-yeun-hwa.github.io/fonts/IBMPlexSansKR-Thin.woff')
@@ -79,7 +122,7 @@
     font-weight: 600;
   }
 */
-  /* --max-width: 1100px;
+	/* --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
