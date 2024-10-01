@@ -2,15 +2,52 @@
  * @abstract IPost
  * @description 게시물 타입 인터페이스
  */
+// export interface IPost {
+// 	id: number;
+// 	title: string;
+// 	date: string;
+// 	folder: Folder;
+// 	preview: string;
+// 	post: Array<{ type: string; value: string;  tables?: tableType }>;
+// 	tag?: Array<string>;
+// }
+
+type headerType = {
+	accessorKey: string;
+	header: string;
+};
+
+type User = {
+	id: number | undefined;
+	email: string | undefined;
+	fullname: string | undefined;
+	role: string | undefined;
+};
+
+export type tableType = {
+	header: headerType[];
+	contents: Array<User>;
+};
+
 export interface IPost {
 	id: number;
 	title: string;
 	date: string;
 	folder: Folder;
+	tag: string[];
 	preview: string;
-	post: Array<{ type: string; value: string }>;
-	tag?: Array<string>;
+	post: { type: ComponentType; value: string; tables?: tableType }[];
 }
+
+// type postData = {
+// 	id: number;
+// 	title: string;
+// 	date: string;
+// 	folder: Folder;
+// 	tag: string[];
+// 	preview: string;
+// 	post: { type: ComponentType; value: string; tables?: tableType }[];
+// };
 
 /**
  * @abstract IAlgorithmPost

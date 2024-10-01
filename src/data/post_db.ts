@@ -1,20 +1,11 @@
-import { ComponentType, Folder, Level } from 'type/post';
-
-type postData = {
-	id: number;
-	title: string;
-	date: string;
-	folder: Folder;
-	tag: string[];
-	preview: string;
-	post: { type: ComponentType; value: string }[];
-};
+import { table } from 'console';
+import { ComponentType, Folder, IPost, Level } from 'type/post';
 
 /**
  * @constant totalPostlist
  * @description post 데이타
  */
-export const totalPostlist: postData[] = [
+export const totalPostlist: IPost[] = [
 	{
 		id: 28,
 		title: 'Tailwind 사용하기',
@@ -1388,7 +1379,7 @@ let result = stringNumber.split(" ")
 				value: `control Flow`,
 			},
 			{
-				type: 'normal',
+				type: ComponentType.NORMAL,
 				value: `Goto </br>
         if/Then/Else</br>
         Switch/Case</br>
@@ -1414,7 +1405,7 @@ let result = stringNumber.split(" ")
 				value: `control Flow`,
 			},
 			{
-				type: 'data Flow',
+				type: ComponentType.NORMAL,
 				value: `Stateless</br>
         Recursion</br>
         pipe`,
