@@ -7,6 +7,58 @@ import { ComponentType, Folder, IPost, Level } from 'type/post';
  */
 export const totalPostlist: IPost[] = [
 	{
+		id: 29,
+		title: '지연로딩(Lazy-loading) 모듈',
+		date: '2024-11-05 14:02',
+		folder: Folder.CODESNIPPETS,
+		tag: ['지연로딩', 'Lazy-loading'],
+		preview:
+			'모듈을 초기에 모두 미리 로드하기 보다는 필요한 시점에만 로드하는 것이 더 이로울 때가 있습니다. 지연로딩(Lazy-loading)을 사용하면 필요한 시점에 로드할 수 있습니다.',
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `동적으로 모듈 가져오기`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `모듈을 초기에 모두 미리 로드하기 보다는 필요한 시점에만 로드하는 것이 더 이로울 때가 있습니다. 지연로딩(Lazy-loading)을 사용하면 필요한 시점에 로드할 수 있습니다. 예를 들어 사용자가 링크나 버튼을 클릭할 때 로드하게 만들 수 있어 초기 로딩 시간을 줄일 수 있습니다. 이게 바로 동적 가져오기(dynamic import)가 생겨난 이유 입니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `동적 가저오기는 함수와 비슷한 새로운 형태의 가져오기 입니다. import(url)는 요청된 모듈의 네임스페이스 객체에 대한 프로미스 프로미스 객체를 반환 합니다. 이 프로미스 객체는 모듈 자체와 모든 모듈 의존성을 가져온 후, 인스턴스화 하고 평가한 뒤에 만들어 집니다. 다음은 동적 가져오기를 사용하는 cakeFatory에 대한 예제입니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `form.addEventListener("sumit", e => {
+   e.preventDefault();
+	 import("/modules/cakeFatory.js)
+	  .then((module) => {
+		  //가져온 모듈 사용하기
+			module.oven.makeCupcake("sprinkles");
+			module.oven.makeMuffin("large");
+		})
+})`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `동적 가져오기는 awit와 함께 사용할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `let module = awit import("/modules/cakeFactory.js");`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `동적 가져오기를 사용하면 모듈이 사용될 때만 다운로드되고 실행됩니다. 사용자 상호작용에 반응하거나 화면에 보이면 실행하기 등 자주 사용되는 패턴은 동적 가져오기를 통해 바닐라 자바스크립트에서도 쉽게 구현할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.REFERENCES,
+				value: '자바스크립트 + 리액트 디자인 패턴',
+			},
+		],
+	},
+
+	{
 		id: 28,
 		title: 'Tailwind 사용하기',
 		date: '2024-09-22 12:51',

@@ -86,6 +86,7 @@ export enum Folder {
 	TDD = 'tdd',
 	DATABASE = 'database',
 	TAILWIND = 'Tailwind',
+	CODESNIPPETS = 'CodeSnippets',
 }
 
 /**
@@ -116,6 +117,7 @@ export enum ComponentType {
 	H2 = 'h2',
 	H4 = 'h4',
 	H3 = 'H3',
+	REFERENCES = 'references',
 }
 
 /**
