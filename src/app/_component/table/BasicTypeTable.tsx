@@ -2,8 +2,7 @@
 
 import { ReactNode, useEffect } from 'react';
 import HeaderAction from './HeaderAction';
-import style from 'app/(pageGroup)/_components/table/BasicTypeTable.module.css';
-import FilterBox from './FilterBox';
+import style from './BasicTypeTable.module.css';
 
 type headerType = {
 	accessorKey: string;

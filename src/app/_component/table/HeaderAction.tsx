@@ -1,6 +1,6 @@
 // import { TABLE_ELEMENT_TYPE, TABLE_ICON } from 'app/constant/Constant';
 // import { SVGIcon } from 'app/svg/SVGIcon';
-import style from 'app/(pageGroup)/_components/table/headerAction.module.css';
+import style from './headerAction.module.css';
 import { ReactNode, useState } from 'react';
 
 type Props = {

@@ -21,7 +21,7 @@ export const totalPostlist: IPost[] = [
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `모듈을 초기에 모두 미리 로드하기 보다는 필요한 시점에만 로드하는 것이 더 이로울 때가 있습니다. 지연로딩(Lazy-loading)을 사용하면 필요한 시점에 로드할 수 있습니다. 예를 들어 사용자가 링크나 버튼을 클릭할 때 로드하게 만들 수 있어 초기 로딩 시간을 줄일 수 있습니다. 이게 바로 동적 가져오기(dynamic import)가 생겨난 이유 입니다.`,
+				value: `모듈을 초기에 모두 미리 로드하기 보다는 필요한 시점에만 로드하는 것이 더 이로울 때가 있습니다. 지연로딩(Lazy-loading)을 사용하면 필요한 시점에 로드할 수 있습니다. 예를 들어 사용자가 링크나 버튼을 클릭할 때 로드하게 만들 수 있어 초기 로딩 시간을 줄일 수 있습니다. 이게 바로 동적 가져오기(dynamic import)가 생겨난 이유 입니다...`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -30,13 +30,13 @@ export const totalPostlist: IPost[] = [
 			{
 				type: ComponentType.CODE,
 				value: `form.addEventListener("sumit", e => {
-   e.preventDefault();
-	 import("/modules/cakeFatory.js)
-	  .then((module) => {
-		  //가져온 모듈 사용하기
-			module.oven.makeCupcake("sprinkles");
-			module.oven.makeMuffin("large");
-		})
+  e.preventDefault();
+   import("/modules/cakeFatory.js)
+   .then((module) => {
+     //가져온 모듈 사용하기
+     module.oven.makeCupcake("sprinkles");
+     module.oven.makeMuffin("large");
+   })
 })`,
 			},
 			{
