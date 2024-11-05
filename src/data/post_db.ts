@@ -53,7 +53,7 @@ export const totalPostlist: IPost[] = [
 			},
 			{
 				type: ComponentType.REFERENCES,
-				value: '자바스크립트 + 리액트 디자인 패턴',
+				value: 'REFERENCES : 자바스크립트 + 리액트 디자인 패턴',
 			},
 		],
 	},
