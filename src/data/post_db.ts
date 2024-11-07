@@ -8,13 +8,66 @@ import { ComponentType, Folder, IPost, Level } from 'type/post';
 export const totalPostlist: IPost[] = [
 	{
 		id: 29,
-		title: '지연로딩(Lazy-loading) 모듈',
+		title: '모듈형 프로그래밍',
 		date: '2024-11-05 14:02',
 		folder: Folder.CODESNIPPETS,
 		tag: ['지연로딩', 'Lazy-loading'],
 		preview:
 			'모듈을 초기에 모두 미리 로드하기 보다는 필요한 시점에만 로드하는 것이 더 이로울 때가 있습니다. 지연로딩(Lazy-loading)을 사용하면 필요한 시점에 로드할 수 있습니다.',
 		post: [
+			{
+				type: ComponentType.H2,
+				value: `모듈을 사용하면 생기는 이점`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `모듈형 프로그래밍을 사용하면 다음과 같은 다양한 이점을 얻을 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `1. 한 번만 실행된다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `기존 스크립트는 DOM에 추가될 때마다 실행되는 반면에 모듈 스크립트는 한 번만 실행 됩니다. 자바스크립트 모듈을 사용하면 의존성 트리의 가장 내부에 위치한 모듈이 먼저 실행됩니다. 가장 내부에 위치한 모듈이 먼저 평가되고 여기에 의존하는 모듈에 접근 할 수 있다는 것이 이점입니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `2. 자동으로 지연 로드된다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `즉시 로드되지 않기 위해 다른 스크립트 파일은 defer속성을 붙여야 하지만,  모듈은 자동으로 지연되어 로드됩니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `3. 유지보수와 재사용이 쉽다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `모듈은 다른 모듈에 영향을 주지 않고 독립적으로 실행될 수 있는 코드 조각으로 관리됩니다. 이를 통해 여러 다른 함수에서 동일한 코드를 재사용할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `4. 네임스페이스를 제공한다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `모듈은 관련 변수와 상수를 위한 개별 공간을 생성하여 글로벌 네임스페이스를 오염시키지 않고 모듈 참조를 통해 사용할 수 있게 해줍니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `5. 사용하지 않는 코드를 제거한다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `모듈이 도입되기 전에는 사용하지 않는 코드를 수동으로 제거해야 했습니다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value:
+					'모듈을 통해 코드를 가져오게 되면 웹팩(Webpack)이나 롤업(Rollup)같은 번들러를 사용해 사용하지 않는 모듈을 자동으로 제거할 수 있습니다. 이처럼 번들에 추가하기 전에 사용하지 않는 코드를 제거하는 것을 <b>트리쉐이킹(tree-shaking)</b>이라고 합니다.',
+			},
 			{
 				type: ComponentType.H2,
 				value: `동적으로 모듈 가져오기`,
@@ -50,6 +103,27 @@ export const totalPostlist: IPost[] = [
 			{
 				type: ComponentType.NORMAL,
 				value: `동적 가져오기를 사용하면 모듈이 사용될 때만 다운로드되고 실행됩니다. 사용자 상호작용에 반응하거나 화면에 보이면 실행하기 등 자주 사용되는 패턴은 동적 가져오기를 통해 바닐라 자바스크립트에서도 쉽게 구현할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `사용자 상호작용에 따라 가져오기`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `일부 기능의 경우 사용자가 상호작용할 때만 필요할 수도 있습니다. 채팅 창이나 다이얼로그, 비디오 등이 대표적인 예시입니다.  이런 기능은 페이지 로드 시점에 필요한 것이 아니라 사용자가 컴포넌트를 클릭하는 등 상호작용에 따라 로드되는 것이 좋습니다. 동적 가져오기를 활용하면 실행한 다음에 따라 오는 함수를 통해 원하는 기능을 사용할 수 있습니다. `,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `다음 예시는 lodash.sortby 모듈을 동적으로 로드하여 정렬 기능을 구현하는 코드입니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const btn = document.querySelector('button');
+  e.preventDefault();
+	import('lodash.sortBy')
+	.then(module => module.default)
+	.then(sortInput()) //use the imported dependency
+	.catch(err => { console.log(err )});`,
 			},
 			{
 				type: ComponentType.REFERENCES,
