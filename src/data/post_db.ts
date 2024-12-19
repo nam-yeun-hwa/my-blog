@@ -4648,12 +4648,37 @@ console.log(boundGetX()); // 42`,
 	},
 	{
 		id: 26,
-		title: ' Tailwind CSS를 사용한 스타일링',
-		date: '2024-09-20 08:24:02',
-		folder: Folder.TAILWIND,
-		tag: ['TAILWIND'],
-		preview: `Tailwind CSS는 유틸리티 기반의 CSS 프레임워크로, 사전 정의된 클래스를 통해 빠르게 스타일을 적용할 수 있습니다. Tailwind를 사용하는 기본적인 방법은 각 HTML 요소에 클래스 이름을 추가해 스타일을 적용하는 방식입니다. 예를 들어, 다음은 Tailwind의 사용법을 간단히 설명한 것입니다.`,
-		post: [],
+		title: '[한입 영어] There is nothing to + 동사원형',
+		date: '2024-12-19',
+		folder: Folder.JAVASCRIPT,
+		tag: ['English'],
+		preview: `"there is nothing to"는 상황에 따라 여러 의미로 해석될 수 있습니다. 가장 일반적인 해석은 아래와 같습니다. `,
+		post: [
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"There is nothing to do." (할 것이 없다.)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"There is nothing to worry about." (걱정할 필요가 없다.)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"There is nothing to this problem." (이 문제는 별것 아니다.)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"There is nothing to see." (볼게 없다.)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"There is nothing to worry about." (걱정할 거 없다.)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"There is nothing to lose." (잃을 게 없다.)`,
+			},
+		],
 	},
 ];
 

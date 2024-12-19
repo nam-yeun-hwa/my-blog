@@ -87,6 +87,7 @@ export enum Folder {
 	DATABASE = 'database',
 	TAILWIND = 'Tailwind',
 	CODESNIPPETS = 'CodeSnippets',
+	ENGLISH = 'english',
 }
 
 /**
