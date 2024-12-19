@@ -4650,7 +4650,7 @@ console.log(boundGetX()); // 42`,
 		id: 26,
 		title: '[한입 영어] There is nothing to + 동사원형',
 		date: '2024-12-19',
-		folder: Folder.JAVASCRIPT,
+		folder: Folder.ENGLISH,
 		tag: ['English'],
 		preview: `"there is nothing to"는 상황에 따라 여러 의미로 해석될 수 있습니다. 가장 일반적인 해석은 아래와 같습니다. `,
 		post: [
