@@ -4647,11 +4647,11 @@ console.log(boundGetX()); // 42`,
 		],
 	},
 	{
-		id: 26,
+		id: 30,
 		title: '[한입 영어] There is nothing to + 동사원형',
 		date: '2024-12-19',
 		folder: Folder.ENGLISH,
-		tag: ['English'],
+		tag: ['English', '한입 영어'],
 		preview: `"there is nothing to"는 상황에 따라 여러 의미로 해석될 수 있습니다. 가장 일반적인 해석은 아래와 같습니다. `,
 		post: [
 			{
@@ -4677,6 +4677,56 @@ console.log(boundGetX()); // 42`,
 			{
 				type: ComponentType.STRINGLIST,
 				value: `"There is nothing to lose." (잃을 게 없다.)`,
+			},
+		],
+	},
+	{
+		id: 31,
+		title: '[한입 영어] work + 전치사',
+		date: '2024-12-23',
+		folder: Folder.ENGLISH,
+		tag: ['English', '한입 영어'],
+		preview: `"He is just some guy I work with!"는 상황에 따라 여러 의미로 해석될 수 있습니다. 가장 일반적인 해석은 아래와 같습니다.`,
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `"He is just some guy I work with!" (그냥 직장 동료라고!)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `는 상황에 따라 여러 의미로 해석될 수 있습니다. 가장 일반적인 해석은 아래와 같습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `"work with" (~와 함께 일하다 [사람/집단])`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `I work whith a great team (저는 훈륭한 팀과 함꼐 일합니다.)`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `"work for" + (~를 위해 일하다[고용관계]) `,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Mike works for a computer company (마이크는 컴퓨터 회사에서 일합니다.)`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `"work at" (~에서 일하다[장소])`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `He works at the hospital (그는 병원에서 일합니다.)`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `"work in" (~에서 일하다 [분야/부서])`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `I work in management training (나는 관리 교육 분야에서 일합니다.)`,
 			},
 		],
 	},
