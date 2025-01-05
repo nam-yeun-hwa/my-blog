@@ -12,6 +12,8 @@
 // 	tag?: Array<string>;
 // }
 
+import { propsPromptsType } from 'app/_component/detailPage/Prompts';
+
 type headerType = {
 	accessorKey: string;
 	header: string;
@@ -36,7 +38,12 @@ export interface IPost {
 	folder: Folder;
 	tag: string[];
 	preview: string;
-	post: { type: ComponentType; value: string; tables?: tableType }[];
+	post: {
+		type: ComponentType;
+		value: string;
+		propsType?: propsPromptsType;
+		tables?: tableType;
+	}[];
 }
 
 // type postData = {

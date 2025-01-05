@@ -1,3 +1,4 @@
+import { propsPromptsType } from 'app/_component/detailPage/Prompts';
 import { table } from 'console';
 import { ComponentType, Folder, IPost, Level } from 'type/post';
 
@@ -4727,6 +4728,38 @@ console.log(boundGetX()); // 42`,
 			{
 				type: ComponentType.NORMAL,
 				value: `I work in management training (나는 관리 교육 분야에서 일합니다.)`,
+			},
+		],
+	},
+	{
+		id: 32,
+		title: '[한입 영어] There is gotta be : 분명히 ~이 있을 것이다.',
+		date: '2025-01-05',
+		folder: Folder.ENGLISH,
+		tag: ['English', '한입 영어'],
+		preview: `"There is gotta be = There is got to be!"는 분명히 ~이 있을 것이다.`,
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `"have got to = gotta" (~해야한다. ~임이 틀림없다.)`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>have to/ have got to/ gotta</b>는 <span style="color: red;">필요성</span>이나 <span style="color: red;">의무</span>를 나타내는 표현이다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>have got to (해야만 한다)</b> : Have got to는 have to보다 조금 더 강한 강조를 나타내며, 필요성이나 의무를 표현할 때 사용됩니다. 이 표현은 주로 구어체에서 사용되며, 때때로 문어체에서도 볼 수 있습니다.`,
+			},
+
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>Gotta (꼭 해야 한다, 반드시 해야 한다)</b> : Gotta는 have got to의 구어체 축약형으로, 강한 필요성이나 의무를 표현할 때 사용됩니다. 이는 매우 비공식적인 상황이나 대화에서 자주 사용됩니다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				propsType: propsPromptsType.TIP,
+				value: `<b>구어체</b>는 일상적인 대화에서 주로 사용되는 말의 표현 방식입니다. 글로 쓰는 문어체와는 달리, 자연스럽고 자유로운 표현이 특징입니다. 구어체는 사람들이 실제로 대화할 때 쓰는 어휘, 문장 구조, 억양 등을 반영하며, 문법적 완전성을 꼭 따르지 않을 수도 있습니다.`,
 			},
 		],
 	},

@@ -1,6 +1,6 @@
 import style from './postDetail.module.css';
 import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
-import Prompts from 'app/_component/detailPage/Prompts';
+import Prompts, { propsPromptsType } from 'app/_component/detailPage/Prompts';
 import { ComponentType, IPost } from 'type/post';
 import { sortedTotalPostlist } from 'data/post_db';
 import Footer from 'app/_component/common/Footer';
@@ -35,7 +35,15 @@ export default function PostDetail({ postid }: Props) {
 
 			{post.map((value, idx) => {
 				if (value.type === ComponentType.EMPHASIS)
-					return <Prompts key={idx} type="warning" detail={value.value} />;
+					return (
+						<Prompts
+							key={idx}
+							type={
+								value.propsType ? value.propsType : propsPromptsType.WARNING
+							}
+							detail={value.value}
+						/>
+					);
 				if (value.type === ComponentType.CODE)
 					return <CodeComponentType key={idx} code={value.value} />;
 				if (value.type === ComponentType.TABLE)
