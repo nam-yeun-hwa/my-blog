@@ -4763,6 +4763,28 @@ console.log(boundGetX()); // 42`,
 			},
 		],
 	},
+	{
+		id: 33,
+		title: '[기술면접 대비] CORS란',
+		date: '2025-02-27',
+		folder: Folder.JAVASCRIPT,
+		tag: ['English', '한입 영어'],
+		preview: `"CORS(Cross-Origin Resource Sharing)는 도메인 혹은 포트가 다른 외부서버의 자원을 요청할때 생긴다."`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>CORS(Cross-Origin Resource Sharing)</b>는 도메인 혹은 포트가 다른 외부서버의 자원을 요청할때 생긴다.`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				value: `동일출처정책,보안목적`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `동일출처 정책에 의해 브라우저는 외부서버에 요청한 데이타를 보안목적으로 차단하며 해당 문제를 해결하기 위해서는 response헤더에 "Access-Controll-Allow-Origin"을 추가해 주거나 서버 쪽에서 처리를 해 주면 된다.`,
+			},
+		],
+	},
 ];
 
 /**
