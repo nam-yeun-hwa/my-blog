@@ -4767,7 +4767,7 @@ console.log(boundGetX()); // 42`,
 		id: 33,
 		title: '[기술면접 대비] CORS란',
 		date: '2025-02-27',
-		folder: Folder.JAVASCRIPT,
+		folder: Folder.TECHQA,
 		tag: ['English', '한입 영어'],
 		preview: `"CORS(Cross-Origin Resource Sharing)는 도메인 혹은 포트가 다른 외부서버의 자원을 요청할때 생긴다."`,
 		post: [
