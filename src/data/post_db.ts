@@ -4765,7 +4765,7 @@ console.log(boundGetX()); // 42`,
 	},
 	{
 		id: 33,
-		title: '[기술면접 대비] CORS란',
+		title: '[TECH-QA] CORS란',
 		date: '2025-02-27',
 		folder: Folder.TECHQA,
 		tag: ['English', '한입 영어'],

@@ -14,12 +14,12 @@
 
 import { propsPromptsType } from 'app/_component/detailPage/Prompts';
 
-type headerType = {
+export type headerType = {
 	accessorKey: string;
 	header: string;
 };
 
-type User = {
+export type User = {
 	id: number | undefined;
 	email: string | undefined;
 	fullname: string | undefined;
