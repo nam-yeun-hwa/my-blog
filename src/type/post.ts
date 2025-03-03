@@ -96,6 +96,7 @@ export enum Folder {
 	CODESNIPPETS = 'CodeSnippets',
 	ENGLISH = 'english',
 	TECHQA = 'tech-QA',
+	READINGNOTES = 'Reading Notes',
 }
 
 /**
