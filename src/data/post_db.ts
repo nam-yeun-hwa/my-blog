@@ -4875,6 +4875,155 @@ console.log(boundGetX()); // 42`,
 	},
 	{
 		id: 37,
+		title: '[TECH-QA] 이벤트 루프',
+		date: '2025-03-04 13:34:21',
+		folder: Folder.TECHQA,
+		tag: ['Javascript'],
+		preview: `자바스크립트 이벤트 루프는 싱글 스레드 환경에서 비동기 작업으로 동시성을 지원하는 메커니즘입니다. 이벤트 루프는 이벤트 처리, 콜백실행, 태스크 큐 관리 등을 담당하여 비동기 작업을 효율적으로 처리 합니다. 요청된 비동기 작업이 완료되면 콜백이 태스크 큐로 이동하고 콜스택이 빈 상태가 되면 이벤트 루프는 큐에서 첫번째 콜백을 꺼내와 콜스택에 넣어주고 콜스택에서 콜백함수를 실행 합니다. 이 과정을 반복하여 비동기 작업을 순차적으로 처리 합니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트 이벤트 루프는 <b>싱글 스레드 환경(single-threaded) 
+</b>에서 <b>비동기 작업</b>으로 <b>동시성을 지원하는 메커니즘</b>입니다. 이벤트 루프는 이벤트 처리, 콜백실행, 태스크 큐 관리 등을 담당하여 비동기 작업을 효율적으로 처리 합니다. 요청된 비동기 작업이 완료되면 콜백이 태스크 큐로 이동하고 콜스택이 빈 상태가 되면 이벤트 루프는 큐에서 첫번째 콜백을 꺼내와 콜스택에 넣어주고 콜스택에서 콜백함수를 실행 합니다. 이 과정을 반복하여 비동기 작업을 순차적으로 처리 합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `코드 예제 1`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `console.log("1");
+
+setTimeout(() => {
+    console.log("2");
+}, 0);
+
+Promise.resolve()
+    .then(() => {
+        console.log("3");
+    })
+    .then(() => {
+        console.log("4");
+    });
+
+console.log("5");`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `출력`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `1
+5
+3
+4
+2`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `설명`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"1"과 "5"는 동기 코드로 먼저 실행.
+Promise의 then은 Microtask Queue에서 순차 실행 ("3", "4").
+
+setTimeout은 Task Queue에서 마지막에 실행 ("2")
+`,
+			},
+
+			{
+				type: ComponentType.EMPHASIS,
+				value: `setTimeout은 지연 시간이 비록 <b>0ms</b>라도 Microtask가 우선`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<img style="border-radius:15px" src="https://blog.kakaocdn.net/dn/bo54CC/btrzwQiWC5y/5ZSDqIlpHeMOp1EkqvnE40/img.gif">`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `코드 예제 2`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `console.log("시작");
+
+// setTimeout으로 비동기 작업 추가 (Task Queue로 이동)
+setTimeout(() => {
+    console.log("setTimeout 실행 (5초 후)");
+}, 5000);
+
+// Promise로 비동기 작업 추가 (Microtask Queue로 이동)
+Promise.resolve()
+    .then(() => {
+        console.log("Promise 실행");
+    });
+
+// 무거운 동기 작업 (Call Stack에서 바로 실행)
+for (let i = 0; i < 3; i++) {
+    console.log("동기 작업 \${i}");
+}
+
+console.log("끝");`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `실행 순서와 설명`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `프로그램을 실행하면 다음과 같은 출력이 순차적으로 나타납니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `시작
+동기 작업 0
+동기 작업 1
+동기 작업 2
+끝
+Promise 실행
+(5초 후) setTimeout 실행 (5초 후)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `console.log("시작"): Call Stack에 쌓이고 바로 실행되어 출력.
+
+setTimeout: 비동기 함수로, 5초 후 실행될 콜백이 Task Queue에 추가됨.
+
+Promise.resolve().then(): Promise는 Microtask Queue에 추가됨 (Microtask는 Task Queue보다 우선순위가 높음).
+
+for 루프: 동기 코드로 Call Stack에서 즉시 실행, "동기 작업 0, 1, 2" 출력.
+
+console.log("끝"): Call Stack에 쌓이고 바로 실행.
+
+Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Promise의 콜백을 실행 ("Promise 실행" 출력).
+
+5초 후: 이벤트 루프가 Task Queue에서 setTimeout의 콜백을 가져와 실행 ("setTimeout 실행" 출력).
+
+`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `이벤트 루프의 동작 요약`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `동기 코드는 즉시 Call Stack에서 실행됩니다.
+
+비동기 작업은 Task Queue(예: setTimeout) 또는 Microtask Queue(예: Promise)에 들어가 대기합니다.
+
+이벤트 루프는 Call Stack이 비어 있을 때 큐에서 작업을 꺼내 실행하며, Microtask Queue가 Task Queue보다 우선순위가 높습니다.
+`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `참고 유투브 : https://www.youtube.com/watch?v=eiC58R16hb8`,
+			},
+		],
+	},
+	{
+		id: 38,
 		title:
 			'[독서] 스키너의 심리상자 열기 - 변동 강화 계획(variable schedules of reinforcement)',
 		date: '2025-03-05 11:09:21',
