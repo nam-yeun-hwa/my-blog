@@ -4939,7 +4939,7 @@ setTimeout은 Task Queue에서 마지막에 실행 ("2")
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `<img style="border-radius:15px" src="https://blog.kakaocdn.net/dn/bo54CC/btrzwQiWC5y/5ZSDqIlpHeMOp1EkqvnE40/img.gif">`,
+				value: `<img style="border-radius:15px" src="https://lh3.google.com/u/0/d/1qi-4LcQPtJ5KLuCYiMhiy_IBxBSihaQU=w3456-h1916-iv1">`,
 			},
 			{
 				type: ComponentType.H3,
