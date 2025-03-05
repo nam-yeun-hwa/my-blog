@@ -5024,9 +5024,202 @@ Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Pro
 	},
 	{
 		id: 38,
+		title: '[TECH-QA] 자바스크립트 런타임',
+		date: '2025-03-05 12:35:21',
+		folder: Folder.TECHQA,
+		tag: ['Javascript'],
+		preview: `자바스크립트는 싱글 스레드로 동작하지만, 비동기 작업을 효율적으로 처리하기 위해 아래 구성 요소들이 상호작용합니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트는 싱글 스레드로 동작하지만, 비동기 작업을 효율적으로 처리하기 위해 아래 구성 요소들이 상호작용합니다.`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				value: `Call Stack,Heap,Web API,Task Queue (Macro Task Queue),Microtask Queue,Event Loop`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>Call Stack</b> : 실행 중인 함수 호출을 관리.
+				<b>Heap</b> : 메모리 할당을 관리.
+				<b>Web API:</b> : 비동기 작업을 처리(브라우저 제공).
+				<b>Task Queue (Macro Task Queue)</b> : 비동기 작업의 콜백 대기열.
+				<b>Microtask Queue</b> : 우선순위가 높은 비동기 작업 대기열..
+				<b>Event Loop</b> : 스택과 큐 사이의 작업 이동을 조정.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `Call Stack (호출 스택)`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `현재 실행 중인 함수 호출을 추적합니다. `,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `싱글 스레드이므로 한 번에 하나의 작업만 순서대로 처리합니다. Heap에서 데이터를 참조하며 동기 코드를 실행하고 비동기 작업은 Web API로 넘기고, 스택은 바로 다음 작업을 처리합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function a() { b(); }`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `a와 b가 스택에 순차적으로 쌓였다가 제거됩니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `Heap (힙)`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `객체와 데이터가 저장되는 메모리 공간입니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `주로 동적으로 할당된 메모리(예: 객체, 배열, 함수 등)를 관리합니다. 구조화되지 않은 메모리 영역으로, 변수나 함수의 실제 데이터가 저장됩니다. 가비지 컬렉션(Garbage Collection)이 주기적으로 사용되지 않는 메모리를 정리합니다.Call Stack에서 함수가 호출될 때, 함수의 변수나 객체는 Heap에 저장되고, 스택은 그 참조만 가집니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `let obj = { name: "myName" };`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 코드에서 obj는 스택에 참조로 저장되고, { name: "myName" }는 Heap에 저장되며 비동기 작업에서 생성된 객체(예: Promise 객체)도 Heap에 저장되며, 이후 Microtask Queue나 Task Queue에서 참조됩니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `Web API`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `setTimeout, fetch, DOM 이벤트 등 비동기 작업을 처리합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `브라우저가 제공하며, 자바스크립트 엔진 외부에 존재합니다. Call Stack에서 비동기 함수 호출 시, Web API로 작업을 위임하며 작업 완료 후 콜백을 Task Queue 또는 Microtask Queue에 넣어준다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `setTimeout(() => {}, 1000)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `1초 후 콜백을 Task Queue에 추가해준다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `Task Queue (Macro Task Queue)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Web API에서 완료된 비동기 작업(예: setTimeout, setInterval, I/O)의 콜백이 대기하는 큐입니다. (FIFO 방식) 이벤트 루프가 Call Stack이 비었을 때 Task Queue에서 작업을 가져와 실행 할수 있도록 합니다. Microtask Queue보다 우선순위가 낮습니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `Microtask Queue (마이크로 큐)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Promise의 .then, .catch, async/await, queueMicrotask 등 우선순위가 높은 비동기 작업의 콜백이 대기하는 큐입니다. (FIFO 방식) Task Queue와 별도로 관리되며, Microtask는 Call Stack이 비었을 때 즉시 실행되며, Task Queue보다 먼저 처리됩니다. 이벤트 루프는 한 번의 "틱(tick)"에서 모든 Microtask를 처리한 후 Task Queue로 넘어간다. Heap에 저장된 Promise 객체가 해결(resolve)되면, 해당 콜백이 Microtask Queue로 이동한다. `,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `console.log("Start");
+setTimeout(() => console.log("Timeout"), 0);
+Promise.resolve().then(() => console.log("Promise"));
+console.log("End");`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `출력: Start → End → Promise → Timeout </br>
+이유: Microtask Queue(Promise)가 Task Queue(setTimeout)보다 먼저 처리됨.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `Event Loop (이벤트 루프)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Call Stack, Microtask Queue, Task Queue를 감시하며 작업을 적절히 스택으로 이동시킵니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `동작 순서`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Call Stack이 비었는지 확인.
+Microtask Queue에 작업이 있으면 모두 처리(Heap에서 데이터 참조).
+Task Queue에서 작업을 하나씩 꺼내 실행.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Heap에 저장된 데이터와 큐에 대기 중인 콜백을 연결하며, 싱글 스레드 환경에서 비동기 작업을 조율한다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `자바스크립트 런타임 전체 흐름`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `console.log("Start");
+setTimeout(() => console.log("Timeout"), 0);
+Promise.resolve().then(() => console.log("Promise"));
+let obj = { message: "Heap" };
+console.log(obj.message);`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Heap`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Heap: { message: "Heap" } 객체가 Heap에 저장되고, obj는 스택에서 참조한다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Call Stack`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `console.log("Start") 실행 후 제거.
+setTimeout 호출 → Web API로 이동.
+Promise.resolve().then 호출 → Promise 객체는 Heap에, .then 콜백은 Microtask Queue로.
+console.log(obj.message) 실행 후 제거.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Web API`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `setTimeout이 0초 후 콜백을 Task Queue에 추가.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Event Loop`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Call Stack 비었음 → Microtask Queue에서 Promise 콜백 실행.
+Task Queue에서 Timeout 콜백 실행.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `출력`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `Start → Heap → Promise → Timeout`,
+			},
+		],
+	},
+	{
+		id: 39,
 		title:
 			'[독서] 스키너의 심리상자 열기 - 변동 강화 계획(variable schedules of reinforcement)',
-		date: '2025-03-05 11:09:21',
+		date: '2025-03-06 11:09:21',
 		folder: Folder.READINGNOTES,
 		tag: ['스키너의 심리상자 열기'],
 		preview: `한 생명체가 어떻게 학습을 하고 우리가 그 학습 결과를 어떻게 예측 통제할 수 있는가에 관한 수량화가 가능한 데이터를 만들어 냈다.`,
