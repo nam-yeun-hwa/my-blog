@@ -4939,7 +4939,7 @@ setTimeout은 Task Queue에서 마지막에 실행 ("2")
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `<img style="border-radius:15px" src="https://lh3.google.com/u/0/d/1qi-4LcQPtJ5KLuCYiMhiy_IBxBSihaQU=w3456-h1916-iv1">`,
+				value: `<img style="border-radius:15px" src="https://blog.kakaocdn.net/dn/bfVyEB/btsvNysLSVD/Qg3G7SIl2KrYMdfslBw50k/img.gif">`,
 			},
 			{
 				type: ComponentType.H3,
@@ -5015,6 +5015,14 @@ Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Pro
 
 이벤트 루프는 Call Stack이 비어 있을 때 큐에서 작업을 꺼내 실행하며, Microtask Queue가 Task Queue보다 우선순위가 높습니다.
 `,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `관련게시물 [자바스크립트 런타임] : ${
+					process.env.NODE_ENV === 'development'
+						? 'http://localhost:3000/'
+						: 'https://nam-yeun-hwa.github.io/'
+				}posts/38`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -5212,6 +5220,18 @@ Task Queue에서 Timeout 콜백 실행.`,
 			{
 				type: ComponentType.CODE,
 				value: `Start → Heap → Promise → Timeout`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트의 싱글 스레드 환경은 Call Stack으로 동기 작업을 처리하고, Heap에서 메모리를 관리하며, Web API, Task Queue, Microtask Queue, Event Loop가 협력하여 비동기 작업을 효율적으로 수행합니다. 특히 Microtask Queue는 Promise와 같은 작업을 우선 처리하며, Heap은 모든 데이터의 기반을 제공합니다. 이 구조 덕분에 자바스크립트는 UI 반응성을 유지하면서 복잡한 비동기 작업을 처리할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `관련게시물 [이벤트 루프]: ${
+					process.env.NODE_ENV === 'development'
+						? 'http://localhost:3000/'
+						: 'https://nam-yeun-hwa.github.io/'
+				}posts/37`,
 			},
 		],
 	},
