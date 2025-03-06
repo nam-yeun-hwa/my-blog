@@ -5274,7 +5274,7 @@ Task Queue에서 Timeout 콜백 실행.`,
 		title: '[TECH-QA] 리액트의 useCallback와 useMemo',
 		date: '2025-03-06 12:37:21',
 		folder: Folder.TECHQA,
-		tag: ['스키너의 심리상자 열기', '독서'],
+		tag: ['TECH-QA', 'React'],
 		preview: `useCallback과 useMemo는 둘 다 ReactHooks 입니다.`,
 		post: [
 			{
