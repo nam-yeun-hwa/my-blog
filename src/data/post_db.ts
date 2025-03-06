@@ -5287,7 +5287,49 @@ Task Queue에서 Timeout 콜백 실행.`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `useCallback 콜백함수를 메모이제이션하여 불 필요한 렌더링을 방지 합니다. useCallback은 특정 함수를 새로 만들지 않고 재사용 하고 싶을때 사용하는 훅입니다. 의존성 배열에 넣은 값이 변할 때만 함수를 새로 만듭니다.`,
+				value: `useCallback은 콜백함수를 메모이제이션하여 불 필요한 렌더링을 방지 합니다. useCallback은 특정 함수를 새로 만들지 않고 재사용 하고 싶을때 사용하는 훅입니다. 
+				
+				의존성 배열(dependency array)이 변경되지 않는 한 동일한 함수의 인스턴스를 반환합니다. 주로 자식 컴포넌트에 콜백 함수를 전달할 때, 불필요한 리렌더링을 방지하기 위해 사용됩니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const memoizedCallback = useCallback(() => {
+  // 함수 로직
+}, [의존성1, 의존성2]);`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `자식 컴포넌트에 props로 전달되는 함수가 매번 새로 생성되지 않도록 방지.
+예를 들어, 버튼 클릭 핸들러나 이벤트 콜백을 자식 컴포넌트에 전달할 때 유용.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import React, { useState, useCallback } from 'react';
+
+function Child({ onClick }) {
+  console.log('Child rendered');
+  return <button onClick={onClick}>Click me</button>;
+}
+
+function Parent() {
+  const [count, setCount] = useState(0);
+
+  // useCallback 없이 함수를 정의하면 매 렌더링마다 새 함수가 생성됨
+  const handleClick = useCallback(() => {
+    setCount((prev) => prev + 1);
+  }, []); // 의존성 배열이 빈 경우, 함수는 처음 생성된 후 재사용됨
+
+  return (
+    &lt;div>
+      &lt;p>Count: {count}&lt;/p>
+      &lt;Child onClick={handleClick} />
+    &lt;/div>
+  );
+}`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `여기서 handleClick은 useCallback으로 감싸져 있어, Parent가 리렌더링되더라도 동일한 함수 참조를 유지합니다. </br>따라서 Child 컴포넌트는 불필요하게 리렌더링되지 않습니다(단, React.memo와 함께 사용하면 더 효과적).`,
 			},
 			{
 				type: ComponentType.H3,
@@ -5295,7 +5337,52 @@ Task Queue에서 Timeout 콜백 실행.`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `useMemo는 전달된 함수가 실행되고 반환된 결과를 메모이제이션하여 일반적으로 계산 비용이 높은 값을 메모이제이션하며 불필요한 재계산을 방지 합니다. 의존성 배열이 변경되지 않으면 이전에 계산된 값을 재사용하여 성능을 최적화합니다.`,
+				value: `useMemo는 전달된 함수가 실행되고 반환된 결과를 메모이제이션하며 일반적으로 계산 비용이 높은 값을 메모이제이션하여 불필요한 재계산을 방지 합니다. 의존성 배열이 변경되지 않으면 이전에 계산된 값(계산된 결과를 캐싱)을 재사용하여 성능을 최적화합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const memoizedValue = useMemo(() => {
+  // 계산 로직
+  return 결과값;
+}, [의존성1, 의존성2]);`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `복잡한 연산(예: 배열 필터링, 데이터 가공 등)의 결과를 캐싱.
+렌더링 중 불필요한 계산을 피하고 싶을 때.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import React, { useState, useMemo } from 'react';
+
+function ExpensiveComponent() {
+  const [number, setNumber] = useState(1);
+
+  // 비용이 큰 계산을 시뮬레이션
+  const computeExpensiveValue = (num) => {
+    console.log('Computing...');
+    return num * 1000; // 간단한 예시로 곱셈 사용
+  };
+
+  // useMemo로 계산 결과를 메모이제이션
+  const expensiveResult = useMemo(() => computeExpensiveValue(number), [number]);
+
+  return (
+    &lt;div>
+      &lt;p>Result: {expensiveResult}&lt;/p>
+      &lt;button onClick={() => setNumber(number + 1)}>Increment</button>
+    &lt;/div>
+  );
+}`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `여기서 expensiveResult는 number가 변경될 때만 새로 계산되고, 그렇지 않으면 이전 값을 재사용합니다. Computing... 로그는 number가 바뀔 때만 출력됩니다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `두 훅 모두 성능 최적화를 위한 도구이지만, 남용하면 코드가 복잡해질 수 있으니 정말 필요한 상황(예: 자주 리렌더링되거나 계산 비용이 큰 경우)에만 사용하는 것이 좋습니다.`,
+				propsType: propsPromptsType.DANGER,
 			},
 		],
 	},
