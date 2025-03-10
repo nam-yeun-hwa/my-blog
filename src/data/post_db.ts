@@ -4772,16 +4772,96 @@ console.log(boundGetX()); // 42`,
 		preview: `"CORS(Cross-Origin Resource Sharing)는 도메인 혹은 포트가 다른 외부서버의 자원을 요청할때 생긴다."`,
 		post: [
 			{
-				type: ComponentType.NORMAL,
-				value: `<b>CORS(Cross-Origin Resource Sharing)</b>는 도메인 혹은 포트가 다른 외부서버의 자원을 요청할때 생긴다.`,
-			},
-			{
 				type: ComponentType.KEYWORD,
-				value: `동일출처정책,보안목적`,
+				value: `동일출처정책(Same-Origin Policy: 프로토콜/도메인/포트가 모두 같음),보안목적`,
+			},
+
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>CORS(Cross-Origin Resource Sharing)</b>는 웹 브라우저에서 실행되는 스크립트가 <b>도메인 혹은 포트가 다른 출처(origin)</b>에서 외부서버의 자원을 요청할때 생긴다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `출처(Origin) 주요 개념`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `프로토콜(http, https)
+				도메인(example.com)
+				포트(예: 80, 443)`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `동일출처 정책에 의해 브라우저는 외부서버에 요청한 데이타를 보안목적으로 차단하며 해당 문제를 해결하기 위해서는 response헤더에 "Access-Controll-Allow-Origin"을 추가해 주거나 서버 쪽에서 처리를 해 주면 된다.`,
+				value: `의 조합으로 정의됩니다. 예: https://example.com:443`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>동일출처 정책</b>에 의해 브라우저는 외부서버에 요청한 데이타를 보안목적으로 차단하며 해당 문제를 해결하기 위해서는 서버의 response헤더에 Access-Control-Allow-Origin 같은 헤더로 어떤 출처를 허용할지 응답합니다.</br></br>
+CORS는 서버 측에서 크로스 오리진 요청을 허용하거나 제한하는 정책을 정의하는 메커니즘으로 서버의 응답(response)에 포함되어야 하며 프론트엔드는 요청을 보내는 역할만 하고, CORS 정책을 제어할 수는 없습니다.`,
+			},
+
+			{
+				type: ComponentType.H3,
+				value: `프론트 요청`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `프론트엔드(클라이언트)에서 요청을 보낼 때 Origin 헤더를 포함시켜 자신의 출처를 서버에 알립니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `GET https://api.other.com/data
+Origin: https://example.com
+`,
+			},
+
+			{
+				type: ComponentType.H3,
+				value: `서버 응답`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `서버는 이 요청을 받고, 해당 출처를 허용할지 여부를 판단한 후 응답 헤더에 Access-Control-Allow-Origin을 추가합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `Access-Control-Allow-Origin: https://example.com
+`,
+			},
+			{ type: ComponentType.H4, value: `Node.js (Express)` },
+			{
+				type: ComponentType.CODE,
+				value: `const express = require('express');
+const app = express();
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://example.com'); // 특정 출처 허용
+  // 또는 '*'로 모든 출처 허용 (보안상 주의 필요)
+  // res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+app.get('/data', (req, res) => {
+  res.json({ message: 'Hello from server!' });
+});
+
+app.listen(3000);`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `Nginx (웹 서버 설정)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `server {
+    listen 80;
+    server_name api.example.com;
+
+    location / {
+        add_header 'Access-Control-Allow-Origin' 'https://example.com';
+        # 다른 설정...
+    }
+}`,
 			},
 		],
 	},
