@@ -4082,7 +4082,7 @@ Hello, World!
 	},
 	{
 		id: 19,
-		title: 'RESTful API이란?',
+		title: '[TECH-QA] RESTful API이란?',
 		date: '2024-03-06 00:22:33',
 		folder: Folder.JAVASCRIPT,
 		tag: ['Javascript'],
@@ -4090,33 +4090,145 @@ Hello, World!
 		post: [
 			{
 				type: ComponentType.NORMAL,
-				value: `RESTful API는 HTTP 프로토콜을 기반으로하는 웹 서비스 아키텍처입니다. 자원, 메소드, 메시지 등을 정의하여 클라이언트-서버 간의 통신을 가능하게 합니다.`,
+				value: `RESTful API(Representational State Transfer API)는 웹 서비스를 구축하기 위한 설계 방식 중 하나로, REST라는 아키텍처 스타일을 따르는 API로, 주로 HTTP 프로토콜을 기반으로하는 웹 서비스 아키텍처입니다. 자원, 메소드, 메시지 등을 정의하여 클라이언트-서버 간의 통신을 가능하게 합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.H2,
 				value: `메시지(Message)`,
 			},
 			{
 				type: ComponentType.NORMAL,
 				value: `
         메시지는 클라이언트와 서버 간의 통신에서 전달되는 데이터의 내용을 나타냅니다. RESTful API에서 메시지는 요청(Request)과 응답(Response)로 구분됩니다. </br></br>
-
-        <b>요청 메시지</b>는 클라이언트가 서버로 보내는 데이터입니다. 이 데이터에는 요청의 목적과 함께 필요한 정보가 포함될 수 있습니다. 주로 JSON 형식으로 데이터가 전송됩니다.
+			`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `요청 메시지`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `
+       요청 메시지는 클라이언트가 서버로 보내는 데이터입니다. 이 데이터에는 요청의 목적과 함께 필요한 정보가 포함될 수 있습니다. 주로 JSON 형식으로 데이터가 전송됩니다.
         요청 메시지에는 요청하는 자원의 식별, 자원의 상태 변경을 위한 데이터, 요청하는 작업의 종류(메소드) 등이 포함될 수 있습니다.</br></br>
-        
-        <b>응답 메시지</b>는 서버가 클라이언트로 보내는 데이터입니다. 클라이언트의 요청에 대한 응답으로 서버는 해당 요청에 대한 처리 결과를 클라이언트에게 전달합니다. 마찬가지로 주로 JSON 형식으로 데이터가 전송됩니다.
-응답 메시지에는 요청에 대한 처리 결과(성공 또는 실패), 요청한 자원의 데이터, 추가적인 정보(예를 들어, HTTP 상태 코드) 등이 포함될 수 있습니다.`,
+			`,
 			},
 			{
 				type: ComponentType.H4,
+				value: `요청(Request) : GET /users/123`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `{
+  "id": 123,
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+       `,
+			},
+			{
+				type: ComponentType.H4,
+				value: `요청(Request) 새로운 사용자 생성 : POST /users `,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `{
+  "name": "Jane Doe",
+  "email": "jane@example.com"
+}
+       `,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `응답: 201 Created (성공 시)`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `응답 메시지`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `
+        응답 메시지는 서버가 클라이언트로 보내는 데이터입니다. 클라이언트의 요청에 대한 응답으로 성공 여부, 처리된 데이터, 또는 오류 정보를 클라이언트에게 전달합니다. 일반적으로 HTTP 상태 코드와 함께 JSON 형식으로 반환되며, 상황에 따라 다양한 구조를 가질 수 있습니다. 마찬가지로 주로 JSON 형식으로 데이터가 전송됩니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>상황</b>: 사용자가 특정 리소스를 성공적으로 조회했을 때
+<b>HTTP 상태 코드</b>: 200 OK`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `예제) ID가 123인 사용자를 조회`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `{
+  "status": "success",
+  "data": {
+    "id": 123,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "created_at": "2025-01-01T10:00:00Z"
+  },
+  "message": "User retrieved successfully"
+}`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `상황: 새로운 리소스가 성공적으로 생성되었을 때
+HTTP 상태 코드: 201 Created`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `예제) 새로운 사용자를 추가`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `{
+  "status": "success",
+  "data": {
+    "id": 124,
+    "name": "Jane Doe",
+    "email": "jane@example.com",
+    "created_at": "2025-03-11T09:00:00Z"
+  },
+  "message": "User created successfully",
+  "location": "/users/124"
+}`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `location: 새로 생성된 리소스의 URI를 나타냄 (선택적).`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `응답 메시지 설계 팁`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `일관성 유지: 성공/오류 응답 형식을 일관되게 설계 (예: 항상 status, data, message 필드 사용).
+상태 코드 활용: 적절한 HTTP 상태 코드를 사용해 클라이언트가 응답을 쉽게 해석하도록 도움.
+오류 상세 제공: 오류 발생 시 error 객체에 구체적인 정보(코드, 메시지, 세부사항)를 포함해 디버깅 용이성을 높임.
+필요한 데이터만 반환: 클라이언트가 필요로 하는 정보만 제공해 오버페칭(over-fetching)을 방지.
+
+`,
+			},
+			{
+				type: ComponentType.H2,
 				value: `자원(Resource)`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `자원은 RESTful API의 핵심 개념 중 하나입니다. URI란 웹상의 자료의 id 즉, 내가 올린 블로그 글의 특정 id를 입력해줘야 글을 볼수 있는 것처럼 URI는 인터넷 자원을 나타내는 서버에 있는 정보의 표현입니다(고유 식별자). 일반적으로 웹에서는 URI(Uniform Resource Identifier)를 사용하여 자원을 식별합니다. 예를 들어, /todos는 "할일 목록"이라는 자원을 나타내며, /todos/1은 ID가 1인 특정 할일을 나타냅니다.`,
+				value: `자원은 RESTful API의 핵심 개념 중 하나입니다. URI(Uniform Resource Identifier)란 웹상의 자료의 id 즉, <u>내가 올린 블로그 글의 특정 id를 입력해줘야 글을 볼수 있는 것처럼</u> URI는 인터넷 자원을 나타내는 서버에 있는 정보(고유 식별자)의 표현입니다. </br>일반적으로 웹에서는 URI를 사용하여 아래와 같이 자원을 식별합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.STRINGLIST,
+				value: `/todos ---- 할일 목록이라는 자원
+				/todos/1 ---- ID가 1인 특정 할일 자원
+				`,
+			},
+			{
+				type: ComponentType.H2,
 				value: `메소드(Method) 메시지`,
 			},
 			{
