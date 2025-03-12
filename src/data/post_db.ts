@@ -4252,24 +4252,76 @@ HTTP 상태 코드: 201 Created`,
 			},
 			{
 				type: ComponentType.H4,
-				value: `1. 유니폼 인터페이스(일관적인 인터페이스)`,
+				value: `클라이언트-서버 구조 (Client-Server)`,
 			},
 			{
-				type: ComponentType.STRINGLIST,
-				value: `REST API는 HTTP 프로토콜을 기반으로 하며, HTTP URI를 통해 자원을 명시하고, HTTP 메소드(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD(Create, Read, Update, Delete) 작업을 수행합니다.
-일관적인 인터페이스라는 것은 시스템 또는 애플리케이션의 리소스에 접근하기 위한 인터페이스가 일관적이어야 한다는 뜻입니다. 리소스에 접근하는 방식, 요청의 형식, 응답의 형식이 애플리케이션 전반에 걸쳐 URI 요청의 형태와 응답의 형태가 일관적이어야 합니다.
-        이러한 특성으로 인해 REST API는 간단하고 일관된 인터페이스를 제공하며, 다양한 플랫폼 및 언어에 종속되지 않고 사용할 수 있습니다.`,
+				type: ComponentType.NORMAL,
+				value: `클라이언트와 서버가 명확히 분리되어 있습니다. 클라이언트는 요청을 보내고, 서버는 이에 대한 응답을 제공합니다. 이로 인해 각 구성 요소가 독립적으로 발전할 수 있습니다.`,
 			},
 			{
 				type: ComponentType.H4,
-				value: `2. 무상태성(Statelessness)`,
+				value: `유니폼 인터페이스(일관적인 인터페이스)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `REST API는 리소스(데이터)를 URI로 식별하고, HTTP 메서드(GET, POST, PUT, DELETE 등)를 통해 조작합니다. 이를 통해 단순하고 일관된 접근 방식을 제공합니다.`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `REST API는 상태를 관리하지 않는 stateless한 특성을 가집니다. 상태가 없다는 것은 클라이언트가 서버의 요청을 보낼 때 이전 요청의 영향을 받지 않음을 의미합니다.
-        예를 들어 /login으로 로그인 요청을 보내고 로그인이 되어 다음 페이지인 /page로 넘어갔다면 /page로 리소스를 불러올 때, 이전 요청에서 login한 사실을 서버가 알고 있어야 한다면 그것은 상태가 있는 아키텍처인 것입니다.
-        서버는 각 요청을 독립적으로 처리하고, 클라이언트의 세션 상태를 유지할 필요가 없습니다. 이는 서버의 부하를 줄이고, 확장성을 높이는데 도움이 됩니다.
+				value: `예: GET /users/123 (특정 사용자 조회), POST /users (사용자 생성).`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `무상태성(Statelessness)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `REST API는 상태를 관리하지 않는 stateless한 특성을 가집니다. 상태가 없다는 것은 클라이언트가 서버의 요청을 보낼 때 각 요청은 독립적으로 처리되며, 서버는 이전 요청의 상태를 기억하지 않습니다. <b>클라이언트는 필요한 모든 정보를 요청에 포함</b>해야 합니다.
+				이는 서버의 부하를 줄이고, 확장성을 높이는데 도움이 됩니다.
         HTTP는 기본적으로 상태가 없는 프로토콜 입니다. 따라서 HTTP를 사용하는 웹 애플리케이션은 기본적으로 상태가 없는 구조를 따릅니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `캐시 가능 (Cacheable)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `응답 데이터는 캐시 가능 여부를 명시할 수 있어, 클라이언트나 중간 서버가 동일한 요청에 대해 이전 응답을 재사용할 수 있습니다. 이는 성능을 향상시킵니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `계층화 시스템 (Layered System)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `클라이언트는 서버와 직접 통신하는지, 아니면 프록시나 게이트웨이 같은 중간 계층을 거치는지 알 필요가 없습니다. 이는 보안과 확장성을 높입니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `리소스 중심 (Resource-Based)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `모든 데이터는 리소스로 표현되며, 클라이언트는 리소스를 조작합니다. 리소스는 JSON, XML 등의 형식으로 표현됩니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `HTTP 프로토콜 활용`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `REST는 주로 HTTP를 기반으로 동작하며, 상태 코드(200 OK, 404 Not Found 등)를 사용해 요청의 성공/실패 여부를 전달합니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `기타`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>확장성</b>: Stateless와 계층화 덕분에 서버 부하를 분산하기 쉽습니다.
+<b>유연성</b>: 다양한 클라이언트(웹, 모바일 등)에서 사용 가능합니다.
+<b>단순성</b>: 직관적인 설계로 개발과 유지보수가 용이합니다.
+`,
 			},
 			{
 				type: ComponentType.NORMAL,
