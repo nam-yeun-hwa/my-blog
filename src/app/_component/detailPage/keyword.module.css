@@ -3,6 +3,7 @@
 }
 
 .keywordContainer {
+	flex-wrap: wrap;
 	display: flex;
 	gap: 5px;
 	margin-top: 10px;

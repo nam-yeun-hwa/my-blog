@@ -5849,6 +5849,297 @@ return (
 			},
 		],
 	},
+	{
+		id: 45,
+		title: '[TECH-QA] 자바스크립트 비동기 함수',
+		date: '2025-03-13 11:40:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA', 'Javascript'],
+		preview: `자바스크립트는 단일 스레드(Single-threaded) 언어로, 한 번에 하나의 작업만 처리할 수 있다. 이는 코드가 순차적으로 실행된다는 의미인데, 만약 모든 작업을 동기적으로 처리한다면 시간이 오래 걸리는 작업(예: 서버 요청, 파일 읽기)이 끝날 때까지 프로그램 전체가 멈춰버릴 수 있다.`,
+		post: [
+			{
+				type: ComponentType.KEYWORD,
+				value: `지연 작업을 효율적으로 처리하여 응답성 향상으로 사용자 경험을 개선, 자원을 최적화(성능 최적화)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트는 단일 스레드(Single-threaded) 언어로, 한 번에 하나의 작업만 처리할 수 있다. 이는 코드가 순차적으로 실행된다는 의미인데, 만약 모든 작업을 동기적으로 처리한다면 시간이 오래 걸리는 작업(예: 서버 요청, 파일 읽기)이 끝날 때까지 프로그램 전체가 멈춰버릴 수 있다. 자바스크립트에서는 이런 문제를 해결하기 위해 비동기 함수를 사용하는데 이는 시간 지연 작업을 효율적으로 처리하고, 사용자 경험을 개선하며, 자원을 최적화 할수 있게 해준다. 이러한 특성 덕분에 비동기 프로그래밍은 현대 웹 개발에서 필수적인 요소로 자리 잡았으며, Promise와 async/await를 활용하면 더욱 강력하고 깔끔한 코드를 작성할 수 있다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `시간 지연 작업 처리에 대해 응답성 향상`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `네트워크 요청(예: API 호출), 파일 입출력, 타이머(setTimeout) 등은 결과를 즉시 얻을 수 없는 작업이다. 동기 방식으로 처리하면 응답이 올 때까지 프로그램이 대기 상태에 빠지게 된다.</br></br>
+
+예를들면 사용자가 웹사이트에서 버튼을 눌렀을 때 서버에서 데이터를 가져오는 데 3초가 걸린다면, 동기 방식에서는 3초 동안 브라우저가 멈춰 사용자 경험이 나빠지는 경험이 있다.</br></br>
+위와 같은 상황에서 비동기 함수는 시간이 오래 걸리는 작업을 기다리지 않고, 다른 작업을 <b>병렬적으로 수행</b>할 수 있어
+사용자가 회원가입 버튼을 눌렀을 때 서버에 데이터를 전송하고 응답을 기다리는 동안 "로딩 중" 메시지를 표시하며, 사용자가 화면을 스크롤하거나 다른 버튼을 클릭할 수 있게 해준다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `사용자 경험(UX) 개선`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위에서도 이야기 했지만 비동기 처리를 통해 시간이 걸리는 작업을 백그라운드에서 실행하여, 그 동안 사용자가 다른 인터랙션을 계속할 수 있도록 해준다.예를 들면 유튜브에서 동영상 로딩 중에도 사용자가 댓글을 읽거나 좋아요를 누를 수 있는 이유가 비동기 처리 덕분이다.
+`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `자원 효율성`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `작업이 완료되기를 기다리는 동안 CPU와 메모리를 유휴 상태로 두지 않고, 다른 작업을 수행할 수 있어 자원을 효율적으로 활용할수 있다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `현실적인 애플리케이션 요구사항`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `현대 웹 애플리케이션은 다중 작업, 즉  데이터 로드, 이미지 렌더링, 사용자 입력 처리을 동시에 처리해야 하는데, 이를 비동기 방식으로만 구현할 수 있다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `가독성과 유지보수성 개선 aync/await`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `async/await는 ES2017(ECMAScript 2017)에서 도입된 비동기 작업 처리 문법으로, 비동기 코드를 보다 간결하고 직관적으로 작성할 수 있게 해준다. 기존의 콜백 함수를 연속적으로 호출하는 방식은 가독성이 떨어지고 로직 수정이 어려운 "콜백 지옥(callback hell)" 문제를 일으킬 수 있는데 async/await는 이러한 문제를 해결하며, 비동기 작업을 동기 코드처럼 사용할 수 있다.
+`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `async 키워드로 정의된 함수는 항상 Promise 객체를 반환한다.
+
+async 함수 내부에서 사용되며, 비동기 작업(Promise)이 완료될 때까지 기다린 후 결과를 반환한다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 콜백 방식
+getData(function (data) {
+  processData(data, function (result) {
+    saveData(result, function (response) {
+      console.log(response);
+    });
+  });
+});
+
+// async/await 방식
+async function handleData() {
+  const data = await getData();
+  const result = await processData(data);
+  const response = await saveData(result);
+  console.log(response);
+}`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>에러 처리</b>: try/catch 문을 사용해 비동기 작업 중 발생한 오류를 깔끔하게 처리할 수 있다.
+`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `async function fetchUserData() {
+  try {
+    const response = await fetch('https://api.example.com/users');
+    const data = await response.json();
+    console.log('사용자 데이터:', data);
+  } catch (error) {
+    console.error('에러 발생:', error);
+  }
+}
+
+fetchUserData();`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 코드에서 fetch는 비동기적으로 데이터를 가져오는 함수이다. await를 사용해 응답이 완료될 때까지 기다린 후, JSON 데이터를 파싱한다. 에러가 발생하면 catch 블록에서 처리된다. async/await 방식이 훨씬 읽기 쉽고 디버깅도 간편해진다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Promise란`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Promise는 비동기 작업을 다루기 위한 객체로, 작업의 성공(resolve) 또는 실패(reject) 상태를 명확히 관리할 수 있고 비동기 작업의 흐름을 체계적으로 처리하는 데 유용합니다. `,
+			},
+			{
+				type: ComponentType.H4,
+				value: `구성`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `new Promise 생성자를 통해 정의되며, 내부에서 resolve 또는 reject 함수를 호출합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const myPromise = new Promise((resolve, reject) => {
+  // 비동기 작업 시뮬레이션 (예: 2초 후 결과 반환)
+  setTimeout(() => {
+    const success = true; // 성공 여부를 시뮬레이션
+    if (success) {
+      resolve("작업이 성공적으로 완료되었습니다!"); // 성공 시 resolve 호출
+    } else {
+      reject("작업이 실패했습니다."); // 실패 시 reject 호출
+    }
+  }, 2000);
+});
+
+// Promise 사용
+myPromise
+  .then((result) => {
+    console.log(result); // 2초 후: "작업이 성공적으로 완료되었습니다!"
+  })
+  .catch((error) => {
+    console.error(error); // 실패 시 출력
+  });`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `상태`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `pending : 비동기 작업이 아직 완료되지 않은 상태
+				fulfilled : 비동기 작업이 성공적으로 완료된 상태
+				reject : 비동기 작업이 실패한 상태`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function simulateAsyncTask(delay, shouldSucceed) {
+  return new Promise((resolve, reject) => {
+    console.log("상태: pending - 작업이 시작되었으며 아직 완료되지 않았습니다.");
+
+    setTimeout(() => {
+      if (shouldSucceed) {
+        resolve("작업이 성공적으로 완료되었습니다!");
+        // 상태: fulfilled - 작업이 성공적으로 끝난 상태
+      } else {
+        reject(new Error("작업이 실패했습니다."));
+        // 상태: rejected - 작업이 실패한 상태
+      }
+    }, delay);
+  });
+}
+
+// 1. 성공 케이스 (fulfilled 상태로 전환)
+const successPromise = simulateAsyncTask(2000, true);
+console.log("Promise 생성 직후:", successPromise); // Promise { <pending> }
+
+successPromise
+  .then((result) => {
+    console.log("상태: fulfilled -", result); // 2초 후: "작업이 성공적으로 완료되었습니다!"
+    console.log("Promise 상태 확인:", successPromise); // Promise { "작업이 성공적으로 완료되었습니다!" }
+  })
+  .catch((error) => {
+    console.error("에러:", error.message);
+  });
+
+// 2. 실패 케이스 (rejected 상태로 전환)
+const failPromise = simulateAsyncTask(1500, false);
+console.log("Promise 생성 직후:", failPromise); // Promise { <pending> }
+
+failPromise
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log("상태: rejected -", error.message); // 1.5초 후: "작업이 실패했습니다."
+    console.log("Promise 상태 확인:", failPromise); // Promise { <rejected> Error: 작업이 실패했습니다. }
+  });`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `메서드`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `.then(): 성공 시 호출.
+.catch(): 실패 시 호출.
+`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = true; // 성공 여부 시뮬레이션
+      if (success) {
+        resolve('데이터 로드 성공');
+      } else {
+        reject('데이터 로드 실패');
+      }
+    }, 2000);
+  });
+}
+
+fetchData()
+  .then((result) => console.log(result)) // 2초 후: "데이터 로드 성공"
+  .catch((error) => console.error(error)); // 실패시 호출`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Promise 객체는 비동기 작업의 성공/실패를 처리하며 .then()과 .catch()로 결과를 핸들링합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `async/await와 Promise의 차이`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `에러 처리`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>Promise </b>: .catch()로 실패를 처리.
+<b>async/await</b>: try/catch로 에러를 핸들링.
+`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// Promise 방식
+function getData() {
+  fetch('https://api.example.com/data')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+}
+
+// async/await 방식
+async function getData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `확장성과 병렬 처리`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Promise.all을 사용하면 여러 비동기 작업을 병렬로 처리하고 결과를 한 번에 받을 수 있다. 여러 API에서 데이터를 동시에 가져와야 할 때, Promise.all을 사용해 모든 요청이 완료된 후 결과를 처리한다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `async function fetchMultipleData() {
+  const [userData, postData] = await Promise.all([
+    fetch('https://api.example.com/users'),
+    fetch('https://api.example.com/posts'),
+  ]);
+  console.log(await userData.json(), await postData.json());
+}`,
+			},
+		],
+	},
 ];
 
 /**
