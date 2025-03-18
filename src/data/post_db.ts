@@ -6140,6 +6140,85 @@ async function getData() {
 			},
 		],
 	},
+	{
+		id: 46,
+		title: '[TECH-QA] 자바스크립트 호이스팅과 실행 컨텍스트',
+		date: '2025-03-18 15:33:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA', 'Javascript'],
+		preview: `자바스크립트는 코드를 한줄 한줄 실행하기에 앞서 선언된 변수와 함수 클래스 등의 선언문을 찾아 런타임 이전에 한번 실행해 미리 메모리에 올려놓습니다. 이를 호이스팅이라고 합니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트의 호이스팅(hoisting)은 코드를 한 줄 한 줄 실행하기에 앞서, 선언된 변수, 함수, 클래스 등의 선언문을 코드의 최상단으로 끌어올려 런타임 이전에 한 번 실행해 메모리에 미리 올려놓는 과정을 의미합니다. 이는 자바스크립트 엔진이 코드를 실행하기 전에 실행 컨텍스트(Execution Context)를 생성하며 변수와 함수 선언을 처리하는 방식에서 비롯됩니다. 호이스팅 덕분에 개발자는 코드의 물리적 위치와 상관없이 변수나 함수를 사용할 수 있지만, 이로 인해 예상치 못한 동작이 발생할 수도 있어 주의가 필요합니다.
+
+
+				`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `실행 컨텍스트(Execution Context)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `실행 컨텍스트(Execution Context)는 자바스크립트에서 코드가 실행되는 환경을 정의하고 관리하는 내부적인 데이터 구조입니다. 자바스크립트 엔진이 실행 컨텍스트를 생성한다는 것은 코드 실행을 준비하기 위해 필요한 모든 정보를 설정하는 과정을 의미이기도 합니다.
+자바스크립트 엔진이 코드를 실행할 때, 해당 코드가 올바르게 동작할 수 있도록 변수, 함수, 스코프, this 바인딩 등을 추적하고 관리하기 위해 실행 컨텍스트를 생성합니다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `쉽게 말해, 실행 컨텍스트는 <b>현재 실행 중인 코드와 그 코드를 실행하기 위한 환경 정보</b>를 담고 있는 <b>일종의 컨테이너</b>라고 볼 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `실행 컨텍스트(Execution Context)의 생성 과정`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `생성 단계(Creation Phase)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `생성 단계(Creation Phase)에서는 코드가 실제로 실행되기 전에 실행 컨텍스트를 초기화합니다. 변수, 함수 선언, 함수의 인자 등이 컨텍스트에 저장됩니다. ES6 이후로는 환경 레코드(Environment Record)라는 개념으로 확장되었습니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `var로 선언된 변수는 undefined로 초기화됩니다.
+let과 const는 선언만 되고 초기화는 나중에 이루어집니다(TDZ).
+함수 선언은 전체가 메모리에 올라가 바로 사용 가능해집니다.
+`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `현재 컨텍스트에서 접근 가능한 외부 변수들을 스코프 체인(Scope Chain)에 연결합니다. 이는 중첩된 함수에서 상위 스코프를 참조할 수 있게 합니다. 현재 실행 중인 코드에서 this가 가리킬 객체가 결정됩니다. 함수 호출 방식(예: 메서드 호출, 일반 함수 호출 등)에 따라 달라집니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `실행 단계(Execution Phase)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `실행 단계(Execution Phase)에서는 생성 단계가 완료되면 코드가 한 줄씩 실행됩니다. 이 단계에서 변수에 값이 할당(Assignment)되고, 함수가 호출되며, 실제 로직이 수행됩니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `실행 컨텍스트의 종류`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>전역 실행 컨텍스트(Global Execution Context)</b>: 전역 스코프에서 실행되는 코드를 위한 컨텍스트입니다. 프로그램이 시작될 때 하나만 생성되며, 전역 객체(브라우저에서는 window, Node.js에서는 global)와 연결됩니다.
+
+<b>함수 실행 컨텍스트(Function Execution Context)</b>: 함수가 호출될 때마다 생성됩니다. 각 함수 호출은 독립적인 실행 컨텍스트를 가지며, 함수가 끝나면 해당 컨텍스트는 스택에서 제거됩니다.
+
+<b>Eval 실행 컨텍스트(Eval Execution Context)</b>: eval() 함수가 실행될 때 생성됩니다(드물게 사용됨).
+
+`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				value: `컨텍스트(this)를 제어하는 함수 call(), 컨텍스트(this)를 제어하는 함수 apply(), 컨텍스트(this)를 제어하는 함수 bind() `,
+			},
+		],
+	},
 ];
 
 /**
