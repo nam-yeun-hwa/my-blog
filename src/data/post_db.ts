@@ -6150,10 +6150,50 @@ async function getData() {
 		post: [
 			{
 				type: ComponentType.NORMAL,
-				value: `자바스크립트의 호이스팅(hoisting)은 코드를 한 줄 한 줄 실행하기에 앞서, 선언된 변수, 함수, 클래스 등의 선언문을 코드의 최상단으로 끌어올려 런타임 이전에 한 번 실행해 메모리에 미리 올려놓는 과정을 의미합니다. 이는 자바스크립트 엔진이 코드를 실행하기 전에 실행 컨텍스트(Execution Context)를 생성하며 변수와 함수 선언을 처리하는 방식에서 비롯됩니다. 호이스팅 덕분에 개발자는 코드의 물리적 위치와 상관없이 변수나 함수를 사용할 수 있지만, 이로 인해 예상치 못한 동작이 발생할 수도 있어 주의가 필요합니다.
+				value: `자바스크립트의 호이스팅(hoisting)은 코드를 한 줄 한 줄 실행하기에 앞서, 선언된 변수, 함수, 클래스 등의 선언문을 코드의 최상단으로 끌어올려 런타임 이전에 한 번 실행해 메모리에 미리 올려놓는 과정을 의미합니다. 이는 자바스크립트 엔진이 코드를 실행하기 전에 실행 컨텍스트(Execution Context)를 생성하며 변수와 함수 선언을 처리하는 방식에서 비롯됩니다. 호이스팅 덕분에 개발자는 코드의 물리적 위치와 상관없이 변수나 함수를 사용할 수 있지만, 이로 인해 예상치 못한 동작이 발생할 수도 있어 주의가 필요합니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `변수 호이스팅`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>var 키워드로 선언된 변수</b>는 호이스팅 과정에서 변수 선언과 동시에 undefined로 초기화됩니다. 즉, 변수가 선언된 줄 이전에 해당 변수를 호출하더라도 에러가 발생하지 않고 undefined 값을 반환합니다. 이는 var가 선언(Declaration)과 초기화(Initialization)가 동시에 이루어지기 때문입니다. </br></br>
+				반면, <b>let과 const 키워드로 선언된 변수</b>는 호이스팅이 발생하기는 하지만, 선언(Declaration)과 초기화(Initialization)가 동시에 이루어지지 않습니다. let과 const로 선언된 변수는 실행 컨텍스트 내의 <b>선언적 환경 레코드(Declarative Environment Record)</b>에 등록됩니다. 이는 실행 컨텍스트의 생성 단계에서 변수는 선언 되었으나, 초기화는 실제 코드 실행 시점(변수가 선언된 시점)에서 초기화가 이루어 집니다. </br></br>
 
+변수가 선언된 시점부터 실제 초기화가 이루어질 때까지의 구간을 <b>TDZ(Temporary Dead Zone, 임시 사각지대)</b>라고 부릅니다. 이 구간에서 변수를 참조하려고 하면 메모리가 아직 할당되지 않았기 때문에 ReferenceError가 발생합니다.
 
-				`,
+`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `함수 선언과 호이스팅`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>함수 선언(Function Declaration)</b>의 경우, 변수와는 다른 방식으로 호이스팅됩니다. 함수 선언은 선언과 초기화, 그리고 함수 본문 전체가 함께 메모리에 올라가기 때문에 함수가 선언된 줄 이전에 호출하더라도 정상적으로 동작합니다. 이는 함수 선언이 실행 컨텍스트의 생성 단계에서 완전히 처리되기 때문입니다. 단, 함수 표현식(Function Expression)으로 작성된 경우에는 다릅니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>함수 표현식(Function Expression)</b>은 변수에 함수를 할당하는 방식이므로, <u>사용된 변수 키워드(var, let, const)</u>에 따라 동작이 달라집니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `bar(); // TypeError: bar is not a function
+
+var bar = function() {
+  console.log("This is bar");
+};`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 예시에서 bar는 var로 선언되었으므로 undefined로 초기화된 상태에서 함수 호출이 시도되어 에러가 발생합니다. 이는 사용된 변수 선언 키워드(var, let, const)의 초기화 규칙을 따르기 때문입니다. 다만, 발생하는 에러의 종류는 키워드에 따라 달라집니다. `,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>객체 환경 레코드(Object Environment Record)</b>: 주로 전역 스코프나 with 문에서 사용되며, 변수와 함수가 객체의 속성처럼 저장됩니다.</br>
+<b>선언적 환경 레코드(Declarative Environment Record)</b>: 함수 스코프나 블록 스코프에서 사용되며, let, const와 같은 변수가 저장됩니다.
+`,
 			},
 			{
 				type: ComponentType.H3,
@@ -6169,16 +6209,12 @@ async function getData() {
 				value: `쉽게 말해, 실행 컨텍스트는 <b>현재 실행 중인 코드와 그 코드를 실행하기 위한 환경 정보</b>를 담고 있는 <b>일종의 컨테이너</b>라고 볼 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
-				value: `실행 컨텍스트(Execution Context)의 생성 과정`,
-			},
-			{
 				type: ComponentType.H4,
 				value: `생성 단계(Creation Phase)`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `생성 단계(Creation Phase)에서는 코드가 실제로 실행되기 전에 실행 컨텍스트를 초기화합니다. 변수, 함수 선언, 함수의 인자 등이 컨텍스트에 저장됩니다. ES6 이후로는 환경 레코드(Environment Record)라는 개념으로 확장되었습니다.`,
+				value: `실행 컨텍스트(Execution Context) 생성 단계(Creation Phase)에서는 코드가 실제로 실행되기 전에 실행 컨텍스트를 초기화합니다. 변수, 함수 선언, 함수의 인자 등이 컨텍스트에 저장됩니다. ES6 이후로는 환경 레코드(Environment Record)라는 개념으로 확장되었습니다.`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
@@ -6197,7 +6233,7 @@ let과 const는 선언만 되고 초기화는 나중에 이루어집니다(TDZ).
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `실행 단계(Execution Phase)에서는 생성 단계가 완료되면 코드가 한 줄씩 실행됩니다. 이 단계에서 변수에 값이 할당(Assignment)되고, 함수가 호출되며, 실제 로직이 수행됩니다.`,
+				value: `실행 컨텍스트(Execution Context) 실행 단계(Execution Phase)에서는 생성 단계가 완료되면 코드가 한 줄씩 실행됩니다. 이 단계에서 변수에 값이 할당(Assignment)되고, 함수가 호출되며, 실제 로직이 수행됩니다.`,
 			},
 			{
 				type: ComponentType.H3,
@@ -6213,6 +6249,7 @@ let과 const는 선언만 되고 초기화는 나중에 이루어집니다(TDZ).
 
 `,
 			},
+
 			{
 				type: ComponentType.KEYWORD,
 				value: `컨텍스트(this)를 제어하는 함수 call(), 컨텍스트(this)를 제어하는 함수 apply(), 컨텍스트(this)를 제어하는 함수 bind() `,
