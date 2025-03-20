@@ -6256,6 +6256,238 @@ let과 const는 선언만 되고 초기화는 나중에 이루어집니다(TDZ).
 			},
 		],
 	},
+	{
+		id: 47,
+		title: '[TECH-QA] 자바스크립트 클로저',
+		date: '2025-03-20 10:51:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA', 'Javascript'],
+		preview: `함수가 선언될 때 자동으로 생성되는 렉시컬 환경에 대한 설명입니다. 렉시컬 환경은 스코프 체인을 형성하고 스코프 체인은 함수가 선언될 때의 모든 변수와 함수를 포함하는 렉시컬 스코프를 형성 합니다. 외부함수가 실행 되고 반환된 후에도 외부함수의 범위 내의 내부 함수에 체이닝을 할 수 있는 함수입니다. 정보를 은닉하기 위해서 주로 사용합니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `함수가 선언될 때 자동으로 생성되는 렉시컬 환경에 대한 설명이다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `클로저는 함수가 자신이 <b>선언된 환경을 기억</b>하고, 그 환경에 있는 <b>변수나 데이터를 계속 사용</b>할 수 있게 해주는 메커니즘이다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `조금 더 풀어서 설명해보면
+자바스크립트에서 함수는 단순히 코드 덩어리가 아니라, 그 함수가 만들어질 때 주변 환경(스코프)이 만들어지고 이 주변 환경을 "렉시컬 스코프(lexical scope)"라고 부른다. 함수가 어디서 선언되었는지에 따라 접근할 수 있는 변수들이 결정되는데 </br>클로저는 바로 이 렉시컬 스코프를 활용해서, <u>외부 함수가 실행을 마치고 사라진 뒤에도 내부 함수가 그 외부 함수의 변수에 접근할 수 있게 만드는 것이다.</u>
+예를 들어서, 클로저는 아래와 같이 작동한다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `외부함수 내부에 함수가 존재하는 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function greetMaker(name) {
+
+  let greeting = "안녕, " + name + "!"; // 외부 함수의 변수
+  
+  function sayHello() {
+    console.log(greeting); // 내부 함수에서 외부 변수 사용
+  }
+
+  return sayHello; // 내부 함수 반환
+}
+
+const greetToMin = greetMaker("민수"); // "안녕, 민수!"가 저장됨
+greetToMin(); // "안녕, 민수!" 출력`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위코드 에서 greetMaker가 실행을 끝내면 일반적으로 greeting 변수는 사라질 것 같지만, 클로저 덕분에 sayHello가 그 변수를 계속 기억하고 있다. 그래서 greetToMin()을 호출하면 "안녕, 민수!"가 출력되는 것이다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `클로저의 멋진 점은 이런 특성을 활용해서 <b>데이터를 보호</b>하거나, <b>특정 상태를 유지</b>하는 데 사용할 수 있다는 점이 있다..`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function createCounter() {
+  let count = 0;
+  return function() {
+    count += 1;
+    return count;
+  };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `여기서 count는 createCounter 함수 밖에서는 접근할 수 없지만, <b>반환된 함수가 클로저로 count를 기억하고 있어서</b> 값을 계속 증가시킬 수 있죠. 이런 식으로 클로저는 개인적인 공간을 만들어주는 역할을 한다.
+즉, 클로저는 함수와 그 함수가 접근할 수 있는 환경이 함께 묶여서, 유연하면서도 강력한 코드를 작성할 수 있게 해주는 자바스크립트의 핵심 기능 중 하나이다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `실행 컨텍스트와 렉시컬 스코프`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `먼저, 실행 컨텍스트는 자바스크립트 코드가 실행될 때 만들어지는 환경이다. 이 환경에는`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `변수 객체(variable object) 
+				스코프 체인(scope chain)
+				그리고 this 값`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `같은 정보가 포함돼 있다. 함수가 호출될 때마다 새로운 실행 컨텍스트가 생성되는데, 이건 스택 형태로 쌓여서 현재 실행 중인 코드와 그 주변 환경을 관리한다.
+여기서 중요한 건 렉시컬 스코프인데 렉시컬 스코프는 함수가 어디서 선언되었는지에 따라 그 함수가 접근할 수 있는 변수의 범위가 정해진다. 즉, 함수가 작성된 위치에 따라 "정적으로" 스코프가 결정된다는 뜻이다. 이 렉시컬 스코프는 실행 컨텍스트가 만들어질 때 함수의 환경을 기억하는 데 핵심적인 역할을 한다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `스코프 체인`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위에서 말한 스코프 체인은 함수가 선언된 렉시컬 스코프를 기반으로, 변수에 접근할 때 따라가는 일종의 "탐색 경로"이다. 자바스크립트는 참조할 변수가 현재 스코프에 없으면, 그 상위 스코프로 범위를 넓혀 가며 찾아 올라가는데 실행 컨텍스트 안에 저장된 스코프 체인이 바로 이 과정을 가능하게 해줍니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `클로저의 탄생`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `클로저는 내부 함수가 외부 함수의 변수에 접근하는 상황에서 나타난다. 외부 함수가 실행을 마치고 실행 컨텍스트가 스택에서 제거되더라도, <b>내부 함수는 외부 함수의 렉시컬 환경을 참조할 수 있다.</b> 
+				
+				이게 가능한 이유는 내부 함수가 스코프 체인을 통해 외부 함수의 변수가 저장된 환경을 계속 "기억"하고 있기 때문이고 자바스크립트 엔진은 변수나 함수가 어떤 스코프에서 여전히 참조되고 있는 경우, 그 데이터를 메모리에서 제거하지 않고 유지하도록 설계되어 있다.
+`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `가비지 컬렉션과 참조`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트 엔진(예: V8 엔진 같은 경우)에는 가비지 컬렉터(Garbage Collector, GC)가 있어서 더 이상 사용되지 않는 메모리를 정리해준다. 가비지 컬렉터는 기본적으로 "도달 가능성(reachability)"이라는 개념을 기준으로 동작한다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `어떤 데이터가 코드에서 더 이상 도달(참조)될 수 없으면, 그 데이터는 메모리에서 해제(garbage collected)될 대상이 된다.
+반대로, 어떤 데이터가 여전히 참조되고 있으면 메모리에 유지된다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `클로저의 경우, 내부 함수가 외부 함수의 렉시컬 환경을 스코프 체인을 통해 참조하고 있으면, 그 렉시컬 환경과 그 안에 있는 변수들은 "도달 가능"한 상태로 간주된다. 그래서 가비지 컬렉터가 이 메모리를 정리하지 않고 남겨둔다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function outer() {
+  let x = 10;
+  function inner() {
+    console.log(x);
+  }
+  return inner;
+}
+
+const closure = outer();
+closure(); // 10 출력`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `여기서 outer가 끝난 후에도 closure 변수가 inner 함수를 참조하고 있다.
+inner는 스코프 체인을 통해 outer의 렉시컬 환경(그 안에 x = 10 포함)을 참조하고 있다.
+자바스크립트 엔진은 closure가 살아있는 한, inner가 참조하는 x와 그 렉시컬 환경이 도달 가능하다고 판단해서 메모리에서 제거하지 않는다.
+
+`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `렉시컬 환경`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `렉시컬 환경의 구성 요소`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `환경 레코드(Environment Record): 변수, 함수 선언, 매개변수 등이 저장됨.
+외부 렉시컬 환경 참조(Outer Reference): 상위 스코프의 렉시컬 환경을 가리킴.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `스코프 체인(Scope Chain)과 렉시컬 환경`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `스코프 체인은 렉시컬 환경이 직접 가지고 있는 건 아니고 렉시컬 환경의 "외부 참조"를 통해 스코프 체인이 만들어진다.
+
+스코프 체인은 실행 컨텍스트가 실행될 때, 현재 렉시컬 환경과 그 외부 참조를 연결하면서 형성되는 동적인 체인이라고 볼 수 있다. 즉, 렉시컬 환경은 스코프 체인 자체를 "가지고 있다"고 표현하기보다는 "스코프 체인을 가능하게 하는 구조"이다.
+`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `렉시컬 스코프(Lexical Scope)와 렉시컬 환경`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `렉시컬 환경은 함수가 선언된 위치에 따라 정적으로 결정되며 함수가 선언될 때 그 주변 환경을 캡처해서 렉시컬 스코프를 만든다.
+`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `this 값과 실행컨텍스트`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `실행 컨텍스트는 렉시컬 환경(Lexical Environment), 변수 객체(Variable Object), 그리고 this 바인딩을 포함하는 렉시컬 환경보다 더 큰 구조이다. 렉시컬 환경은 그 안에서 변수와 스코프만 다루고, this는 함수가 "어떻게 호출되었는지"에 따라 동적으로 결정 한다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `예제로 확인`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function outer() {
+  let x = 10;
+  function inner() {
+    console.log(x, this);
+  }
+  return inner;
+}
+
+const closure = outer.call({ name: "test" });
+closure(); // 10, { name: "test" } 가져오지만, 이건 렉시컬 환경이 this를 포함해서가 아니라 화살표 함수 자체의 특성 때문이다.
+`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>렉시컬 환경</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `outer의 렉시컬 환경: { x: 10, inner: 함수 }, 외부 참조는 전역.
+inner의 렉시컬 환경: 로컬 변수 없음, 외부 참조는 outer의 렉시컬 환경.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>스코프 체인</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `inner 실행 시 inner → outer → 전역으로 연결.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>this</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `outer.call로 { name: "test" }가 바인딩됨. 이건 렉시컬 환경이 아니라 실행 컨텍스트에서 결정.`,
+			},
+		],
+	},
 ];
 
 /**
