@@ -6488,6 +6488,51 @@ inner의 렉시컬 환경: 로컬 변수 없음, 외부 참조는 outer의 렉�
 			},
 		],
 	},
+	{
+		id: 48,
+		title: `[한입 영어] I'm sure 패턴`,
+		date: '2025-03-21 12:21:33',
+		folder: Folder.ENGLISH,
+		tag: ['English', '한입 영어'],
+		preview: `"I'm sure you did a good job. 난 네가 잘했을 거라고 확신해"`,
+		post: [
+			{
+				type: ComponentType.H3,
+				value: `Today English`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `난 네가 잘했을 거라고 확신해`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `I'm sure you did a good job.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `문장 분석`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `I'm sure → 나는 확신해
+you did → 네가 ~을 했어 (do의 과거형)
+a good job → 좋은 일, 잘한 일
+`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `그런데 good 앞에 a가 붙을까?`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `"job"은 <b>가산명사</b>라서 단수로 쓰일 때는 반드시 <b>관사(a/an/the)</b>가 필요합니다.</br></br>
+
+✅ "a good job" (O) → "좋은 하나의 일"</br>
+❌ "good job" (X) → 문법적으로 틀림 (명사 앞에 관사가 없어서)`,
+				propsType: propsPromptsType.TIP,
+			},
+		],
+	},
 ];
 
 /**
