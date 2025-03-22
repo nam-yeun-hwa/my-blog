@@ -6497,19 +6497,18 @@ inner의 렉시컬 환경: 로컬 변수 없음, 외부 참조는 outer의 렉�
 		preview: `"I'm sure you did a good job. 난 네가 잘했을 거라고 확신해"`,
 		post: [
 			{
-				type: ComponentType.H3,
-				value: `Today English`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `난 네가 잘했을 거라고 확신해`,
+				type: ComponentType.H2,
+				value: `case 1`,
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				value: `I'm sure you did a good job.`,
+				value: `<b>I'm sure you did a good job.</b></br>
+				 "난 네가 잘했을 거라고 확신해" 
+				`,
 			},
+
 			{
-				type: ComponentType.H3,
+				type: ComponentType.H4,
 				value: `문장 분석`,
 			},
 			{
@@ -6528,8 +6527,104 @@ a good job → 좋은 일, 잘한 일
 				value: `"job"은 <b>가산명사</b>라서 단수로 쓰일 때는 반드시 <b>관사(a/an/the)</b>가 필요합니다.</br></br>
 
 ✅ "a good job" (O) → "좋은 하나의 일"</br>
-❌ "good job" (X) → 문법적으로 틀림 (명사 앞에 관사가 없어서)`,
+❌ "good job" (X) → 문법적으로 틀림 (명사 앞에 관사가 없어서)</br></br>
+
+✅ "a nice day" → (하루라는 명사는 가산명사)</br>
+"Have a nice day!" (좋은 하루 보내!)</br></br>
+✅ "a big mistake" → (실수도 가산명사)</br>
+"That was a big mistake." (그건 큰 실수였어.)`,
 				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.H2,
+				value: `case 2`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>I'm sure things will work out.</b></br>
+				 "나는 확실해, 모든 일이 잘 풀릴 거야."
+				`,
+			},
+
+			{
+				type: ComponentType.H4,
+				value: `문장 분석`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `I'm sure → "나는 확신해" 또는 "나는 확실해"
+things → "일" 또는 "상황" (여기서는 상황을 의미)
+will work out → "잘 해결될 것이다" / "잘 풀릴 것이다"
+`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `case 3`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>I'm certain that learning English is a good thing for my future.</b></br>
+				"나는 영어를 배우는 것이 내 미래에 좋은 일이라고 확신해."
+				`,
+			},
+
+			{
+				type: ComponentType.H4,
+				value: `문장 분석`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `I'm certain that~ → "~을 확신해" (확신의 정도가 높음, "I'm sure"보다 더 강한 확신을 나타냄)
+learning English → "영어를 배우는 것" (동명사 사용)
+is a good thing → "좋은 일이다"
+for my future → "내 미래를 위해"
+`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `그런데 동명사(Gerund)란 무엇일까?`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `동명사는 동사의 원형에 -ing를 붙여서 명사처럼 사용하는 형태입니다. </br>
+즉, 동사의 성질(행동)을 가지면서도 문장에서 <b>주어, 목적어, 보어</b> 역할을 합니다.`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.H4,
+				value: `동명사의 주어 역할`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Swimming is good for health. → 수영하는 것은 건강에 좋다. 
+Learning English is fun. → 영어를 배우는 것은 재미있다.
+`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `동명사의 목적어 역할`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `I enjoy reading books. → 나는 <b>책 읽는 것</b>을 즐긴다.
+She finished writing the report. → 그녀는 <b>보고서를 작성하는 것</b>을 끝냈다.
+`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `📌 동명사를 <b>목적어</b>로 취하는 대표적인 <b>동사</b></br>
+ enjoy, finish, avoid, consider, mind, suggest, recommend 등`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.H4,
+				value: `동명사의 보어 역할`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `My favorite hobby is painting. → 내가 가장 좋아하는 취미는 그림 그리기이다.
+The hardest part of the job is dealing with customers. → 그 일에서 가장 어려운 부분은 고객을 상대하는 것이다.
+`,
 			},
 		],
 	},
