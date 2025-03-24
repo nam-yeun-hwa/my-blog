@@ -1,6 +1,7 @@
 import { propsPromptsType } from 'app/_component/detailPage/Prompts';
 import { table } from 'console';
 import { ComponentType, Folder, IPost, Level } from 'type/post';
+import tableStyle from 'app/_component/detailPage/table.module.css';
 
 /**
  * @constant totalPostlist
@@ -6347,11 +6348,12 @@ console.log(counter()); // 3`,
 			},
 			{
 				type: ComponentType.H3,
-				value: `스코프 체인`,
+				value: `스코프와 스코프 체인`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `위에서 말한 스코프 체인은 함수가 선언된 렉시컬 스코프를 기반으로, 변수에 접근할 때 따라가는 일종의 "탐색 경로"이다. 자바스크립트는 참조할 변수가 현재 스코프에 없으면, 그 상위 스코프로 범위를 넓혀 가며 찾아 올라가는데 실행 컨텍스트 안에 저장된 스코프 체인이 바로 이 과정을 가능하게 해줍니다.`,
+				value: `스코프는 어떤 변수에 접근할 수 있는 유효범위로 코드 어디서든 참조 할 수 있는 전역스코프와 함수자신과 하위함수에서만 참조할 수 있는 지역스코프가 있다. 함수 안에서 선언된 변수는 해당 함수에서만 사용할수 있으며 전역변수에 영향을 끼칠 수 없다. 
+				위에서 말한 스코프 체인은 함수가 선언된 렉시컬 스코프를 기반으로, 변수에 접근할 때 따라가는 일종의 "탐색 경로"이다. 자바스크립트는 내부 함수에서 참조할 변수가 현재 스코프에 없으면, 그 상위 스코프로 범위를 넓혀 가며 찾아 올라가는데 실행 컨텍스트 안에 저장된 스코프 체인이 바로 이 과정을 가능하게 해줍니다.`,
 			},
 			{
 				type: ComponentType.H3,
@@ -6625,6 +6627,292 @@ She finished writing the report. → 그녀는 <b>보고서를 작성하는 것<
 				value: `My favorite hobby is painting. → 내가 가장 좋아하는 취미는 그림 그리기이다.
 The hardest part of the job is dealing with customers. → 그 일에서 가장 어려운 부분은 고객을 상대하는 것이다.
 `,
+			},
+		],
+	},
+	{
+		id: 49,
+		title: `[생셩형 AI] midjourney - 스타일 코드`,
+		date: '2025-03-23 15:35:33',
+		folder: Folder.GENERATIVEAI,
+		tag: ['midjourney'],
+		preview: `미드저니(Midjourney)의 퍼스널라이즈(Personalize) 탭에서 프로파일(Profile)과 무드보드(Moodboard)는 모두 사용자의 취향을 반영해 AI 이미지 생성을 개인화하는 도구지만, 그 목적과 사용 방식에서 차이가 있습니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `미드저니(Midjourney)의 퍼스널라이즈(Personalize) 탭에서 프로파일(Profile)과 무드보드(Moodboard)는 모두 사용자의 취향을 반영해 AI 이미지 생성을 개인화하는 도구지만, 그 목적과 사용 방식에서 차이가 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `프로파일 (Profile)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `프로파일은 사용자의 미적 취향을 학습한 개인화된 스타일 설정입니다. 미드저니가 <b>사용자가 선호하는 시각적 스타일을 파악</b>해 이미지 생성 시 이를 반영합니다. 여러 프로젝트에 걸쳐 <b>"나만의 기본 스타일"</b>을 적용하고 싶을 때 유용합니다. 예를 들어, "나는 항상 선명하고 화려한 색감을 좋아해"라는 취향을 반영하고 싶다면 프로파일을 사용하세요.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `결과적으로 추상적이고 일반적인 취향(예: 밝은 색상, 강한 선, 사실적인 묘사 등)을 반영한 결과물이 생성됩니다.`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `사용자가 미드저니 웹사이트에서 이미지 쌍을 비교하며 선호하는 이미지를 선택(랭킹)하면, AI가 이를 기반으로 사용자의 스타일을 학습합니다.
+최소 <b>40번의 랭킹</b>을 해야 <b>프로파일이 활성화</b>
+약 <b>200번</b> 정도면 스타일이 <b>안정적</b>으로 자리잡고
+<b>2,000번</b>에 가까워질수록 <b>매우 정교</b>해집니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `a futuristic city --p [프로파일 코드]`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `프로파일 코드에 따라 사용자의 취향에 맞춘 미래 도시 이미지가 생성됩니다. 사용자의 전반적인 미적 성향을 반영하므로, 다양한 프롬프트에 걸쳐 일관된 스타일을 유지할 수 있습니다. `,
+			},
+			{
+				type: ComponentType.H3,
+				value: `무드보드 (Moodboard)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `사용자가 직접 업로드하거나 선택한 이미지를 기반으로 <b>특정 스타일이나 분위기를 정의</b>하는 도구입니다. 프로젝트별로 특화된 시각적 방향성을 설정하는 데 유용하고 <b>프로젝트별 특정 테마나 컨셉</b>에 맞춘 결과물이 필요할 때 적합합니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `사용자가 <b> 1장 이상의 이미지 업로드</b>하여 구체적인 이미지에서 영감을 받아 스타일을 학습하므로, 결과물이 <b>더 직접적</b>이고 프로젝트 맞춤형입니다.
+예를 들어, 빈티지 포스터 이미지를 업로드하면 그 스타일에 맞춘 결과물이 나옵니다.
+`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `a cozy cabin in the woods --p [무드보드 코드]`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `무드보드에 포함된 이미지의 분위기와 스타일을 반영한 아늑한 오두막 이미지가 생성됩니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `혼합 사용`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `a cyberpunk street --p [프로파일 코드] --p [무드보드 코드]`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `사용자의 기본 취향과 무드보드의 구체적 스타일이 결합된 이미지가 생성됩니다.`,
+			},
+		],
+	},
+	{
+		id: 50,
+		title: `[생셩형 AI] midjourney - 필수 명령어`,
+		date: '2025-03-24 11:02:33',
+		folder: Folder.GENERATIVEAI,
+		tag: ['midjourney'],
+		preview: `미드저니(Midjourney)는 AI를 활용해 텍스트 프롬프트로 이미지를 생성하는 도구로, 디스코드에서 작동합니다. 아래는 미드저니에서 가장 필수적이고 자주 사용되는 명령어와 그 설명입니다. 이 명령어들은 초보자부터 고급 사용자까지 유용하게 활용할 수 있습니다.`,
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `--ar (Aspect Ratio)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `생성되는 이미지의 가로세로 비율을 설정합니다. 기본값은 1:1(정사각형)입니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `a futuristic cityscape --ar 16:9`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `16:9 비율의 가로로 긴 미래 도시 이미지를 생성. 
+				--ar 4:3, --ar 2:3 등 원하는 비율로 조정 가능`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `--v (Version)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `미드저니의 모델 버전을 지정합니다. 최신 버전일수록 품질이 향상됩니다(2025년 3월 기준, V6가 최신).`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `a medieval castle --v 6`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `V6 모델로 더 정교한 중세 성 이미지를 생성.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `버전을 지정하지 않으면 기본 설정이 적용`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.H2,
+				value: `--q (Quality)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이미지의 품질을 조정합니다. 값은 0.25, 0.5, 1, 2로 설정 가능하며, 숫자가 높을수록 더 높은 해상도와 디테일을 제공합니다(단, 생성 시간이 길어질 수 있음).`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `a detailed dragon --q 2`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `고품질의 디테일한 용 이미지 생성.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `--no`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이미지에서 제외하고 싶은 요소를 지정합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `a forest landscape --no people`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `사람 없는 숲 풍경을 생성.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `여러 요소를 제외하려면 --no trees, water처럼 쉼표로 구분하세요.`,
+				propsType: propsPromptsType.TIP,
+			},
+		],
+	},
+	{
+		id: 51,
+		title: `[TECH-QA] 이벤트 버블링(Event Bubbling)과 이벤트 캡쳐링(Event Capturing)`,
+		date: '2025-03-24 15:02:33',
+		folder: Folder.GENERATIVEAI,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `이벤트 버블링(Event Bubbling)은 HTML에서 이벤트가 발생했을 때, 해당 이벤트가 발생한 요소에서 시작하여 상위 요소로 점진적으로 전파되는 현상을 의미합니다. 이는 DOM(Document Object Model)의 계층 구조를 따라 이벤트가 처리되는 기본 동작 방식입니다. `,
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `이벤트 버블링(Event Bubbling)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이벤트 버블링(Event Bubbling)은 HTML에서 이벤트가 발생했을 때, 해당 이벤트가 발생한 요소에서 시작하여 상위 요소로 점진적으로 전파되는 현상을 의미합니다. 이는 DOM(Document Object Model)의 계층 구조를 따라 이벤트가 처리되는 기본 동작 방식입니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `이벤트 버블링의 동작 원리`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이벤트 버블링은 사용자가 특정 요소에서 이벤트를 발생시켰을 때(예: 버튼 클릭), <b>해당 요소에서 이벤트가 처리된 후 부모 요소로 이벤트가 전달되는 과정</b>입니다. 예를 들어, &lt;div> 안에 &lt;button>이 있고 버튼을 클릭하면, 먼저 &lt;button>에서 이벤트가 처리되고, 그 다음 &lt;div>로 이벤트가 전파됩니다. 이 과정은 DOM 트리의 최상위 요소(보통 document나 window)에 도달할 때까지 계속됩니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `이벤트 위임(Event Delegation)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이벤트 버블링을 활용하면 이벤트 위임을 구현할 수 있습니다. 이벤트 위임은 개별 하위 요소마다 이벤트 핸들러를 등록하는 대신, <b>공통 부모 요소에 하나의 핸들러를 등록하여 하위 요소에서 발생한 이벤트를 처리하는 방식</b>입니다. 이는 코드 효율성을 높이고, 동적으로 추가된 요소에도 이벤트 처리를 적용할 수 있게 해줍니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `이벤트 전파 방지`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `때로는 이벤트가 <b>상위 요소로 전파되는 것을 막고 싶을 때</b>가 있습니다. 이를 위해 이벤트 객체의 stopPropagation() 메서드를 사용하면 이벤트가 더 이상 버블링 또는 캡쳐링되지 않도록 중지할 수 있습니다. 단, stopPropagation()은 이벤트 전파만 막을 뿐, 기본 동작(예: 링크 클릭 시 페이지 이동)을 막지는 않습니다. 기본 동작을 막으려면 preventDefault()를 추가로 사용해야 합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `HTML 구조`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;div id="parent">
+  &lt;button id="child1">버튼 1</button>
+  &lt;button id="child2">버튼 2</button>
+&lt;/div>`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `JavaScript 코드`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 부모 요소에 이벤트 핸들러 등록 (이벤트 위임)
+document.getElementById('parent').addEventListener('click', function(event) {
+  console.log('부모 요소에서 이벤트 감지:', event.target.id);
+  
+  // 특정 조건에서 이벤트 전파 중지
+  if (event.target.id === 'child1') {
+    console.log('child1 클릭 시 전파 중지');
+    event.stopPropagation();
+  }
+});
+
+// 개별 요소에 핸들러 추가 (비교용)
+document.getElementById('child1').addEventListener('click', function() {
+  console.log('child1에서 직접 처리');
+});`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `버블링 확인`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"버튼 1"(child1)을 클릭하면 먼저 child1에 등록된 핸들러가 실행되어 "child1에서 직접 처리"가 출력됩니다.
+이후 이벤트가 부모(parent)로 버블링되어 "부모 요소에서 이벤트 감지: child1"이 출력됩니다.
+추가로 stopPropagation()이 호출되므로 더 이상 상위로 전파되지 않습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `이벤트 위임 확인`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"버튼 2"(child2)를 클릭하면 child2에는 개별 핸들러가 없지만, 부모 요소에 등록된 핸들러가 이를 감지해 "부모 요소에서 이벤트 감지: child2"를 출력합니다.
+이를 통해 개별 버튼마다 핸들러를 등록하지 않아도 부모에서 모든 클릭 이벤트를 처리할 수 있음을 알 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `실제 활용 예시`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `예를 들어, 동적으로 버튼이 추가되는 리스트가 있다고 가정할 때, 각 버튼에 핸들러를 추가하는 대신 부모 &lt;ul> 요소에 핸들러를 등록하면 새로 추가된 버튼도 자동으로 처리됩니다.`,
+			},
+
+			{
+				type: ComponentType.H2,
+				value: `이벤트 캡쳐링(Event Capturing)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이벤트 캡쳐링(Event Capturing)은 이벤트가 최상위 요소에서 시작해 하위 요소로 내려가는 방식으로, 버블링과는 반대 방향으로 작동합니다. HTML에서는 기본적으로 버블링이 주로 사용되지만, 필요에 따라 캡쳐링도 활용할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `캡쳐링 사용 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `document.getElementById('parent').addEventListener('click', function() {
+  console.log('캡쳐링 단계에서 감지');
+}, { capture: true }); // 캡쳐링 모드 활성화`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `{ capture: true } 옵션을 추가하면 이벤트가 캡쳐링 단계에서 처리됩니다. 이 경우, 부모에서 먼저 이벤트가 감지된 후 자식으로 전달됩니다.`,
 			},
 		],
 	},

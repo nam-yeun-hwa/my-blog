@@ -97,6 +97,7 @@ export enum Folder {
 	ENGLISH = 'english',
 	TECHQA = 'tech-QA',
 	READINGNOTES = 'Reading Notes',
+	GENERATIVEAI = 'Generative AI',
 }
 
 /**
