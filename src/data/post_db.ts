@@ -6522,11 +6522,11 @@ a good job → 좋은 일, 잘한 일
 			},
 			{
 				type: ComponentType.H3,
-				value: `그런데 good 앞에 a가 붙을까?`,
+				value: `그런데 good 앞에 왜 a가 붙을까?`,
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				value: `"job"은 <b>가산명사</b>라서 단수로 쓰일 때는 반드시 <b>관사(a/an/the)</b>가 필요합니다.</br></br>
+				value: `"job"은 <b>가산명사</b>라서 <b>단수</b>로 쓰일 때는 반드시 <b>관사(a/an/the)</b>가 필요합니다.</br></br>
 
 ✅ "a good job" (O) → "좋은 하나의 일"</br>
 ❌ "good job" (X) → 문법적으로 틀림 (명사 앞에 관사가 없어서)</br></br>
@@ -6598,8 +6598,8 @@ for my future → "내 미래를 위해"
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `Swimming is good for health. → 수영하는 것은 건강에 좋다. 
-Learning English is fun. → 영어를 배우는 것은 재미있다.
+				value: `Swimming is good for health. → <u>수영하는 것</u>은 건강에 좋다. 
+Learning English is fun. → <u>영어를 배우는 것</u>은 재미있다.
 `,
 			},
 			{
@@ -6608,13 +6608,13 @@ Learning English is fun. → 영어를 배우는 것은 재미있다.
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `I enjoy reading books. → 나는 <b>책 읽는 것</b>을 즐긴다.
-She finished writing the report. → 그녀는 <b>보고서를 작성하는 것</b>을 끝냈다.
+				value: `I enjoy reading books. → 나는 <u>책 읽는 것</u>을 즐긴다.
+She finished writing the report. → 그녀는 <u>보고서를 작성하는 것</u>을 끝냈다.
 `,
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				value: `📌 동명사를 <b>목적어</b>로 취하는 대표적인 <b>동사</b></br>
+				value: `동명사를 <b>목적어</b>로 취하는 대표적인 <b>동사</b></br>
  enjoy, finish, avoid, consider, mind, suggest, recommend 등`,
 				propsType: propsPromptsType.TIP,
 			},
@@ -6782,11 +6782,13 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `사람 없는 숲 풍경을 생성.`,
+				value: `사람 없는 숲 풍경을 생성.
+				여러 요소를 제외하려면 --no trees, water처럼 쉼표로 구분하세요.`,
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				value: `여러 요소를 제외하려면 --no trees, water처럼 쉼표로 구분하세요.`,
+				value: `만약 <b>변화를 작게</b> 하고 싶다면 --iw를 2 이상으로 올리거나(최대 2), <b>"no changes"</b>를 더 강조하세요.
+				변화 최소화: 프롬프트에 "minimal edits", "preserve original details" 같은 표현을 추가하면 원본 손실을 더 줄일 수 있습니다.`,
 				propsType: propsPromptsType.TIP,
 			},
 		],
@@ -6913,6 +6915,270 @@ document.getElementById('child1').addEventListener('click', function() {
 			{
 				type: ComponentType.NORMAL,
 				value: `{ capture: true } 옵션을 추가하면 이벤트가 캡쳐링 단계에서 처리됩니다. 이 경우, 부모에서 먼저 이벤트가 감지된 후 자식으로 전달됩니다.`,
+			},
+		],
+	},
+	{
+		id: 52,
+		title: `[TECH-QA] Flex와 Grid 비교`,
+		date: '2025-03-25 15:15:33',
+		folder: Folder.GENERATIVEAI,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `flex는 주로 단일 축(1차원)을 기준으로 레이아웃을 구성하는 데 사용됩니다. 이는 수평(가로) 또는 수직(세로) 방향 중 하나를 중심으로 아이템을 정렬하며, 유연한 크기 조정과 간단한 배치에 적합합니다. `,
+		post: [
+			{
+				type: ComponentType.H3,
+				value: `Flex (Flexbox)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `단일 방향(행 또는 열)으로 아이템을 배치.
+아이템의 크기가 동적으로 변할 수 있어 반응형 디자인에 유리.
+간단한 정렬과 공간 분배에 강력.
+`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;style>
+    .flex-container {
+      display: flex;
+      justify-content: space-between; /* 아이템 간 간격을 균등하게 분배 */
+      background-color: #f0f0f0;
+    }
+    .flex-item {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;div class="flex-container">
+    &lt;div class="flex-item">1&lt;/div>
+    &lt;div class="flex-item">2&lt;/div>
+    &lt;div class="flex-item">3&lt;/div>
+  &lt;/div>
+&lt;/body>
+&lt;/html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .flex-container {
+      display: flex;
+      justify-content: space-between; /* 아이템 간 간격을 균등하게 분배 */
+      background-color: #f0f0f0;
+    }
+    .flex-item {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex-container">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+  </div>
+</body>
+</html>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 예제에서 .flex-container는 display: flex를 통해 가로 방향으로 아이템을 배치합니다. justify-content: space-between 속성은 아이템 사이의 공간을 균등하게 나누어 배치합니다. 결과적으로 세 개의 박스가 수평으로 나란히 정렬됩니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Grid`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `grid는 2차원 그리드 시스템을 구성하는 데 사용되며, 수평(가로)과 수직(세로) 방향 모두를 고려한 레이아웃을 설계할 수 있습니다. 각 셀의 크기를 미리 정의하여 일관된 구조를 유지하며, 복잡한 레이아웃에 적합합니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `행(row)과 열(column)을 모두 정의 가능.
+셀 크기를 고정하거나 비율로 설정하여 일정한 구조 유지.
+레이아웃 변화가 적은 정적인 디자인에 적합.
+`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: 100px 100px 100px; /* 3열, 각 100px */
+      grid-template-rows: 80px 80px; /* 2행, 각 80px */
+      gap: 10px; /* 셀 간 간격 */
+      background-color: #f0f0f0;
+    }
+    .grid-item {
+      background-color: #2196F3;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  &lt;/style>
+&lt;/head>
+&lt;body>
+  &lt;div class="grid-container">
+    &lt;div class="grid-item">1</div>
+    &lt;div class="grid-item">2</div>
+    &lt;div class="grid-item">3</div>
+    &lt;div class="grid-item">4</div>
+    &lt;div class="grid-item">5</div>
+    &lt;div class="grid-item">6</div>
+  &lt;/div>
+&lt;/body>
+&lt;/html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: 200px 150px 100px; /* 3열, 각 100px */
+      grid-template-rows: 80px 80px; /* 2행, 각 80px */
+      gap: 10px; /* 셀 간 간격 */
+      background-color: #f0f0f0;
+    }
+    .grid-item {
+      background-color: #2196F3;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+  </div>
+</body>
+</html>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 예제에서는 grid-container가 2x2 그리드 구조를 형성합니다. grid-template-columns: 1fr 1fr로 두 개의 열을 동일한 비율로 나누고, grid-template-rows로 행 높이를 100px로 고정했습니다. gap 속성으로 셀 사이에 10px 간격을 추가했습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Grid는 반응형에 적합한가?`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `grid는 반응형 디자인에 매우 강력한 도구입니다. 미리 정의된 구조를 유지한다는 점은 고정된 레이아웃에 유리하다는 의미일 뿐, 반응형으로 동적으로 조정하는 데도 탁월합니다. CSS Grid는 다음과 같은 기능을 통해 반응형을 지원합니다`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>fr 단위</b>: 유연한 비율로 열/행 크기를 정의.
+<b>minmax() 함수</b>: 최소/최대 크기를 설정해 콘텐츠에 따라 적응.
+<b>auto-fit / auto-fill</b>: 열 개수를 화면 크기에 따라 자동으로 조정.
+<b>미디어 쿼리</b>: 화면 크기에 따라 그리드 구조를 변경.
+`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;style>
+    .grid-container2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.item {
+  background-color: lightgreen;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 작은 화면에서는 1열로 */
+  }
+}
+  &lt;/style>
+&lt;/head>
+&lt;body>
+ &lt;div class="grid-container2">
+  &lt;div class="item">아이템 1&lt;/div>
+  &lt;div class="item">아이템 2&lt;/div>
+  &lt;div class="item">아이템 3&lt;/div>
+  &lt;div class="item">아이템 4&lt;/div>
+</div>
+&lt;/body>
+&lt;/html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+   .grid-container2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.item {
+  background-color: lightgreen;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .grid-container2 {
+    grid-template-columns: 1fr; /* 작은 화면에서는 1열로 */
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="grid-container2">
+  <div class="item">아이템 1</div>
+  <div class="item">아이템 2</div>
+  <div class="item">아이템 3</div>
+  <div class="item">아이템 4</div>
+  <div class="item">아이템 5</div>
+  <div class="item">아이템 6</div>
+</div>
+</body>
+</html>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>auto-fit</b>: 사용 가능한 공간에 따라 열을 자동으로 채움.
+<b>minmax(150px, 1fr)</b>: 각 열의 최소 너비는 150px, 최대는 남은 공간을 비율로 나눔.
+<b>결과</b>: 화면이 넓으면 여러 열로 배치되고, 좁아지면 열이 줄어듦.
+화면 너비가 600px 이하일 때 1열로 강제 전환.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `큰 화면에서는 아이템이 여러 열로 나열되고, 작은 화면에서는 자동으로 한 열로 정렬되어 반응형 레이아웃이 구현됨.`,
 			},
 		],
 	},
