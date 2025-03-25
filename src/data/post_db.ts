@@ -6942,20 +6942,20 @@ document.getElementById('child1').addEventListener('click', function() {
 				value: `&lt;!DOCTYPE html>
 &lt;html>
 &lt;head>
-  &lt;style>
-    .flex-container {
-      display: flex;
-      justify-content: space-between; /* 아이템 간 간격을 균등하게 분배 */
-      background-color: #f0f0f0;
-    }
-    .flex-item {
-      background-color: #4CAF50;
-      color: white;
-      padding: 20px;
-      margin: 10px;
-      text-align: center;
-    }
-  &lt;/style>
+&lt;style>
+  .flex-container {
+    display: flex;
+    justify-content: space-between; /* 아이템 간 간격을 균등하게 분배 */
+    background-color: #f0f0f0;
+  }
+  .flex-item {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+  }
+&lt;/style>
 &lt;/head>
 &lt;body>
   &lt;div class="flex-container">
@@ -7036,12 +7036,12 @@ document.getElementById('child1').addEventListener('click', function() {
 &lt;/head>
 &lt;body>
   &lt;div class="grid-container">
-    &lt;div class="grid-item">1</div>
-    &lt;div class="grid-item">2</div>
-    &lt;div class="grid-item">3</div>
-    &lt;div class="grid-item">4</div>
-    &lt;div class="grid-item">5</div>
-    &lt;div class="grid-item">6</div>
+    &lt;div class="grid-item">1&lt;/div>
+    &lt;div class="grid-item">2&lt;/div>
+    &lt;div class="grid-item">3&lt;/div>
+    &lt;div class="grid-item">4&lt;/div>
+    &lt;div class="grid-item">5&lt;/div>
+    &lt;div class="grid-item">6&lt;/div>
   &lt;/div>
 &lt;/body>
 &lt;/html>
@@ -7103,12 +7103,12 @@ document.getElementById('child1').addEventListener('click', function() {
 				value: `&lt;!DOCTYPE html>
 &lt;html>
 &lt;head>
-  &lt;style>
-    .grid-container2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-}
+&lt;style>
+  .grid-container2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
 
 .item {
   background-color: lightgreen;
@@ -7121,7 +7121,7 @@ document.getElementById('child1').addEventListener('click', function() {
     grid-template-columns: 1fr; /* 작은 화면에서는 1열로 */
   }
 }
-  &lt;/style>
+&lt;/style>
 &lt;/head>
 &lt;body>
  &lt;div class="grid-container2">
@@ -7129,7 +7129,9 @@ document.getElementById('child1').addEventListener('click', function() {
   &lt;div class="item">아이템 2&lt;/div>
   &lt;div class="item">아이템 3&lt;/div>
   &lt;div class="item">아이템 4&lt;/div>
-</div>
+  &lt;div class="item">아이템 5&lt;/div>
+  &lt;div class="item">아이템 6&lt;/div>
+ &lt;/div>
 &lt;/body>
 &lt;/html>
 
@@ -7142,6 +7144,7 @@ document.getElementById('child1').addEventListener('click', function() {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
+  background-color: #f0f0f0;
 }
 
 .item {
@@ -7155,7 +7158,7 @@ document.getElementById('child1').addEventListener('click', function() {
     grid-template-columns: 1fr; /* 작은 화면에서는 1열로 */
   }
 }
-  </style>
+</style>
 </head>
 <body>
   <div class="grid-container2">
@@ -7165,7 +7168,7 @@ document.getElementById('child1').addEventListener('click', function() {
   <div class="item">아이템 4</div>
   <div class="item">아이템 5</div>
   <div class="item">아이템 6</div>
-</div>
+  </div>
 </body>
 </html>`,
 			},
