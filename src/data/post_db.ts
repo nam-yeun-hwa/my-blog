@@ -7185,6 +7185,389 @@ document.getElementById('child1').addEventListener('click', function() {
 			},
 		],
 	},
+	{
+		id: 53,
+		title: `[TECH-QA] 자바스크립트에서 this`,
+		date: '2025-03-26 11:26:33',
+		folder: Folder.GENERATIVEAI,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `자바스크립트에서 this의 값은 함수가 호출될 때 결정되며, 호출 방식에 따라 다르게 작동합니다. 아래에서 주요 경우와 예제를 통해 설명하겠습니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트에서 this의 값은 함수가 호출될 때 결정되며, 호출 방식에 따라 다르게 작동합니다. 아래에서 주요 경우와 예제를 통해 설명하겠습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `전역 컨텍스트에서의 this`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `함수가 전역 스코프에서 호출될 때, this는 전역 객체를 가리킵니다. 브라우저에서는 window, Node.js에서는 global입니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `console.log(this); // 브라우저에서 실행 시: Window 객체
+
+function sayHello() {
+  console.log(this);
+}
+sayHello(); // Window 객체 (전역 호출)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `"use strict" 모드에서는 전역 호출 시 this가 undefined로 설정됩니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `"use strict";
+function sayThis() {
+  console.log(this);
+}
+
+sayThis(); // undefined`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `객체 메서드에서의 this`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `호출되는 함수가 객체의 메서드일때, this는 해당 객체를 가리킵니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const person = {
+  name: "Alice",
+  greet: function() {
+    console.log(this.name);
+  }
+};
+
+person.greet(); // "Alice" (this는 person 객체를 가리킴)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `하지만 함수를 객체에서 분리해 호출하면 this가 객체를 잃어버립니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const person = {
+  name: "Hannah",
+  sayName: function() {
+    console.log(this.name);
+  }
+};
+
+const func = person.sayName;
+func(); // undefined (this는 전역 객체 Window를 가리킴)`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `내부 함수에서의 this 문제`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `일반 함수 안에 또 다른 일반 함수가 있을 경우, 내부 함수의 this는 외부 함수의 this를 자동으로 상속하지 않습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const obj = {
+  name: "Kate",
+  outer: function() {
+    console.log("this.name");
+    function inner() {
+      console.log("this.name");
+    }
+    inner();
+  }
+};
+
+obj.outer();
+// 출력:
+// Outer this: Kate
+// Inner this: undefined (this는 Window)`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `해결방법`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `this를 변수에 저장`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const obj = {
+  name: "Kate",
+  outer: function() {
+    const self = this;
+    function inner() {
+      console.log(self.name);
+    }
+    inner();
+  }
+};
+
+obj.outer(); // Inner this: Kate`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `bind 사용`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const obj = {
+  name: "Kate",
+  outer: function() {
+    const inner = function() {
+      console.log(this.name);
+    }.bind(this);
+    inner();
+  }
+};
+
+obj.outer(); // Inner this: Kate`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `생성자 함수에서의 this`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `new 키워드로 생성자 함수를 호출하면, this는 새로 생성된 객체를 가리킵니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function Car(model) {
+  this.model = model;
+}
+
+const myCar = new Car("Tesla");
+
+console.log(myCar.model); // "Tesla"`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `명시적 바인딩 (call, apply, bind)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `call, apply, bind를 사용하면 this를 명시적으로 설정할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `call 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function introduce(age) {
+  console.log(this.name, age);
+}
+
+const user = { name: "Bob" };
+
+introduce.call(user, 25); // "Bob, 25"`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `apply 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function introduce(age) {
+  console.log(this.name, age);
+}
+
+const user = { name: "Bob" };
+
+introduce.apply(user, [30]); // "Bob 30"`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `bind 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function introduce(age) {
+  console.log(this.name, age);
+}
+
+const user = { name: "Bob" };
+
+const boundIntroduce = introduce.bind(user);
+
+boundIntroduce(35); // "Bob 35"`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `화살표 함수에서의 this`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `화살표 함수는 this를 lexical scope(정적 범위)에서 가져옵니다. 즉, 함수가 정의된 위치의 상위 스코프에서 this를 상속받습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const obj = {
+  name: "Charlie",
+  sayName: function() {
+    const arrowFunc = () => console.log(this.name);
+    arrowFunc();
+  }
+};
+
+obj.sayName(); // "Charlie" (this는 obj를 가리킴)`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `일반 함수와 비교`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const obj2 = {
+  name: "David",
+  sayName: function() {
+    const normalFunc = function() {
+      console.log(this.name);
+    };
+    normalFunc();
+  }
+};
+
+obj2.sayName(); // undefined (this는 전역 객체를 가리킴)`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `이벤트 핸들러에서의 this`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이벤트 핸들러로 함수가 호출되면, this는 일반적으로 이벤트가 발생한 DOM 요소를 가리킵니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `document.querySelector("button").addEventListener("click", function() {
+  console.log(this); // <button> 요소
+});`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `화살표 함수를 사용하면 다르게 동작`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `document.querySelector("button").addEventListener("click", () => {
+  console.log(this); // Window 객체 (상위 스코프의 this)
+});`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `결과적으로`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `전역 호출: window (strict 모드에서는 undefined).
+객체 메서드: 호출한 객체.
+명시적 바인딩: call, apply, bind로 지정한 객체.
+이벤트 핸들러: 이벤트가 발생한 요소.
+생성자 함수: 새로 생성된 객체.
+내부 함수: 호출 방식에 따라 결정 (보통 전역 객체).`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `일반 함수는 호출 방식에 따라 this가 유연하게 변한다는 점에서 화살표 함수와 대비됩니다. 화살표 함수는 상위 스코프의 this를 고정적으로 사용하지만, 일반 함수는 호출 시점에 따라 달라지므로 주의가 필요합니다. 추가 질문이 있으면 말씀해주세요!`,
+			},
+		],
+	},
+	{
+		id: 54,
+		title: `[한입 영어] I'm sure 패턴2`,
+		date: '2025-03-26 22:33:33',
+		folder: Folder.ENGLISH,
+		tag: ['English', '한입 영어'],
+		preview: `"I'm sure that a lot of Koreans use social networking sites these days 전 대학원 진학하는 것에 대해 확신하고 있지 않아요"`,
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `case 1`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>I'm sure that a lot of Koreans use social networking sites these days</b></br>
+				 "나는 요즘 많은 한국인들이 소셜 네트워킹 사이트를 사용한다고 확신해" 
+				`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `문장 분석`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `I'm sure that~ → ~라고 확신해
+				a lot of Koreans → 많은 한국인들
+				use social networking sites → 소셜 네트워킹 사이트를 사용하다.
+				these days → 요즘
+`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `- 만약 "lot of Koreans"라고 쓰면 문법적으로 맞지 않습니다. "lot"은 그 자체로 막연한 명사이기 때문에, <b>관사(a)</b>나 다른 <b>한정사(the, this 등)</b>가 없으면 자연스럽지 않고 의미가 모호해집니다.</br>
+- 예외적으로 <b>lots of Koreans</b>처럼 "lots"가 사용될 수 있는데, 이는 <u>"a lot of"보다 약간 더 구어체이며, "a"가 생략된 형태로 이해할 수 있습니다.</u>`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.H2,
+				value: `case 2`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>I'm not sure about going to graduate school.</b></br>
+				 "나는 대학원에 가는 것에 대해 확신이 없어."
+				`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `문장 분석`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `I'm not sure → 확신이 없어
+				about → 에 대해
+				going to graduate school → 대학원에 가는 것`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `"going"은 "가다"라는 동작을 동명사(gerund) 형태로 사용해 명사처럼 기능하게  합니다. "graduate school"은 "대학원"을 뜻하는 단어입니다.`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.H2,
+				value: `case 3`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>I'm not sure what to say.</b></br>
+				 "나는 무엇을 말해야 할지 확신이 없어."
+				`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `문장 분석`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `I'm not sure → 확신이 없어
+				what to say → 무엇을 말해야 할지`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>to say</b>는 말하다라는 동작을 <b>부정사(to + 동사 원형) 형태</b>로 사용해 what의 구체적인 대상을 설명한다.
+<b>what to say</b> 전체는 I'm not sure의 <b>보어 역할</b>을 한다.`,
+				propsType: propsPromptsType.TIP,
+			},
+		],
+	},
 ];
 
 /**
