@@ -7187,7 +7187,7 @@ document.getElementById('child1').addEventListener('click', function() {
 	},
 	{
 		id: 53,
-		title: `[TECH-QA] 자바스크립트에서 this`,
+		title: `[TECH-QA] 자바스크립트에서 this와 명시적 바인딩 (call, apply, bind)`,
 		date: '2025-03-26 11:26:33',
 		folder: Folder.GENERATIVEAI,
 		tag: ['JavaScript', 'TECH-QA'],
@@ -7221,6 +7221,7 @@ sayHello(); // Window 객체 (전역 호출)`,
 			{
 				type: ComponentType.CODE,
 				value: `"use strict";
+
 function sayThis() {
   console.log(this);
 }
@@ -7275,9 +7276,9 @@ func(); // undefined (this는 전역 객체 Window를 가리킴)`,
 				value: `const obj = {
   name: "Kate",
   outer: function() {
-    console.log("this.name");
+    console.log(this.name); //Kate
     function inner() {
-      console.log("this.name");
+      console.log(this.name); //undefined (this는 Window)
     }
     inner();
   }
@@ -7294,7 +7295,7 @@ obj.outer();
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `this를 변수에 저장`,
+				value: `객체 메서드에서의 this를 변수에 저장하여 사용하는 방법`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -7303,7 +7304,7 @@ obj.outer();
   outer: function() {
     const self = this;
     function inner() {
-      console.log(self.name);
+      console.log(self.name); // Inner this: Kate
     }
     inner();
   }
@@ -7313,7 +7314,7 @@ obj.outer(); // Inner this: Kate`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `bind 사용`,
+				value: `객체 메서드에서의 this를 사용할수 있는 bind() 사용법`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -7384,6 +7385,11 @@ const user = { name: "Bob" };
 introduce.apply(user, [30]); // "Bob 30"`,
 			},
 			{
+				type: ComponentType.EMPHASIS,
+				value: `호출 시점에 <b>this를 동적</b>으로 결정해야 하는 상황에서는 <b>call</b>이나 <b>apply</b>가 매우 유용합니다.`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
 				type: ComponentType.H4,
 				value: `bind 예제`,
 			},
@@ -7400,12 +7406,8 @@ const boundIntroduce = introduce.bind(user);
 boundIntroduce(35); // "Bob 35"`,
 			},
 			{
-				type: ComponentType.H3,
-				value: `화살표 함수에서의 this`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `화살표 함수는 this를 lexical scope(정적 범위)에서 가져옵니다. 즉, 함수가 정의된 위치의 상위 스코프에서 this를 상속받습니다.`,
+				type: ComponentType.H4,
+				value: `화살표 함수에서의 this(가장 간단한 해결책)`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -7420,22 +7422,39 @@ boundIntroduce(35); // "Bob 35"`,
 obj.sayName(); // "Charlie" (this는 obj를 가리킴)`,
 			},
 			{
+				type: ComponentType.NORMAL,
+				value: `화살표 함수는 this를 lexical scope(정적 범위)에서 가져옵니다. 즉, 함수가 정의된 위치의 상위 스코프에서 this를 상속받습니다.`,
+			},
+			{
 				type: ComponentType.H4,
-				value: `일반 함수와 비교`,
+				value: `일반 함수(외부 스코프의 this를 저장) `,
 			},
 			{
 				type: ComponentType.CODE,
 				value: `const obj2 = {
   name: "David",
   sayName: function() {
+    const self = this;
     const normalFunc = function() {
-      console.log(this.name);
+      console.log(self.name);
     };
     normalFunc();
   }
 };
 
-obj2.sayName(); // undefined (this는 전역 객체를 가리킴)`,
+obj2.sayName(); // "David"`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `self 변수에 외부 스코프의 this를 저장하여 내부 함수에서 사용합니다.
+
+이 세 가지 방법 모두 동일한 결과를 제공하며, "David"를 출력합니다. 가장 현대적이고 간결한 접근법은 첫 번째 화살표 함수 방법을 사용하는 것입니다. 상황에 따라 적절한 방법을 선택할 수 있습니다:`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `화살표 함수: 간결하고 직관적
+bind(): 명시적 바인딩 필요 시
+self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 			},
 			{
 				type: ComponentType.H3,
@@ -7448,12 +7467,12 @@ obj2.sayName(); // undefined (this는 전역 객체를 가리킴)`,
 			{
 				type: ComponentType.CODE,
 				value: `document.querySelector("button").addEventListener("click", function() {
-  console.log(this); // <button> 요소
+  console.log(this); // &lt;button> 요소
 });`,
 			},
 			{
 				type: ComponentType.H3,
-				value: `화살표 함수를 사용하면 다르게 동작`,
+				value: `화살표 함수를 사용한 이벤트 핸들러에서의 this`,
 			},
 			{
 				type: ComponentType.CODE,
