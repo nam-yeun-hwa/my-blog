@@ -27,12 +27,12 @@ export type headerType = {
 // 	role: string | undefined;
 // };
 
-export type tableType = {
-	header: headerType[];
-	contents: Array<T>;
-};
+// export type tableType = {
+// 	header: headerType[];
+// 	contents: Array<T>;
+// };
 
-export interface IPost {
+export interface IPost<T = any> {
 	id: number;
 	title: string;
 	date: string;

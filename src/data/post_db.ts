@@ -4937,7 +4937,7 @@ console.log(boundGetX()); // 42`,
 		title: '[TECH-QA] CORS란',
 		date: '2025-02-27',
 		folder: Folder.TECHQA,
-		tag: ['English', '한입 영어'],
+		tag: ['JavaScript', 'TECHQA'],
 		preview: `"CORS(Cross-Origin Resource Sharing)는 도메인 혹은 포트가 다른 외부서버의 자원을 요청할때 생긴다."`,
 		post: [
 			{
@@ -7588,10 +7588,10 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 		],
 	},
 	{
-		id: 54,
+		id: 55,
 		title: `[TECH-QA] 브라우저 저장소`,
 		date: '2025-03-27 14:59:33',
-		folder: Folder.GENERATIVEAI,
+		folder: Folder.JAVASCRIPT,
 		tag: ['JavaScript', 'TECH-QA'],
 		preview: `쿠키는 웹 브라우저에서 클라이언트 측 데이터를 저장하는 전통적인 방법으로, 주로 사용자 인증(예: 로그인 세션 유지)이나 간단한 설정 저장에 사용됩니다. 하지만 몇 가지 단점이 있습니다`,
 		post: [
@@ -7707,6 +7707,142 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				type: ComponentType.NORMAL,
 				value: `쿠키는 용량이 작고 보안에 취약하며, 만료 기간 설정과 네트워크 부하라는 단점을 안고 있습니다. 이를 보완하기 위해 로컬 스토리지는 영구 저장을, 세션 스토리지는 임시 저장을 제공하며, 더 큰 용량과 간편한 관리를 지원합니다. 웹 개발자는 데이터의 성격과 보안 요구사항에 따라 쿠키와 웹 스토리지를 적절히 선택해 사용할 수 있습니다.
 `,
+			},
+		],
+	},
+	{
+		id: 56,
+		title: `[TECH-QA] 타입스크립트`,
+		date: '2025-03-31 14:07:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `타입스크립트는 자바스크립트 기반의 언이이며 자바스크립트의 상위확정전입니다. 정적타입으로 컴파일 단계에서 오류를 포착할수 있는 장점이 있고 강력한 객체지향 프로그래밍을 지원합니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `타입스크립트는 자바스크립트 기반의 언이이며 자바스크립트의 상위확정전입니다. 정적타입으로 컴파일 단계에서 오류를 포착할수 있는 장점이 있고 강력한 객체지향 프로그래밍을 지원합니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `타입스크립트 특징`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>타입스크립트의 가장 큰 특징은 정적 타입 시스템을 도입했다는 점입니다.</b></br> 이는 변수, 함수, 객체 등의 타입을 코드 작성 단계에서 명시적으로 정의해 줍니다. 이렇게 정의된 타입은 <u>컴파일 단계에서 오류를 포착</u>할 수 있도록 도와주며, <u>런타임에서 발생할 수 있는 잠재적인 버그를 사전에 줄이는 데 큰 장점이 있습니다.</u></br></br>
+
+				<b>타입스크립트는 강력한 객체지향 프로그래밍을 지원합니다.</b></br> 클래스(Class), 인터페이스(Interface), 제네릭(Generics), 모듈(Module)과 같은 기능을 제공하여 <u>대규모 애플리케이션 개발 시 코드의 구조를 더 체계적으로 관리할 수 있게 합니다.</u></br>예를 들어, 인터페이스를 사용하면 객체의 구조를 명확히 정의할 수 있고, 제네릭을 통해 재사용 가능하면서도 타입 안전성을 보장하는 코드를 작성할 수 있습니다.</br></br>
+
+				<b>타입스크립트는 ES6(ECMAScript 2015) 및 <b>그 이후의 최신 자바스크립트 기능을 기본적으로 지원</b>합니다.</b></br> 자바스크립트로 작성된 코드를 실행하기 위해 바벨(Babel)과 같은 별도의 트랜스파일러를 사용할 필요 없이, 타입스크립트 자체적으로 최신 ECMAScript 문법을 기존 자바스크립트 엔진에서 실행 가능한 코드로 변환해줍니다. 이는 개발 워크플로우를 단순화하고 생산성을 높이는 데 기여합니다.</br></br>
+
+				<b>명시적인 정적 타입 지정은 코드의 가독성을 크게 향상시키며, 특히 협업 환경에서 다른 개발자가 코드를 이해하고 유지보수하는 데 도움을 줍니다.</b></br> 예를 들어, 함수의 매개변수나 반환값에 타입을 명시하면 해당 함수가 어떤 데이터를 다루는지 바로 알 수 있어 디버깅 과정도 훨씬 수월해집니다. 게다가 타입스크립트는 타입 추론(Type Inference) 기능을 제공하여, 개발자가 모든 타입을 직접 명시하지 않더라도 컴파일러가 문맥을 통해 타입을 자동으로 추론하게 함으로써 편리함과 안전성을 동시에 제공합니다.</br>`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>타입추론이란?</b></br>
+				<b>변수 선언에서의 타입 추론</b>: 변수를 초기화할 때 값을 할당하면, 타입스크립트는 해당 값의 타입을 기반으로 변수의 타입을 추론합니다.</br>
+				<b>함수 반환 타입 추론</b>:함수의 반환값을 명시적으로 타입으로 선언하지 않아도, 타입스크립트는 함수 내부의 로직을 분석해 반환 타입을 추론합니다.</br>
+				<b>객체 리터럴에서의 타입 추론</b>:객체를 생성할 때 각 속성의 타입을 명시하지 않아도, 초기화된 값에 따라 타입이 추론됩니다.`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `추가적으로, 타입스크립트는 방대한 생태계를 자랑합니다. <b>타입 정의 파일(.d.ts)</b>을 통해 기존 자바스크립트 라이브러리(예: React, Lodash 등)와의 통합이 용이하며, 커뮤니티에서 제공하는 DefinitelyTyped 프로젝트를 통해 수많은 라이브러리의 타입 정의를 쉽게 가져와 사용할 수 있습니다. 이로 인해 타입스크립트는 프론트엔드(React, Angular, Vue.js)와 백엔드(Node.js) 개발 모두에서 널리 사용되며, 현대 웹 개발에서 필수적인 도구로 자리 잡았습니다.
+
+결론적으로, 타입스크립트는 자바스크립트의 유연성을 유지하면서도 정적 타입의 안정성과 객체지향 프로그래밍의 강력함을 더한 언어로, 코드 품질을 높이고 대규모 프로젝트를 효율적으로 관리하려는 개발자들에게 이상적인 선택입니다.`,
+			},
+		],
+	},
+	{
+		id: 57,
+		title: `[TECH-QA] 타입 정의 파일(.d.ts) 사용하기 예제`,
+		date: '2025-03-31 14:43:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `타입스크립트는 자바스크립트 기반의 언이이며 자바스크립트의 상위확정전입니다. 정적타입으로 컴파일 단계에서 오류를 포착할수 있는 장점이 있고 강력한 객체지향 프로그래밍을 지원합니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `타입 정의 파일(.d.ts)을 통해 기존 자바스크립트 라이브러리(예: React, Lodash 등)와의 통합에 대한 예제 설명`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `간단한 자바스크립트 함수에 타입 정의 추가`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `기존 자바스크립트 파일에 타입이 없는 상황을 가정하고, .d.ts 파일로 타입을 제공하는 예제입니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `자바스크립트 파일 (math.js)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function add(a, b) {
+  return a + b;
+}
+
+module.exports = { add };`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `타입 선언 파일 (math.d.ts)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `export function add(a: number, b: number): number;`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `타입스크립트에서 사용 (app.ts)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import { add } from "./math";
+
+const result = add(5, 3); // result는 number 타입으로 추론됨
+console.log(result); // 8
+
+// add("5", "3"); // 오류: 'string' 타입은 'number' 타입에 할당할 수 없음`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `설명: math.js는 타입 정보가 없는 자바스크립트 파일이지만, math.d.ts에서 add 함수의 매개변수와 반환 타입을 정의해줍니다. 타입스크립트는 이 선언 파일을 참조하여 타입 검사를 수행하며, 잘못된 타입 사용 시 오류를 발생시킵니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Lodash와 같은 외부 라이브러리 통합`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Lodash는 인기 있는 자바스크립트 유틸리티 라이브러리입니다. 타입스크립트에서 이를 사용하려면 @types/lodash와 같은 타입 정의 패키지를 설치하거나 직접 .d.ts 파일을 작성할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `Lodash 설치`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `npm install lodash
+				npm install --save-dev @types/lodash //타입 정의 설치 (DefinitelyTyped 제공)`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `타입스크립트에서 사용`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import _ from "lodash";
+
+const numbers = [1, 2, 3, 4];
+const sum = _.sum(numbers); // sum은 number 타입으로 추론됨
+console.log(sum); // 10
+
+// _.sum("not an array"); // 오류: 'string'은 'ArrayLike<number>' 타입에 할당할 수 없음`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `@types/lodash 패키지는 Lodash의 모든 함수에 대한 타입 정의를 제공합니다. 예를 들어, _.sum은 숫자 배열을 받아 숫자를 반환하는 함수로 타입이 정의되어 있으며, 타입스크립트는 이를 기반으로 타입 검사를 수행합니다.`,
 			},
 		],
 	},
