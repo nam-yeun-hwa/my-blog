@@ -1,22 +1,58 @@
-.tr {
-}
-
-.th {
-}
-
-.th svg {
-}
-
 .td {
-  text-align: center;
-  padding: 5px 10px;
+	text-align: center;
+	padding: 5px 10px;
 }
 
 .table {
-  width: 100%; /* 부모 컨테이너의 100% 너비에 맞추기 */
-  border-collapse: collapse; /* 테두리 겹침 방지 */
-  margin: 25px 0;
-  font-size: 18px;
-  text-align: left;
-  table-layout: fixed; /* 고정 레이아웃 사용 */
+	width: 100%; /* 부모 컨테이너의 100% 너비에 맞추기 */
+	border-collapse: collapse; /* 테두리 겹침 방지 */
+	margin: 25px 0;
+	font-size: 18px;
+	text-align: left;
+	table-layout: fixed; /* 고정 레이아웃 사용 */
 }
+
+/**
+		테이블 CSS
+	**/
+.table-wrapper {
+	overflow-x: auto;
+	margin-bottom: 1.5rem;
+	margin-top: 30px;
+}
+/* table {
+	min-width: 70%;
+	caption-side: bottom;
+	border-collapse: collapse;
+}
+
+thead {
+	border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+}
+
+tr {
+	border-color: inherit;
+	border-style: solid;
+	border-width: 0;
+}
+
+tr:nth-child(2n + 1) {
+	background-color: #fbfcfd;
+}
+
+tr {
+	border-bottom: 1px solid #eaeaea;
+}
+
+th {
+	padding: 0.47rem 1rem;
+	font-size: 88%;
+	white-space: nowrap;
+}
+
+.td {
+	padding: 0.4rem 1rem;
+	font-size: 95%;
+	white-space: normal !important;
+}
+*/

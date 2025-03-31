@@ -7754,16 +7754,43 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 	},
 	{
 		id: 57,
-		title: `[TECH-QA] 타입 정의 파일(.d.ts) 사용하기 예제`,
+		title: `[TECH-QA] 타입 정의 파일(.d.ts) `,
 		date: '2025-03-31 14:43:33',
 		folder: Folder.JAVASCRIPT,
 		tag: ['JavaScript', 'TECH-QA'],
 		preview: `타입스크립트는 자바스크립트 기반의 언이이며 자바스크립트의 상위확정전입니다. 정적타입으로 컴파일 단계에서 오류를 포착할수 있는 장점이 있고 강력한 객체지향 프로그래밍을 지원합니다.`,
 		post: [
 			{
-				type: ComponentType.NORMAL,
-				value: `타입 정의 파일(.d.ts)을 통해 기존 자바스크립트 라이브러리(예: React, Lodash 등)와의 통합에 대한 예제 설명`,
+				type: ComponentType.H3,
+				value: `interface나 type으로 정의하여 쓸수 있는데 d.ts로 사용하는 이유 대하여`,
 			},
+			{
+				type: ComponentType.NORMAL,
+				value: `타입스크립트에서 interface나 type을 사용해 타입을 정의할 수 있는데도 .d.ts 파일을 사용하는 이유는 사용 목적과 맥락의 차이에 있습니다. .d.ts 파일은 주로 <b>선언 파일(Declaration File)</b>로서 특정한 역할을 수행하며, 일반적인 interface나 type 정의와는 다른 상황에서 유용합니다. 아래에서 .d.ts를 사용하는 이유와 그 장점을 구체적으로 설명하겠습니다.
+				`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `자바스크립트와의 통합: 기존 자바스크립트 코드나 외부 라이브러리에 타입을 추가할 때.
+선언과 구현 분리: 타입 정의를 별도로 관리하고 런타임 코드에 영향을 주지 않으려 할 때.
+글로벌 타입 제공: 프로젝트 전체에서 사용할 공통 타입을 전역적으로 선언할 때.
+라이브러리 배포: 타입스크립트 사용자를 위해 타입 정의를 제공할 때.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `반면, 프로젝트 내부에서만 타입을 정의하고 사용할 때는 interface나 type을 .ts 파일에 작성하는 것이 더 간단하고 적합합니다. .d.ts는 특히 외부와의 인터페이스를 다룰 때 빛을 발하는 도구라고 볼 수 있습니다.`,
+			},
+			// 			{
+			// 				type: ComponentType.H4,
+			// 				value: `자바스크립트와 타입스크립트 간의 연결성 제공`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.STRINGLIST,
+			// 				value: `<b>상황</b>: 프로젝트에서 자바스크립트로 작성된 기존 코드(예: 라이브러리, 모듈)를 타입스크립트에서 사용해야 할 때.
+			// <b>문제</b>: 자바스크립트는 타입 정보가 없으므로, 타입스크립트에서 이를 사용할 때 any 타입으로 취급되어 타입 안정성이 떨어집니다.
+			// <b>해결</b>: .d.ts 파일을 작성하여 자바스크립트 코드에 타입 정보를 추가하면, 타입스크립트가 이를 인식해 타입 검사를 수행할 수 있습니다.`,
+			// 			},
 			{
 				type: ComponentType.H3,
 				value: `간단한 자바스크립트 함수에 타입 정의 추가`,
@@ -7807,7 +7834,7 @@ console.log(result); // 8
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `설명: math.js는 타입 정보가 없는 자바스크립트 파일이지만, math.d.ts에서 add 함수의 매개변수와 반환 타입을 정의해줍니다. 타입스크립트는 이 선언 파일을 참조하여 타입 검사를 수행하며, 잘못된 타입 사용 시 오류를 발생시킵니다.`,
+				value: `math.js는 타입 정보가 없는 자바스크립트 파일이지만, math.d.ts에서 add 함수의 매개변수와 반환 타입을 정의해줍니다. 타입스크립트는 이 선언 파일을 참조하여 타입 검사를 수행하며, 잘못된 타입 사용 시 오류를 발생시킵니다.`,
 			},
 			{
 				type: ComponentType.H3,
@@ -7824,7 +7851,7 @@ console.log(result); // 8
 			{
 				type: ComponentType.CODE,
 				value: `npm install lodash
-				npm install --save-dev @types/lodash //타입 정의 설치 (DefinitelyTyped 제공)`,
+npm install --save-dev @types/lodash //타입 정의 설치 (DefinitelyTyped 제공)`,
 			},
 			{
 				type: ComponentType.H4,
@@ -7843,6 +7870,178 @@ console.log(sum); // 10
 			{
 				type: ComponentType.NORMAL,
 				value: `@types/lodash 패키지는 Lodash의 모든 함수에 대한 타입 정의를 제공합니다. 예를 들어, _.sum은 숫자 배열을 받아 숫자를 반환하는 함수로 타입이 정의되어 있으며, 타입스크립트는 이를 기반으로 타입 검사를 수행합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `React 컴포넌트와 통합`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React는 자바스크립트로 작성된 라이브러리지만, 타입스크립트에서 사용하려면 타입 정의가 필요합니다.</br> @types/react와 @types/react-dom을 통해 이를 해결할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `React 설치`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `npm install react react-dom
+npm install --save-dev @types/react @types/react-dom`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `타입스크립트로 React 컴포넌트 작성`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import React from "react";
+import ReactDOM from "react-dom";
+
+interface Props {
+  name: string;
+}
+
+const Greeting: React.FC&lt;Props> = ({ name }) => {
+  return &lt;h1>Hello, {name}!&lt;/h1>;
+};
+
+ReactDOM.render(<Greeting name="Alice" />, document.getElementById("root"));
+
+// <Greeting name={123} /> // 오류: 'number' 타입은 'string' 타입에 할당할 수 없음`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `@types/react는 React의 타입 정의를 제공하며, React.FC와 같은 타입을 통해 함수형 컴포넌트의 props 타입을 정의할 수 있습니다. name props가 string으로 정의되었으므로, 숫자를 전달하면 컴파일 오류가 발생합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `커스텀 .d.ts로 확장 (선택적)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `만약 React에 커스텀 타입을 추가하고 싶다면, 다음과 같이 custom.d.ts 파일을 작성할 수 있습니다`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `declare module "react" {
+  interface CustomComponentProps {
+    customProp: boolean;
+  }
+}
+
+import React from "react";
+
+const CustomComponent: React.FC&lt;CustomComponentProps> = ({ customProp }) => {
+  return &lt;div>{customProp ? "Yes" : "No"}&lt;/div>;
+};`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이 경우 customProp을 React 컴포넌트에서 타입 안전하게 사용할 수 있습니다.`,
+			},
+
+			{
+				type: ComponentType.H3,
+				value: `구현 코드와 타입 정의의 분리`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `타입 정의와 실제 구현 코드를 분리하고 싶을 때, .d.ts 파일은 선언만 포함하고 이는 런타임에 영향을 주지 않습니다. 반면 .ts 파일에 interface나 type과 함께 구현 코드를 섞으면 컴파일 시 자바스크립트 코드로 변환되어 런타임에 포함됩니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `.ts 파일에 모두 작성(math.ts)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `interface MathOperation {
+  (a: number, b: number): number;
+}
+const add: MathOperation = (a, b) => a + b;
+export { add };`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `math.ts 컴파일 결과: interface는 사라지고 구현 코드만 남음.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `math.d.ts`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `export interface MathOperation {
+  (a: number, b: number): number;
+}
+export const add: MathOperation;`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `math.js`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const add = (a, b) => a + b;
+module.exports = { add };
+export const add: MathOperation;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `선언과 구현을 분리하면 코드 구조가 깔끔해지고, 타입 정의만 공유하거나 재사용하기 쉬워집니다. 특히 외부 라이브러리와 통합할 때 유용합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `interface/type과 .d.ts의 차이점 요약`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: ``,
+				tables: {
+					header: [
+						{
+							accessorKey: 'Feature',
+							header: '특징',
+						},
+						{
+							accessorKey: 'Scope',
+							header: '사용범위',
+						},
+						{
+							accessorKey: 'ImplementationInclusion',
+							header: '구현 포함 여부',
+						},
+						{
+							accessorKey: 'ModuleIntegration',
+							header: '모듈 통합',
+						},
+						{
+							accessorKey: 'GlobalDeclaration',
+							header: '전역 선언',
+						},
+						{
+							accessorKey: 'Purpose',
+							header: '목적',
+						},
+					],
+					contents: [
+						{
+							Feature: 'interface / type',
+							Scope: '타입스크립트 코드 내부에서만 유효',
+							ImplementationInclusion: '.ts 파일 내에서 구현과 함께 사용 가능',
+							sessionStorage: '외부 모듈의 타입 수정 불가',
+							GlobalDeclaration: 'import/export 필요',
+							Purpose: '프로젝트 내 타입 정의',
+						},
+						{
+							Feature: '.d.ts 파일',
+							Scope: '자바스크립트와 타입스크립트 연결 가능',
+							ImplementationInclusion: '선언만 포함, 구현은 별도 파일에서',
+							sessionStorage: 'declare module로 외부 모듈 타입 정의 가능',
+							GlobalDeclaration: '전역 타입 정의 가능 (declare 사용)',
+							Purpose: '외부 코드와의 인터페이스 역할',
+						},
+					],
+				},
 			},
 		],
 	},
