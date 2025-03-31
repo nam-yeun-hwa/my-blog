@@ -52,8 +52,8 @@ export default function PostDetail({ postid }: Props) {
 							{value.tables && (
 								<BasicTypeTable
 									key={idx}
-									columns={value.tables.header}
-									data={value.tables.contents}
+									header={value.tables.header}
+									contents={value.tables.contents}
 								/>
 							)}
 						</>

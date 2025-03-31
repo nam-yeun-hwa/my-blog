@@ -1,5 +1,5 @@
 import { propsPromptsType } from 'app/_component/detailPage/Prompts';
-import { table } from 'console';
+
 import { ComponentType, Folder, IPost, Level } from 'type/post';
 import tableStyle from 'app/_component/detailPage/table.module.css';
 
@@ -6492,7 +6492,7 @@ inner의 렉시컬 환경: 로컬 변수 없음, 외부 참조는 outer의 렉�
 	},
 	{
 		id: 48,
-		title: `[한입 영어] I'm sure 패턴`,
+		title: `[한입 영어] I'm sure 패턴 1`,
 		date: '2025-03-21 12:21:33',
 		folder: Folder.ENGLISH,
 		tag: ['English', '한입 영어'],
@@ -6797,7 +6797,7 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 		id: 51,
 		title: `[TECH-QA] 이벤트 버블링(Event Bubbling)과 이벤트 캡쳐링(Event Capturing)`,
 		date: '2025-03-24 15:02:33',
-		folder: Folder.GENERATIVEAI,
+		folder: Folder.JAVASCRIPT,
 		tag: ['JavaScript', 'TECH-QA'],
 		preview: `이벤트 버블링(Event Bubbling)은 HTML에서 이벤트가 발생했을 때, 해당 이벤트가 발생한 요소에서 시작하여 상위 요소로 점진적으로 전파되는 현상을 의미합니다. 이는 DOM(Document Object Model)의 계층 구조를 따라 이벤트가 처리되는 기본 동작 방식입니다. `,
 		post: [
@@ -6922,7 +6922,7 @@ document.getElementById('child1').addEventListener('click', function() {
 		id: 52,
 		title: `[TECH-QA] Flex와 Grid 비교`,
 		date: '2025-03-25 15:15:33',
-		folder: Folder.GENERATIVEAI,
+		folder: Folder.HTMLCSS,
 		tag: ['JavaScript', 'TECH-QA'],
 		preview: `flex는 주로 단일 축(1차원)을 기준으로 레이아웃을 구성하는 데 사용됩니다. 이는 수평(가로) 또는 수직(세로) 방향 중 하나를 중심으로 아이템을 정렬하며, 유연한 크기 조정과 간단한 배치에 적합합니다. `,
 		post: [
@@ -7189,7 +7189,7 @@ document.getElementById('child1').addEventListener('click', function() {
 		id: 53,
 		title: `[TECH-QA] 자바스크립트에서 this와 명시적 바인딩 (call, apply, bind)`,
 		date: '2025-03-26 11:26:33',
-		folder: Folder.GENERATIVEAI,
+		folder: Folder.JAVASCRIPT,
 		tag: ['JavaScript', 'TECH-QA'],
 		preview: `자바스크립트에서 this의 값은 함수가 호출될 때 결정되며, 호출 방식에 따라 다르게 작동합니다. 아래에서 주요 경우와 예제를 통해 설명하겠습니다.`,
 		post: [
@@ -7501,7 +7501,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 	},
 	{
 		id: 54,
-		title: `[한입 영어] I'm sure 패턴2`,
+		title: `[한입 영어] I'm sure 패턴 2`,
 		date: '2025-03-26 22:33:33',
 		folder: Folder.ENGLISH,
 		tag: ['English', '한입 영어'],
@@ -7557,7 +7557,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				value: `"going"은 "가다"라는 동작을 동명사(gerund) 형태로 사용해 명사처럼 기능하게  합니다. "graduate school"은 "대학원"을 뜻하는 단어입니다.`,
+				value: `<b>going</b>은 <b>가다라는 동작</b>을 <b>동명사(gerund) 형태</b>로 사용해 명사처럼 기능하게  합니다. </br>graduate school은 "대학원"을 뜻하는 단어입니다.`,
 				propsType: propsPromptsType.TIP,
 			},
 			{
@@ -7581,9 +7581,132 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				value: `<b>to say</b>는 말하다라는 동작을 <b>부정사(to + 동사 원형) 형태</b>로 사용해 what의 구체적인 대상을 설명한다.
+				value: `<b>to say</b>는 <b>말하다</b>라는 <b>동작</b>을 <b>부정사(to + 동사 원형) 형태</b>로 사용해 what의 구체적인 대상을 설명한다.
 <b>what to say</b> 전체는 I'm not sure의 <b>보어 역할</b>을 한다.`,
 				propsType: propsPromptsType.TIP,
+			},
+		],
+	},
+	{
+		id: 54,
+		title: `[TECH-QA] 브라우저 저장소`,
+		date: '2025-03-27 14:59:33',
+		folder: Folder.GENERATIVEAI,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `쿠키는 웹 브라우저에서 클라이언트 측 데이터를 저장하는 전통적인 방법으로, 주로 사용자 인증(예: 로그인 세션 유지)이나 간단한 설정 저장에 사용됩니다. 하지만 몇 가지 단점이 있습니다`,
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `쿠키(Cookie)의 특징과 단점`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `쿠키는 웹 브라우저에서 <u>클라이언트 측 데이터를 저장</u>하는 전통적인 방법으로, 주로 사용자 인증(예: 로그인 세션 유지)이나 간단한 설정 저장에 사용됩니다. 하지만 몇 가지 단점이 있습니다`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `용량 제한: 쿠키는 저장 용량이 약 4KB로 매우 작아 대량의 데이터를 저장하기 어렵습니다.
+보안 취약성: 쿠키는 기본적으로 암호화되지 않으므로, 데이터가 평문으로 전송되거나 저장될 경우 제3자가 쉽게 접근할 수 있어 정보 도난(예: XSS 공격 등)의 위험이 있습니다.
+만료 기간 관리: 쿠키는 key-value 형태로 데이터를 저장하며, 개발자가 직접 만료 기간을 설정해야 합니다. 만료 기간이 지나면 자동으로 삭제되지만, 이 과정이 복잡하거나 관리가 소홀해질 수 있습니다.
+네트워크 부하: 쿠키는 HTTP 요청마다 서버로 자동 전송되므로, 불필요한 데이터 전송이 발생해 성능 저하를 유발할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>쿠키를 사용한 사용자 인증, 특히 로그인 세션 유지에 대해 설명하자면, 이는 웹 애플리케이션에서 사용자가 로그인 상태를 유지할 수 있도록 하는 일반적인 방법 중 하나입니다.</b></br></br>
+				- <b>로그인 요청</b>: 사용자가 웹사이트에 아이디와 비밀번호를 입력해 로그인하면, 서버는 해당 자격 증명을 확인합니다. 인증이 성공하면 서버는 사용자에게 <u>고유한 세션 ID를 생성</u>합니다.</br></br>
+- <b>쿠키 생성 및 저장</b>: <u>서버는 이 세션 ID를 포함한 쿠키를 생성해 사용자의 브라우저로 보냅니다.</u> 브라우저는 이 쿠키를 로컬에 저장합니다. 이 쿠키는 보통 "세션 쿠키"로 설정되며, 브라우저가 닫히면 자동으로 삭제되거나(임시 세션), 만료 날짜가 설정된 경우 그때까지 유지됩니다(영속 세션).</br></br>
+- <b>세션 유지</b>: 이후 사용자가 웹사이트의 다른 페이지를 방문할 때마다,<u>브라우저는 저장된 쿠키를 요청 헤더에 포함시켜 서버로 보냅니다.</u> 서버는 이 쿠키의 세션 ID를 확인해 사용자가 이미 인증된 사용자인지 판단하고, 별도의 로그인 없이 접근을 허용합니다.</br></br>`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `
+<b>쿠키 보안 고려사항</b></br></br>
+- <b>HttpOnly</b>: 쿠키에 HttpOnly 속성을 설정하면 자바스크립트를 통한 접근을 차단해 <b>XSS(크로스 사이트 스크립팅) 공격을 방지</b>할 수 있습니다.</br></br>
+- <b>Secure</b>: Secure 속성을 추가하면 HTTPS 연결에서만 쿠키가 전송되어 데이터 도청을 방지합니다.</br></br>
+- <b>SameSite</b>: 이 속성으로 쿠키가 동일 출처 요청에만 전송되도록 설정해 <b>CSRF(크로스 사이트 요청 위조) 공격</b>을 줄일 수 있습니다.
+<b>로그아웃</b>: 사용자가 로그아웃하면 서버는 해당 세션 ID를 무효화하고, 브라우저의 쿠키를 삭제하거나 만료시켜 세션을 종료합니다.`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.H2,
+				value: `웹 스토리지(Web Storage)의 등장`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `로컬 스토리지 (Local Storage)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `특징: 데이터를 클라이언트(브라우저)에 영구적으로 저장합니다. 사용자가 데이터를 삭제하거나 브라우저 캐시를 지우지 않는 한 유지됩니다.
+용도: 자동 로그인 토큰이나 사용자 선호 설정(예: 다크 모드)을 저장하는 데 유용.
+용량: 약 5~10MB로, 쿠키보다 훨씬 큰 데이터를 저장할 수 있습니다.
+장점: 만료 기간을 별도로 설정할 필요가 없어 관리가 간편합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `세션 스토리지 (Session Storage)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `특징: 브라우저 탭이 닫히면 데이터가 자동으로 삭제됩니다. 즉, 세션 단위로만 데이터를 유지합니다.
+용도: 임시 데이터 저장(예: 폼 입력 데이터, 비로그인 장바구니)이나 보안이 중요한 일회성 정보에 적합합니다.
+용량: 로컬 스토리지와 동일하게 5~10MB를 지원합니다.
+장점: 세션이 종료되면 자동으로 데이터가 사라지므로, 민감한 정보의 노출 위험이 줄어듭니다.`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: ``,
+				tables: {
+					header: [
+						{
+							accessorKey: 'Category',
+							header: '항목',
+						},
+						{
+							accessorKey: 'Cookie',
+							header: '쿠키',
+						},
+						{
+							accessorKey: 'LocalStorage',
+							header: '로컬 스토리지',
+						},
+						{
+							accessorKey: 'SessionStorage',
+							header: '세션 스토리지',
+						},
+					],
+					contents: [
+						{
+							category: '저장 기간',
+							cookie: '만료 기간 설정 필요',
+							localStorage: '영구 저장 (수동 삭제 전까지)',
+							sessionStorage: '세션 종료 시 삭제',
+						},
+						{
+							category: '용량',
+							cookie: '약 4KB',
+							localStorage: '약 5~10MB',
+							sessionStorage: '약 5~10MB',
+						},
+						{
+							category: '보안',
+							cookie: '암호화 없음, 도난 위험',
+							localStorage: '서버로 자동 전송 안 됨',
+							sessionStorage: '서버로 자동 전송 안 됨',
+						},
+						{
+							category: '사용 예',
+							cookie: '세션 관리, 간단한 설정',
+							localStorage: '자동 로그인, 사용자 설정',
+							sessionStorage: '임시 데이터, 폼 입력 유지',
+						},
+					],
+				},
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `쿠키는 용량이 작고 보안에 취약하며, 만료 기간 설정과 네트워크 부하라는 단점을 안고 있습니다. 이를 보완하기 위해 로컬 스토리지는 영구 저장을, 세션 스토리지는 임시 저장을 제공하며, 더 큰 용량과 간편한 관리를 지원합니다. 웹 개발자는 데이터의 성격과 보안 요구사항에 따라 쿠키와 웹 스토리지를 적절히 선택해 사용할 수 있습니다.
+`,
 			},
 		],
 	},

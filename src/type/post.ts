@@ -13,22 +13,23 @@
 // }
 
 import { propsPromptsType } from 'app/_component/detailPage/Prompts';
+import { TableProps } from 'app/_component/table/BasicTypeTable';
 
 export type headerType = {
 	accessorKey: string;
 	header: string;
 };
 
-export type User = {
-	id: number | undefined;
-	email: string | undefined;
-	fullname: string | undefined;
-	role: string | undefined;
-};
+// export type User = {
+// 	id: number | undefined;
+// 	email: string | undefined;
+// 	fullname: string | undefined;
+// 	role: string | undefined;
+// };
 
 export type tableType = {
 	header: headerType[];
-	contents: Array<User>;
+	contents: Array<T>;
 };
 
 export interface IPost {
@@ -42,7 +43,7 @@ export interface IPost {
 		type: ComponentType;
 		value: string;
 		propsType?: propsPromptsType;
-		tables?: tableType;
+		tables?: TableProps<T>;
 	}[];
 }
 
