@@ -8182,6 +8182,106 @@ export const add: MathOperation;`,
 			},
 		],
 	},
+	{
+		id: 59,
+		title: `[TECH-QA] HTTP와 HTTPS`,
+		date: '2025-04-01 14:44:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `TTP는 서버 클라이언트 모델을 따라 데이터를 주고받기 위한 프로토콜이다. HTTPS는 HTTP에 데이터 암호화가 추가된 프로토콜이다. 공개키 개인키 암호화 방식을 통해 데이터를 암호화한다.`,
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `HTTP와 HTTPS`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTP(HyperText Transfer Protocol)는 클라이언트(예: 웹 브라우저)와 서버 간에 데이터를 주고받기 위한 규약으로, 주로 텍스트, 이미지, 쿼리 등을 전송하는 데 사용됩니다. 그러나 HTTP는 데이터가 평문(plain text)으로 전송되기 때문에, 네트워크 상에서 제3자가 데이터를 가로채면 쉽게 내용을 볼 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `평문(plain text) 전송 예시`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `예) 로그인시 사용자가 HTTP를 사용하는 웹사이트(예: http://example.com)에서 로그인 양식을 작성하고 "아이디: user123, 비밀번호: pass456"을 입력한 뒤 제출 버튼을 누릅니다. 이 데이터는 HTTP 요청으로 서버에 전송되며, 네트워크 상에서 다음과 같이 표시됩니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `POST /login HTTP/1.1
+Host: example.com
+Content-Type: application/x-www-form-urlencoded
+
+username=user123&password=pass456`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `공공 와이파이 같은 네트워크에서 해커가 패킷 스니핑 도구(예: Wireshark)를 사용하면 이 데이터를 그대로 볼 수 있습니다. 즉, "user123"과 "pass456"이 암호화 없이 노출됩니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `예) 사용자가 HTTP 사이트에서 검색 쿼리를 입력하거나 개인정보를 URL 파라미터로 전달합니다. 예를 들어, http://example.com/search?ssn=123-45-6789와 같이 주민등록번호를 포함한 요청을 보냅니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `GET /search?ssn=123-45-6789 HTTP/1.1
+Host: example.com`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `네트워크를 감시하는 제3자는 물론, 서버 로그나 브라우저 기록에도 이 민감한 정보가 그대로 남을 수 있습니다. HTTP는 암호화가 없기 때문에 중간자 공격(Man-in-the-Middle Attack)에 취약합니다. 예를 들어, 공공 와이파이에서 HTTP를 통해 로그인 정보를 전송하면 해커가 이를 가로채 비밀번호나 개인정보를 탈취할 수 있습니다. 반면 HTTPS는 이런 위험을 크게 줄여줍니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTPS(HyperText Transfer Protocol Secure)는 HTTP에 <b>SSL/TLS(Secure Sockets Layer/Transport Layer Security) 프로토콜을 추가</b>해 보안성을 강화한 버전입니다. SSL/TLS는 데이터를 암호화하고, <b>서버의 신원을 인증하며, 데이터 무결성을 보장</b>합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTPS를 사용하면 위 데이터가 암호화되어 전송되므로, 가로채더라도 해독할 수 없는 난수처럼 보입니다(예: a8f5g9h2...). HTTP의 평문 전송은 단순히 속도와 편리함을 제공하지만, 보안이 중요한 현대 인터넷 환경에서는 점차 사용이 줄어드는 이유이기도 합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `공개키/개인키 암호화 방식의 작동 원리`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTPS에서 사용하는 공개키(Public Key)와 개인키(Private Key)는 <b>비대칭 암호화 방식의 핵심</b>입니다. 공개키는 누구나 접근할 수 있으며 데이터를 암호화하는 데 사용되고, <b>개인키는 서버만이 가지고 있어 암호화된 데이터를 복호화</b>하는 데 사용됩니다. 이 과정에서 클라이언트와 서버는 초기 연결 시 <b>대칭키(예: AES)</b>를 교환하는데, 이를 위해 공개키 암호화가 사용됩니다. 이후 실제 데이터 전송은 더 빠른 대칭키 암호화로 이루어집니다. 이 "하이브리드 암호화" 방식은 보안성과 효율성을 동시에 충족합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `속도 차이에 대한 추가 설명`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTPS가 HTTP보다 느리다고 언급되었는데, 이는 암호화와 복호화 과정에서 약간의 계산 오버헤드가 발생하기 때문입니다. 하지만 현대 하드웨어와 최적화된 SSL/TLS 프로토콜 덕분에 <b>속도차이는 미미</b>하며, 사용자 경험에 큰 영향을 주지 않는 경우가 많습니다. 또한 <u>HTTP/2나 HTTP/3 같은 최신 프로토콜은 HTTPS와 함께 사용되며 성능을 오히려 향상</u>시키기도 합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `인증서 발급과 비용의 현실`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTPS를 사용하려면 CA(Certificate Authority, 인증 기관)에서 <b>SSL/TLS 인증서</b>를 발급받아야 합니다. 과거에는 인증서가 유료였지만, 현재는 <u>Let’s Encrypt 같은 무료 인증서 제공 서비스가 널리 사용되며 비용 부담이 크게 줄었습니다.</u> 다만, 대규모 사이트나 특정 보안 요구사항이 있는 경우(예: EV 인증서)에는 여전히 유료 인증서를 선택하기도 합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `HTTP와 HTTPS의 사용 사례 구체화`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTPS는 개인정보(로그인 정보, 신용카드 번호 등)를 다룰 때 필수적이지만, 단순 정보 조회 사이트(예: 공개 위키 페이지, 정적 콘텐츠)에서는 HTTP로도 충분 합니다. `,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `그러나 구글 크롬 같은 브라우저는 HTTP 사이트에 "보안되지 않음(Not Secure)" 경고를 표시하며, SEO(검색 엔진 최적화)에서도 HTTPS가 유리하다는 점에서 HTTPS로 전환하는 추세가 강합니다.`,
+				propsType: propsPromptsType.INFO,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `2025년 3월 기준으로 대부분의 웹사이트는 HTTPS를 표준으로 채택하고 있습니다. 이는 사용자 신뢰도를 높이고, 데이터 보안을 강화하며, 브라우저 정책에 부합하기 위함입니다. 따라서 새로운 사이트를 구축하거나 기존 사이트를 유지한다면, 비용과 상관없이 HTTPS를 사용하는 것이 권장됩니다.`,
+			},
+		],
+	},
 ];
 
 // {
