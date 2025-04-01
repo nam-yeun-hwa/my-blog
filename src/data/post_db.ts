@@ -7915,11 +7915,15 @@ ReactDOM.render(<Greeting name="Alice" />, document.getElementById("root"));
 			},
 			{
 				type: ComponentType.H3,
-				value: `커스텀 .d.ts로 확장 (선택적)`,
+				value: `React에 커스텀 타입을 추가하고 싶다면 커스텀 .d.ts로 확장 (선택적)`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `만약 React에 커스텀 타입을 추가하고 싶다면, 다음과 같이 custom.d.ts 파일을 작성할 수 있습니다`,
+				value: `만약 React에 커스텀 타입을 추가하고 싶다면, 다음과 같이 custom.d.ts 파일을 작성할 수 있습니다. 이 경우 customProp을 React 컴포넌트에서 타입 안전하게 사용할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `custom.d.ts`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -7927,19 +7931,104 @@ ReactDOM.render(<Greeting name="Alice" />, document.getElementById("root"));
   interface CustomComponentProps {
     customProp: boolean;
   }
-}
-
-import React from "react";
+}`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `CustomComponent.tsx`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import React from "react";
 
 const CustomComponent: React.FC&lt;CustomComponentProps> = ({ customProp }) => {
   return &lt;div>{customProp ? "Yes" : "No"}&lt;/div>;
-};`,
+};
+
+export default CustomComponent;`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `App.tsx`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import React from "react";
+import CustomComponent from "./CustomComponent";
+
+const App: React.FC = () => {
+  return (
+      &lt;CustomComponent customProp={true} />
+  );
+};
+
+export default App;`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `커스텀 .d.ts로 확장`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `타입스크립트가 인식하지 못하는 타입이나 타입스크립트 내에서 사용할 타입들을 정의 할때 예로 <b>svg 파일</b>을 타입스크립트에서 불러올 수 있게 하도록 custom.d.ts 파일을 생성해준다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `custom.d.ts`,
+			},
+			// 			{
+			// 				type: ComponentType.CODE,
+			// 				value: `declare module '*.svg'{
+			//     import * as React from 'react';
+
+			//     export const ReactComponent:React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string}>;
+
+			//     const src:string;
+			//     exprot default src;
+
+			// }`,
+			// 			},
+			{
+				type: ComponentType.CODE,
+				value: `declare module "*.svg" {
+  import * as React from "react";
+
+  interface CustomSVGProps {
+    title?: string;
+  }
+
+  // SVG 컴포넌트의 전체 props 타입 정의
+  type SVGComponentProps = React.SVGProps&lt;SVGSVGElement> & CustomSVGProps;
+
+  // ReactComponent를 함수형 컴포넌트로 선언
+  export const ReactComponent: React.FunctionComponent&lt;SVGComponentProps>;
+
+  // SVG 파일의 기본 내보내기로 문자열 URL 정의
+  const path: string;
+  export default path;
+}`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `이 경우 customProp을 React 컴포넌트에서 타입 안전하게 사용할 수 있습니다.`,
+				value: `이 선언을 사용하면 SVG 파일을 다음과 같이 가져와 활용할 수 있습니다`,
 			},
+			{
+				type: ComponentType.CODE,
+				value: `import { ReactComponent as Icon } from "./icon.svg";
+import iconPath from "./icon.svg";
 
+const App: React.FC = () => (
+  &lt;div>
+    &lt;Icon width="50" height="50" fill="blue" title="My Icon" />
+    &lt;img src={iconPath} alt="Icon" width="50" height="50" />
+  &lt;/div>
+);`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Icon은 SVGComponentProps 타입을 기반으로 타입 검사가 이루어지며, title은 옵셔널로 사용 가능합니다.
+iconPath는 string 타입으로 이미지 소스로 활용됩니다.`,
+			},
 			{
 				type: ComponentType.H3,
 				value: `구현 코드와 타입 정의의 분리`,
@@ -7989,6 +8078,7 @@ export const add: MathOperation;`,
 				type: ComponentType.NORMAL,
 				value: `선언과 구현을 분리하면 코드 구조가 깔끔해지고, 타입 정의만 공유하거나 재사용하기 쉬워집니다. 특히 외부 라이브러리와 통합할 때 유용합니다.`,
 			},
+
 			{
 				type: ComponentType.H3,
 				value: `interface/type과 .d.ts의 차이점 요약`,
