@@ -7834,7 +7834,7 @@ console.log(result); // 8
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `math.js는 타입 정보가 없는 자바스크립트 파일이지만, math.d.ts에서 add 함수의 매개변수와 반환 타입을 정의해줍니다. 타입스크립트는 이 선언 파일을 참조하여 타입 검사를 수행하며, 잘못된 타입 사용 시 오류를 발생시킵니다.`,
+				value: `math.js는 타입 정보가 없는 자바스크립트 파일이지만, math.d.ts에서 add 함수의 매개변수와 반환 타입을 정의해줍니다. 타입스크립트는 이 선언 파일을 참조하여 타입 검사를 수행하며, 잘못된 타입 사용 시 오류를 발생시킵니다. 타입정의는 컴파일 시 타입 체크에 사용되고 자바스크립트로 변환된 런타임 코드에는 타입이 직접 포함되지 않습니다. 실제 실행되는 로직만 남습니다.`,
 			},
 			{
 				type: ComponentType.H3,
@@ -7969,7 +7969,7 @@ export default App;`,
 				value: `커스텀 .d.ts로 확장`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.NORMAL,
 				value: `타입스크립트가 인식하지 못하는 타입이나 타입스크립트 내에서 사용할 타입들을 정의 할때 예로 <b>svg 파일</b>을 타입스크립트에서 불러올 수 있게 하도록 custom.d.ts 파일을 생성해준다.`,
 			},
 			{
@@ -8076,7 +8076,7 @@ export const add: MathOperation;`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `선언과 구현을 분리하면 코드 구조가 깔끔해지고, 타입 정의만 공유하거나 재사용하기 쉬워집니다. 특히 외부 라이브러리와 통합할 때 유용합니다.`,
+				value: `선언과 구현을 분리하면 실제 실행되는 로직(구현)은 별도의 소스 파일에 두고 <b>타입 정의는 주로 컴파일 타임에 사용되어 코드의 정합성을 확인하거나 개발자에게 힌트를 주는 역할</b>을 하지만, <u>런타임에 실행되는 기계어 코드나 프로그램의 동작에는 직접적인 영향을 미치지 않습니다.</u>  타입 정의만 공유하거나 재사용하기 쉬워집니다. 특히 외부 라이브러리와 통합할 때 유용합니다.`,
 			},
 
 			{
@@ -8135,7 +8135,59 @@ export const add: MathOperation;`,
 			},
 		],
 	},
+	{
+		id: 58,
+		title: `[TECH-QA] 컴파일 (Compile)과 빌드 (Build)`,
+		date: '2025-04-01 14:24:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `"Build"와 "컴파일"은 소프트웨어 개발에서 자주 사용되는 용어인데, 서로 관련이 있지만 약간 다른 개념을 가리킵니다. 한국어로 자연스럽게 설명해볼게요.`,
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `컴파일 (Compile)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `컴파일은 소스 코드를 사람이 작성한 고급 프로그래밍 언어(예: C, Java, Python 등)에서 컴퓨터가 이해할 수 있는 저급 언어(기계어 또는 바이트코드)로 변환하는 과정을 뜻합니다. 이 작업은 컴파일러(Compiler)라는 도구가 수행합니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `예를 들어, C 언어로 작성된 코드를 컴파일하면 실행 가능한 파일(예: .exe)이 만들어집니다.
+컴파일 과정에서 문법 오류나 타입 오류 같은 문제가 있으면 컴파일러가 이를 잡아내고 에러 메시지를 출력합니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `빌드 (Build)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `빌드는 컴파일을 포함한 더 큰 프로세스를 의미합니다. 소프트웨어를 실행하거나 배포할 수 있는 상태로 만드는 전체 작업을 빌드라고 부릅니다. 빌드 과정에는 보통 이런 단계들이 포함되며 단순히 코드를 번역하는 것뿐만 아니라, 프로젝트 전체를 준비하는 과정이라고 볼 수 있습니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `1.<b>컴파일</b> : 소스 코드를 기계어로 변환.
+2.<b>링킹(Linking)</b> : 여러 소스 파일이나 라이브러리를 하나로 연결.
+3.<b>테스트</b> : 자동화된 테스트 실행 (경우에 따라).
+4.<b>패키징</b> : 실행 파일이나 배포 가능한 파일(예: .jar, .apk) 생성.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `요약해보자면`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>컴파일</b>: 코드 번역 과정 (부분).
+<b>빌드</b>: 컴파일 + 추가 작업까지 포함한 전체 준비 과정.`,
+			},
+		],
+	},
 ];
+
+// {
+// 	type: ComponentType.H3,
+// 	value: `컴파일 (Compile)`,
+// },
 
 /**
  * @description 날짜별로 SORT
