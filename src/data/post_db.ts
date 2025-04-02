@@ -8140,7 +8140,7 @@ export const add: MathOperation;`,
 		title: `[TECH-QA] 컴파일(Compile)과 빌드(Build) 그리고 React 웹팩(Webpack)과 바벨(Babel)`,
 		date: '2025-04-02 13:58:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['JavaScript', 'TECH-QA'],
+		tag: ['JavaScript', 'TECH-QA', 'React'],
 		preview: `"Build"와 "컴파일"은 소프트웨어 개발에서 자주 사용되는 용어인데, 서로 관련이 있지만 약간 다른 개념을 가리킵니다. 한국어로 자연스럽게 설명해볼게요.`,
 		post: [
 			{
@@ -8364,6 +8364,137 @@ Host: example.com`,
 			{
 				type: ComponentType.NORMAL,
 				value: `2025년 3월 기준으로 대부분의 웹사이트는 HTTPS를 표준으로 채택하고 있습니다. 이는 사용자 신뢰도를 높이고, 데이터 보안을 강화하며, 브라우저 정책에 부합하기 위함입니다. 따라서 새로운 사이트를 구축하거나 기존 사이트를 유지한다면, 비용과 상관없이 HTTPS를 사용하는 것이 권장됩니다.`,
+			},
+		],
+	},
+	{
+		id: 60,
+		title: `[TECH-QA] JWT(JSON Web Token) 인증 방식`,
+		date: '2025-04-02 15:44:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `JWT(JSON Web Token)는 웹에서 사용자 인증을 위해 널리 사용되는 토큰 기반 인증 방식입니다. JWT는 세 가지 주요 부분으로 구성되며, 각 부분은 점(.)으로 구분됩니다`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `JWT(JSON Web Token)는 웹에서 사용자 인증을 위해 널리 사용되는 <b>토큰 기반 인증 방식</b>입니다. JWT는 세 가지 주요 부분으로 구성되며, 각 부분은 점(.)으로 구분됩니다 `,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Header(헤더)
+	Payload(페이로드)
+	Signature(서명)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이를 <u>Base64 URL 인코딩 방식</u>으로 <u>직렬화</u>하여 <b>헤더 . 페이로드 . 서명 형태의 문자열</b>로 표현됩니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Header`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `토큰의 유형(보통 "JWT")
+				서명에 사용된 알고리즘을 정의(예: HMAC SHA256, RSA 등)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `{
+  "alg": "HS256",
+  "typ": "JWT"
+}`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Payload`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `사용자 인증에 필요한 정보(클레임, Claims)를 포함합니다. 여기에는 사용자 ID, 권한, 발급 시간(iat), 만료 시간(exp) 등 표준 클레임과 함께 개발자가 추가한 커스텀 클레임이 들어갈 수 있습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `{
+  "sub": "user123",
+  "name": "John Doe",
+  "iat": 1712016000,
+  "exp": 1712023200
+}`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `Signature`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Header와 Payload를 조합한 후 서버의 비밀 키(secret key)를 사용해 서명한 값입니다. 이 서명은 토큰의 무결성을 보장하며, 클라이언트가 토큰을 위조하거나 변조했는지 확인하는 데 사용됩니다. 서명 생성 과정은 다음과 같습니다`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>서버의 비밀 키</b></br>
+				- 서버의 비밀 키(secret key)는 서버 애플리케이션이 설계되고 배포되는 단계에서 생성되거나 설정됩니다.</br>
+				- JWT를 생성하고 검증하기 위해 서버 측에서 미리 설정되고 관리되는 고정된 값입니다. </br>
+				- 이 키는 JWT의 Signature 부분을 생성하고, 나중에 토큰의 유효성을 검증할 때 사용됩니다.
+				`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.H3,
+				value: `장점`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>상태 비저장(Stateless)</b>: 서버가 세션 정보를 저장할 필요가 없어 확장성이 뛰어나고, 분산 시스템에서 유리합니다.
+<b>호환성</b>: JSON 기반이므로 다양한 플랫폼과 언어에서 쉽게 파싱하고 사용할 수 있습니다.
+<b>단일 토큰으로 인증</b>: API 호출 시마다 헤더(Authorization: Bearer <token>)에 포함시켜 간단히 인증을 처리할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `단점 및 고려사항`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>수정 및 폐기 불가</b> : 한 번 발급된 JWT는 만료 전까지 유효하며 중간에 무효화하기 어렵습니다. 이를 보완하려면 Refresh Token을 함께 사용해 짧은 유효기간의 Access Token을 주기적으로 갱신하는 방식이 일반적입니다.
+<b>토큰 탈취 위험</b> : 토큰이 클라이언트에 저장되므로(주로 브라우저의 localStorage나 cookie), XSS(Cross-Site Scripting) 공격에 노출될 가능성이 있습니다. 이를 방지하려면 HTTPS를 사용하고, 토큰을 HttpOnly, Secure 속성이 설정된 쿠키에 저장하는 것이 좋습니다.
+<b>Payload 노출</b> : JWT의 Payload는 암호화되지 않고 Base64로 인코딩만 되어 있어 누구나 디코딩해 내용을 볼 수 있습니다. 따라서 민감한 정보(예: 비밀번호)는 절대 포함시키지 않아야 합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `유효기간 설정의 중요성`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `유효기간(exp)을 짧게 설정하는 것은 보안을 강화하는 핵심 방법입니다. 예를 들어, Access Token은 15분~1시간, Refresh Token은 하루 정도로 설정하는 경우가 많습니다. 유효기간이 길면 토큰이 유출되었을 때 악용될 시간이 늘어나므로, 짧은 주기로 갱신하며 보안과 편의성을 균형 있게 유지하는 것이 중요합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `JWT는 인증 외에도 권한 부여(Authorization)나 정보 교환(예: SSO, Single Sign-On)에도 사용됩니다. 예를 들어, OAuth 2.0 프레임워크에서 ID 토큰으로 활용되기도 합니다.
+
+결론적으로, JWT는 서버 부하를 줄이고 효율적인 인증을 가능하게 하지만, 보안 설계(짧은 유효기간, Refresh Token 도입, HTTPS 필수 등)를 신중히 고려해야 효과적으로 사용할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `로그인 과정에서의 JWT`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `사용자의 자격 증명(예: ID, 비밀번호)을 확인합니다.
+인증이 성공하면, 서버는 미리 설정된 비밀 키를 사용해 JWT를 생성합니다.
+생성된 JWT(헤더.페이로드.서명 형태)는 사용자에게 반환됩니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `여기서 발행되는 것은 JWT 자체이며, 비밀 키는 그 과정에서 사용되는 도구일 뿐입니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `비밀 키: my-secret-key (서버에 고정적으로 저장됨)
+JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIn0.서명값`,
 			},
 		],
 	},
