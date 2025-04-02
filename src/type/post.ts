@@ -99,6 +99,8 @@ export enum Folder {
 	TECHQA = 'tech-QA',
 	READINGNOTES = 'Reading Notes',
 	GENERATIVEAI = 'Generative AI',
+	HTTP = 'Http',
+	NEXTJS = 'next.js',
 }
 
 /**

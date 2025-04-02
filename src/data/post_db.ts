@@ -712,7 +712,7 @@ Query OK, 1 row affected (0.00 sec)`,
 		title: '테스트 주도 개발(Test driven devlopment, TDD)',
 		date: '2024-07-08 22:13:16',
 		folder: Folder.TDD,
-		tag: ['테스트 주도 개발'],
+		tag: ['TDD'],
 		preview: `테스트 코드를 먼저 작성하는 테스트 주도 개발 방벙론은 테스트 프레임워크를 사용하여 자동화된 테스트 시스템에서 미리 정의된 사양을 바탕으로 실패하는 테스트 명새를 작성하고`,
 		post: [
 			{
@@ -1432,7 +1432,7 @@ console.log(nextData === data) // false`,
 		title: '함수형 프로그래밍',
 		date: '2024-01-15 22:11:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `데이터를 함수를 이용해 새로운 데이터로 만들어 나가는 데이터 파이프 라인의 형태로 프로그래밍이 작동 하며 함수형 프로그래밍은 거의 모든 것을 순수 함수로 나누어 문제를 해결하는 기법으로, 작은 문제를 해결하기 위한 함수를 작성하여 가독성을 높이고 유지보수를 용이하게 해준다.`,
 		post: [
 			{
@@ -1583,15 +1583,15 @@ let result = stringNumber.split(" ")
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				value: `프론트 서버는 어떤 주소에 대한 요청을 보냈을 때, Markup Language (HTML,CSS, Javascript)를 응답해서 사용자에게 GUI 환경을 제공해준다.`,
+				value: `프론트 서버는 어떤 주소에 대한 요청을 보냈을 때, Markup Language (HTML,CSS, JavaScript)를 응답해서 사용자에게 GUI 환경을 제공해준다.`,
 			},
 			{
 				type: ComponentType.NORMAL,
 				value: `→ react, next, styled-components, redux 등
         <img href="https://velog.velcdn.com/images/bunny/post/f81790cf-1b26-4a2e-88a5-c6bc23fe7955/image.jpg"/></br></br>
-        프론트엔드 개발자가 React 라이브러리를 활용하여 클라이언트(브라우저)에게 제공할 Javascript 파일들을 ES6 + JSX 문법으로 작성하게 되면, Babel 등의 컴파일러가 모든 브라우저에서 호환 가능한 문법으로 변환해준다.</br></br>
-        또한 Webpack 등의 모듈 번들러가 HTML, CSS, Javascript 파일들을 효율적인 방식으로 적절히 번들링하여 준비해둔다.</br></br>
-        클라이언트가 요청을 보낼 때마다 프론트 서버는 미리 준비해둔 HTML, CSS, Javascript 파일들을 클라이언트에게 제공한다. 그러면 클라이언트(브라우저)는 전달받은 Javascript를 실행해 페이지에 렌더링을 시작한다. 즉, React 라이브러리를 활용했던 Javascript 코드는 동적으로 DOM에 렌더링 해준다.
+        프론트엔드 개발자가 React 라이브러리를 활용하여 클라이언트(브라우저)에게 제공할 JavaScript 파일들을 ES6 + JSX 문법으로 작성하게 되면, Babel 등의 컴파일러가 모든 브라우저에서 호환 가능한 문법으로 변환해준다.</br></br>
+        또한 Webpack 등의 모듈 번들러가 HTML, CSS, JavaScript 파일들을 효율적인 방식으로 적절히 번들링하여 준비해둔다.</br></br>
+        클라이언트가 요청을 보낼 때마다 프론트 서버는 미리 준비해둔 HTML, CSS, JavaScript 파일들을 클라이언트에게 제공한다. 그러면 클라이언트(브라우저)는 전달받은 JavaScript를 실행해 페이지에 렌더링을 시작한다. 즉, React 라이브러리를 활용했던 JavaScript 코드는 동적으로 DOM에 렌더링 해준다.
         `,
 			},
 			{
@@ -1613,8 +1613,8 @@ let result = stringNumber.split(" ")
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `SPA 에서는 프론트 서버에서 정적파일들을 먼저 받아(HTML, CSS, Javascript) 화면을 그리고 데이터를 백엔서 서버에서 받아오는동안 로딩바를 화면에 표시해 주도록 한다.</br></br>
-        브라우저 ➔ 프론트 서버에서 정적파일들을 받아옴(HTML, CSS, Javascript) </br> 브라우저 ➔ 백엔드 서버(프론트 서버를 거치지 않고 백엔드 서버로 바로 데이터를 요청) ➔ DB`,
+				value: `SPA 에서는 프론트 서버에서 정적파일들을 먼저 받아(HTML, CSS, JavaScript) 화면을 그리고 데이터를 백엔서 서버에서 받아오는동안 로딩바를 화면에 표시해 주도록 한다.</br></br>
+        브라우저 ➔ 프론트 서버에서 정적파일들을 받아옴(HTML, CSS, JavaScript) </br> 브라우저 ➔ 백엔드 서버(프론트 서버를 거치지 않고 백엔드 서버로 바로 데이터를 요청) ➔ DB`,
 			},
 			{
 				type: ComponentType.H4,
@@ -1625,7 +1625,7 @@ let result = stringNumber.split(" ")
 				value: `
         다른말로 HTTP Server라고도 한다. 웹 브라우저의 파트너로서 서버의 정보를 제공하는 소프트웨어라고 할 수 있다.
         대표적으로 Nginx, Apache가 있다.
-        웹 서버는 인터넷 네트워크 위에서 HTTP 프로토콜을 이용해 HTML, CSS, Javascript, image/mediafile과 같은 정적인 정보들을 웹 브라우저에 전송한다.
+        웹 서버는 인터넷 네트워크 위에서 HTTP 프로토콜을 이용해 HTML, CSS, JavaScript, image/mediafile과 같은 정적인 정보들을 웹 브라우저에 전송한다.
         아파치 소프트웨어 재단에서 만든 웹서버(web server)를 일컫는다.
         리눅스에서는 httpd 로 명명지어져 배포된다.
         정적인 데이터들 (html, css 이미지, 파일 등)에 대한 클라이언트의 요청을 데이터로 만들어서 응답한다.
@@ -1751,7 +1751,7 @@ function logEvent(event) {
 		title: '일반함수 VS 화살표 함수의 this 바인딩',
 		date: '2023-03-20 22:11:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `일반 함수와 화살표 함수의 this 바인딩에 대한 차이에 대한 내용을 약간 각색하여 정리하겠습니다. 일반 함수에서 this는 함수가 호출될 때 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.`,
 		post: [
 			{
@@ -1869,7 +1869,7 @@ button.addEventListener('click', function() {
 		title: '중첩된 객체를 가진 객체의 깊은 복사 하는 방법',
 		date: '2023-03-03 22:11:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `키-값 쌍이 여러 개인 객체가 있습니다. 문제는 객체가 완전하지 않다는 것입니다. 이 문제는 객체에 기존데이터가 있는 상태에서 새로운 필드를 추가하는 경우나 외부 API에서 데이터를 가져와 현재 데이터 모델에 연결해야 하는 경우에 자주 발생합니다. 어느 쪽이든 문제가 되는 부분은 같습니다.`,
 		post: [
 			{
@@ -1895,7 +1895,7 @@ button.addEventListener('click', function() {
 
 const book = {
   author : 'joe Morgan',
-  title : 'Simplifying Javascript'
+  title : 'Simplifying JavaScript'
 };
 
 const updated = Object.assign({}, defaults, book);
@@ -1903,7 +1903,7 @@ console.log(updated);
 
 //{ 
 //  author : 'joe Morgan',
-//  title : 'Simplifying Javascript,
+//  title : 'Simplifying JavaScript,
 //  year:2017,
 //  rating:null
 //}`,
@@ -2034,7 +2034,7 @@ const deepCopy = JSON.parse(JSON.stringify(originalObject));
 		title: 'const, let, var',
 		date: '2023-02-21 22:11:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `let은 재할당 할 수 있다는 점에서 var와 유사합니다. 그렇지만 var는 어휘적 유효범위(lexical scope)를 따르는 반면 let은 블록 유효범위를 따릅니다. 일단 블록 유효범위 변수는 if블록이나 for 반복문 같은 블록의 내부에만 존재한다고 알아두세요.`,
 		post: [
 			{
@@ -2248,7 +2248,7 @@ outer();`,
 		title: '클로저 (Closure)',
 		date: '2023-02-19 22:11:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `비공개 변수는 클로저 함수 내부에 생성한 변수도 아니고, 매개변수도 아닌 변수를 의미합니다. 클로저를 말할 때는 스코프/컨텍스트/비공개 변수와 함수의 관계를 항상 같이 말해주어야 합니다. closure 함수 안에 console.log(name)이 있는데요.`,
 		post: [
 			{
@@ -2354,7 +2354,7 @@ console.log(counter()); // 2
 		title: '함수선언식 VS 함수표현식의 호이스팅(Hoisting)',
 		date: '2023-02-19 22:11:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `호이스팅(Hoisting)은 JavaScript에서 변수와 함수 선언이 최상단으로 끌어올려지는 현상을 말합니다. 하지만 함수 선언식과 함수 표현식은 다르게 동작하므로 주의가 필요합니다.
     `,
 		post: [
@@ -2463,7 +2463,7 @@ function sayWow() {
 	//     folder: Folder.JAVASCRIPT,
 	//     preview: `자바스크립트에서 실행 컨텍스트(execution context)는 코드가 실행될 때 생성되는 환경을 말합니다. 실행 컨텍스트는 코드의 실행에 필요한 정보를 담고 있으며, 변수 및 함수의 스코프, 변수의 값, this 등의 정보를 포함합니다. 실행 컨텍스트는 스택(Stack) 자료구조로 관리되며, 코드의 실행이 시작될 때마다 새로운 실행 컨텍스트가 스택의 맨 위에 추가되고, 코드의 실행이 종료될 때 해당 실행 컨텍스트가 스택에서 제거됩니다..
 	//     `,
-	//     tag: ['Javascript'],
+	//     tag: ['JavaScript'],
 	//     post: [
 	//       {
 	//         type: ComponentType.H2,
@@ -2607,7 +2607,7 @@ function sayWow() {
 		date: '2022-09-22 22:11:33',
 		folder: Folder.JAVASCRIPT,
 		preview: ` 비동기 프로그래밍에서 자주 발생하는 코드 구조의 한 종류로, 여러 비동기 동작이 중첩된 형태로 코드가 작성될 때 발생하는 가독성 저하와 유지보수의 어려움을 지칭합니다.`,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		post: [
 			{
 				type: ComponentType.NORMAL,
@@ -2753,7 +2753,7 @@ function sayWow() {
 		folder: Folder.JAVASCRIPT,
 		preview: `프로미스를 사용할 때 알아야 하는 가장 기본적인 개념이 바로 프로미스의 상태(states)입니다. 여기서 말하는 상태란 프로미스의 처리 과정을 의미합니다. new Promise()로 프로미스를 생성하고 종료될 때까지 3가지 상태를 갖습니다..
     `,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		post: [
 			{
 				type: ComponentType.NORMAL,
@@ -2853,7 +2853,7 @@ fetchData()
 		folder: Folder.JAVASCRIPT,
 		preview: `액세스 토큰은 주로 인증된 사용자가 보호된 리소스에 접근할 수 있는 권한을 부여하는 데 사용되는 문자열입니다. 주로 웹 애플리케이션, 모바일 앱 등에서 사용자 인증 및 권한 부여에 쓰입니다. 여러 인증 프로토콜에서 사용되며, 대표적으로 OAuth 2.0에서 정의되어 있습니다.
     `,
-		tag: ['JWT', 'Token'],
+		tag: ['JWT'],
 		post: [
 			{
 				type: ComponentType.NORMAL,
@@ -3410,14 +3410,14 @@ git config --global user.email "your email address"`,
 		date: '2022-08-15 22:11:33',
 		folder: Folder.REACT,
 		tag: ['React', 'Vue'],
-		preview: `react는 UI 라이브러리이며 JSX(Javascript XML)형태로 코드를 작성하여 Javascript 문법을 응용하기 때문에 Javascript만으로 UI로직과 DOM을 구현한다. Vue는 제공되는 html 기반의 템플릿이 있어 쉽고 빠르게 제작이 가능하여 진입장벽이 낮으며 개발자간 코드 통일성이 있으며 소규모 프로젝트에 용이하다.`,
+		preview: `react는 UI 라이브러리이며 JSX(JavaScript XML)형태로 코드를 작성하여 JavaScript 문법을 응용하기 때문에 JavaScript만으로 UI로직과 DOM을 구현한다. Vue는 제공되는 html 기반의 템플릿이 있어 쉽고 빠르게 제작이 가능하여 진입장벽이 낮으며 개발자간 코드 통일성이 있으며 소규모 프로젝트에 용이하다.`,
 		post: [
 			{
 				type: ComponentType.NORMAL,
 				value: `
         리액트(React)와 뷰(Vue.js)는 모두 현대적인 프론트엔드 JavaScript 라이브러리 및 프레임워크로, 웹 애플리케이션의 사용자 인터페이스(UI)를 개발하기 위해 사용된다. 이 두 기술의 각각 고유한 특징과 장단점에 대해 이야기 해보고자 한다. </br></br>
 
-        react는 UI 라이브러리이며 JSX(Javascript XML)형태로 코드를 작성하여 UI로직과 DOM을 구현한다. 자바스크립트를 사용하기 때문에 자바스크립트 문법에 능숙해야 하며 커스터마이징 및 자유도가 높은편이다. 또한 커뮤니티 형성이 잘 되어있고 큰 프로젝트에 용이하다.</br></br>
+        react는 UI 라이브러리이며 JSX(JavaScript XML)형태로 코드를 작성하여 UI로직과 DOM을 구현한다. 자바스크립트를 사용하기 때문에 자바스크립트 문법에 능숙해야 하며 커스터마이징 및 자유도가 높은편이다. 또한 커뮤니티 형성이 잘 되어있고 큰 프로젝트에 용이하다.</br></br>
 
         Vue는 제공되는 html 기반의 템플릿이 있어 쉽고 빠르게 제작이 가능하여 진입장벽이 낮고 개발
         자간 코드 통일성이 있으며 소규모 프로젝트에 용이하다.</br></br>`,
@@ -3439,7 +3439,7 @@ git config --global user.email "your email address"`,
           <tr>
             <td>리액트</td>
             <td>단방향 데이터바인딩</td>
-            <td>UI 라이브러리로 JSX(Javascript XML)문법을 사용</br> 자바스크립트를 사용하기 때문에 커스터 마이징 및 자유도가 높은 편</td>
+            <td>UI 라이브러리로 JSX(JavaScript XML)문법을 사용</br> 자바스크립트를 사용하기 때문에 커스터 마이징 및 자유도가 높은 편</td>
             <td>컴포넌트 기반 아키텍처를 사용하여 UI를 구성</td>
             <td>가상돔 사용</td>
           </tr>
@@ -3506,7 +3506,7 @@ git config --global user.email "your email address"`,
 		title: '브라우저의 JavaScript 코드 실행 과정 - 콜스택과 이벤트 루프',
 		date: '2024-02-28 01:20:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript', 'browser'],
+		tag: ['JavaScript', 'browser'],
 		preview: `콜스택은 현재 실행 중인 함수의 호출을 기록하는 자료 구조입니다. 함수가 호출되면 해당 함수의 정보가 스택에 추가되고, 함수의 실행이 완료되면 스택에서 제거됩니다. 따라서 콜스택은 함수의 호출 순서를 추적하고, 실행 중인 함수의 컨텍스트를 관리합니다.`,
 		post: [
 			{ type: ComponentType.H2, value: `콜스택 (Call Stack)` },
@@ -3920,7 +3920,7 @@ Hello, World!
 		title: '이벤트 바인딩이란?',
 		date: '2024-03-06 00:21:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `이벤트 바인딩이란, 발생하는 이벤트와 그 후에 어떤일이 일어나는지 알려주는 콜백함수와 연결해준 다는 뜻이다. 이벤트 바인딩이는 총 3가지 방법이 있는데, HTML이벤트 핸들러, 전통적인 DOM핸들러, EventListener을 이용한 핸들러가있다.`,
 		post: [
 			{
@@ -4086,7 +4086,7 @@ Hello, World!
 		title: '[TECH-QA] RESTful API이란?',
 		date: '2025-03-11 13:26:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `RESTful API는 HTTP 프로토콜을 기반으로하는 웹 서비스 아키텍처입니다. 자원, 메소드, 메시지 등을 정의하여 클라이언트-서버 간의 통신을 가능하게 합니다. 또한, RESTful API는 표준 HTTP 메소드(GET, POST, PUT, DELETE)를 사용하여 서버와 통신합니다.    `,
 		post: [
 			{
@@ -4335,7 +4335,7 @@ HTTP 상태 코드: 201 Created`,
 		title: '콜백함수란?',
 		date: '2024-03-08 02:42:02',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript', '콜백함수'],
+		tag: ['JavaScript', '콜백함수'],
 		preview: `다른함수의 인자로써 이용되는 함수이며 제어권도 함께 위임한 함수이다. 위의 코드에서 setTimeout 함수로 비동기 작업을 시작한 후에 console.log("다른 코드")가 실행됩니다. 이때 "다른 코드" 부분이 비동기 작업이 완료되기를 기다리는 동안 실행되는 코드이며 비동기 작업의 완료를 기다리는 동안 자바스크립트 코드 실행 제어권이 다른 코드에게 넘어갑니다.`,
 		post: [
 			{
@@ -4369,7 +4369,7 @@ performAsyncTask();
 		title: '.call과 .apply의 차이점',
 		date: '2024-03-21 13:30:02',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `this가 함수 호출식에 따라 객체를 가르켰다면 call apply bind는 함수가 직접 실행문맥을 결정한다. 그 중 call과 apply는 함수를 호출해서 실행한다. 두번째로 쓰이는 매개변수가 배열일 경우 apply를 사용한다.`,
 		post: [
 			{
@@ -4422,7 +4422,7 @@ greet.apply(person, ['Good morning']); // "Good morning, Alice!"`,
 		title: '화살표 함수와 일반함수의 차이점',
 		date: '2024-03-21 18:55:02',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `화살표함수는 함수를 간단하게 표현할 수 있는 ES6문법 이다. 일반 함수는 this가 동적으로 바인딩되는 반면, 화살표 함수는 바로 상위 스코프의 this와 같으며 화살표함수는 프로토타입 프로퍼티를 가지고있지 않기때문에 생성자 함수로 사용이어렵다. `,
 		post: [
 			{
@@ -4595,7 +4595,7 @@ arrowFunctionWithRest(1, 2, 3); // 출력: [1, 2, 3]`,
 			'HTML(하이퍼텍스트 마크업 언어)에서 속성(Attribute)과 프로퍼티(Property)',
 		date: '2024-03-22 10:23:02',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `HTML(하이퍼텍스트 마크업 언어)에서 속성(Attribute)과 프로퍼티(Property)는 특정 요소에 대한 정보를 지정하는 데 사용되는 용어입니다. 그러나 두 용어 간에는 몇 가지 차이가 있습니다.`,
 		post: [
 			{
@@ -4658,7 +4658,7 @@ console.log(element.id); // "myDiv"`,
 		title: 'Function.prototype.bind()',
 		date: '2024-03-22 10:43:02',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `HTML(하이퍼텍스트 마크업 언어)에서 속성(Attribute)과 프로퍼티(Property)는 특정 요소에 대한 정보를 지정하는 데 사용되는 용어입니다. 그러나 두 용어 간에는 몇 가지 차이가 있습니다.`,
 		post: [
 			{
@@ -4743,7 +4743,7 @@ console.log(boundGetX()); // 42`,
 			'브라우저 렌더링 중 스크립트 태그를 만날 때 파싱이 중단되는 문제와 해결',
 		date: '2024-03-24 11:41:02',
 		folder: Folder.JAVASCRIPT,
-		tag: ['Javascript'],
+		tag: ['JavaScript'],
 		preview: `브라우저는 async 속성을 가진 스크립트를 만나면 HTML 파싱과 함께 스크립트 파일의 다운로드를 동시에 시작합니다.
     스크립트 파일이 다운로드되고 실행될 준비가 되면, HTML 파싱은 멈추고 스크립트가 실행됩니다.`,
 		post: [
@@ -4818,10 +4818,10 @@ console.log(boundGetX()); // 42`,
 	},
 	{
 		id: 30,
-		title: '[한입 영어] There is nothing to + 동사원형',
+		title: '[English] There is nothing to + 동사원형',
 		date: '2024-12-19',
 		folder: Folder.ENGLISH,
-		tag: ['English', '한입 영어'],
+		tag: ['English'],
 		preview: `"there is nothing to"는 상황에 따라 여러 의미로 해석될 수 있습니다. 가장 일반적인 해석은 아래와 같습니다. `,
 		post: [
 			{
@@ -4852,10 +4852,10 @@ console.log(boundGetX()); // 42`,
 	},
 	{
 		id: 31,
-		title: '[한입 영어] work + 전치사',
+		title: '[English] work + 전치사',
 		date: '2024-12-23',
 		folder: Folder.ENGLISH,
-		tag: ['English', '한입 영어'],
+		tag: ['English'],
 		preview: `"He is just some guy I work with!"는 상황에 따라 여러 의미로 해석될 수 있습니다. 가장 일반적인 해석은 아래와 같습니다.`,
 		post: [
 			{
@@ -4902,10 +4902,10 @@ console.log(boundGetX()); // 42`,
 	},
 	{
 		id: 32,
-		title: '[한입 영어] There is gotta be : 분명히 ~이 있을 것이다.',
+		title: '[English] There is gotta be : 분명히 ~이 있을 것이다.',
 		date: '2025-01-05',
 		folder: Folder.ENGLISH,
-		tag: ['English', '한입 영어'],
+		tag: ['English'],
 		preview: `"There is gotta be = There is got to be!"는 분명히 ~이 있을 것이다.`,
 		post: [
 			{
@@ -4936,8 +4936,8 @@ console.log(boundGetX()); // 42`,
 		id: 33,
 		title: '[TECH-QA] CORS란',
 		date: '2025-02-27',
-		folder: Folder.TECHQA,
-		tag: ['JavaScript', 'TECHQA'],
+		folder: Folder.HTTP,
+		tag: ['JavaScript', 'TECH-QA'],
 		preview: `"CORS(Cross-Origin Resource Sharing)는 도메인 혹은 포트가 다른 외부서버의 자원을 요청할때 생긴다."`,
 		post: [
 			{
@@ -5075,7 +5075,7 @@ app.listen(3000);`,
 		id: 35,
 		title: '[TECH-QA] next/image',
 		date: '2025-03-03 16:30:21',
-		folder: Folder.TECHQA,
+		folder: Folder.NEXTJS,
 		tag: ['next', 'TECH-QA'],
 		preview: `next/image는 이미지를 자동으로 적절한 크기로 조정하고 필요한 경우에는 이미지를 WebP 또는 AVIF 형식으로 변환하여 더 작은 용량으로 압축할수 있으며 기본적으로 레이지 로딩을 지원하여 페이지의 성능르 향상 시킨다`,
 		post: [
@@ -5126,8 +5126,8 @@ app.listen(3000);`,
 		id: 37,
 		title: '[TECH-QA] 이벤트 루프',
 		date: '2025-03-04 13:34:21',
-		folder: Folder.TECHQA,
-		tag: ['Javascript', 'TECH-QA'],
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA'],
 		preview: `자바스크립트 이벤트 루프는 싱글 스레드 환경에서 비동기 작업으로 동시성을 지원하는 메커니즘입니다. 이벤트 루프는 이벤트 처리, 콜백실행, 태스크 큐 관리 등을 담당하여 비동기 작업을 효율적으로 처리 합니다. 요청된 비동기 작업이 완료되면 콜백이 태스크 큐로 이동하고 콜스택이 빈 상태가 되면 이벤트 루프는 큐에서 첫번째 콜백을 꺼내와 콜스택에 넣어주고 콜스택에서 콜백함수를 실행 합니다. 이 과정을 반복하여 비동기 작업을 순차적으로 처리 합니다.`,
 		post: [
 			{
@@ -5283,8 +5283,8 @@ Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Pro
 		id: 38,
 		title: '[TECH-QA] 자바스크립트 런타임',
 		date: '2025-03-05 12:35:21',
-		folder: Folder.TECHQA,
-		tag: ['Javascript', 'TECH-QA'],
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA'],
 		preview: `자바스크립트는 싱글 스레드로 동작하지만, 비동기 작업을 효율적으로 처리하기 위해 아래 구성 요소들이 상호작용합니다.`,
 		post: [
 			{
@@ -5522,7 +5522,7 @@ Task Queue에서 Timeout 콜백 실행.`,
 		id: 40,
 		title: '[TECH-QA] 리액트의 useCallback와 useMemo',
 		date: '2025-03-06 12:37:21',
-		folder: Folder.TECHQA,
+		folder: Folder.REACT,
 		tag: ['TECH-QA', 'React'],
 		preview: `useCallback과 useMemo는 둘 다 ReactHooks 입니다.`,
 		post: [
@@ -5676,7 +5676,7 @@ function ExpensiveComponent() {
 		id: 42,
 		title: '[TECH-QA] 리액트에서 map 사용시 key를 사용하는 이유',
 		date: '2025-03-07 12:49:21',
-		folder: Folder.TECHQA,
+		folder: Folder.REACT,
 		tag: ['TECH-QA', 'React'],
 		preview: `리액트에서 map을 사용할 때 각 항목에 고유한 키(key)를 제공해야 하는 이유는 성능 및 리렌더링 관련 문제를 방지하기 위함입니다.`,
 		post: [
@@ -5855,7 +5855,7 @@ return (
 		title: '[TECH-QA] 자바스크립트 비동기 함수',
 		date: '2025-03-13 11:40:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['TECH-QA', 'Javascript'],
+		tag: ['TECH-QA', 'JavaScript'],
 		preview: `자바스크립트는 단일 스레드(Single-threaded) 언어로, 한 번에 하나의 작업만 처리할 수 있다. 이는 코드가 순차적으로 실행된다는 의미인데, 만약 모든 작업을 동기적으로 처리한다면 시간이 오래 걸리는 작업(예: 서버 요청, 파일 읽기)이 끝날 때까지 프로그램 전체가 멈춰버릴 수 있다.`,
 		post: [
 			{
@@ -6146,7 +6146,7 @@ async function getData() {
 		title: '[TECH-QA] 자바스크립트 호이스팅과 실행 컨텍스트',
 		date: '2025-03-18 15:33:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['TECH-QA', 'Javascript'],
+		tag: ['TECH-QA', 'JavaScript'],
 		preview: `자바스크립트는 코드를 한줄 한줄 실행하기에 앞서 선언된 변수와 함수 클래스 등의 선언문을 찾아 런타임 이전에 한번 실행해 미리 메모리에 올려놓습니다. 이를 호이스팅이라고 합니다.`,
 		post: [
 			{
@@ -6262,7 +6262,7 @@ let과 const는 선언만 되고 초기화는 나중에 이루어집니다(TDZ).
 		title: '[TECH-QA] 자바스크립트 클로저',
 		date: '2025-03-20 10:51:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['TECH-QA', 'Javascript'],
+		tag: ['TECH-QA', 'JavaScript'],
 		preview: `함수가 선언될 때 자동으로 생성되는 렉시컬 환경에 대한 설명입니다. 렉시컬 환경은 스코프 체인을 형성하고 스코프 체인은 함수가 선언될 때의 모든 변수와 함수를 포함하는 렉시컬 스코프를 형성 합니다. 외부함수가 실행 되고 반환된 후에도 외부함수의 범위 내의 내부 함수에 체이닝을 할 수 있는 함수입니다. 정보를 은닉하기 위해서 주로 사용합니다.`,
 		post: [
 			{
@@ -6492,10 +6492,10 @@ inner의 렉시컬 환경: 로컬 변수 없음, 외부 참조는 outer의 렉�
 	},
 	{
 		id: 48,
-		title: `[한입 영어] I'm sure 패턴 1`,
+		title: `[English] I'm sure 패턴 1`,
 		date: '2025-03-21 12:21:33',
 		folder: Folder.ENGLISH,
-		tag: ['English', '한입 영어'],
+		tag: ['English'],
 		preview: `"I'm sure you did a good job. 난 네가 잘했을 거라고 확신해"`,
 		post: [
 			{
@@ -7501,10 +7501,10 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 	},
 	{
 		id: 54,
-		title: `[한입 영어] I'm sure 패턴 2`,
+		title: `[English] I'm sure 패턴 2`,
 		date: '2025-03-26 22:33:33',
 		folder: Folder.ENGLISH,
-		tag: ['English', '한입 영어'],
+		tag: ['English'],
 		preview: `"I'm sure that a lot of Koreans use social networking sites these days 전 대학원 진학하는 것에 대해 확신하고 있지 않아요"`,
 		post: [
 			{
@@ -8372,7 +8372,7 @@ Host: example.com`,
 		title: `[TECH-QA] JWT(JSON Web Token) 인증 방식`,
 		date: '2025-04-02 15:44:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['JavaScript', 'TECH-QA'],
+		tag: ['JavaScript', 'TECH-QA', 'JWT'],
 		preview: `JWT(JSON Web Token)는 웹에서 사용자 인증을 위해 널리 사용되는 토큰 기반 인증 방식입니다. JWT는 세 가지 주요 부분으로 구성되며, 각 부분은 점(.)으로 구분됩니다`,
 		post: [
 			{
@@ -8449,9 +8449,9 @@ Host: example.com`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `<b>상태 비저장(Stateless)</b>: 서버가 세션 정보를 저장할 필요가 없어 확장성이 뛰어나고, 분산 시스템에서 유리합니다.
-<b>호환성</b>: JSON 기반이므로 다양한 플랫폼과 언어에서 쉽게 파싱하고 사용할 수 있습니다.
-<b>단일 토큰으로 인증</b>: API 호출 시마다 헤더(Authorization: Bearer <token>)에 포함시켜 간단히 인증을 처리할 수 있습니다.`,
+				value: `<b>상태 비저장(Stateless)</b>: 사용자 인증정보를 서버나 세션스토리지에 유지할 필요가 없어 확장성이 뛰어나고, 분산 시스템에서 유리합니다.
+<b>단일 토큰으로 인증</b> : 사용자 인증에 필요한 정보를 토큰 자체에 담고 있어 클라이언트 측에서 들어오는 요청만으로 유효성 검사를 합니다. API 호출 시마다 헤더(Authorization: Bearer <token>)에 포함시켜 간단히 인증을 처리할 수 있습니다.
+<b>호환성</b> : JSON 기반이므로 다양한 플랫폼과 언어에서 쉽게 파싱하고 사용할 수 있습니다.`,
 			},
 			{
 				type: ComponentType.H3,
@@ -8460,8 +8460,45 @@ Host: example.com`,
 			{
 				type: ComponentType.STRINGLIST,
 				value: `<b>수정 및 폐기 불가</b> : 한 번 발급된 JWT는 만료 전까지 유효하며 중간에 무효화하기 어렵습니다. 이를 보완하려면 Refresh Token을 함께 사용해 짧은 유효기간의 Access Token을 주기적으로 갱신하는 방식이 일반적입니다.
-<b>토큰 탈취 위험</b> : 토큰이 클라이언트에 저장되므로(주로 브라우저의 localStorage나 cookie), XSS(Cross-Site Scripting) 공격에 노출될 가능성이 있습니다. 이를 방지하려면 HTTPS를 사용하고, 토큰을 HttpOnly, Secure 속성이 설정된 쿠키에 저장하는 것이 좋습니다.
+<b>토큰 탈취 위험</b> : 토큰이 클라이언트에 저장되므로(주로 브라우저의 localStorage나 cookie), XSS(Cross-Site Scripting) 공격에 노출될 가능성이 있습니다. 이를 방지하려면 <b>HTTPS를 사용하고, 토큰을 HttpOnly, Secure 속성이 설정된 쿠키에 저장</b>하는 것이 좋습니다.
 <b>Payload 노출</b> : JWT의 Payload는 암호화되지 않고 Base64로 인코딩만 되어 있어 누구나 디코딩해 내용을 볼 수 있습니다. 따라서 민감한 정보(예: 비밀번호)는 절대 포함시키지 않아야 합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>HTTPOnly와 함께 사용하는 속성</b>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>Secure</b> : XSS공격을 방어하기 위해 Secure 설정 하면 스크립트가 쿠키에 접근할 수 없어 보안이 강화됩니다. `,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `Set-Cookie: sessionId=abc123; Path=/; Secure; HttpOnly`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `//JavaScript로 접근 불가
+console.log(document.cookie); // "" (빈 문자열 출력)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>SameSite</b> : CSRF 방지를 위해 쿠키가 동일 출처 요청에만 포함되도록 설정합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `Set-Cookie : sessionId=abc123; Secure; HttpOnly; SameSite=Strict`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>JWT를 쿠키에 저장할 때</b> : 클라이언트는 이 토큰을 JavaScript로 읽을 수 없고, 브라우저가 자동으로 서버 요청에 포함시켜 인증을 처리합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `Set-Cookie: token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMTIzIn0.서명; Path=/; Secure; HttpOnly`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTPOnly는 쿠키를 클라이언트 측 스크립트로부터 보호하는 간단하면서도 강력한 보안 메커니즘입니다. 특히 인증 관련 데이터를 쿠키에 저장할 때 필수적으로 고려해야 하며, Secure와 SameSite 속성과 함께 사용하면 웹 애플리케이션의 보안을 더욱 강화할 수 있습니다. 다만, 클라이언트 측에서 토큰을 직접 다뤄야 하는 경우에는 대안(예: Authorization 헤더)을 고려해야 합니다.`,
 			},
 			{
 				type: ComponentType.H3,
