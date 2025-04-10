@@ -8535,6 +8535,242 @@ JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIn0.서명값`,
 			},
 		],
 	},
+	{
+		id: 61,
+		title: `[TECH-QA] 프로토타입(Prototype)과 프로토타입체이닝`,
+		date: '2025-04-10 16:54:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA', 'Prototype'],
+		preview: `자바스크립트에서 프로토타입(prototype)이란 객체가 생성될 때 그 객체를 만드는 데 사용된 원형, 즉 템플릿 역할을 하는 프로토타입 객체를 의미합니다.`,
+		post: [
+			{
+				type: ComponentType.H2,
+				value: `프로토타입(prototype)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트에서 프로토타입(prototype)이란 객체가 생성될 때 그 객체를 만드는 데 사용된 원형, 즉 <b>템플릿 역할</b>을 하는 프로토타입 객체를 의미합니다. 모든 자바스크립트 객체는 이 프로토타입 객체와 연결되어 있으며, 이 연결은 객체의 숨겨진 속성인 __proto__ (proto 속성)를 통해 참조됩니다. 이 __proto__ 속성은 <b>해당 객체가 어떤 프로토타입 객체를 기반</b>으로 만들어졌는지를 가리키는 링크 역할을 합니다. 따라서 프로토타입은 객체와 그 원형 객체를 연결하는 핵심적인 메커니즘이라고 볼 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `기본 객체의 __proto__`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 빈 객체 생성
+const obj = {};
+
+// obj의 __proto__를 확인
+console.log(obj.__proto__); // [Object: null prototype] {} (Object.prototype)
+
+// Object.prototype의 __proto__는 null
+console.log(obj.__proto__.__proto__); // null`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `obj는 기본 객체로, Object 생성자를 통해 만들어졌습니다.
+obj.__proto__는 Object.prototype을 참조합니다. 이는 모든 기본 객체의 프로토타입입니다.
+Object.prototype의 __proto__는 null로, 프로토타입 체인의 끝을 나타냅니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `배열 객체의 __proto__`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 배열 생성
+const arr = [1, 2, 3];
+
+// arr의 __proto__ 확인
+console.log(arr.__proto__); // [Array: null prototype] [] (Array.prototype)
+
+// Array.prototype의 __proto__ 확인
+console.log(arr.__proto__.__proto__); // [Object: null prototype] {} (Object.prototype)
+
+// Object.prototype의 __proto__ 확인
+console.log(arr.__proto__.__proto__.__proto__); // null`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `arr는 배열 객체로, Array 생성자를 통해 만들어졌습니다.
+arr.__proto__는 Array.prototype을 참조하며, 배열 관련 메서드(push, pop 등)가 이 프로토타입에 정의되어 있습니다.
+Array.prototype의 __proto__는 Object.prototype을 참조합니다. 따라서 배열도 기본적으로 객체의 속성을 상속받습니다.
+최종적으로 Object.prototype.__proto__는 null로 체인이 끝납니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `커스텀 객체와 생성자 함수`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 생성자 함수 정의
+function Person(name) {
+  this.name = name;
+}
+
+// Person.prototype에 메서드 추가
+Person.prototype.sayHello = function () {
+  console.log("Hello, I'm \${this.name}");
+};
+
+// 객체 생성
+const person = new Person("Alice");
+
+// person의 __proto__ 확인
+console.log(person.__proto__); // Person { sayHello: [Function (anonymous)] } (Person.prototype)
+
+// Person.prototype의 __proto__ 확인
+console.log(person.__proto__.__proto__); // [Object: null prototype] {} (Object.prototype)
+
+// 프로토타입 체인을 따라 메서드 호출
+person.sayHello(); // Hello, I'm Alice`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Person은 생성자 함수로, new Person()으로 생성된 person 객체의 __proto__는 Person.prototype을 참조합니다.
+Person.prototype에는 sayHello 메서드가 정의되어 있으므로, person은 이 메서드를 상속받아 사용할 수 있습니다.
+Person.prototype.__proto__는 Object.prototype을 참조하며, 체인은 결국 null로 끝납니다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `__proto__는 비표준 속성이지만, 대부분의 브라우저에서 디버깅 용도로 접근 가능합니다. 실제 코드에서는 Object.getPrototypeOf(obj)를 사용하는 것이 권장됩니다.`,
+				propsType: propsPromptsType.TIP,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `console.log(Object.getPrototypeOf(person) === Person.prototype); // true`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `__proto__는 객체와 프로토타입 간의 연결을 보여주며, 이를 통해 프로토타입 체이닝이 동작합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `이 예시들을 통해 __proto__가 어떻게 객체와 프로토타입을 연결하는지, 그리고 프로토타입 체인이 어떻게 형성되는지 이해하셨기를 바랍니다! 추가 질문이 있다면 말씀해주세요`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `프로토타입 체인(prototype chain)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이제 프로토타입 체인(prototype chain)에 대해 살펴보면, 객체의 __proto__ 속성이 또 다른 객체의 프로토타입을 참조하고, 그 참조된 프로토타입 객체의 __proto__가 다시 또 다른 프로토타입을 참조하는 식으로 연쇄적으로 이어진 구조를 말합니다. 이 체인은 최종적으로 <b>Object.prototype이라는 기본 프로토타입 객체에 도달</b>할 때까지 이어지며, 그 끝에는 __proto__가 null인 지점이 존재합니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `프로토타입 체이닝(prototype chaining)`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `이러한 프로토타입 체인을 활용하여 자바스크립트는 속성이나 메서드를 검색하는데, 이를 프로토타입 체이닝(prototype chaining)이라고 합니다. 예를 들어, 객체에서 특정 속성이나 메서드를 호출하려 할 때, 자바스크립트 엔진은 먼저 그 객체 자체에서 해당 속성을 찾습니다. 만약 찾지 못하면 __proto__를 통해 연결된 프로토타입 객체로 이동하여 검색을 계속하고, 이 과정을 체인을 따라 끝까지 반복합니다. 이렇게 체인을 따라가며 속성을 탐색하는 방식이 프로토타입 체이닝의 핵심입니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `프로토타입 기반 상속(prototype-based inheritance)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트에서 객체는 자신의 프로토타입 객체로부터 속성과 메서드를 "상속"받아 사용할 수 있습니다. 이 상속은 다음과 같은 특징을 가집니다:`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `동적 연결: 객체는 __proto__를 통해 프로토타입 객체와 연결되며, 이 연결은 런타임에 동적으로 속성이나 메서드를 참조할 수 있게 합니다.
+공유: 프로토타입에 정의된 속성이나 메서드는 해당 프로토타입을 상속받는 모든 객체가 공유합니다. 즉, 각 객체마다 새로 생성되지 않고 프로토타입에서 참조됩니다.
+체인 구조: 상속은 단일 객체 수준에서 끝나는 것이 아니라, 프로토타입 체인을 따라 여러 단계로 이어질 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `상속으로 이해하는 예시`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 부모 역할을 할 프로토타입 객체
+const animal = {
+  eat: function() {
+    console.log("\${this.name} is eating!");
+  }
+};
+
+// 자식 객체 생성 및 상속 설정
+const dog = {
+  name: "Dog"
+};
+Object.setPrototypeOf(dog, animal);
+
+// 상속받은 메서드 호출
+dog.eat(); 
+// 출력: "Dog is eating!"
+
+// 프로토타입 확인
+console.log(dog.__proto__ === animal); 
+// 출력: true`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `dog 객체는 animal 객체를 프로토타입으로 상속받았습니다.
+dog 자체에는 eat 메서드가 없지만, __proto__를 통해 animal의 eat 메서드를 상속받아 사용할 수 있습니다.
+이는 마치 dog가 animal의 기능을 "물려받은" 것처럼 보이죠. 이게 바로 상속의 개념입니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `생성자 함수를 통한 상속 예시`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 부모 생성자 함수
+function Animal(name) {
+  this.name = name;
+}
+Animal.prototype.eat = function() {
+  console.log("\${this.name} is eating!");
+};
+
+// 자식 생성자 함수
+function Dog(name) {
+  Animal.call(this, name); // Animal의 속성 상속
+}
+Object.setPrototypeOf(Dog.prototype, Animal.prototype); // 프로토타입 상속
+
+// 객체 생성
+const myDog = new Dog("Max");
+
+// 상속받은 메서드 호출
+myDog.eat(); 
+// 출력: "Max is eating!"
+
+// 프로토타입 체인 확인
+console.log(myDog.__proto__ === Dog.prototype); 
+// 출력: true
+console.log(myDog.__proto__.__proto__ === Animal.prototype); 
+// 출력: true`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Dog는 Animal의 프로토타입을 상속받아 eat 메서드를 사용할 수 있습니다.
+Animal.call(this, name)으로 name 속성을 상속받고, Object.setPrototypeOf로 프로토타입 체인을 연결해 메서드까지 상속받았습니다.
+이는 전통적인 상속처럼 "부모(Animal)로부터 자식(Dog)이 기능을 물려받는다"는 개념으로 이해할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `상속으로 볼 수 있는 이유`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `속성과 메서드 재사용: 객체가 프로토타입에서 속성과 메서드를 물려받아 사용하므로, 코드 중복을 줄이고 재사용성을 높이는 상속의 목적을 충족합니다.
+계층 구조: 프로토타입 체인을 통해 부모-자식 관계와 유사한 계층 구조를 형성합니다.
+확장 가능성: 프로토타입에 새로운 기능을 추가하면 이를 상속받는 모든 객체가 그 기능을 사용할 수 있어, 상속의 유연성을 보여줍니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `다만, 주의할 점`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `자바스크립트의 상속은 클래스 기반 언어처럼 고정된 계층 구조를 따르지 않고, 객체 간의 동적 연결(__proto__)에 의존합니다.
+상속받은 속성이나 메서드는 실제로 객체 자체에 복사되는 것이 아니라 참조되는 것이므로, 프로토타입을 수정하면 모든 상속받은 객체에 영향을 미칩니다.`,
+			},
+		],
+	},
 ];
 
 // {
