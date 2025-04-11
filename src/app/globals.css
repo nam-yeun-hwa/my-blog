@@ -74,6 +74,13 @@
 		white-space: normal;
 		opacity: 0.7;
 	}
+
+	.point {
+		padding: 3px 5px;
+		border-radius: 4px;
+		background-color: aliceblue;
+	}
+
 	/* 
   @font-face {
     font-family: 'IBM Plex Sans KR';
