@@ -8758,6 +8758,290 @@ Animal.call(this, name)으로 <b>name 속성을 상속</b>받고, Object.setProt
 			},
 		],
 	},
+	{
+		id: 62,
+		title: `[TECH-QA] 리액트 리렌더링`,
+		date: '2025-04-10 16:54:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA', 'react', '리렌더링'],
+		preview: `리액트에서 리렌더링(re-rendering)은 컴포넌트가 다시 그려지는 과정입니다. 즉, 어떤 변화가 발생했을 때, 리액트가 해당 컴포넌트(혹은 그 자식들 포함)를 다시 실행해서 UI를 업데이트하는 걸 말합니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `리액트에서 리렌더링(re-rendering)은 컴포넌트가 다시 그려지는 과정입니다. 즉, 어떤 변화가 발생했을 때, 리액트가 해당 컴포넌트(혹은 그 자식들 포함)를 다시 실행해서 UI를 업데이트하는 걸 말합니다. 리렌더링이 너무 많이 발생하면 성능에 부정적인 영향을 줄 수 있습니다. 특히 대규모 애플리케이션이나 자주 렌더링되는 컴포넌트에서는 주의가 필요합니다. 그래서 이번 글에서는 리액트 리렌더링에 대해 이야기 해보려고 합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `언제 리렌더링이 발생할까요?`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `state가 변경될 때
+				props가 변경될 때
+				context 값이 변경될 때
+				부모 컴포넌트가 리렌더링되면 자식도 리렌더링`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위와 같은 경우에 리액트 컴포넌트에서는 리렌더링이 발생합니다. 한 컴포넌트에 여러가지 스테이트들이 존재하고 UI에서는 여러 인터렉션(버튼 클릭, 입력, 체크박스 등)이 발생하며 스테이드 값들이 변경될때 컴포넌트는 리렌더링 되고 있다고 생각하면 됩니다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `리렌더링된다고 해서 DOM 전체를 다시 그리는 건 아닙니다. 리액트는 "Virtual DOM"을 이용해서 변경된 부분만 최소한으로 UI를 업데이트 하며 컴포넌트에 있는 함수들은 새로 생성됩니다. 예를 들면 아래 코드를 보시면 이해 하실 수 있습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const MyComponent = () => {
+  const [count, setCount] = useState(0);
+
+  const handleClick = () => setCount(count + 1);
+
+  return <button onClick={handleClick}>{count}</button>;
+};
+`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 함수가 리렌더링이 일어나면 `,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `튼 클릭 → setCount 호출 → count 값 변경
+
+변경된 state로 인해 MyComponent() 함수 전체가 다시 실행됨
+
+count, handleClick, JSX 등이 다시 계산됨
+
+Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이트됨`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위와 같은 일이 이루어 집니다. 여기에서 UI는 최소한으로 부분 업데이트 되며 handleClick 함수는 새로 생성됩니다. 새로 생성된다 함은 함수 객체 자체가 메모리에 새로 만들어지는 것입니다. `,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const handleClick = () => setCount(count + 1);`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 코드는 함수 표현식(= 함수 리터럴)이기 때문에 이 줄이 실행될 때마다 새로운 함수 객체가 메모리에 만들어집니다. </br> 코드로 확인해 보겠습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `CODE 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const MyComponent = () => {
+  const [count, setCount] = useState(0);
+
+  const handleClick = () => setCount(count + 1);
+
+  useEffect(() => {
+    console.log("handleClick 함수가 새로 만들어졌어요!");
+  }, [handleClick]);
+
+  return <button onClick={handleClick}>{count}</button>;
+};
+`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `버튼을 누르면 setCount로 상태가 바뀌고,
+
+컴포넌트가 다시 렌더링됨,
+
+그러면 handleClick도 새로 생성됨,
+
+따라서 useEffect가 실행됨 → 콘솔에 로그 출력!`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `그럼 왜 리렌더링 때마다 새로 생성될까요?`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `리액트 함수형 컴포넌트는 결국 함수이자, 매번 실행되는 실행 단위입니다. 여기서 컴포넌트가 호출되면, 그 내부의 handleClick = () => { ... }도 다시 실행되는 것입니다.
+그래서 이 때마다 새로운 함수 객체가 생성되는 것이라고 볼 수 있습니다. 그럼 조금 더 들어가서 리액트 컴포넌트가 리렌더링이 덜 되도록 하는 방법에 대해 생각해 보도록 하겠습니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `한 컴포넌트에서 여러 기능을 가지고 여러 스테이트들을 관리하던 것을 훅에서 스테이트 값이나 상태 값을 관리하고, 컴포넌트는 순수하게 인터렉션만 처리하도록 설계된 경우, 해당 컴포넌트는 스테이트 변경에 따른 리렌더링을 피할 수 있습니다. 하지만 이게 보장되려면 몇 가지 조건과 주의점이 필요합니다. 아래에서 이 상황을 자세히 분석하고, 왜 리렌더링이 일어나지 않을 수 있는지, 그리고 어떤 경우에 주의해야 하는지 설명하겠습니다. 코드를 통해 살펴 보겠습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `[커스텀 훅] usePdfController.js`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const usePdfController = () => {
+  const [file, setFile] = useState(null);
+  const pdfInputRef = useRef(null);
+
+  const handlePDFChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
+  };
+
+  return { file, pdfInputRef, handlePDFChange };
+};`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `[자식 컴포넌트] FileUpload.jsx (인터랙션만 처리)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const FileUpload = ({ onChange, InputRef, children }) => {
+  return (
+    &lt;label>
+      {children}
+      &lt;input type="file" ref={InputRef} onChange={onChange} style={{ display: 'none' }} />
+    &lt;/label>
+  );
+};
+`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `[부모 컴포넌트] StampController.jsx`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const StampController = () => {
+  const { file, pdfInputRef, handlePDFChange } = usePdfController();
+
+  return (
+    &lt;div>
+      &lt;FileUpload InputRef={pdfInputRef} onChange={handlePDFChange}>
+        PDF 업로드
+      &lt;/FileUpload>
+      {file?.name && &lt;div>{file.name}&lt;/div>}
+    &lt;/div>
+  );
+};`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>스테이트 관리</b>: 스테이트는 커스텀 훅(예: usePdfController) 또는 스토어(예: useCanvasStore)에서 관리.
+<b>인터랙션 컴포넌트</b>: 특정 컴포넌트(예: FileUpload, Button)는 사용자 인터랙션(클릭, 파일 선택 등)만 처리하고, 스테이트나 상태 값을 직접 소유하지 않음.
+<b>인터랙션 처리</b>: 인터랙션은 훅이나 스토어에서 제공하는 함수(예: handlePDFChange, handleDownload)를 호출.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `자식 컴포넌트 <FileUpload/> 리렌더링`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `스테이트 소유 여부`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `자식 컴포넌트 FileUpload은 자체 스테이트를 가지지 않습니다. 따라서 FileUpload 내부에서 useState나 useReducer로 인해 리렌더링이 발생할 가능성이 없습니다.
+스테이트는 usePdfController에서 관리되며, file 변경은 StampController 같은 부모 컴포넌트에 영향을 줍니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `Props 안정성`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `자식 컴포넌트 FileUpload이 받는 props(예: onChange, InputRef)가 변경되지 않는 한, React는 이 컴포넌트를 리렌더링하지 않습니다.
+handlePDFChange가 메모이제이션되지 않으면, StampController가 리렌더링될 때마다 새로운 함수 참조가 생성되어 FileUpload의 props가 변경된 것으로 간주되어 자식 컴포넌트 FileUpload는 리렌더링 됩니다. 이를 피하기 위해 커스텀 훅 usePdfController에서 handlePDFChange를 메모이제이션(useCallback)하여, 함수가 매 렌더링마다 동일한 참조를 유지하도록 합니다.
+`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// usePdfController.js
+// ★★★커스텀 훅 내부에서 useCallback 사용
+  const handlePDFChange = useCallback((event) => {
+  const selectedFile = event.target.files[0];
+  setFile(selectedFile);
+}, []);`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `InputRef는 useRef로 생성된 참조로, 렌더링 간에 변경되지 않습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `부모 컴포넌트의 리렌더링 영향 `,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `부모 컴포넌트 StampController가 자주 리렌더링되면, 자식 컴포넌트 FileUpload도 기본적으로 리렌더링됩니다. 
+				React는 부모가 리렌더링되면 자식도 렌더링 시도
+				이를 피하기 위해서는 자식 컴포넌트인 FileUpload을 React.memo로 감싸줍니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const FileUpload = ({ onChange, InputRef, children }) => {
+  console.log('FileUpload rendered');
+  return (
+    &lt;label>
+      {children}
+      &lt;input type="file" ref={InputRef} onChange={onChange} style={{ display: 'none' }} />
+    &lt;/label>
+  );
+};
+export default React.memo(FileUpload);`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `이렇게 하면 onChange, InputRef, children이 변경되지 않는 한 FileUpload은 리렌더링되지 않습니다. 부모컴포넌트 StampController가 file 상태 변경으로 리렌더링되더라도, 자식 컴포넌트 FileUpload가 React.memo로 감싸져 있다면 props가 변경되지 않는 한 리렌더링을 건너뜁니다`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `React.memo는 props의 얕은 비교(shallow comparison)를 수행해 변경되지 않은 props를 가진 컴포넌트의 리렌더링을 방지합니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `인터랙션의 경우 (예: 파일 선택)은 handlePDFChange를 호출하고, 이는 usePdfController의 file 상태를 변경합니다. 하지만 이 변경은 StampController의 렌더링에만 직접 영향을 주고, FileUpload은 스테이트를 소유하지 않으므로 간접적인 리렌더링을 피할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `<FileUpload/> Children Props 변경`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `FileUpload의 children(예: "PDF 업로드")이 동적으로 생성되거나 매번 새로운 참조를 가지면, React.memo를 사용하더라도 리렌더링될 수 있습니다. children이 정적이거나 메모이제이션된 값을 사용하도록 합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;FileUpload InputRef={pdfInputRef} onChange={handlePDFChange}>
+  PDF 업로드
+&lt;/FileUpload>`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `<FileUpload/> 같은 자식 컴포넌트가 스토어 상태를 직접 구독하지 않도록 하여 리렌더링을 방지 한다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 잘못된 예
+const FileUpload = ({ onChange, InputRef, children }) => {
+  const { file } = useCanvasStore(); // 스토어 구독
+  return &lt;input type="file" ref={InputRef} onChange={onChange} />;
+};
+
+// 올바른 예
+const FileUpload = ({ onChange, InputRef, children }) => {
+  return &lt;input type="file" ref={InputRef} onChange={onChange} />;
+};`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `리렌더링이 되지 않는 조건을 지켜는 방법`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `컴포넌트가 자체 스테이트를 소유하지 않고 커스텀 훅으로 관리.
+				컴포넌트가 스토어나 Context를 직접 구독하지 않고 커스텀 훅으로 관리하도록 함.
+전달된 props(함수, 참조, 값)가 메모이제이션되어 전달 받도록 하기.
+컴포넌트가 React.memo로 감싸져 있어 부모 리렌더링의 영향을 받지 않음.`,
+			},
+		],
+	},
 ];
 
 // {
