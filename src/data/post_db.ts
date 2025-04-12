@@ -8761,7 +8761,7 @@ Animal.call(this, name)으로 <b>name 속성을 상속</b>받고, Object.setProt
 	{
 		id: 62,
 		title: `[TECH-QA] 리액트 리렌더링`,
-		date: '2025-04-10 16:54:33',
+		date: '2025-04-12 15:34:33',
 		folder: Folder.JAVASCRIPT,
 		tag: ['JavaScript', 'TECH-QA', 'react', '리렌더링'],
 		preview: `리액트에서 리렌더링(re-rendering)은 컴포넌트가 다시 그려지는 과정입니다. 즉, 어떤 변화가 발생했을 때, 리액트가 해당 컴포넌트(혹은 그 자식들 포함)를 다시 실행해서 UI를 업데이트하는 걸 말합니다.`,
@@ -8806,7 +8806,7 @@ Animal.call(this, name)으로 <b>name 속성을 상속</b>받고, Object.setProt
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `튼 클릭 → setCount 호출 → count 값 변경
+				value: `버튼 클릭 → setCount 호출 → count 값 변경
 
 변경된 state로 인해 MyComponent() 함수 전체가 다시 실행됨
 
