@@ -45,8 +45,59 @@ https://nam-yeun-hwa.github.io/ </br></br>
 
 
 # Architecture 💡
-(추후예정)
-
+테이블 컴포넌트 사용 데이타
+<pre>
+{
+  type: ComponentType.TABLE,
+  value: ``,
+  tables: {
+    header: [
+      {
+        accessorKey: 'Category',
+        header: '항목',
+      },
+      {
+        accessorKey: 'Cookie',
+        header: '쿠키',
+      },
+      {
+        accessorKey: 'LocalStorage',
+        header: '로컬 스토리지',
+      },
+      {
+        accessorKey: 'SessionStorage',
+        header: '세션 스토리지',
+      },
+    ],
+    contents: [
+      {
+        category: '저장 기간',
+        cookie: '만료 기간 설정 필요',
+        localStorage: '영구 저장 (수동 삭제 전까지)',
+        sessionStorage: '세션 종료 시 삭제',
+      },
+      {
+        category: '용량',
+        cookie: '약 4KB',
+        localStorage: '약 5~10MB',
+        sessionStorage: '약 5~10MB',
+      },
+      {
+        category: '보안',
+        cookie: '암호화 없음, 도난 위험',
+        localStorage: '서버로 자동 전송 안 됨',
+        sessionStorage: '서버로 자동 전송 안 됨',
+      },
+      {
+        category: '사용 예',
+        cookie: '세션 관리, 간단한 설정',
+        localStorage: '자동 로그인, 사용자 설정',
+        sessionStorage: '임시 데이터, 폼 입력 유지',
+      },
+    ],
+  },
+}
+</pre>
 
 # next.14 정적 배포하기 
 
