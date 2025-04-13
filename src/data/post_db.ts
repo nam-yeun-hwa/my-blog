@@ -8827,10 +8827,6 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
 				value: `위 코드는 함수 표현식(= 함수 리터럴)이기 때문에 이 줄이 실행될 때마다 새로운 함수 객체가 메모리에 만들어집니다. </br> 코드로 확인해 보겠습니다.`,
 			},
 			{
-				type: ComponentType.H4,
-				value: `CODE 예제`,
-			},
-			{
 				type: ComponentType.CODE,
 				value: `const MyComponent = () => {
   const [count, setCount] = useState(0);
@@ -8946,8 +8942,8 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `자식 컴포넌트 FileUpload이 받는 props(예: onChange, InputRef)가 변경되지 않는 한, React는 이 컴포넌트를 리렌더링하지 않습니다.
-handlePDFChange가 메모이제이션되지 않으면, StampController가 리렌더링될 때마다 새로운 함수 참조가 생성되어 FileUpload의 props가 변경된 것으로 간주되어 자식 컴포넌트 FileUpload는 리렌더링 됩니다. 이를 피하기 위해 커스텀 훅 usePdfController에서 handlePDFChange를 메모이제이션(useCallback)하여, 함수가 매 렌더링마다 동일한 참조를 유지하도록 합니다.
+				value: `자식 컴포넌트 FileUpload가 받는 props(예: onChange, InputRef)가 변경되지 않는 한, React는 이 컴포넌트를 리렌더링하지 않습니다.
+FileUpload가 props로 받는 handlePDFChange가 메모이제이션되지 않으면, StampController가 리렌더링될 때마다 handlePDFChange는 <b>새로운 함수 참조가 생성</b>되어 FileUpload의 props가 변경된 것으로 간주되어 자식 컴포넌트 FileUpload는 리렌더링 됩니다. 이를 피하기 위해 <u>커스텀 훅 usePdfController에서 handlePDFChange를 메모이제이션(useCallback)하여, 함수가 매 렌더링마다 동일한 참조를 유지</u>하도록 합니다.
 `,
 			},
 			{
@@ -8992,7 +8988,7 @@ export default React.memo(FileUpload);`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `React.memo는 props의 얕은 비교(shallow comparison)를 수행해 변경되지 않은 props를 가진 컴포넌트의 리렌더링을 방지합니다.`,
+				value: `React.memo는 props의 얕은 비교(shallow comparison)를 수행해 props가 변경되지 않는 한 컴포넌트의 리렌더링을 방지합니다.`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
@@ -9042,13 +9038,465 @@ const FileUpload = ({ onChange, InputRef, children }) => {
 			},
 		],
 	},
+	{
+		id: 63,
+		title: `[TECH-QA] 원시값과 참조형`,
+		date: '2025-04-12 22:48:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `자바스크립트에서 원시값(Primitive Values)과 참조형(Reference Types)의 동작 방식, 그리고 이들의 불변성(Immutability)과 가변성(Mutability)에 대한 설명입니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트에서 원시값(Primitive Values)과 참조형(Reference Types)의 동작 방식, 그리고 이들의 불변성(Immutability)과 가변성(Mutability)에 대해 설명 해 보겠습니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `원시값 (Primitive Values)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>정의</b> : 원시값은 더 이상 쪼갤 수 없는 기본 데이터 타입으로, 자바스크립트에서는 undefined, null, boolean, number, bigint, string, symbol이 이에 해당합니다.
+<b>복제 방식</b> : 다른 변수에 원시값을 복사할 때, 해당 값이 그대로 복사되어 새로운 변수에 저장됩니다. 이때 메모리 주소 개념은 관여하지 않고, <b>단순히 값만 복사</b>됩니다.
+<b>불변성</b> : 원시값은 불변값입니다. 값을 변경하려고 하면, 기존 메모리 공간의 값을 수정하는 대신 새로운 메모리 공간에 새로운 값을 저장하고, 변수가 참조하던 메모리 주소를 변경합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `let a = 10; // a는 숫자 10을 저장
+let b = a;  // b에 a의 값 10을 복사 (독립적인 메모리 공간)
+
+console.log(a); // 10
+console.log(b); // 10
+
+b = 20; // b에 새로운 값 20을 할당 (새로운 메모리 공간 사용)
+console.log(a); // 10 (a는 여전히 10을 참조)
+console.log(b); // 20`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `b = a를 실행하면, a의 값 10이 복사되어 b에 저장됩니다. 이때 <b>a와 b는 각각 독립적인 메모리 공간</b>을 가리킵니다.
+b = 20으로 값을 변경하면, b는 새로운 메모리 공간에 20을 저장하고 그 주소를 참조합니다. a는 영향을 받지 않습니다.
+원시값은 불변적이므로, a나 b의 값을 직접 수정하는 대신 새로운 값을 메모리에 할당합니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `참조형 (Reference Types)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>정의</b> : 참조형은 <span class="point">객체(Object)</span>, <span class="point">배열(Array)</span>, <span class="point">함수(Function)</span> 등으로, 여러 값을 하나의 단위로 묶은 데이터 타입입니다.
+<b>복제 방식</b> : 참조형은 값이 담긴 <b>메모리 주소를 복제</b>합니다. 즉, 변수는 실제 데이터(객체)가 저장된 메모리 주소를 가리키며, 복사 시 이 주소를 복사합니다. <span class="point">따라서 복사된 변수는 원본 객체와 동일한 메모리 주소를 참조</span>합니다.
+<b>가변성</b> : 참조형은 가변값입니다. 객체가 저장된 메모리 공간은 수정 가능하며, 변수는 해당 객체를 직접 변경할 수 있습니다. 객체의 프로퍼티를 추가, 갱신, 삭제할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `let obj1 = { name: "Alice", age: 25 }; // obj1은 객체의 메모리 주소를 참조
+let obj2 = obj1; // obj2는 obj1과 동일한 메모리 주소를 참조
+
+console.log(obj1); // { name: "Alice", age: 25 }
+console.log(obj2); // { name: "Alice", age: 25 }
+
+// obj2를 통해 객체 수정
+obj2.age = 30;
+obj2.city = "Seoul"; // 동적으로 프로퍼티 추가
+
+console.log(obj1); // { name: "Alice", age: 30, city: "Seoul" }
+console.log(obj2); // { name: "Alice", age: 30, city: "Seoul" }
+
+// 프로퍼티 삭제
+delete obj1.city;
+
+console.log(obj1); // { name: "Alice", age: 30 }
+console.log(obj2); // { name: "Alice", age: 30 }`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `obj2 = obj1은 obj1이 참조하는 객체의 메모리 주소를 obj2에 복사합니다. 따라서 obj1과 obj2는 동일한 객체를 가리킵니다.
+obj2.age = 30 또는 obj2.city = "Seoul"로 객체를 수정하면, 동일한 메모리 공간을 참조하는 obj1에도 변경 사항이 반영됩니다.
+참조형은 가변적이므로, 객체의 프로퍼티를 동적으로 추가(city), 갱신(age), 삭제(delete obj1.city)할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `원시값 vs 참조형 비교`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: ``,
+				tables: {
+					header: [
+						{
+							accessorKey: 'feature',
+							header: '특징',
+						},
+						{
+							accessorKey: 'primitive',
+							header: '원시값 (Primitive)',
+						},
+						{
+							accessorKey: 'reference',
+							header: '참조형 (Reference)',
+						},
+					],
+					contents: [
+						{
+							feature: '데이터 타입',
+							primitive: 'number, string, boolean 등',
+							reference: 'object, array, function 등',
+						},
+						{
+							feature: '복제 방식',
+							primitive: '값 자체 복사',
+							reference: '메모리 주소 복사',
+						},
+						{
+							feature: '변경 가능성',
+							primitive: '불변 (새로운 값으로 교체)',
+							reference: '가변 (객체 내부 수정 가능)',
+						},
+						{
+							feature: '메모리 동작',
+							primitive: '새로운 메모리 공간 생성',
+							reference: '동일한 메모리 공간 공유',
+						},
+						{
+							feature: '예시',
+							primitive: 'let x = 5; x = 10;',
+							reference: 'let obj = {a: 1}; obj.a = 2;',
+						},
+					],
+				},
+			},
+			{
+				type: ComponentType.H2,
+				value: `참조형의 깊은 복사(Deep Copy)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `참조형의 기본 복사는 얕은 복사(Shallow Copy)로, 동일한 객체를 참조하게 됩니다. 객체를 독립적으로 복사하려면 깊은 복사가 필요합니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `얕은 복사 vs 깊은 복사`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 얕은 복사
+let original = { name: "Bob", info: { age: 40 } };
+let shallowCopy = Object.assign({}, original);
+
+shallowCopy.name = "Charlie";
+shallowCopy.info.age = 50;
+
+console.log(original); // { name: "Bob", info: { age: 50 } } (info는 여전히 공유됨)
+console.log(shallowCopy); // { name: "Charlie", info: { age: 50 } }
+
+// 깊은 복사
+let deepCopy = JSON.parse(JSON.stringify(original));
+
+deepCopy.name = "David";
+deepCopy.info.age = 60;
+
+console.log(original); // { name: "Bob", info: { age: 50 } } (변경되지 않음)
+console.log(deepCopy); // { name: "David", info: { age: 60 } }`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `얕은 복사(Object.assign)는 최상위 프로퍼티만 복사하고, 중첩 객체(info)는 여전히 원본과 공유됩니다.
+깊은 복사(JSON.parse(JSON.stringify()))는 객체 전체를 새로 생성하여 독립적인 복사본을 만듭니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `원시값 활용`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function updateScore(score) {
+    score = score + 10; // 새로운 메모리 공간에 값을 저장
+    return score;
+}
+
+let playerScore = 50;
+console.log(updateScore(playerScore)); // 60
+console.log(playerScore); // 50 (원본 값은 변경되지 않음)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `원시값은 함수 내부에서 수정해도 원본에 영향을 주지 않습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `참조형 활용`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function updateProfile(profile) {
+    profile.age += 1; // 동일한 객체를 직접 수정
+    profile.city = "Busan"; // 동적 프로퍼티 추가
+}
+
+let user = { name: "Eve", age: 28 };
+updateProfile(user);
+
+console.log(user); // { name: "Eve", age: 29, city: "Busan" }`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `참조형은 함수 내부에서 수정하면 원본 객체가 변경됩니다. user 원본 객체가 { name: "Eve", age: 28 } 에서 { name: "Eve", age: 29, city: "Busan" } 으로 변경 됨`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>원시값</b>: 값 자체를 복사, 불변, 재할당 시 새로운 메모리 공간 사용.
+<b>참조형</b>: 메모리 주소를 복사, 가변, 객체 내부를 직접 수정 가능 (프로퍼티 추가/갱신/삭제).
+원시값은 독립적이고 안전하지만 수정이 제한적이며, 참조형은 유연하지만 공유 메모리로 인해 주의가 필요합니다.
+깊은 복사를 통해 참조형의 독립적인 복사가 가능합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `자바스크립트에서 깊은 복사(Deep Copy)를 하는 방법은 여러 가지가 있습니다. 상황에 따라 간단한 객체부터 복잡한 객체까지 처리할 수 있습니다. 아래에 대표적인 방법과 예제를 정리해 보겠습니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `구조적 복제 (Structured Clone)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `structuredClone()은 브라우저 환경(Node.js 17+ 또는 최신 브라우저)에서 제공되는 깊은 복사를 위한 네이티브 메서드입니다. 이 방법은 JSON 방식보다 더 다양한 데이터 타입(예: Date, Map, Set 등)을 처리할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 원본 객체
+let original = {
+  name: "Bob",
+  info: { age: 50, date: new Date() },
+  hobbies: ["reading", "gaming"]
+};
+
+// 깊은 복사 (structuredClone 사용)
+let deepCopy = structuredClone(original);
+
+// 복사본 수정
+deepCopy.name = "David";
+deepCopy.info.age = 60;
+deepCopy.hobbies.push("coding");
+
+console.log(original);
+// 출력: { name: "Bob", info: { age: 50, date: [Date] }, hobbies: ["reading", "gaming"] }
+
+console.log(deepCopy);
+// 출력: { name: "David", info: { age: 60, date: [Date] }, hobbies: ["reading", "gaming", "coding"] }`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `structuredClone()은 객체와 그 하위 구조를 완전히 독립적으로 복사합니다.
+원본 객체의 info.age나 hobbies 배열이 수정되지 않음을 확인할 수 있습니다.
+Date 객체도 별도의 인스턴스로 복사되며, JSON 방식과 달리 손실 없이 복사됩니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `재귀 함수를 사용한 깊은 복사`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `직접 깊은 복사를 구현하는 방법으로, 객체와 배열을 재귀적으로 순회하며 복사합니다. 이 방법은 커스터마이징이 가능하고, 특정 데이터 타입을 추가로 처리할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 깊은 복사 함수
+function deepCopy(obj) {
+  // 원시값이거나 null인 경우 그대로 반환
+  if (obj === null || typeof obj !== "object") {
+    return obj;
+  }
+
+  // 배열인 경우
+  if (Array.isArray(obj)) {
+    return obj.map(item => deepCopy(item));
+  }
+
+  // 객체인 경우
+  const copy = {};
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      copy[key] = deepCopy(obj[key]);
+    }
+  }
+  return copy;
+}`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `
+// 원본 객체
+let original = {
+  name: "Bob",
+  info: { age: 50 },
+  hobbies: ["reading", "gaming"]
+};
+
+// 깊은 복사
+let deepCopy = deepCopy(original);
+
+// 복사본 수정
+deepCopy.name = "David";
+deepCopy.info.age = 60;
+deepCopy.hobbies.push("coding");
+
+console.log(original);
+// 출력: { name: "Bob", info: { age: 50 }, hobbies: ["reading", "gaming"] }
+
+console.log(deepCopy);
+// 출력: { name: "David", info: { age: 60 }, hobbies: ["reading", "gaming", "coding"] }`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `deepCopy 함수는 재귀적으로 객체의 모든 프로퍼티를 복사합니다.
+배열과 객체를 구분하여 처리하며, 원시값은 그대로 반환합니다.
+이 방식은 JSON 방식의 한계를 극복하고, 함수나 undefined 같은 값도 커스터마이징하여 처리할 수 있습니다(필요 시 추가 로직 구현 가능).`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `Lodash 라이브러리의 _.cloneDeep`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `실제 프로젝트에서는 Lodash 같은 라이브러리를 사용하는 경우가 많습니다. Lodash의 _.cloneDeep 메서드는 깊은 복사를 간편하게 수행하며, 다양한 데이터 타입을 안전하게 처리합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// Lodash를 사용하기 위해 필요 (HTML에서는 CDN 또는 모듈로 임포트)
+// 예: <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+// 원본 객체
+let original = {
+  name: "Bob",
+  info: { age: 50 },
+  hobbies: ["reading", "gaming"]
+};
+
+// 깊은 복사 (Lodash 사용)
+let deepCopy = _.cloneDeep(original);
+
+// 복사본 수정
+deepCopy.name = "David";
+deepCopy.info.age = 60;
+deepCopy.hobbies.push("coding");
+
+console.log(original);
+// 출력: { name: "Bob", info: { age: 50 }, hobbies: ["reading", "gaming"] }
+
+console.log(deepCopy);
+// 출력: { name: "David", info: { age: 60 }, hobbies: ["reading", "gaming", "coding"] }`,
+			},
+
+			{
+				type: ComponentType.STRINGLIST,
+				value: `_.cloneDeep은 Lodash 라이브러리의 깊은 복사 메서드로, 복잡한 객체 구조를 안전하게 복사합니다.
+JSON 방식보다 다양한 데이터 타입(예: 함수, RegExp, Map)을 지원하며, 성능도 최적화되어 있습니다.
+실제 프로젝트에서 신뢰할 수 있는 방법 중 하나입니다.`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: ``,
+				tables: {
+					header: [
+						{
+							accessorKey: 'method',
+							header: '방법',
+						},
+						{
+							accessorKey: 'advantage',
+							header: `장점`,
+						},
+						{
+							accessorKey: `disadvantage`,
+							header: `단점`,
+						},
+					],
+					contents: [
+						{
+							method: 'JSON.parse(JSON.stringify())',
+							advantage: '간단하고 별도 라이브러리 불필요',
+							disadvantage:
+								'undefined, 함수, Date 등 일부 데이터 타입 손실 가능',
+						},
+						{
+							method: 'structuredClone()',
+							advantage: '네이티브 API, 다양한 데이터 타입 지원, 손실 없음',
+							disadvantage:
+								'브라우저/Node.js 버전 의존성 (구형 환경에서 동작하지 않을 수 있음)',
+						},
+						{
+							method: '재귀 함수 (deepCopy)',
+							advantage: '커스터마이징 가능, 모든 데이터 타입 처리 가능',
+							disadvantage:
+								'직접 구현해야 하며, 복잡한 객체에서 성능 고려 필요',
+						},
+						{
+							method: 'Lodash _.cloneDeep',
+							advantage:
+								'신뢰성 높음, 다양한 데이터 타입 지원, 테스트 완료된 라이브러리',
+							disadvantage: '외부 라이브러리 의존성 추가 필요',
+						},
+					],
+				},
+			},
+			{
+				type: ComponentType.H4,
+				value: `복잡한 객체(중첩 객체, 배열, Date, Map 포함)를 사용한 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 원본 객체 (복잡한 구조)
+let original = {
+  name: "Bob",
+  info: {
+    age: 50,
+    birthday: new Date("1975-01-01"),
+    address: { city: "Seoul", country: "Korea" }
+  },
+  hobbies: ["reading", { type: "gaming", level: "pro" }],
+  metadata: new Map([["id", 123], ["active", true]])
+};
+
+// 깊은 복사
+let deepCopy = structuredClone(original);
+
+// 복사본 수정
+deepCopy.name = "David";
+deepCopy.info.age = 60;
+deepCopy.info.address.city = "Busan";
+deepCopy.hobbies[1].level = "expert";
+deepCopy.metadata.set("id", 456);
+
+console.log(original);
+// 출력: {
+//   name: "Bob",
+//   info: { age: 50, birthday: [Date 1975-01-01], address: { city: "Seoul", country: "Korea" } },
+//   hobbies: ["reading", { type: "gaming", level: "pro" }],
+//   metadata: Map { "id" => 123, "active" => true }
+// }
+
+console.log(deepCopy);
+// 출력: {
+//   name: "David",
+//   info: { age: 60, birthday: [Date 1975-01-01], address: { city: "Busan", country: "Korea" } },
+//   hobbies: ["reading", { type: "gaming", level: "expert" }],
+//   metadata: Map { "id" => 456, "active" => true }
+// }`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `중첩 객체(address), 배열 내 객체(hobbies[1]), Date, Map 등 다양한 데이터 타입이 포함된 복잡한 객체를 복사했습니다.
+structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 원본이 수정되지 않음을 보여줍니다.`,
+			},
+		],
+	},
 ];
 
 // {
-// 	type: ComponentType.H3,
-// 	value: `컴파일 (Compile)`,
+// 	type: ComponentType.NORMAL,
+// 	value: ``,
 // },
-
 /**
  * @description 날짜별로 SORT
  */
