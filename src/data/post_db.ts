@@ -9487,6 +9487,214 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 			},
 		],
 	},
+	{
+		id: 64,
+		title: `[TECH-QA] CSRF와 XSS`,
+		date: '2025-04-14 22:48:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['JavaScript', 'TECH-QA'],
+		preview: `CSRF 공격은 <b>사용자의 인증 정보를 악용</b>하여 의도하지 않은 요청을 서버에 보내는 공격입니다. 이를 방어하기 위한 주요 방법은 다음과 같습니다.`,
+		post: [
+			{
+				type: ComponentType.H3,
+				value: `CSRF 토큰 이란`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `CSRF 토큰은 크로스 사이트 요청 위조(Cross-Site Request Forgery, CSRF) 공격을 방어하기 위해 사용되는 고유한 랜덤 문자열입니다. 서버에서 생성되어 사용자 세션과 연결되며, 클라이언트가 서버에 요청(예: 폼 제출, AJAX 호출)을 보낼 때 이 토큰을 함께 전송하여 요청의 유효성을 검증합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `CSRF 토큰의 동작 방식`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>생성</b>: 서버는 사용자 세션이 시작될 때 고유한 CSRF 토큰을 생성합니다(예: UUID, 해시값 등).
+<b>저장</b>: 이 토큰은 서버의 세션 데이터에 저장되고, 클라이언트에는 HTML 폼의 숨겨진 필드(<input type="hidden" name="_csrf" value="토큰값">) 또는 HTTP 헤더로 전달됩니다.
+<b>전송</b>: 클라이언트가 POST, PUT 등의 요청을 보낼 때, CSRF 토큰을 요청 본문이나 헤더(예: X-CSRF-Token)에 포함시켜 서버로 전송합니다.
+<b>검증</b>: 서버는 요청에 포함된 토큰과 세션에 저장된 토큰을 비교하여 일치 여부를 확인합니다. 일치하지 않으면 요청을 거부합니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>고유성</b>: 각 사용자 세션마다 고유해야 하며, 예측 불가능한 값이어야 합니다.
+<b>일회성 또는 제한적 유효 기간</b>: 토큰은 세션 동안 유지되거나, 특정 시간 후 만료되도록 설정할 수 있습니다.
+<b>상태 변경 요청 보호</b>: 주로 POST, PUT, DELETE 등 서버 상태를 변경하는 요청에 사용됩니다(GET 요청에는 사용하지 않음).`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `예시`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;form method="POST" action="/update-profile">
+  <span class="point">&lt;input type="hidden" name="_csrf" value="abc123xyz789"></span>
+  &lt;input type="text" name="username">
+  &lt;button type="submit">저장</button>
+&lt;/form>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `서버는 _csrf 값이 세션의 토큰과 일치하는지 확인 후 요청을 처리합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `CSRF 토큰의 중요성`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>공격 방어</b>: 공격자가 사용자의 인증 쿠키를 악용해 위조 요청을 보내더라도, CSRF 토큰이 없으면 서버가 요청을 거부합니다.
+<b>간단한 구현</b>: 대부분의 웹 프레임워크(예: Spring, Django, Laravel)는 CSRF 토큰 생성 및 검증 기능을 기본 제공합니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `추가 고려사항`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>보안</b>: 토큰이 노출되지 않도록 HTTPS를 사용하고, GET 요청에 포함시키지 않습니다.
+<b>사용성</b>: AJAX 요청에서는 헤더로 토큰을 전송하는 방식이 일반적입니다.
+<b>SameSite 쿠키와 조합</b>: CSRF 토큰 외에 SameSite 속성을 쿠키에 설정하면 추가적인 보호를 제공합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `쿠키 속성 설정(SameSite)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `쿠키에 SameSite 속성을 설정하여 동일 출처(Same-Origin) 또는 제한된 조건에서만 쿠키가 전송되도록 합니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>Strict</b>: 동일 도메인에서만 쿠키 전송 가능.
+<b>Lax</b>: 동일 도메인 외의 GET 요청(예: 링크 이동)에서만 쿠키 전송 가능.
+<b>None</b>: 모든 요청에서 쿠키 전송(단, HTTPS와 Secure 속성 필수)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<span class="point">SameSite=Lax</span> 는 대부분의 CSRF 방어에 적합하며, 사용자 경험을 해치지 않으면서 보안을 강화합니다. <span class="point">SameSite=Strict</span>는 더 강력하지만, 외부 링크를 통한 접근 시 쿠키가 전송되지 않아 기능적 제약이 있을 수 있습니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>HTTP 메서드 제한</b>: 상태 변경 요청(예: 돈 이체, 계정 수정)은 POST, PUT, DELETE와 같은 메서드만 허용하고, GET 요청은 상태 변경을 유발하지 않도록 설계합니다.
+			<b>Referer/Origin 헤더 검증</b>: 요청의 출처를 확인하여 신뢰할 수 있는 도메인에서만 요청을 허용합니다. 단, Referer 헤더는 브라우저 설정에 따라 누락될 수 있으므로 보조적 수단으로 사용합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `XSS 공격 방어`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `XSS 공격은 악성 스크립트를 웹 페이지에 삽입하여 사용자의 브라우저에서 실행되도록 만드는 공격입니다. 이를 방어하기 위한 방법은 다음과 같습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `입력 값 유효성 검증 및 특수문자 이스케이프`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `사용자로부터 입력받은 데이터(예: 텍스트, URL, JSON 등)의 유효성을 검증하고, HTML, JavaScript, SQL 등에서 실행 가능한 특수문자(<span class="point"> &lt;, >, ", ', &</span> 등)를 이스케이프 처리합니다.`,
+			},
+			{
+				type: ComponentType.EMPHASIS,
+				value: `<b>이스케이프 처리란?</b></br>
+				사용자가 <script>alert('악성 코드')</script>를 입력했다고 가정한다면</br>
+				- <b>이스케이프 처리 전</b>: 브라우저가 이를 JavaScript로 실행하여 경고창이 표시됨(XSS 공격 성공).</br>
+				- <b>이스케이프 처리 후</b>: < → &lt;, > → &gt;로 변환되어 <script>가 텍스트로 표시됨(악성 코드 실행 방지).`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `사용자가 입력한 데이터(예: 텍스트 필드, 쿼리 파라미터)를 서버 또는 클라이언트에서 받으면 입력 데이터에 포함된 특수 문자를 안전한 문자(예: &lt;)로 변환하여 변환된 데이터를 HTML, JavaScript 등의 문맥에서 출력하여 브라우저가 이를 코드가 아닌 텍스트로 처리하도록 함.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;!-- 입력: &lt;script>alert('XSS')&lt;/script> --> 
+<!-- 이스케이프 처리 후 출력 -->
+<span class="point">&amp;lt;</span>script<span class="point">&amp;gt;</span>alert(&#39;XSS&#39;)<span class="point">&amp;lt;</span>/script<span class="point">&amp;gt;</span> `,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `브라우저는 위를 <script>alert('XSS')</script>로 표시하며, 실행하지 않음.`,
+			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: `클라이언트와 서버 모두에서 입력 검증을 수행해야 합니다. 서버에서는 데이터베이스 저장 전, 클라이언트에서는 사용자 경험을 위해 검증합니다. 예를 들어, <script>는 &lt;script&gt;로 변환하여 렌더링 시 실행되지 않도록 합니다. 라이브러리(예: DOMPurify, OWASP Java Encoder)를 사용하면 이스케이프 처리가 더 안전합니다.`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.H4,
+			// 				value: `CSP(Content Security Policy) 설정`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: `서버에서 HTTP 응답 헤더에 CSP를 설정하여 허용된 스크립트, 스타일, 이미지 등의 출처를 제한합니다.`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.CODE,
+			// 				value: `Content-Security-Policy: script-src 'self' https://trusted.cdn.com;`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: `CSP는 인라인 스크립트(<script>alert('xss')</script>)나 외부 출처의 악성 스크립트 실행을 차단합니다. 'strict-dynamic', 'nonce', 'hash'와 같은 옵션을 사용하면 더 세밀한 제어가 가능합니다. 그러나 CSP 설정은 신중히 설계해야 하며, 기존 코드와의 호환성 문제를 테스트해야 합니다.`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: ``,
+			// 			},
+			// 			{
+			// 				type: ComponentType.STRINGLIST,
+			// 				value: `<b>출력 이스케이프</b>: 데이터를 렌더링할 때 문맥(HTML, 속성, JavaScript, CSS, URL 등)에 맞게 이스케이프 처리합니다. 예: HTML 속성에는 "를 &quot;로 변환.
+			// <b>안전한 API 사용</b>: innerHTML 대신 textContent나 setAttribute를 사용해 스크립트 실행을 방지합니다.
+			// <b>쿠키 보호</b>: HttpOnly 속성을 쿠키에 설정하여 JavaScript에서 쿠키에 접근하지 못하도록 제한합니다.
+			// <b>프레임워크 보안</b>: React, Angular 등 현대 프레임워크는 기본적으로 XSS 방어를 제공하지만, dangerouslySetInnerHTML 같은 기능을 사용할 때는 주의가 필요합니다.`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.H3,
+			// 				value: `HTTPS를 통한 통신 보안`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: `HTTP는 데이터가 평문으로 전송되어 도청 및 조작에 취약합니다. HTTPS는 SSL/TLS를 통해 통신을 암호화하여 보안을 강화합니다.`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.H4,
+			// 				value: `HTTPS 적용`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: `모든 요청과 응답을 HTTPS로 처리하도록 서버를 설정합니다. HSTS(HTTP Strict Transport Security) 헤더를 추가하여 브라우저가 HTTP 대신 HTTPS만 사용하도록 강제합니다.`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.CODE,
+			// 				value: `Strict-Transport-Security: max-age=31536000; includeSubDomains`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: `HTTPS는 데이터 무결성과 기밀성을 보장하며, CSRF와 XSS 공격에서 쿠키나 토큰이 탈취되는 것을 방지합니다. HSTS는 중간자 공격(MITM)을 줄이는 데 효과적입니다. 또한, 최신 TLS 버전(예: TLS 1.3)과 강력한 암호화 알고리즘을 사용하는 것이 중요합니다.`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: `추가 보안 고려사항`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: `<b>인증서 관리</b>: 신뢰할 수 있는 인증 기관(CA)에서 발급받은 SSL/TLS 인증서를 사용하고, 만료 전에 갱신합니다.
+			// <b>혼합 콘텐츠 방지</b>: HTTPS 페이지에서 HTTP 리소스(이미지, 스크립트 등)를 로드하지 않도록 주의합니다. 브라우저는 혼합 콘텐츠를 차단하거나 경고를 표시할 수 있습니다.`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.H3,
+			// 				value: `종합적인 보안 전략`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.NORMAL,
+			// 				value: `CSRF와 XSS 방어는 단일 기법에 의존하지 않고, 여러 방어 계층을 조합하여 적용하는 심층 방어(Defense-in-Depth) 전략이 필요합니다.`,
+			// 			},
+			// 			{
+			// 				type: ComponentType.STRINGLIST,
+			// 				value: `<b>개발 단계</b>: 코드 리뷰, 보안 라이브러리 사용, OWASP 가이드라인 준수.
+			// <b>배포 단계</b>: 보안 헤더 설정(CSP, HSTS, X-Frame-Options 등), 취약점 스캔.
+			// <b>운영 단계</b>: 로그 모니터링, WAF(Web Application Firewall) 도입, 정기적인 보안 패치.`,
+			// 			},
+		],
+	},
 ];
 
 // {
