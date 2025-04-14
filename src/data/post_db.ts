@@ -9597,9 +9597,9 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 			{
 				type: ComponentType.EMPHASIS,
 				value: `<b>이스케이프 처리란?</b></br>
-				사용자가 <script>alert('악성 코드')</script>를 입력했다고 가정한다면</br>
+				사용자가 &lt;script>alert('악성 코드')&lt;/script>를 입력했다고 가정한다면</br>
 				- <b>이스케이프 처리 전</b>: 브라우저가 이를 JavaScript로 실행하여 경고창이 표시됨(XSS 공격 성공).</br>
-				- <b>이스케이프 처리 후</b>: < → &lt;, > → &gt;로 변환되어 <script>가 텍스트로 표시됨(악성 코드 실행 방지).`,
+				- <b>이스케이프 처리 후</b>: [ < → &amp;lt; ] [ > → &ampgt; ] 로 변환되어 &lt;script>가 텍스트로 표시됨(악성 코드 실행 방지).`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -9613,86 +9613,94 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `브라우저는 위를 <script>alert('XSS')</script>로 표시하며, 실행하지 않음.`,
+				value: `브라우저는 위를 &lt;script>alert('XSS')&lt;/script>로 표시하며, 실행하지 않음.`,
 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: `클라이언트와 서버 모두에서 입력 검증을 수행해야 합니다. 서버에서는 데이터베이스 저장 전, 클라이언트에서는 사용자 경험을 위해 검증합니다. 예를 들어, <script>는 &lt;script&gt;로 변환하여 렌더링 시 실행되지 않도록 합니다. 라이브러리(예: DOMPurify, OWASP Java Encoder)를 사용하면 이스케이프 처리가 더 안전합니다.`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.H4,
-			// 				value: `CSP(Content Security Policy) 설정`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: `서버에서 HTTP 응답 헤더에 CSP를 설정하여 허용된 스크립트, 스타일, 이미지 등의 출처를 제한합니다.`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.CODE,
-			// 				value: `Content-Security-Policy: script-src 'self' https://trusted.cdn.com;`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: `CSP는 인라인 스크립트(<script>alert('xss')</script>)나 외부 출처의 악성 스크립트 실행을 차단합니다. 'strict-dynamic', 'nonce', 'hash'와 같은 옵션을 사용하면 더 세밀한 제어가 가능합니다. 그러나 CSP 설정은 신중히 설계해야 하며, 기존 코드와의 호환성 문제를 테스트해야 합니다.`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: ``,
-			// 			},
-			// 			{
-			// 				type: ComponentType.STRINGLIST,
-			// 				value: `<b>출력 이스케이프</b>: 데이터를 렌더링할 때 문맥(HTML, 속성, JavaScript, CSS, URL 등)에 맞게 이스케이프 처리합니다. 예: HTML 속성에는 "를 &quot;로 변환.
-			// <b>안전한 API 사용</b>: innerHTML 대신 textContent나 setAttribute를 사용해 스크립트 실행을 방지합니다.
-			// <b>쿠키 보호</b>: HttpOnly 속성을 쿠키에 설정하여 JavaScript에서 쿠키에 접근하지 못하도록 제한합니다.
-			// <b>프레임워크 보안</b>: React, Angular 등 현대 프레임워크는 기본적으로 XSS 방어를 제공하지만, dangerouslySetInnerHTML 같은 기능을 사용할 때는 주의가 필요합니다.`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.H3,
-			// 				value: `HTTPS를 통한 통신 보안`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: `HTTP는 데이터가 평문으로 전송되어 도청 및 조작에 취약합니다. HTTPS는 SSL/TLS를 통해 통신을 암호화하여 보안을 강화합니다.`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.H4,
-			// 				value: `HTTPS 적용`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: `모든 요청과 응답을 HTTPS로 처리하도록 서버를 설정합니다. HSTS(HTTP Strict Transport Security) 헤더를 추가하여 브라우저가 HTTP 대신 HTTPS만 사용하도록 강제합니다.`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.CODE,
-			// 				value: `Strict-Transport-Security: max-age=31536000; includeSubDomains`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: `HTTPS는 데이터 무결성과 기밀성을 보장하며, CSRF와 XSS 공격에서 쿠키나 토큰이 탈취되는 것을 방지합니다. HSTS는 중간자 공격(MITM)을 줄이는 데 효과적입니다. 또한, 최신 TLS 버전(예: TLS 1.3)과 강력한 암호화 알고리즘을 사용하는 것이 중요합니다.`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: `추가 보안 고려사항`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: `<b>인증서 관리</b>: 신뢰할 수 있는 인증 기관(CA)에서 발급받은 SSL/TLS 인증서를 사용하고, 만료 전에 갱신합니다.
-			// <b>혼합 콘텐츠 방지</b>: HTTPS 페이지에서 HTTP 리소스(이미지, 스크립트 등)를 로드하지 않도록 주의합니다. 브라우저는 혼합 콘텐츠를 차단하거나 경고를 표시할 수 있습니다.`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.H3,
-			// 				value: `종합적인 보안 전략`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.NORMAL,
-			// 				value: `CSRF와 XSS 방어는 단일 기법에 의존하지 않고, 여러 방어 계층을 조합하여 적용하는 심층 방어(Defense-in-Depth) 전략이 필요합니다.`,
-			// 			},
-			// 			{
-			// 				type: ComponentType.STRINGLIST,
-			// 				value: `<b>개발 단계</b>: 코드 리뷰, 보안 라이브러리 사용, OWASP 가이드라인 준수.
-			// <b>배포 단계</b>: 보안 헤더 설정(CSP, HSTS, X-Frame-Options 등), 취약점 스캔.
-			// <b>운영 단계</b>: 로그 모니터링, WAF(Web Application Firewall) 도입, 정기적인 보안 패치.`,
-			// 			},
+			{
+				type: ComponentType.NORMAL,
+				value: `클라이언트와 서버 모두에서 입력 검증을 수행해야 하며 서버에서는 데이터베이스 저장 전, 클라이언트에서는 사용자 경험을 위해 검증합니다. 예를 들어,  &lt;script>는 <span class="point">&amplt;script&ampgt;</span>로 변환하여 렌더링 시 실행되지 않도록 합니다. 라이브러리(예: DOMPurify, OWASP Java Encoder)를 사용하면 이스케이프 처리가 더 안전합니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `CSP(Content Security Policy) 설정`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `서버에서 HTTP 응답 헤더에 CSP를 설정하여 허용된 스크립트, 스타일, 이미지 등의 출처를 제한합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `Content-Security-Policy: script-src 'self' https://trusted.cdn.com;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `CSP는 인라인 스크립트(&lt;script>alert('xss')&lt;/script>)나 외부 출처의 악성 스크립트 실행을 차단합니다. 'strict-dynamic', 'nonce', 'hash'와 같은 옵션을 사용하면 더 세밀한 제어가 가능합니다. 그러나 CSP 설정은 신중히 설계해야 하며, 기존 코드와의 호환성 문제를 테스트해야 합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: ``,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>출력 이스케이프</b>: 데이터를 렌더링할 때 문맥(HTML, 속성, JavaScript, CSS, URL 등)에 맞게 이스케이프 처리합니다. 예: HTML 속성에는 더블쿼테이션(")를 &ampquot;로 변환.
+			<b>안전한 API 사용</b>: innerHTML 대신 textContent나 setAttribute를 사용해 스크립트 실행을 방지합니다.
+			<b>쿠키 보호</b>: HttpOnly 속성을 쿠키에 설정하여 JavaScript에서 쿠키에 접근하지 못하도록 제한합니다.
+			<b>프레임워크 보안</b>: React, Angular 등 현대 프레임워크는 기본적으로 XSS 방어를 제공하지만, dangerouslySetInnerHTML 같은 기능을 사용할 때는 주의가 필요합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `HTTPS를 통한 통신 보안`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTP는 데이터가 평문으로 전송되어 도청 및 조작에 취약합니다. HTTPS는 <b>SSL/TLS</b>를 통해 통신을 암호화하여 보안을 강화합니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `HTTPS 적용`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HSTS는 웹 브라우저에게 해당 사이트는 항상 HTTPS로만 접속해야 한다고 지시하는 보안 기능입니다. 한 번 브라우저가 이 헤더를 받으면, 이후엔 자동으로 HTTP 요청을 HTTPS로 업그레이드합니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `HSTS 헤더 예시`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `서버에서 다음과 같은 헤더를 응답에 추가합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `Strict-Transport-Security: max-age=31536000; includeSubDomains`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTTPS는 데이터 무결성과 기밀성을 보장하며, CSRF와 XSS 공격에서 쿠키나 토큰이 탈취되는 것을 방지합니다. HSTS는 중간자 공격(MITM)을 줄이는 데 효과적입니다. 또한, 최신 TLS 버전(예: TLS 1.3)과 강력한 암호화 알고리즘을 사용하는 것이 중요합니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `추가 보안 고려사항`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>인증서 관리</b>: 신뢰할 수 있는 인증 기관(CA)에서 발급받은 SSL/TLS 인증서를 사용하고, 만료 전에 갱신합니다.
+			<b>혼합 콘텐츠 방지</b>: HTTPS 페이지에서 HTTP 리소스(이미지, 스크립트 등)를 로드하지 않도록 주의합니다. 브라우저는 혼합 콘텐츠를 차단하거나 경고를 표시할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `종합적인 보안 전략`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `CSRF와 XSS 방어는 단일 기법에 의존하지 않고, 여러 방어 계층을 조합하여 적용하는 심층 방어(Defense-in-Depth) 전략이 필요합니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>개발 단계</b>: 코드 리뷰, 보안 라이브러리 사용, OWASP 가이드라인 준수.
+			<b>배포 단계</b>: 보안 헤더 설정(CSP, HSTS, X-Frame-Options 등), 취약점 스캔.
+			<b>운영 단계</b>: 로그 모니터링, WAF(Web Application Firewall) 도입, 정기적인 보안 패치.`,
+			},
 		],
 	},
 ];
