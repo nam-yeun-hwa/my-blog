@@ -8464,29 +8464,25 @@ Host: example.com`,
 <b>Payload 노출</b> : JWT의 Payload는 암호화되지 않고 Base64로 인코딩만 되어 있어 누구나 디코딩해 내용을 볼 수 있습니다. 따라서 민감한 정보(예: 비밀번호)는 절대 포함시키지 않아야 합니다.`,
 			},
 			{
-				type: ComponentType.NORMAL,
-				value: `<b>HTTPOnly와 함께 사용하는 속성</b>`,
+				type: ComponentType.H2,
+				value: `토큰 탈취 위험`,
 			},
 			{
-				type: ComponentType.NORMAL,
-				value: `<b>Secure</b> : XSS공격을 방어하기 위해 Secure 설정 하면 스크립트가 쿠키에 접근할 수 없어 보안이 강화됩니다. `,
+				type: ComponentType.EMPHASIS,
+				value: `<b>HttpOnly</b></br>
+				HttpOnly는 쿠키에 붙이는 속성 중 하나로,
+JavaScript에서 해당 쿠키에 접근하지 못하게 막는 기능입니다.</br></br>
+<b>Secure</b></br>HTTPS에서만 전송되게 하는 속성 입니다.</br></br>
+<b>SameSite</b></br>CSRF 방지를 위해 쿠키가 어떤 상황에서 자동으로 브라우저에 전송될지를 제한하는 속성입니다.</br>SameSite=Strict 설정일때에는 쿠키가 동일 출처 요청에만 전송되도록 설정합니다.
+				`,
+				propsType: propsPromptsType.INFO,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `Set-Cookie: sessionId=abc123; Path=/; Secure; HttpOnly`,
-			},
-			{
-				type: ComponentType.CODE,
-				value: `//JavaScript로 접근 불가
+				value: `Set-Cookie : sessionId=abc123; Secure; HttpOnly; SameSite=Strict
+				
+//JavaScript로 접근 불가
 console.log(document.cookie); // "" (빈 문자열 출력)`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `<b>SameSite</b> : CSRF 방지를 위해 쿠키가 동일 출처 요청에만 포함되도록 설정합니다.`,
-			},
-			{
-				type: ComponentType.CODE,
-				value: `Set-Cookie : sessionId=abc123; Secure; HttpOnly; SameSite=Strict`,
 			},
 			{
 				type: ComponentType.NORMAL,
