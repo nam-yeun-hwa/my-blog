@@ -8372,7 +8372,7 @@ Host: example.com`,
 		title: `[TECH-QA] JWT(JSON Web Token) 인증 방식`,
 		date: '2025-04-02 15:44:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['JavaScript', 'TECH-QA', 'JWT'],
+		tag: ['JavaScript', 'TECH-QA', 'JWT', 'CSRF', 'XSS'],
 		preview: `JWT(JSON Web Token)는 웹에서 사용자 인증을 위해 널리 사용되는 토큰 기반 인증 방식입니다. JWT는 세 가지 주요 부분으로 구성되며, 각 부분은 점(.)으로 구분됩니다`,
 		post: [
 			{
@@ -9492,7 +9492,7 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 		title: `[TECH-QA] CSRF와 XSS`,
 		date: '2025-04-14 22:48:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['JavaScript', 'TECH-QA'],
+		tag: ['JavaScript', 'TECH-QA', 'XSS', 'CSRF'],
 		preview: `CSRF 공격은 <b>사용자의 인증 정보를 악용</b>하여 의도하지 않은 요청을 서버에 보내는 공격입니다. 이를 방어하기 위한 주요 방법은 다음과 같습니다.`,
 		post: [
 			{
