@@ -9703,6 +9703,212 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 			},
 		],
 	},
+	{
+		id: 65,
+		title: `[TECH-QA] 리액트에서 XSS 방어`,
+		date: '2025-04-15 11:08:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['react', 'TECH-QA', 'XSS'],
+		preview: `React는 기본적으로 XSS(크로스 사이트 스크립팅) 공격을 방어하기 위한 강력한 메커니즘을 제공합니다. React의 설계 자체가 XSS 취약점을 줄이도록 만들어져 있으며, 이를 통해 사용자 입력이나 동적 데이터를 안전하게 렌더링할 수 있습니다. 하지만 특정 상황에서는 주의가 필요합니다. 아래에서 React의 XSS 방어 메커니즘과 주의사항을 정리하겠습니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `React는 기본적으로 XSS(크로스 사이트 스크립팅) 공격을 방어하기 위한 강력한 메커니즘을 제공합니다. React의 설계 자체가 XSS 취약점을 줄이도록 만들어져 있으며, 이를 통해 사용자 입력이나 동적 데이터를 안전하게 렌더링할 수 있습니다. 하지만 특정 상황에서는 주의가 필요합니다. 아래에서 React의 XSS 방어 메커니즘과 주의사항을 정리하겠습니다.`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `React의 기본 XSS 방어 메커니즘`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React는 JSX와 내부 렌더링 방식 덕분에 XSS 공격을 방지하는 몇 가지 기본 기능을 제공합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `자동 이스케이프 처리`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React는 JSX에서 동적 데이터를 렌더링할 때, 기본적으로 HTML 특수 문자를 이스케이프 처리합니다. 예를 들어, <, >, & 같은 문자는 <span class="point">&amplt; &ampgt; &ampamp;</span> 로 변환되어 텍스트로 표시됩니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function App() {
+  const userInput = "&lt;script>alert('XSS')&lt;/script>";
+  return &lt;div>{userInput}&lt;/div>;
+}`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `브라우저에 <span class="point">&lt;script>alert('XSS')&lt;/script></span> 가 이스케이프 처리 후 <span class="point">&amplt;script&ampgt;alert('XSS')&amplt;/script&ampgt;</span>  텍스트로 표시되며, 스크립트는 실행되지 않음. React는 {} 내부의 문자열을 textContent로 처리하여 HTML로 해석되지 않도록 합니다.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `JSX의 안전한 구조`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `JSX는 HTML처럼 보이지만, 실제로는 JavaScript 객체로 컴파일됩니다. 따라서 사용자가 입력한 데이터가 직접 HTML로 삽입되지 않고, React가 관리하는 DOM API를 통해 안전하게 렌더링됩니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `&lt;div>{userInput}&lt;/div>는 React.createElement로 변환되어 안전하게 처리됨.`,
+			},
+			{
+				type: ComponentType.H3,
+				value: `속성 이스케이프`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `HTML 속성(예: value, href)에 동적 데이터를 삽입할 때도 React는 특수 문자를 이스케이프하여 악성 코드(예: javascript:alert('XSS'))가 실행되지 않도록 합니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `안전하지 않은 dangerouslySetInnerHTML 사용.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `스크립트 실행 가능하여 XSS 취약하다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const userInput = "&lt;script>alert('XSS')&lt;/script>";
+return &lt;div dangerouslySetInnerHTML={{ __html: userInput }} />;`,
+			},
+
+			{
+				type: ComponentType.H4,
+				value: `안전한 방법 dangerouslySetInnerHTML 사용`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `사용자 입력을 삽입하기 전에 반드시 DOMPurify 같은 라이브러리로 정화(sanitize).`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import DOMPurify from "dompurify";
+const userInput = "&lt;script>alert('XSS')&lt;/script>";
+const sanitized = DOMPurify.sanitize(userInput);
+return &lt;div dangerouslySetInnerHTML={{ __html: sanitized }} />;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `&lt;script> 태그가 제거되거나 이스케이프되어 안전하게 렌더링.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React에서 XSS 방어를 강화하는 방법`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React의 기본 방어에 더해 추가적인 보안 조치를 적용하면 더 안전한 애플리케이션을 만들 수 있습니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `사용자 입력 검증`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `클라이언트와 서버에서 입력 데이터를 검증하여 예상치 못한 형식(예: 스크립트 태그, 특수 문자)을 차단.
+예: 이메일 입력은 이메일 형식이 맞는지 확인.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `DOMPurify 사용`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `DOMPurify는 입력된 HTML 문자열을 분석하고, 안전하지 않은 요소를 제거하거나 변환하여 XSS 공격을 방지합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;script>alert('XSS')&lt;/script>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `"" (빈 문자열, &lt;script> 태그 완전 제거).
+이유: &lt;script>는 기본적으로 화이트리스트에 없음.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;img src="x" onerror="alert('XSS')">`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `출력: &lt;img src="x">
+이유: onerror 속성은 위험하므로 제거, src는 유지.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;a href="javascript:alert('XSS')">Click&lt;/a>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `출력: &lt;a>Click&lt;/a> 또는 &lt;a href="#">Click&lt;/a> (구성에 따라 다름).
+이유: javascript: 프로토콜은 차단됨.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;div>Hello &lt;b>World&lt;/b>&lt;/div>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `출력: &lt;div>Hello &lt;b>World&lt;/b>&lt;/div>
+이유: &lt;div>, &lt;b>는 안전한 태그로 화이트리스트에 포함.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `&lt;style>body { background: url(javascript:alert('XSS')); }&lt;/style>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `출력: &lt;style>body { background: url(about:blank); }</style> 또는 "".
+이유: 위험한 CSS 표현식 제거.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `Content Security Policy(CSP)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `서버에서 CSP 헤더를 설정하여 허용된 스크립트만 실행되도록 제한.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `Content-Security-Policy: script-src 'self' https://trusted.cdn.com;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React 앱에서는 인라인 스크립트를 최소화하고, nonce나 strict-dynamic을 활용.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `안전한 API 사용`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `innerHTML 대신 textContent 또는 setAttribute 사용.
+React의 기본 렌더링 방식을 따르고, 직접 DOM 조작을 피함.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `HTTPS 사용`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `데이터 전송 시 HTTPS를 사용하여 데이터 탈취를 방지.
+React 앱은 보통 HTTPS로 배포되므로, 서버 설정에서 확인.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `서버 측 방어`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React는 클라이언트 측 프레임워크이므로, 서버에서도 XSS 방어를 적용(예: 입력 검증, 출력 이스케이프).`,
+			},
+		],
+	},
 ];
 
 // {
