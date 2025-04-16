@@ -12,6 +12,10 @@
 // 	tag?: Array<string>;
 // }
 
+import {
+	headingBoldProps,
+	HeadingStringProps,
+} from 'app/_component/detailPage/Heading';
 import { propsPromptsType } from 'app/_component/detailPage/Prompts';
 import { TableProps } from 'app/_component/table/BasicTypeTable';
 
@@ -32,6 +36,9 @@ export type headerType = {
 // 	contents: Array<T>;
 // };
 
+/**
+ * POST 인터페이스
+ */
 export interface IPost<T = any> {
 	id: number;
 	title: string;
@@ -42,7 +49,7 @@ export interface IPost<T = any> {
 	post: {
 		type: ComponentType;
 		value: string;
-		propsType?: propsPromptsType;
+		propsType?: propsPromptsType | headingBoldProps;
 		tables?: TableProps<T>;
 	}[];
 }

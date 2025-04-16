@@ -4,9 +4,10 @@ import Prompts, { propsPromptsType } from 'app/_component/detailPage/Prompts';
 import { ComponentType, IPost } from 'type/post';
 import { sortedTotalPostlist } from 'data/post_db';
 import Footer from 'app/_component/common/Footer';
-import Table from 'app/_component/detailPage/Table';
 import StringDot from 'app/_component/detailPage/ListStyle';
-import HeadingString from 'app/_component/detailPage/Heading';
+import HeadingString, {
+	headingBoldProps,
+} from 'app/_component/detailPage/Heading';
 import PostNavigation from './PostNavigation';
 
 import PostUserInfo from './PostUserInfo';
@@ -39,7 +40,12 @@ export default function PostDetail({ postid }: Props) {
 						<Prompts
 							key={idx}
 							type={
-								value.propsType ? value.propsType : propsPromptsType.WARNING
+								typeof value.propsType === 'string' &&
+								Object.values(propsPromptsType).includes(
+									value.propsType as propsPromptsType,
+								)
+									? (value.propsType as propsPromptsType)
+									: propsPromptsType.WARNING
 							}
 							detail={value.value}
 						/>
@@ -73,6 +79,14 @@ export default function PostDetail({ postid }: Props) {
 							key={idx}
 							headingType={value.type}
 							headingValue={value.value}
+							headingBold={
+								typeof value.propsType === 'string' &&
+								Object.values(headingBoldProps).includes(
+									value.propsType as headingBoldProps,
+								)
+									? (value.propsType as headingBoldProps)
+									: headingBoldProps.NORMAL
+							}
 						/>
 					);
 				}

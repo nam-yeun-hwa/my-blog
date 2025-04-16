@@ -2,6 +2,7 @@ import { propsPromptsType } from 'app/_component/detailPage/Prompts';
 
 import { ComponentType, Folder, IPost, Level } from 'type/post';
 import tableStyle from 'app/_component/detailPage/table.module.css';
+import { headingBoldProps } from 'app/_component/detailPage/Heading';
 
 /**
  * @constant totalPostlist
@@ -9496,7 +9497,7 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 		preview: `CSRF 공격은 <b>사용자의 인증 정보를 악용</b>하여 의도하지 않은 요청을 서버에 보내는 공격입니다. 이를 방어하기 위한 주요 방법은 다음과 같습니다.`,
 		post: [
 			{
-				type: ComponentType.H3,
+				type: ComponentType.H2,
 				value: `CSRF 토큰 이란`,
 			},
 			{
@@ -9504,22 +9505,66 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 				value: `CSRF 토큰은 크로스 사이트 요청 위조(Cross-Site Request Forgery, CSRF) 공격을 방어하기 위해 사용되는 고유한 랜덤 문자열입니다. 서버에서 생성되어 사용자 세션과 연결되며, 클라이언트가 서버에 요청(예: 폼 제출, AJAX 호출)을 보낼 때 이 토큰을 함께 전송하여 요청의 유효성을 검증합니다.`,
 			},
 			{
-				type: ComponentType.H3,
-				value: `CSRF 토큰의 동작 방식`,
+				type: ComponentType.H2,
+				value: `CSRF 토큰의 일반적인 흐름`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `서버에서 CSRF 토큰 생성`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `<b>생성</b>: 서버는 사용자 세션이 시작될 때 고유한 CSRF 토큰을 생성합니다(예: UUID, 해시값 등).
-<b>저장</b>: 이 토큰은 서버의 세션 데이터에 저장되고, 클라이언트에는 HTML 폼의 숨겨진 필드(<input type="hidden" name="_csrf" value="토큰값">) 또는 HTTP 헤더로 전달됩니다.
-<b>전송</b>: 클라이언트가 POST, PUT 등의 요청을 보낼 때, CSRF 토큰을 요청 본문이나 헤더(예: X-CSRF-Token)에 포함시켜 서버로 전송합니다.
-<b>검증</b>: 서버는 요청에 포함된 토큰과 세션에 저장된 토큰을 비교하여 일치 여부를 확인합니다. 일치하지 않으면 요청을 거부합니다.`,
+				value: `사용자가 웹 애플리케이션에 접속하면, 서버는 해당 사용자 세션에 고유한 CSRF 토큰을 생성합니다.
+이 토큰은 서버의 세션에 저장됩니다(예: 세션 ID와 연계된 서버 메모리, 데이터베이스, 또는 캐시).
+서버 세션은 사용자마다 고유하며, 서버가 관리하는 상태 저장소입니다.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `클라이언트로 CSRF 토큰 전달`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `서버는 생성한 CSRF 토큰을 클라이언트(프론트엔드)로 전송합니다. 이는 보통 다음과 같은 방식으로 이루어집니다:`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `<b>고유성</b>: 각 사용자 세션마다 고유해야 하며, 예측 불가능한 값이어야 합니다.
-<b>일회성 또는 제한적 유효 기간</b>: 토큰은 세션 동안 유지되거나, 특정 시간 후 만료되도록 설정할 수 있습니다.
-<b>상태 변경 요청 보호</b>: 주로 POST, PUT, DELETE 등 서버 상태를 변경하는 요청에 사용됩니다(GET 요청에는 사용하지 않음).`,
+				value: `HTML 폼의 숨겨진 필드(<input type="hidden" name="_csrf" value="토큰값">)로 포함.
+AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
+쿠키로 전송(단, 쿠키 자체는 CSRF 방지에 직접 사용되지 않음).`,
 			},
+			{
+				type: ComponentType.NORMAL,
+				value: `클라이언트는 이 토큰을 받아서 저장합니다. 이 저장은 주로 프론트엔드의 메모리(예: JavaScript 변수)나 HTML 폼에 일시적으로 유지되며, 프론트엔드의 세션 스토리지나 로컬 스토리지에 저장하는 경우는 드뭅니다(보안상 권장되지 않음).`,
+			},
+			{
+				type: ComponentType.H2,
+				value: `클라이언트가 요청 전송`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `사용자가 폼을 제출하거나 AJAX 요청을 보낼 때, 클라이언트는 CSRF 토큰을 요청에 포함시킵니다.
+예: POST 요청의 바디에 _csrf 필드로 포함되거나, 헤더에 X-CSRF-Token으로 추가됨.`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `서버에서 CSRF 토큰 검증`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `서버는 클라이언트로부터 받은 CSRF 토큰을 서버 세션에 저장된 토큰과 비교합니다.
+토큰이 일치하면 요청이 유효한 것으로 간주하고 처리합니다.
+토큰이 일치하지 않거나 없으면 요청을 거부(예: 403 Forbidden 응답).`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `세션 유지 및 토큰 갱신`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `요청이 성공적으로 처리된 후, 서버는 필요에 따라 새로운 CSRF 토큰을 생성하여 세션에 저장하고 클라이언트에 전달합니다.
+이는 보안을 강화하기 위해 토큰을 일회성 또는 주기적으로 갱신하는 방식입니다.`,
+			},
+
 			{
 				type: ComponentType.H4,
 				value: `예시`,
@@ -9537,7 +9582,7 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 				value: `서버는 _csrf 값이 세션의 토큰과 일치하는지 확인 후 요청을 처리합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.H2,
 				value: `CSRF 토큰의 중요성`,
 			},
 			{
@@ -9556,7 +9601,7 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 <b>SameSite 쿠키와 조합</b>: CSRF 토큰 외에 SameSite 속성을 쿠키에 설정하면 추가적인 보호를 제공합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.H2,
 				value: `쿠키 속성 설정(SameSite)`,
 			},
 			{
@@ -9579,7 +9624,7 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 			<b>Referer/Origin 헤더 검증</b>: 요청의 출처를 확인하여 신뢰할 수 있는 도메인에서만 요청을 허용합니다. 단, Referer 헤더는 브라우저 설정에 따라 누락될 수 있으므로 보조적 수단으로 사용합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.H2,
 				value: `XSS 공격 방어`,
 			},
 			{
