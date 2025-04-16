@@ -1,22 +1,18 @@
 import style from './Prompts.module.css';
 import cx from 'classnames';
 
-export enum propsPromptsType {
-	TIP = 'tip',
-	INFO = 'info',
-	WARNING = 'warning',
-	DANGER = 'danger',
-}
-
-type Props = {
-	type: propsPromptsType;
+type Props = promptType & {
 	detail: string;
 };
 
-export default function Prompts({ type, detail }: Props) {
+export type promptType = {
+	promptType: 'TIP' | 'INFO' | 'WARNING' | 'DANGER';
+};
+
+export default function Prompts({ promptType, detail }: Props) {
 	return (
 		<>
-			{type === propsPromptsType.TIP && (
+			{promptType === 'TIP' && (
 				<blockquote
 					className={cx(style.prompt_container, style.prompt, style.prompt_tip)}
 				>
@@ -26,7 +22,7 @@ export default function Prompts({ type, detail }: Props) {
 					></p>
 				</blockquote>
 			)}
-			{type === propsPromptsType.INFO && (
+			{promptType === 'INFO' && (
 				<blockquote
 					className={cx(
 						style.prompt_container,
@@ -40,7 +36,7 @@ export default function Prompts({ type, detail }: Props) {
 					></p>
 				</blockquote>
 			)}
-			{type === propsPromptsType.WARNING && (
+			{promptType === 'WARNING' && (
 				<blockquote
 					className={cx(
 						style.prompt_container,
@@ -54,7 +50,7 @@ export default function Prompts({ type, detail }: Props) {
 					></p>
 				</blockquote>
 			)}
-			{type === propsPromptsType.DANGER && (
+			{promptType === 'DANGER' && (
 				<blockquote
 					className={cx(
 						style.prompt_container,

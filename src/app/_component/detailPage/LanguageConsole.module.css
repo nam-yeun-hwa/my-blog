@@ -1,108 +1,112 @@
 /* 코드 컴포넌트 : s */
 
 .console_container {
-  color: #f6f8fa;
-  margin-top: 1.5rem;
-  margin-bottom: 1.2em;
-  box-shadow: #ececec 0 0 0 1px;
-  border-radius: 0.625rem;
-  background-color: #f6f8fa;
+	color: #f6f8fa;
+	margin-top: 1.5rem;
+	margin-bottom: 1.2em;
+	box-shadow: #ececec 0 0 0 1px;
+	border-radius: 0.625rem;
+	background-color: #f6f8fa;
 }
 
 .console_header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 70%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 70%;
 }
 
 .console_header::before {
-  content: '';
-  display: inline-block;
-  margin-left: 1rem;
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  background-color: #e5e5e5;
-  box-shadow: 1.25rem 0 0 #e5e5e5, 2.5rem 0 0 #e5e5e5;
+	content: '';
+	display: inline-block;
+	margin-left: 1rem;
+	width: 0.75rem;
+	height: 0.75rem;
+	border-radius: 50%;
+	background-color: #e5e5e5;
+	box-shadow: 1.25rem 0 0 #e5e5e5, 2.5rem 0 0 #e5e5e5;
 }
 
 .title::after {
-  content: attr(data-label-text);
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: #a3a3a3;
+	content: attr(data-label-text);
+	font-size: 0.85rem;
+	font-weight: 400;
+	color: #a3a3a3;
 }
 
 .ico_title {
-  width: 1.75rem !important;
-  color: #c9c8c8;
+	width: 1.75rem !important;
+	color: #c9c8c8;
 }
 
 .ico_title::before {
-  content: '\f121';
-  font-size: 70%;
+	content: '\f121';
+	font-size: 70%;
 }
 
 .copy {
-  position: relative;
-  width: 2.25rem;
-  height: 2.25rem;
-  color: #c9c8c8;
-  font-size: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0);
-  border-radius: 0.625rem;
-  background-color: inherit;
-  padding: 0;
+	position: relative;
+	width: 2.25rem;
+	height: 2.25rem;
+	color: #c9c8c8;
+	font-size: 1rem;
+	border: 1px solid rgba(0, 0, 0, 0);
+	border-radius: 0.625rem;
+	background-color: inherit;
+	padding: 0;
 }
 
 .speech_bubble {
-  position: absolute;
-  left: -78px;
-  background: #3a3a3a;
-  border-radius: 0.4em;
-  font-size: 13px;
-  color: white;
-  padding: 4px 10px 3px 10px;
+	position: absolute;
+	left: -78px;
+	background: #3a3a3a;
+	border-radius: 0.4em;
+	font-size: 13px;
+	color: white;
+	padding: 4px 10px 3px 10px;
 }
 
 .speech_bubble:after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: calc(50% - 2.5px);
-  width: 0;
-  height: 0;
-  border: 5px solid transparent;
-  border-left-color: #3a3a3a;
-  border-right: 0;
-  border-bottom: -2.5px;
-  margin-top: -2.5px;
-  margin-right: -5px;
+	content: '';
+	position: absolute;
+	right: 0;
+	top: calc(50% - 2.5px);
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-left-color: #3a3a3a;
+	border-right: 0;
+	border-bottom: -2.5px;
+	margin-top: -2.5px;
+	margin-right: -5px;
 }
 
 .copy:hover {
-  background-color: #3a3a3a !important;
+	background-color: #3a3a3a !important;
 }
 
 .copied {
-  border: 1px solid #43c743;
-  color: #43c743;
+	border: 1px solid #43c743;
+	color: #43c743;
 }
 
 .ico_clipboard {
-  content: '\f328';
+	content: '\f328';
 }
 
 .console_content {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 
 .console_code {
-  overflow: auto;
-  color: #3a3a3a;
-  padding: 15px 30px 25px;
-  margin: 0;
+	overflow: auto;
+	color: #3a3a3a;
+	padding: 15px 30px 25px;
+	margin: 0;
+}
+
+.excute_container {
+	padding: 0 20px;
 }
 /* 코드 컴포넌트 : e */

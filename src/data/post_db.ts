@@ -1,8 +1,5 @@
-import { propsPromptsType } from 'app/_component/detailPage/Prompts';
-
+import { promptType } from 'app/_component/detailPage/Prompts';
 import { ComponentType, Folder, IPost, Level } from 'type/post';
-import tableStyle from 'app/_component/detailPage/table.module.css';
-import { headingBoldProps } from 'app/_component/detailPage/Heading';
 
 /**
  * @constant totalPostlist
@@ -1085,7 +1082,7 @@ test('renders welcome message', async () => {
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `&lt;App />에 대한 Jest 테스트 스위트를 작성한 것으로 <App /> 컴포넌트가 올바르게 렌더링되는지를 확인하는 하나의 테스트 케이스를 포함하고 있다.`,
+				value: `<App />에 대한 Jest 테스트 스위트를 작성한 것으로 <App /> 컴포넌트가 올바르게 렌더링되는지를 확인하는 하나의 테스트 케이스를 포함하고 있다.`,
 			},
 			{
 				type: ComponentType.KEYWORD,
@@ -1093,7 +1090,7 @@ test('renders welcome message', async () => {
 			},
 			{
 				type: ComponentType.CODE,
-				value: `describe('&lt;App />', ()=>{
+				value: `describe('<App />', ()=>{
 it('renders component correctly', ()=>{      
       ① const { container } = render(<App />);              
       ② expect(container.getElementByClassName('App-logo')).toHaveLength(1);       
@@ -1103,7 +1100,7 @@ it('renders component correctly', ()=>{
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `① 이 줄은 &lt;App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
+				value: `① 이 줄은 <App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
         ② 이 줄은 container 안에 'App-logo' 클래스를 가진 요소가 하나 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveLength(1)는 요소의 길이가 1인지 확인한다.
         ③ 이 줄은 'App-logo' 클래스를 가진 첫 번째 요소가 'src' 속성을 가지고 있으며, 그 값이 'logo.svg'인지 확인한다. toHaveAttribute('src', 'logo.svg')는 요소의 src 속성이 'logo.svg'인지를 확인한다.`,
 			},
@@ -1117,7 +1114,7 @@ it('renders component correctly', ()=>{
 			},
 			{
 				type: ComponentType.CODE,
-				value: `describe('&lt;App /\>', ()=>{
+				value: `describe('<App /\>', ()=>{
 it('renders component correctly', ()=>{
       ①const { container } = render(<App /\>);  
       ② expect(container.getElementsByTagName('p')).toHaveLength(1);
@@ -1127,9 +1124,9 @@ it('renders component correctly', ()=>{
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `① 이 줄은 &lt;App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
+				value: `① 이 줄은 <App /> 컴포넌트를 렌더링한다. render 함수는 컴포넌트를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당하여 가져오며 container는 렌더링된 DOM 트리를 포함한다.
         ② 이 줄은 container 안에 <p> 태그를 가진 요소가 하나 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveLength(1)는 해당 요소의 길이가 1인지 확인한다.
-        ③ 이 줄은 &lt;p> 태그를 가진 첫 번째 요소가 'Edit src/App.js and save to reload.'라는 텍스트 내용을 가지고 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveTextContent('Edit src/App.js and save to reload.')는 해당 요소의 텍스트 내용이 정확히 일치하는지를 확인한다.`,
+        ③ 이 줄은 <p> 태그를 가진 첫 번째 요소가 'Edit src/App.js and save to reload.'라는 텍스트 내용을 가지고 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveTextContent('Edit src/App.js and save to reload.')는 해당 요소의 텍스트 내용이 정확히 일치하는지를 확인한다.`,
 			},
 			{
 				type: ComponentType.H3,
@@ -1137,7 +1134,7 @@ it('renders component correctly', ()=>{
 			},
 			{
 				type: ComponentType.CODE,
-				value: `describe('&lt;App /\>', ()=>{
+				value: `describe('<App /\>', ()=>{
   it('renders component correctly', ()=>{
       const { container } = render(<App /\>);    
       expect(container).toMatchSnapshot();
@@ -1173,9 +1170,9 @@ import { render, screen } from 'testing-library/react';
 import 'jest-styled-components';
 import {Button} from './index';
 
-describe('&lt;Button />', ()=>{
+describe('<Button />', ()=>{
   it('renders component correctly', ()=>{
-        ① const { container } = render(&lt;Button label="Button Test" /\>);
+        ① const { container } = render(<Button label="Button Test" /\>);
 
         ② const label = screen.getByText("button Test");
            expect(label).toBeInTheDocument();
@@ -1191,7 +1188,7 @@ describe('&lt;Button />', ()=>{
 			{
 				type: ComponentType.NORMAL,
 				value: `
-        ① render 함수는 &lt;Button label="Button Test" />를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당한다. </br></br>
+        ① render 함수는 <Button label="Button Test" />를 가상 DOM에 렌더링하고, 반환된 객체에서 container를 구조 분해 할당한다. </br></br>
 ② screen.getByText를 사용하여 "Button Test"라는 텍스트를 가진 요소를 찾는다. 
 expect로 해당 요소가 문서에 존재하는지 확인한다.</br></br>
 ③ label 요소의 부모 요소(parentElement)를 가져온다.</br></br>
@@ -1225,7 +1222,7 @@ expect로 해당 요소가 문서에 존재하는지 확인한다.</br></br>
 				type: ComponentType.CODE,
 				value: `it('clicks the button', () => {
     ① const handlerClick = jest.fn(); 
-    ② render(&lt;Button label="Button Test" onClick={handlerClick} />); 
+    ② render(<Button label="Button Test" onClick={handlerClick} />); 
     ③ const label = screen.getByText('Button Test'); 
     ④ expect(handleClick).toHaveBeenCalledTimes(0); 
     ⑤ fireEvent.click(label); 
@@ -1274,9 +1271,9 @@ import { render, screen, fireEvent } from 'testing-library/react';
 import 'jest-styled-components';
 import {Input} from './index';
 
-describe('&lt;Input />', ()=>{
+describe('<Input />', ()=>{
 	it('renders component correctly', ()=>{
-      ① const { container } = render(&lt;Input value="default value" /\>);
+      ① const { container } = render(<Input value="default value" /\>);
       ② const label = screen.getByDisplayValue("default value");
       ③ expect(label).toBeInTheDocument();
       ④ expect(container).toMatchSnapshot();
@@ -1285,13 +1282,13 @@ describe('&lt;Input />', ()=>{
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `이 코드는 React 컴포넌트 &lt;Input />를 테스트하기 위해 작성된 Jest 테스트 파일이다. react-testing-library와 jest-styled-components를 사용하여 &lt;Input /> 컴포넌트의 렌더링 및 동작을 한다.`,
+				value: `이 코드는 React 컴포넌트 <Input />를 테스트하기 위해 작성된 Jest 테스트 파일이다. react-testing-library와 jest-styled-components를 사용하여 <Input /> 컴포넌트의 렌더링 및 동작을 한다.`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `① render 함수는 &lt;Input /> 컴포넌트를 렌더링합니다. 여기서 value prop으로 "default value"를 설정합니다.</br>
+				value: `① render 함수는 <Input /> 컴포넌트를 렌더링합니다. 여기서 value prop으로 "default value"를 설정합니다.</br>
 ② screen.getByDisplayValue 함수는 주어진 값("default value")을 표시하는 요소를 검색합니다.</br>
-　여기서는 &lt;Input /> 컴포넌트가 "default value"라는 값을 가진 입력 필드를 렌더링하는지 확인합니다.</br>
+　여기서는 <Input /> 컴포넌트가 "default value"라는 값을 가진 입력 필드를 렌더링하는지 확인합니다.</br>
 ③ expect 함수는 단언(assertion)을 정의합니다. 여기서는 label 요소가 문서 내에 존재하는지 확인합니다.
 　toBeInTheDocument 매처는 요소가 실제로 DOM에 존재하는지 확인합니다.`,
 			},
@@ -1308,7 +1305,7 @@ describe('&lt;Input />', ()=>{
 			{
 				type: ComponentType.CODE,
 				value: `it('renders placeholder correctly', ()=>{
-    render(&lt;Input placeholder="default placeholder" /\>);
+    render(<Input placeholder="default placeholder" /\>);
 
     const input = screen.getByPlaceholderText("default placeholder");
     expect(input).toBeInTheDocument();        
@@ -1323,7 +1320,7 @@ describe('&lt;Input />', ()=>{
 				value: `import { render, screen, fireEvent } from 'testing-library/react';
 
 it('renders placeholder correctly', ()=>{
-    render(&lt;Input placeholder="default placeholder" /\>);
+    render(<Input placeholder="default placeholder" /\>);
         
     const input = screen.getByPlaceholderText("default placeholder") as HTMLInputElement;
         
@@ -1666,16 +1663,16 @@ let result = stringNumber.split(" ")
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;body>
-  &lt;div class="layer1">
-    &lt;div class="layer2">
-      &lt;div class="layer3">
-        &lt;/div>
-     &lt;/div>
-   &lt;/div>
- &lt;/body>
+				value: `<body>
+  <div class="layer1">
+    <div class="layer2">
+      <div class="layer3">
+        </div>
+     </div>
+   </div>
+ </body>
 
- &lt;script>
+ <script>
   var divList = document.querySelectorAll('div');
   divList.forEach(function(div) {
     div.addEventListener('click', logEvent);
@@ -1684,7 +1681,7 @@ let result = stringNumber.split(" ")
   function logEvent(event) {
     console.log(event.currentTarget.className);
   }
-&lt;/script>
+</script>
       `,
 			},
 			{
@@ -1701,16 +1698,16 @@ let result = stringNumber.split(" ")
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;body>
-&lt;div class="layer1">
-  &lt;div class="layer2">
-    &lt;div class="layer3">
-      &lt;/div>
-    &lt;/div>
-  &lt;/div>
-&lt;/body>
+				value: `<body>
+<div class="layer1">
+  <div class="layer2">
+    <div class="layer3">
+      </div>
+    </div>
+  </div>
+</body>
 
-&lt;script>
+<script>
 var divList = document.querySelectorAll('div');
 divList.forEach(function(div) {
   div.addEventListener('click', logEvent, true);
@@ -1719,7 +1716,7 @@ divList.forEach(function(div) {
 function logEvent(event) {
   console.log(event.currentTarget.className);
 }
-&lt;/script>
+</script>
       `,
 			},
 			{
@@ -3934,34 +3931,34 @@ Hello, World!
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;!DOCTYPE html>
-&lt;html lang="en">
-&lt;head>
-&lt;meta charset="UTF-8">
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
-&lt;title>HTML Event Handler Example</title>
-&lt;style>
+				value: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Event Handler Example</title>
+<style>
     button {
         padding: 10px 20px;
         font-size: 16px;
         cursor: pointer;
     }
-&lt;/style>
-&lt;/head>
-&lt;body>
+</style>
+</head>
+<body>
 
 <!-- HTML 이벤트 핸들러를 사용하여 버튼에 직접 이벤트를 할당합니다. -->
-&lt;button onclick="handleClick()">Click me</button>
+<button onclick="handleClick()">Click me</button>
 
-&lt;script>
+<script>
     // 이벤트 핸들러 함수를 정의합니다.
     function handleClick() {
         console.log('Button clicked!');
     }
-&lt;/script>
+</script>
 
-&lt;/body>
-&lt;/html>
+</body>
+</html>
         `,
 			},
 			{
@@ -3974,26 +3971,26 @@ Hello, World!
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;!DOCTYPE html>
-&lt;html lang="en">
-&lt;head>
-&lt;meta charset="UTF-8">
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
-&lt;title>DOM Event Handler Example</title>
-&lt;style>
+				value: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Event Handler Example</title>
+<style>
     button {
         padding: 10px 20px;
         font-size: 16px;
         cursor: pointer;
     }
-&lt;/style>
-&lt;/head>
-&lt;body>
+</style>
+</head>
+<body>
 
 <!-- DOM 이벤트 핸들러를 사용하여 버튼에 이벤트를 할당합니다. -->
-&lt;button id="myButton">Click me</button>
+<button id="myButton">Click me</button>
 
-&lt;script>
+<script>
     // 대상 요소를 가져옵니다.
     const myButton = document.getElementById('myButton');
 
@@ -4005,10 +4002,10 @@ Hello, World!
 
     // DOM 이벤트 핸들러를 사용하여 이벤트를 바인딩합니다.
     myButton.onclick = handleClick;
-&lt;/script>
+</script>
 
-&lt;/body>
-&lt;/html>
+</body>
+</html>
         `,
 			},
 			{
@@ -4021,25 +4018,25 @@ Hello, World!
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;!DOCTYPE html>
-&lt;html lang="en">
-&lt;head>
-&lt;meta charset="UTF-8">
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
-&lt;title>Event Binding Example</title>
-&lt;style>
+				value: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Binding Example</title>
+<style>
     button {
         padding: 10px 20px;
         font-size: 16px;
         cursor: pointer;
     }
-&lt;/style>
-&lt;/head>
-&lt;body>
+</style>
+</head>
+<body>
 
-&lt;button id="myButton">Click me</button>
+<button id="myButton">Click me</button>
 
-&lt;script>
+<script>
     // 대상 요소를 가져옵니다.
     const myButton = document.getElementById('myButton');
 
@@ -4071,10 +4068,10 @@ Hello, World!
     // myButton.onclick = handleClick;
     // myButton.onclick = handleAnotherClick;
 
-    &lt;/script>
+    </script>
 
-&lt;/body>
-&lt;/html>`,
+</body>
+</html>`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -4618,7 +4615,7 @@ arrowFunctionWithRest(1, 2, 3); // 출력: [1, 2, 3]`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;a href="https://www.example.com">링크&lt;/a>`,
+				value: `<a href="https://www.example.com">링크</a>`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -4639,7 +4636,7 @@ arrowFunctionWithRest(1, 2, 3); // 출력: [1, 2, 3]`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;div id="myDiv">내 디브&lt;/div>
+				value: `<div id="myDiv">내 디브</div>
 
 var element = document.getElementById("myDiv");
 console.log(element.id); // "myDiv"`,
@@ -4765,19 +4762,19 @@ console.log(boundGetX()); // 42`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-&lt;meta charset="UTF-8"&gt;
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title>Async vs Defer&lt;/title&gt;
-&lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1>Async vs Defer 예제&gt;/h1&gt;
-    &lt;script src="script.js" async&gt;/script&gt;
-    &lt;script src="script.js" defer&gt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;`,
+				value: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async vs Defer</title>
+</head>
+  <body>
+    <h1>Async vs Defer 예제>/h1>
+    <script src="script.js" async>/script>
+    <script src="script.js" defer>/script>
+  </body>
+</html>`,
 			},
 			{
 				type: ComponentType.H4,
@@ -4789,7 +4786,7 @@ console.log(boundGetX()); // 42`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `여기서 async와 defer 속성을 가진 &lt;script> 태그가 있습니다. 이 두 가지 속성의 차이를 살펴보겠습니다.`,
+				value: `여기서 async와 defer 속성을 가진 <script> 태그가 있습니다. 이 두 가지 속성의 차이를 살펴보겠습니다.`,
 			},
 			{
 				type: ComponentType.H4,
@@ -4928,7 +4925,7 @@ console.log(boundGetX()); // 42`,
 			},
 			{
 				type: ComponentType.EMPHASIS,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 				value: `<b>구어체</b>는 일상적인 대화에서 주로 사용되는 말의 표현 방식입니다. 글로 쓰는 문어체와는 달리, 자연스럽고 자유로운 표현이 특징입니다. 구어체는 사람들이 실제로 대화할 때 쓰는 어휘, 문장 구조, 억양 등을 반영하며, 문법적 완전성을 꼭 따르지 않을 수도 있습니다.`,
 			},
 		],
@@ -5570,10 +5567,10 @@ function Parent() {
   }, []); // 의존성 배열이 빈 경우, 함수는 처음 생성된 후 재사용됨
 
   return (
-    &lt;div>
-      &lt;p>Count: {count}&lt;/p>
-      &lt;Child onClick={handleClick} />
-    &lt;/div>
+    <div>
+      <p>Count: {count}</p>
+      <Child onClick={handleClick} />
+    </div>
   );
 }`,
 			},
@@ -5618,10 +5615,10 @@ function ExpensiveComponent() {
   const expensiveResult = useMemo(() => computeExpensiveValue(number), [number]);
 
   return (
-    &lt;div>
-      &lt;p>Result: {expensiveResult}&lt;/p>
-      &lt;button onClick={() => setNumber(number + 1)}>Increment</button>
-    &lt;/div>
+    <div>
+      <p>Result: {expensiveResult}</p>
+      <button onClick={() => setNumber(number + 1)}>Increment</button>
+    </div>
   );
 }`,
 			},
@@ -5632,7 +5629,7 @@ function ExpensiveComponent() {
 			{
 				type: ComponentType.EMPHASIS,
 				value: `두 훅 모두 성능 최적화를 위한 도구이지만, 남용하면 코드가 복잡해질 수 있으니 정말 필요한 상황(예: 자주 리렌더링되거나 계산 비용이 큰 경우)에만 사용하는 것이 좋습니다.`,
-				propsType: propsPromptsType.DANGER,
+				propsType: 'DANGER' as unknown as promptType,
 			},
 		],
 	},
@@ -5697,7 +5694,7 @@ function ExpensiveComponent() {
 			{
 				type: ComponentType.EMPHASIS,
 				value: `이는 성능 저하뿐만 아니라 UI의 일관성을 해칠 수 있는 버그를 유발할 수 있습니다.`,
-				propsType: propsPromptsType.DANGER,
+				propsType: 'DANGER' as unknown as promptType,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -5729,7 +5726,7 @@ React 입장에서는 키 0이 A에서 B로, 키 1이 B에서 A로 바뀐 것으
 			{
 				type: ComponentType.EMPHASIS,
 				value: ` 인덱스를 키로 사용하면 리스트의 항목이 추가되거나 삭제될 때 키 값이 다시 변경되기 때문에 문제가 발생합니다. 인덱스는 항목의 본질적인 고유성을 나타내는 것이 아니라 단순히 리스트 내에서의 위치만을 나타내기 때문입니다. </br>React는 키를 통해 "이 항목이 이전과 동일한 항목인가?"를 판단하는데, 인덱스는 그 기준으로 부적합합니다.`,
-				propsType: propsPromptsType.WARNING,
+				propsType: 'WARNING' as unknown as promptType,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -5744,11 +5741,11 @@ React 입장에서는 키 0이 A에서 B로, 키 1이 B에서 A로 바뀐 것으
 ];
 
 return (
-  &lt;ul>
+  <ul>
     {items.map(item => (
-      &lt;li key={item.id}>{item.name}&lt;/li>
+      <li key={item.id}>{item.name}</li>
     ))}
-  &lt;/ul>
+  </ul>
 );`,
 			},
 			{
@@ -5799,7 +5796,7 @@ return (
 			{
 				type: ComponentType.EMPHASIS,
 				value: `위에서  전두엽 피질(frontal cortex) 설명시 인간의 <b>이성과 야망</b>이 앞뒤로 연결 되어 있다는 내용은 "이성"은 <b>논리적 사고</b>, 계획, 문제 해결과 같은 의식적 기능을 뜻하고, "야망"은 목표 지향적 행동이나 동기 부여와 관련된 <b>감정적·인지적 요소</b>를 의미할 가능성으로 해석 한다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 		],
 	},
@@ -5847,7 +5844,7 @@ return (
 			{
 				type: ComponentType.EMPHASIS,
 				value: `<b>환원주의(reductionism)</b></br>환원주의는 복잡한 현상이나 개념을 더 단순한 구성 요소로 분해하여 설명하려는 접근 방식을 말한다. 철학, 과학, 심리학 등 다양한 분야에서 사용되며, 기본적으로 "전체는 부분들의 합"이라는 전제에서 출발한다. 환원주의는 복잡한 것을 이해하기 쉽게 만들고, 분석 가능한 단위로 나눠 탐구할 수 있게 해주는 강력한 도구로 여겨지지만, 동시에 전체의 특성이나 맥락을 간과할 수 있다는 비판도 받는다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 		],
 	},
@@ -6536,7 +6533,7 @@ a good job → 좋은 일, 잘한 일
 "Have a nice day!" (좋은 하루 보내!)</br></br>
 ✅ "a big mistake" → (실수도 가산명사)</br>
 "That was a big mistake." (그건 큰 실수였어.)`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H2,
@@ -6591,7 +6588,7 @@ for my future → "내 미래를 위해"
 				type: ComponentType.EMPHASIS,
 				value: `동명사는 동사의 원형에 -ing를 붙여서 명사처럼 사용하는 형태입니다. </br>
 즉, 동사의 성질(행동)을 가지면서도 문장에서 <b>주어, 목적어, 보어</b> 역할을 합니다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H4,
@@ -6617,7 +6614,7 @@ She finished writing the report. → 그녀는 <u>보고서를 작성하는 것<
 				type: ComponentType.EMPHASIS,
 				value: `동명사를 <b>목적어</b>로 취하는 대표적인 <b>동사</b></br>
  enjoy, finish, avoid, consider, mind, suggest, recommend 등`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H4,
@@ -6654,7 +6651,7 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 			{
 				type: ComponentType.EMPHASIS,
 				value: `결과적으로 추상적이고 일반적인 취향(예: 밝은 색상, 강한 선, 사실적인 묘사 등)을 반영한 결과물이 생성됩니다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.STRINGLIST,
@@ -6751,7 +6748,7 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 			{
 				type: ComponentType.EMPHASIS,
 				value: `버전을 지정하지 않으면 기본 설정이 적용`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H2,
@@ -6790,7 +6787,7 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				type: ComponentType.EMPHASIS,
 				value: `만약 <b>변화를 작게</b> 하고 싶다면 --iw를 2 이상으로 올리거나(최대 2), <b>"no changes"</b>를 더 강조하세요.
 				변화 최소화: 프롬프트에 "minimal edits", "preserve original details" 같은 표현을 추가하면 원본 손실을 더 줄일 수 있습니다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 		],
 	},
@@ -6816,7 +6813,7 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `이벤트 버블링은 사용자가 특정 요소에서 이벤트를 발생시켰을 때(예: 버튼 클릭), <b>해당 요소에서 이벤트가 처리된 후 부모 요소로 이벤트가 전달되는 과정</b>입니다. 예를 들어, &lt;div> 안에 &lt;button>이 있고 버튼을 클릭하면, 먼저 &lt;button>에서 이벤트가 처리되고, 그 다음 &lt;div>로 이벤트가 전파됩니다. 이 과정은 DOM 트리의 최상위 요소(보통 document나 window)에 도달할 때까지 계속됩니다.`,
+				value: `이벤트 버블링은 사용자가 특정 요소에서 이벤트를 발생시켰을 때(예: 버튼 클릭), <b>해당 요소에서 이벤트가 처리된 후 부모 요소로 이벤트가 전달되는 과정</b>입니다. 예를 들어, <div> 안에 <button>이 있고 버튼을 클릭하면, 먼저 <button>에서 이벤트가 처리되고, 그 다음 <div>로 이벤트가 전파됩니다. 이 과정은 DOM 트리의 최상위 요소(보통 document나 window)에 도달할 때까지 계속됩니다.`,
 			},
 			{
 				type: ComponentType.H4,
@@ -6840,10 +6837,10 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;div id="parent">
-  &lt;button id="child1">버튼 1</button>
-  &lt;button id="child2">버튼 2</button>
-&lt;/div>`,
+				value: `<div id="parent">
+  <button id="child1">버튼 1</button>
+  <button id="child2">버튼 2</button>
+</div>`,
 			},
 			{
 				type: ComponentType.H3,
@@ -6892,7 +6889,7 @@ document.getElementById('child1').addEventListener('click', function() {
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `예를 들어, 동적으로 버튼이 추가되는 리스트가 있다고 가정할 때, 각 버튼에 핸들러를 추가하는 대신 부모 &lt;ul> 요소에 핸들러를 등록하면 새로 추가된 버튼도 자동으로 처리됩니다.`,
+				value: `예를 들어, 동적으로 버튼이 추가되는 리스트가 있다고 가정할 때, 각 버튼에 핸들러를 추가하는 대신 부모 <ul> 요소에 핸들러를 등록하면 새로 추가된 버튼도 자동으로 처리됩니다.`,
 			},
 
 			{
@@ -6926,6 +6923,7 @@ document.getElementById('child1').addEventListener('click', function() {
 		folder: Folder.HTMLCSS,
 		tag: ['JavaScript', 'TECH-QA'],
 		preview: `flex는 주로 단일 축(1차원)을 기준으로 레이아웃을 구성하는 데 사용됩니다. 이는 수평(가로) 또는 수직(세로) 방향 중 하나를 중심으로 아이템을 정렬하며, 유연한 크기 조정과 간단한 배치에 적합합니다. `,
+
 		post: [
 			{
 				type: ComponentType.H3,
@@ -6940,10 +6938,10 @@ document.getElementById('child1').addEventListener('click', function() {
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-&lt;style>
+				value: `<!DOCTYPE html>
+<html>
+<head>
+<style>
   .flex-container {
     display: flex;
     justify-content: space-between; /* 아이템 간 간격을 균등하게 분배 */
@@ -6956,35 +6954,7 @@ document.getElementById('child1').addEventListener('click', function() {
     margin: 10px;
     text-align: center;
   }
-&lt;/style>
-&lt;/head>
-&lt;body>
-  &lt;div class="flex-container">
-    &lt;div class="flex-item">1&lt;/div>
-    &lt;div class="flex-item">2&lt;/div>
-    &lt;div class="flex-item">3&lt;/div>
-  &lt;/div>
-&lt;/body>
-&lt;/html>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    .flex-container {
-      display: flex;
-      justify-content: space-between; /* 아이템 간 간격을 균등하게 분배 */
-      background-color: #f0f0f0;
-    }
-    .flex-item {
-      background-color: #4CAF50;
-      color: white;
-      padding: 20px;
-      margin: 10px;
-      text-align: center;
-    }
-  </style>
+</style>
 </head>
 <body>
   <div class="flex-container">
@@ -6993,8 +6963,13 @@ document.getElementById('child1').addEventListener('click', function() {
     <div class="flex-item">3</div>
   </div>
 </body>
-</html>`,
+</html>
+
+
+`,
+				children: true,
 			},
+
 			{
 				type: ComponentType.NORMAL,
 				value: `위 예제에서 .flex-container는 display: flex를 통해 가로 방향으로 아이템을 배치합니다. justify-content: space-between 속성은 아이템 사이의 공간을 균등하게 나누어 배치합니다. 결과적으로 세 개의 박스가 수평으로 나란히 정렬됩니다.`,
@@ -7016,45 +6991,13 @@ document.getElementById('child1').addEventListener('click', function() {
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  &lt;style>
-    .grid-container {
-      display: grid;
-      grid-template-columns: 100px 100px 100px; /* 3열, 각 100px */
-      grid-template-rows: 80px 80px; /* 2행, 각 80px */
-      gap: 10px; /* 셀 간 간격 */
-      background-color: #f0f0f0;
-    }
-    .grid-item {
-      background-color: #2196F3;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-  &lt;/style>
-&lt;/head>
-&lt;body>
-  &lt;div class="grid-container">
-    &lt;div class="grid-item">1&lt;/div>
-    &lt;div class="grid-item">2&lt;/div>
-    &lt;div class="grid-item">3&lt;/div>
-    &lt;div class="grid-item">4&lt;/div>
-    &lt;div class="grid-item">5&lt;/div>
-    &lt;div class="grid-item">6&lt;/div>
-  &lt;/div>
-&lt;/body>
-&lt;/html>
-
-
-<!DOCTYPE html>
+				value: `<!DOCTYPE html>
 <html>
 <head>
   <style>
     .grid-container {
       display: grid;
-      grid-template-columns: 200px 150px 100px; /* 3열, 각 100px */
+      grid-template-columns: 100px 100px 100px; /* 3열, 각 100px */
       grid-template-rows: 80px 80px; /* 2행, 각 80px */
       gap: 10px; /* 셀 간 간격 */
       background-color: #f0f0f0;
@@ -7077,8 +7020,11 @@ document.getElementById('child1').addEventListener('click', function() {
     <div class="grid-item">6</div>
   </div>
 </body>
-</html>`,
+</html>
+`,
+				children: true,
 			},
+
 			{
 				type: ComponentType.NORMAL,
 				value: `위 예제에서는 grid-container가 2x2 그리드 구조를 형성합니다. grid-template-columns: 1fr 1fr로 두 개의 열을 동일한 비율로 나누고, grid-template-rows로 행 높이를 100px로 고정했습니다. gap 속성으로 셀 사이에 10px 간격을 추가했습니다.`,
@@ -7101,10 +7047,10 @@ document.getElementById('child1').addEventListener('click', function() {
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-&lt;style>
+				value: `<!DOCTYPE html>
+<html>
+<head>
+<style>
   .grid-container2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -7122,57 +7068,23 @@ document.getElementById('child1').addEventListener('click', function() {
     grid-template-columns: 1fr; /* 작은 화면에서는 1열로 */
   }
 }
-&lt;/style>
-&lt;/head>
-&lt;body>
- &lt;div class="grid-container2">
-  &lt;div class="item">아이템 1&lt;/div>
-  &lt;div class="item">아이템 2&lt;/div>
-  &lt;div class="item">아이템 3&lt;/div>
-  &lt;div class="item">아이템 4&lt;/div>
-  &lt;div class="item">아이템 5&lt;/div>
-  &lt;div class="item">아이템 6&lt;/div>
- &lt;/div>
-&lt;/body>
-&lt;/html>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-   .grid-container2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-  background-color: #f0f0f0;
-}
-
-.item {
-  background-color: lightgreen;
-  padding: 20px;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .grid-container2 {
-    grid-template-columns: 1fr; /* 작은 화면에서는 1열로 */
-  }
-}
 </style>
 </head>
 <body>
-  <div class="grid-container2">
+ <div class="grid-container2">
   <div class="item">아이템 1</div>
   <div class="item">아이템 2</div>
   <div class="item">아이템 3</div>
   <div class="item">아이템 4</div>
   <div class="item">아이템 5</div>
   <div class="item">아이템 6</div>
-  </div>
+ </div>
 </body>
-</html>`,
+</html>
+`,
+				children: true,
 			},
+
 			{
 				type: ComponentType.STRINGLIST,
 				value: `<b>auto-fit</b>: 사용 가능한 공간에 따라 열을 자동으로 채움.
@@ -7388,7 +7300,7 @@ introduce.apply(user, [30]); // "Bob 30"`,
 			{
 				type: ComponentType.EMPHASIS,
 				value: `호출 시점에 <b>this를 동적</b>으로 결정해야 하는 상황에서는 <b>call</b>이나 <b>apply</b>가 매우 유용합니다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H4,
@@ -7468,7 +7380,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 			{
 				type: ComponentType.CODE,
 				value: `document.querySelector("button").addEventListener("click", function() {
-  console.log(this); // &lt;button> 요소
+  console.log(this); // <button> 요소
 });`,
 			},
 			{
@@ -7534,7 +7446,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				type: ComponentType.EMPHASIS,
 				value: `- 만약 "lot of Koreans"라고 쓰면 문법적으로 맞지 않습니다. "lot"은 그 자체로 막연한 명사이기 때문에, <b>관사(a)</b>나 다른 <b>한정사(the, this 등)</b>가 없으면 자연스럽지 않고 의미가 모호해집니다.</br>
 - 예외적으로 <b>lots of Koreans</b>처럼 "lots"가 사용될 수 있는데, 이는 <u>"a lot of"보다 약간 더 구어체이며, "a"가 생략된 형태로 이해할 수 있습니다.</u>`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H2,
@@ -7559,7 +7471,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 			{
 				type: ComponentType.EMPHASIS,
 				value: `<b>going</b>은 <b>가다라는 동작</b>을 <b>동명사(gerund) 형태</b>로 사용해 명사처럼 기능하게  합니다. </br>graduate school은 "대학원"을 뜻하는 단어입니다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H2,
@@ -7584,7 +7496,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				type: ComponentType.EMPHASIS,
 				value: `<b>to say</b>는 <b>말하다</b>라는 <b>동작</b>을 <b>부정사(to + 동사 원형) 형태</b>로 사용해 what의 구체적인 대상을 설명한다.
 <b>what to say</b> 전체는 I'm not sure의 <b>보어 역할</b>을 한다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 		],
 	},
@@ -7626,7 +7538,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 - <b>Secure</b>: Secure 속성을 추가하면 HTTPS 연결에서만 쿠키가 전송되어 데이터 도청을 방지합니다.</br></br>
 - <b>SameSite</b>: 이 속성으로 쿠키가 동일 출처 요청에만 전송되도록 설정해 <b>CSRF(크로스 사이트 요청 위조) 공격</b>을 줄일 수 있습니다.
 <b>로그아웃</b>: 사용자가 로그아웃하면 서버는 해당 세션 ID를 무효화하고, 브라우저의 쿠키를 삭제하거나 만료시켜 세션을 종료합니다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H2,
@@ -7743,7 +7655,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				<b>변수 선언에서의 타입 추론</b>: 변수를 초기화할 때 값을 할당하면, 타입스크립트는 해당 값의 타입을 기반으로 변수의 타입을 추론합니다.</br>
 				<b>함수 반환 타입 추론</b>:함수의 반환값을 명시적으로 타입으로 선언하지 않아도, 타입스크립트는 함수 내부의 로직을 분석해 반환 타입을 추론합니다.</br>
 				<b>객체 리터럴에서의 타입 추론</b>:객체를 생성할 때 각 속성의 타입을 명시하지 않아도, 초기화된 값에 따라 타입이 추론됩니다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -7769,7 +7681,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				type: ComponentType.NORMAL,
 				value: `타입스크립트에서 interface나 type을 사용해 타입을 정의할 수 있는데도 .d.ts 파일을 사용하는 이유는 사용 목적과 맥락의 차이에 있습니다. .d.ts 파일은 주로 <b>선언 파일(Declaration File)</b>로서 특정한 역할을 수행하며, 일반적인 interface나 type 정의와는 다른 상황에서 유용합니다. 아래에서 .d.ts를 사용하는 이유와 그 장점을 구체적으로 설명하겠습니다.
 				`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.STRINGLIST,
@@ -7902,8 +7814,8 @@ interface Props {
   name: string;
 }
 
-const Greeting: React.FC&lt;Props> = ({ name }) => {
-  return &lt;h1>Hello, {name}!&lt;/h1>;
+const Greeting: React.FC<Props> = ({ name }) => {
+  return <h1>Hello, {name}!</h1>;
 };
 
 ReactDOM.render(<Greeting name="Alice" />, document.getElementById("root"));
@@ -7942,8 +7854,8 @@ ReactDOM.render(<Greeting name="Alice" />, document.getElementById("root"));
 				type: ComponentType.CODE,
 				value: `import React from "react";
 
-const CustomComponent: React.FC&lt;CustomComponentProps> = ({ customProp }) => {
-  return &lt;div>{customProp ? "Yes" : "No"}&lt;/div>;
+const CustomComponent: React.FC<CustomComponentProps> = ({ customProp }) => {
+  return <div>{customProp ? "Yes" : "No"}</div>;
 };
 
 export default CustomComponent;`,
@@ -7959,7 +7871,7 @@ import CustomComponent from "./CustomComponent";
 
 const App: React.FC = () => {
   return (
-      &lt;CustomComponent customProp={true} />
+      <CustomComponent customProp={true} />
   );
 };
 
@@ -7999,10 +7911,10 @@ export default App;`,
   }
 
   // SVG 컴포넌트의 전체 props 타입 정의
-  type SVGComponentProps = React.SVGProps&lt;SVGSVGElement> & CustomSVGProps;
+  type SVGComponentProps = React.SVGProps<SVGSVGElement> & CustomSVGProps;
 
   // ReactComponent를 함수형 컴포넌트로 선언
-  export const ReactComponent: React.FunctionComponent&lt;SVGComponentProps>;
+  export const ReactComponent: React.FunctionComponent<SVGComponentProps>;
 
   // SVG 파일의 기본 내보내기로 문자열 URL 정의
   const path: string;
@@ -8019,10 +7931,10 @@ export default App;`,
 import iconPath from "./icon.svg";
 
 const App: React.FC = () => (
-  &lt;div>
-    &lt;Icon width="50" height="50" fill="blue" title="My Icon" />
-    &lt;img src={iconPath} alt="Icon" width="50" height="50" />
-  &lt;/div>
+  <div>
+    <Icon width="50" height="50" fill="blue" title="My Icon" />
+    <img src={iconPath} alt="Icon" width="50" height="50" />
+  </div>
 );`,
 			},
 			{
@@ -8239,7 +8151,7 @@ export const add: MathOperation;`,
 			{
 				type: ComponentType.STRINGLIST,
 				value: `<b>ES6+ 변환</b>: let, const, async/await, 모듈(import/export) 등 최신 자바스크립트 기능을 구형 환경에 맞게 변환.
-<b>JSX 지원</b>: 리액트에서 사용하는 JSX 문법(예: &lt;div>Hello&lt;/div>)을 React.createElement() 같은 자바스크립트 코드로 변환.
+<b>JSX 지원</b>: 리액트에서 사용하는 JSX 문법(예: <div>Hello</div>)을 React.createElement() 같은 자바스크립트 코드로 변환.
 <b>TypeScript 지원</b>: .ts나 .tsx 파일을 자바스크립트로 변환하며, 타입 체크는 별도로 TypeScript 컴파일러(tsc)에 맡김.
 <b>폴리필(Polyfill)</b>: 바벨 자체는 문법만 변환하지만, @babel/polyfill이나 core-js와 함께 사용하면 Promise, Array.includes 같은 최신 API도 구형 브라우저에서 동작하게 추가 가능.`,
 			},
@@ -8360,7 +8272,7 @@ Host: example.com`,
 			{
 				type: ComponentType.EMPHASIS,
 				value: `그러나 구글 크롬 같은 브라우저는 HTTP 사이트에 "보안되지 않음(Not Secure)" 경고를 표시하며, SEO(검색 엔진 최적화)에서도 HTTPS가 유리하다는 점에서 HTTPS로 전환하는 추세가 강합니다.`,
-				propsType: propsPromptsType.INFO,
+				propsType: 'INFO' as unknown as promptType,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -8442,7 +8354,7 @@ Host: example.com`,
 				- JWT를 생성하고 검증하기 위해 서버 측에서 미리 설정되고 관리되는 고정된 값입니다. </br>
 				- 이 키는 JWT의 Signature 부분을 생성하고, 나중에 토큰의 유효성을 검증할 때 사용됩니다.
 				`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H3,
@@ -8476,7 +8388,7 @@ JavaScript에서 해당 쿠키에 접근하지 못하게 막는 기능입니다.
 <b>Secure</b></br>HTTPS에서만 전송되게 하는 속성 입니다.</br></br>
 <b>SameSite</b></br>CSRF 방지를 위해 쿠키가 어떤 상황에서 자동으로 브라우저에 전송될지를 제한하는 속성입니다.</br>SameSite=Strict 설정일때에는 쿠키가 동일 출처 요청에만 전송되도록 설정합니다.
 				`,
-				propsType: propsPromptsType.INFO,
+				propsType: 'INFO' as unknown as promptType,
 			},
 			{
 				type: ComponentType.CODE,
@@ -8566,7 +8478,7 @@ console.log(obj.__proto__.__proto__); // null`,
 				value: `obj는 기본 객체로, Object 생성자를 통해 만들어졌습니다.</br>
 obj.__proto__는 <b>Object.prototype을 참조</b>합니다. 이는 <b>모든 기본 객체의 프로토타입</b>입니다.</br>
 Object.prototype의 __proto__는 null로, 프로토타입 체인의 끝을 나타냅니다.`,
-				propsType: propsPromptsType.INFO,
+				propsType: 'INFO' as unknown as promptType,
 			},
 			{
 				type: ComponentType.H4,
@@ -8625,7 +8537,7 @@ Person.prototype.__proto__는 Object.prototype을 참조하며, 체인은 결국
 			{
 				type: ComponentType.EMPHASIS,
 				value: `__proto__는 비표준 속성이지만, 대부분의 브라우저에서 디버깅 용도로 접근 가능합니다. </br> 실제 코드에서는 Object.getPrototypeOf(obj)를 사용하는 것이 권장됩니다.`,
-				propsType: propsPromptsType.TIP,
+				propsType: 'TIP' as unknown as promptType,
 			},
 			{
 				type: ComponentType.CODE,
@@ -8751,7 +8663,7 @@ Animal.call(this, name)으로 <b>name 속성을 상속</b>받고, Object.setProt
 				value: `<b>주의할 점</b></br>
 				자바스크립트의 상속은 클래스 기반 언어처럼 고정된 계층 구조를 따르지 않고, 객체 간의 동적 연결(__proto__)에 의존합니다.
 상속받은 속성이나 메서드는 실제로 객체 자체에 복사되는 것이 아니라 참조되는 것이므로, <b>프로토타입을 수정하면 모든 상속받은 객체에 영향을 미칩니다.</b>`,
-				propsType: propsPromptsType.WARNING,
+				propsType: 'WARNING' as unknown as promptType,
 			},
 		],
 	},
@@ -8887,10 +8799,10 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
 				type: ComponentType.CODE,
 				value: `const FileUpload = ({ onChange, InputRef, children }) => {
   return (
-    &lt;label>
+    <label>
       {children}
-      &lt;input type="file" ref={InputRef} onChange={onChange} style={{ display: 'none' }} />
-    &lt;/label>
+      <input type="file" ref={InputRef} onChange={onChange} style={{ display: 'none' }} />
+    </label>
   );
 };
 `,
@@ -8905,12 +8817,12 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
   const { file, pdfInputRef, handlePDFChange } = usePdfController();
 
   return (
-    &lt;div>
-      &lt;FileUpload InputRef={pdfInputRef} onChange={handlePDFChange}>
+    <div>
+      <FileUpload InputRef={pdfInputRef} onChange={handlePDFChange}>
         PDF 업로드
-      &lt;/FileUpload>
-      {file?.name && &lt;div>{file.name}&lt;/div>}
-    &lt;/div>
+      </FileUpload>
+      {file?.name && <div>{file.name}</div>}
+    </div>
   );
 };`,
 			},
@@ -8971,10 +8883,10 @@ FileUpload가 props로 받는 handlePDFChange가 메모이제이션되지 않으
 				value: `const FileUpload = ({ onChange, InputRef, children }) => {
   console.log('FileUpload rendered');
   return (
-    &lt;label>
+    <label>
       {children}
-      &lt;input type="file" ref={InputRef} onChange={onChange} style={{ display: 'none' }} />
-    &lt;/label>
+      <input type="file" ref={InputRef} onChange={onChange} style={{ display: 'none' }} />
+    </label>
   );
 };
 export default React.memo(FileUpload);`,
@@ -9001,9 +8913,9 @@ export default React.memo(FileUpload);`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;FileUpload InputRef={pdfInputRef} onChange={handlePDFChange}>
+				value: `<FileUpload InputRef={pdfInputRef} onChange={handlePDFChange}>
   PDF 업로드
-&lt;/FileUpload>`,
+</FileUpload>`,
 			},
 			{
 				type: ComponentType.H4,
@@ -9014,12 +8926,12 @@ export default React.memo(FileUpload);`,
 				value: `// 잘못된 예
 const FileUpload = ({ onChange, InputRef, children }) => {
   const { file } = useCanvasStore(); // 스토어 구독
-  return &lt;input type="file" ref={InputRef} onChange={onChange} />;
+  return <input type="file" ref={InputRef} onChange={onChange} />;
 };
 
 // 올바른 예
 const FileUpload = ({ onChange, InputRef, children }) => {
-  return &lt;input type="file" ref={InputRef} onChange={onChange} />;
+  return <input type="file" ref={InputRef} onChange={onChange} />;
 };`,
 			},
 			{
@@ -9542,8 +9454,8 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `사용자가 폼을 제출하거나 AJAX 요청을 보낼 때, 클라이언트는 CSRF 토큰을 요청에 포함시킵니다.
-예: POST 요청의 바디에 _csrf 필드로 포함되거나, 헤더에 X-CSRF-Token으로 추가됨.`,
+				value: `사용자가 폼을 제출하거나 AJAX 요청을 보낼 때, <b>클라이언트는 CSRF 토큰을 요청에 포함</b>시킵니다.
+예: <b>POST 요청의 바디에 _csrf 필드로 포함</b>되거나, <b>헤더에 X-CSRF-Token으로 추가</b>됨.`,
 			},
 			{
 				type: ComponentType.H4,
@@ -9571,11 +9483,79 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;form method="POST" action="/update-profile">
-  <span class="point">&lt;input type="hidden" name="_csrf" value="abc123xyz789"></span>
-  &lt;input type="text" name="username">
-  &lt;button type="submit">저장</button>
-&lt;/form>`,
+				value: `<form method="POST" action="/update-profile">
+  <span class="point"><input type="hidden" name="_csrf" value="abc123xyz789"></span>
+  <input type="text" name="username">
+  <button type="submit">저장</button>
+</form>`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `예제: JavaScript (Fetch API)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF AJAX Example</title>
+    <!-- CSRF 토큰을 메타 태그로 포함 -->
+    <meta name="csrf-token" content="3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab">
+</head>
+<body>
+    <button onclick="submitData()">Submit via AJAX</button>
+
+    <script>
+        function submitData() {
+            // 메타 태그에서 CSRF 토큰 가져오기
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': csrfToken // CSRF 토큰을 헤더에 추가
+                },
+                body: JSON.stringify({ username: 'john' })
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<meta name="csrf-token" content="...">는 서버에서 생성한 CSRF 토큰을 프론트엔드에 전달하는 일반적인 방법입니다.
+JavaScript에서 fetch를 사용하여 POST 요청을 보낼 때, X-CSRF-Token 헤더에 토큰을 추가합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `POST /submit HTTP/1.1
+Host: example.com
+Content-Type: application/json
+X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `HTTP 요청 헤더`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `POST /submit HTTP/1.1
+Host: example.com
+Content-Type: application/json
+X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
+			},
+			{
+				type: ComponentType.H4,
+				value: `요청 바디`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `{"username":"john"}`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -9637,32 +9617,32 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `사용자로부터 입력받은 데이터(예: 텍스트, URL, JSON 등)의 유효성을 검증하고, HTML, JavaScript, SQL 등에서 실행 가능한 특수문자(<span class="point"> &lt;, >, ", ', &</span> 등)를 이스케이프 처리합니다.`,
+				value: `사용자로부터 입력받은 데이터(예: 텍스트, URL, JSON 등)의 유효성을 검증하고, HTML, JavaScript, SQL 등에서 실행 가능한 특수문자(<span class="point"> <, >, ", ', &</span> 등)를 이스케이프 처리합니다.`,
 			},
 			{
 				type: ComponentType.EMPHASIS,
 				value: `<b>이스케이프 처리란?</b></br>
-				사용자가 &lt;script>alert('악성 코드')&lt;/script>를 입력했다고 가정한다면</br>
+				사용자가 <script>alert('악성 코드')</script>를 입력했다고 가정한다면</br>
 				- <b>이스케이프 처리 전</b>: 브라우저가 이를 JavaScript로 실행하여 경고창이 표시됨(XSS 공격 성공).</br>
-				- <b>이스케이프 처리 후</b>: [ < → &amp;lt; ] [ > → &ampgt; ] 로 변환되어 &lt;script>가 텍스트로 표시됨(악성 코드 실행 방지).`,
+				- <b>이스케이프 처리 후</b>: [ < → &amp;lt; ] [ > → &ampgt; ] 로 변환되어 <script>가 텍스트로 표시됨(악성 코드 실행 방지).`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `사용자가 입력한 데이터(예: 텍스트 필드, 쿼리 파라미터)를 서버 또는 클라이언트에서 받으면 입력 데이터에 포함된 특수 문자를 안전한 문자(예: &lt;)로 변환하여 변환된 데이터를 HTML, JavaScript 등의 문맥에서 출력하여 브라우저가 이를 코드가 아닌 텍스트로 처리하도록 함.`,
+				value: `사용자가 입력한 데이터(예: 텍스트 필드, 쿼리 파라미터)를 서버 또는 클라이언트에서 받으면 입력 데이터에 포함된 특수 문자를 안전한 문자(예: <)로 변환하여 변환된 데이터를 HTML, JavaScript 등의 문맥에서 출력하여 브라우저가 이를 코드가 아닌 텍스트로 처리하도록 함.`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;!-- 입력: &lt;script>alert('XSS')&lt;/script> --> 
+				value: `<!-- 입력: <script>alert('XSS')</script> --> 
 <!-- 이스케이프 처리 후 출력 -->
-<span class="point">&amp;lt;</span>script<span class="point">&amp;gt;</span>alert(&#39;XSS&#39;)<span class="point">&amp;lt;</span>/script<span class="point">&amp;gt;</span> `,
+&lt;script&gt;alert(&#39;XSS&#39;)&lt;script&gt;`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `브라우저는 위를 &lt;script>alert('XSS')&lt;/script>로 표시하며, 실행하지 않음.`,
+				value: `브라우저는 위를 <script>alert('XSS')</script>로 표시하며, 실행하지 않음.`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `클라이언트와 서버 모두에서 입력 검증을 수행해야 하며 서버에서는 데이터베이스 저장 전, 클라이언트에서는 사용자 경험을 위해 검증합니다. 예를 들어,  &lt;script>는 <span class="point">&amplt;script&ampgt;</span>로 변환하여 렌더링 시 실행되지 않도록 합니다. 라이브러리(예: DOMPurify, OWASP Java Encoder)를 사용하면 이스케이프 처리가 더 안전합니다.`,
+				value: `클라이언트와 서버 모두에서 입력 검증을 수행해야 하며 서버에서는 데이터베이스 저장 전, 클라이언트에서는 사용자 경험을 위해 검증합니다. 예를 들어,  <script>는 <span class="point">&amplt;script&ampgt;</span>로 변환하여 렌더링 시 실행되지 않도록 합니다. 라이브러리(예: DOMPurify, OWASP Java Encoder)를 사용하면 이스케이프 처리가 더 안전합니다.`,
 			},
 			{
 				type: ComponentType.H4,
@@ -9678,7 +9658,7 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `CSP는 인라인 스크립트(&lt;script>alert('xss')&lt;/script>)나 외부 출처의 악성 스크립트 실행을 차단합니다. 'strict-dynamic', 'nonce', 'hash'와 같은 옵션을 사용하면 더 세밀한 제어가 가능합니다. 그러나 CSP 설정은 신중히 설계해야 하며, 기존 코드와의 호환성 문제를 테스트해야 합니다.`,
+				value: `CSP는 인라인 스크립트(<script>alert('xss')</script>)나 외부 출처의 악성 스크립트 실행을 차단합니다. 'strict-dynamic', 'nonce', 'hash'와 같은 옵션을 사용하면 더 세밀한 제어가 가능합니다. 그러나 CSP 설정은 신중히 설계해야 하며, 기존 코드와의 호환성 문제를 테스트해야 합니다.`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -9779,13 +9759,13 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 			{
 				type: ComponentType.CODE,
 				value: `function App() {
-  const userInput = "&lt;script>alert('XSS')&lt;/script>";
-  return &lt;div>{userInput}&lt;/div>;
+  const userInput = "<script>alert('XSS')</script>";
+  return <div>{userInput}</div>;
 }`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `브라우저에 <span class="point">&lt;script>alert('XSS')&lt;/script></span> 가 이스케이프 처리 후 <span class="point">&amplt;script&ampgt;alert('XSS')&amplt;/script&ampgt;</span>  텍스트로 표시되며, 스크립트는 실행되지 않음. React는 {} 내부의 문자열을 textContent로 처리하여 HTML로 해석되지 않도록 합니다.`,
+				value: `브라우저에 <span class="point"><script>alert('XSS')</script></span> 가 이스케이프 처리 후 <span class="point">&amplt;script&ampgt;alert('XSS')&amplt;/script&ampgt;</span>  텍스트로 표시되며, 스크립트는 실행되지 않음. React는 {} 내부의 문자열을 textContent로 처리하여 HTML로 해석되지 않도록 합니다.`,
 			},
 			{
 				type: ComponentType.H3,
@@ -9797,7 +9777,7 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `&lt;div>{userInput}&lt;/div>는 React.createElement로 변환되어 안전하게 처리됨.`,
+				value: `<div>{userInput}</div>는 React.createElement로 변환되어 안전하게 처리됨.`,
 			},
 			{
 				type: ComponentType.H3,
@@ -9817,8 +9797,8 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 			},
 			{
 				type: ComponentType.CODE,
-				value: `const userInput = "&lt;script>alert('XSS')&lt;/script>";
-return &lt;div dangerouslySetInnerHTML={{ __html: userInput }} />;`,
+				value: `const userInput = "<script>alert('XSS')</script>";
+return <div dangerouslySetInnerHTML={{ __html: userInput }} />;`,
 			},
 
 			{
@@ -9832,13 +9812,13 @@ return &lt;div dangerouslySetInnerHTML={{ __html: userInput }} />;`,
 			{
 				type: ComponentType.CODE,
 				value: `import DOMPurify from "dompurify";
-const userInput = "&lt;script>alert('XSS')&lt;/script>";
+const userInput = "<script>alert('XSS')</script>";
 const sanitized = DOMPurify.sanitize(userInput);
-return &lt;div dangerouslySetInnerHTML={{ __html: sanitized }} />;`,
+return <div dangerouslySetInnerHTML={{ __html: sanitized }} />;`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `&lt;script> 태그가 제거되거나 이스케이프되어 안전하게 렌더링.`,
+				value: `<script> 태그가 제거되거나 이스케이프되어 안전하게 렌더링.`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -9867,47 +9847,47 @@ return &lt;div dangerouslySetInnerHTML={{ __html: sanitized }} />;`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;script>alert('XSS')&lt;/script>`,
+				value: `<script>alert('XSS')</script>`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `"" (빈 문자열, &lt;script> 태그 완전 제거).
-이유: &lt;script>는 기본적으로 화이트리스트에 없음.`,
+				value: `"" (빈 문자열, <script> 태그 완전 제거).
+이유: <script>는 기본적으로 화이트리스트에 없음.`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;img src="x" onerror="alert('XSS')">`,
+				value: `<img src="x" onerror="alert('XSS')">`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `출력: &lt;img src="x">
+				value: `출력: <img src="x">
 이유: onerror 속성은 위험하므로 제거, src는 유지.`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;a href="javascript:alert('XSS')">Click&lt;/a>`,
+				value: `<a href="javascript:alert('XSS')">Click</a>`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `출력: &lt;a>Click&lt;/a> 또는 &lt;a href="#">Click&lt;/a> (구성에 따라 다름).
+				value: `출력: <a>Click</a> 또는 <a href="#">Click</a> (구성에 따라 다름).
 이유: javascript: 프로토콜은 차단됨.`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;div>Hello &lt;b>World&lt;/b>&lt;/div>`,
+				value: `<div>Hello <b>World</b></div>`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `출력: &lt;div>Hello &lt;b>World&lt;/b>&lt;/div>
-이유: &lt;div>, &lt;b>는 안전한 태그로 화이트리스트에 포함.`,
+				value: `출력: <div>Hello <b>World</b></div>
+이유: <div>, <b>는 안전한 태그로 화이트리스트에 포함.`,
 			},
 			{
 				type: ComponentType.CODE,
-				value: `&lt;style>body { background: url(javascript:alert('XSS')); }&lt;/style>`,
+				value: `<style>body { background: url(javascript:alert('XSS')); }</style>`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `출력: &lt;style>body { background: url(about:blank); }</style> 또는 "".
+				value: `출력: <style>body { background: url(about:blank); }</style> 또는 "".
 이유: 위험한 CSS 표현식 제거.`,
 			},
 			{

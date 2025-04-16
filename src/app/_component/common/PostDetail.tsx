@@ -1,12 +1,12 @@
 import style from './postDetail.module.css';
-import CodeComponentType from 'app/_component/detailPage/LanguageConsole';
-import Prompts, { propsPromptsType } from 'app/_component/detailPage/Prompts';
+import LanguageConsole from 'app/_component/detailPage/LanguageConsole';
+import Prompts, { promptType } from 'app/_component/detailPage/Prompts';
 import { ComponentType, IPost } from 'type/post';
 import { sortedTotalPostlist } from 'data/post_db';
 import Footer from 'app/_component/common/Footer';
 import StringDot from 'app/_component/detailPage/ListStyle';
 import HeadingString, {
-	headingBoldProps,
+	headingWeightProps,
 } from 'app/_component/detailPage/Heading';
 import PostNavigation from './PostNavigation';
 
@@ -39,19 +39,24 @@ export default function PostDetail({ postid }: Props) {
 					return (
 						<Prompts
 							key={idx}
-							type={
+							promptType={
 								typeof value.propsType === 'string' &&
-								Object.values(propsPromptsType).includes(
-									value.propsType as propsPromptsType,
-								)
-									? (value.propsType as propsPromptsType)
-									: propsPromptsType.WARNING
+								['TIP', 'INFO', 'WARNING', 'DANGER'].includes(value.propsType)
+									? (value.propsType as promptType['promptType']) // 타입 단언
+									: 'WARNING'
 							}
 							detail={value.value}
 						/>
 					);
 				if (value.type === ComponentType.CODE)
-					return <CodeComponentType key={idx} code={value.value} />;
+					return (
+						<LanguageConsole
+							key={idx}
+							code={value.value}
+							children={value.children}
+						/>
+					);
+
 				if (value.type === ComponentType.TABLE)
 					return (
 						<>
@@ -79,13 +84,11 @@ export default function PostDetail({ postid }: Props) {
 							key={idx}
 							headingType={value.type}
 							headingValue={value.value}
-							headingBold={
+							headingBoldProps={
 								typeof value.propsType === 'string' &&
-								Object.values(headingBoldProps).includes(
-									value.propsType as headingBoldProps,
-								)
-									? (value.propsType as headingBoldProps)
-									: headingBoldProps.NORMAL
+								['NORMAL', 'BOLD'].includes(value.propsType)
+									? (value.propsType as headingWeightProps['headingBoldProps']) // 타입 단언
+									: 'NORMAL'
 							}
 						/>
 					);

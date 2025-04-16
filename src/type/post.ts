@@ -1,40 +1,12 @@
-/**
- * @abstract IPost
- * @description 게시물 타입 인터페이스
- */
-// export interface IPost {
-// 	id: number;
-// 	title: string;
-// 	date: string;
-// 	folder: Folder;
-// 	preview: string;
-// 	post: Array<{ type: string; value: string;  tables?: tableType }>;
-// 	tag?: Array<string>;
-// }
-
-import {
-	headingBoldProps,
-	HeadingStringProps,
-} from 'app/_component/detailPage/Heading';
-import { propsPromptsType } from 'app/_component/detailPage/Prompts';
+import { headingWeightProps } from 'app/_component/detailPage/Heading';
+import { promptType } from 'app/_component/detailPage/Prompts';
 import { TableProps } from 'app/_component/table/BasicTypeTable';
+import { ReactNode } from 'react';
 
 export type headerType = {
 	accessorKey: string;
 	header: string;
 };
-
-// export type User = {
-// 	id: number | undefined;
-// 	email: string | undefined;
-// 	fullname: string | undefined;
-// 	role: string | undefined;
-// };
-
-// export type tableType = {
-// 	header: headerType[];
-// 	contents: Array<T>;
-// };
 
 /**
  * POST 인터페이스
@@ -49,20 +21,12 @@ export interface IPost<T = any> {
 	post: {
 		type: ComponentType;
 		value: string;
-		propsType?: propsPromptsType | headingBoldProps;
+		propsType?: promptType | headingWeightProps;
+		// propsType?: ['TIP' | 'INFO' | 'WARNING' | 'DANGER' | 'NORMAL' | 'BOLD'];
+		children?: boolean;
 		tables?: TableProps<T>;
 	}[];
 }
-
-// type postData = {
-// 	id: number;
-// 	title: string;
-// 	date: string;
-// 	folder: Folder;
-// 	tag: string[];
-// 	preview: string;
-// 	post: { type: ComponentType; value: string; tables?: tableType }[];
-// };
 
 /**
  * @abstract IAlgorithmPost
@@ -130,6 +94,7 @@ export enum ComponentType {
 	NORMAL = 'normal',
 	EMPHASIS = 'emphasis',
 	CODE = 'code',
+	CODE_EXCUTE = 'code_excute',
 	TABLE = 'table',
 	STRINGLIST = 'stringlist',
 	NUMLIST = 'numlist',

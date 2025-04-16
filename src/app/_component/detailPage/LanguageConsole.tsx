@@ -5,47 +5,51 @@ import style from './LanguageConsole.module.css';
 import cx from 'classnames';
 
 type Props = {
-  code: string;
+	code: string;
+	children?: boolean;
 };
 
-export default function LanguageConsole({ code }: Props) {
-  const [isCopy, onCopy] = useCopyClipBoard();
+export default function LanguageConsole({ code, children = false }: Props) {
+	const [isCopy, onCopy] = useCopyClipBoard();
 
-  const onClickClipboardCopy = async () => {
-    await onCopy(code);
-  };
+	const onClickClipboardCopy = async () => {
+		await onCopy(code);
+	};
 
-  return (
-    <div className={style.console_container}>
-      <div className={style.console_header}>
-        <span className={style.title} data-label-text="Javascript">
-          <i className={`fas fa-code fa-fw small ${style.ico_title}`}></i>
-        </span>
-        <button
-          className={cx(style.copy, isCopy && style.copied)}
-          onClick={onClickClipboardCopy}
-        >
-          {isCopy && <div className={style.speech_bubble}>Copyied!</div>}
+	return (
+		<div className={style.console_container}>
+			<div className={style.console_header}>
+				<span className={style.title} data-label-text="Javascript">
+					<i className={`fas fa-code fa-fw small ${style.ico_title}`}></i>
+				</span>
+				<button
+					className={cx(style.copy, isCopy && style.copied)}
+					onClick={onClickClipboardCopy}
+				>
+					{isCopy && <div className={style.speech_bubble}>Copyied!</div>}
 
-          <i
-            className={
-              isCopy
-                ? `fas fa-check`
-                : `far fa-clipboard ${style.ico_clipboard}`
-            }
-          ></i>
-        </button>
-      </div>
-      <div className={style.console_content}>
-        <pre
-          className={style.console_code}
-          dangerouslySetInnerHTML={{
-            __html: code,
-          }}
-        ></pre>
-      </div>
-    </div>
-  );
+					<i
+						className={
+							isCopy
+								? `fas fa-check`
+								: `far fa-clipboard ${style.ico_clipboard}`
+						}
+					></i>
+				</button>
+			</div>
+			<div className={style.console_content}>
+				<pre className={style.console_code}>{code}</pre>
+				{children && (
+					<pre
+						className={style.excute_container}
+						dangerouslySetInnerHTML={{
+							__html: code,
+						}}
+					></pre>
+				)}
+			</div>
+		</div>
+	);
 }
 
 // onClick={onClickClipboardCopy}와 onClick={() => onClickClipboardCopy()} 차이점
