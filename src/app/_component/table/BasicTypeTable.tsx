@@ -97,12 +97,20 @@ type headerType = {
 //   },
 // ];
 
+// export type TableProps<T> = {
+// 	header: Array<headerType>;
+// 	contents: Array<T>;
+// 	onSortHandler?: (accessorKey: string) => void;
+// 	filterInputToggle?: boolean;
+// 	onFilterHandler?: (key: keyof T, value: string) => void;
+// };
+
 export type TableProps<T> = {
-	header: Array<headerType>;
-	contents: Array<T>;
+	header: headerType[];
+	contents: Array<{ [key: string]: any }>; // T는 실제 데이터 타입으로 대체
 	onSortHandler?: (accessorKey: string) => void;
 	filterInputToggle?: boolean;
-	onFilterHandler?: (key: keyof T, value: string) => void;
+	onFilterHandler?: (key: string, value: string) => void;
 };
 
 export default function BasicTypeTable<T extends { [key: string]: any }>({

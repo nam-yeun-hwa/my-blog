@@ -2,13 +2,14 @@
 import style from './heading.module.css';
 import { ComponentType } from 'type/post';
 
-export type headingWeightProps = {
-	headingBoldProps: 'NORMAL' | 'BOLD';
-};
+export type HeadingWeightProps = 'NORMAL' | 'BOLD';
 
-export type HeadingStringProps = headingWeightProps & {
-	headingType: string;
+export type HeadingType = 'h1' | 'h2' | 'h3' | 'h4';
+
+export type HeadingStringProps = {
+	headingType?: HeadingType;
 	headingValue: string;
+	headingBoldProps?: HeadingWeightProps;
 };
 
 export default function HeadingString({
@@ -18,22 +19,22 @@ export default function HeadingString({
 }: HeadingStringProps) {
 	return (
 		<>
-			{headingType === ComponentType.H1 && (
+			{headingType === 'h1' && (
 				<h1 className={style.h1} style={{ fontWeight: headingBoldProps }}>
 					{headingValue}
 				</h1>
 			)}
-			{headingType === ComponentType.H2 && (
+			{headingType === 'h2' && (
 				<h2 className={style.h2} style={{ fontWeight: headingBoldProps }}>
 					{headingValue}
 				</h2>
 			)}
-			{headingType === ComponentType.H3 && (
+			{headingType === 'h3' && (
 				<h3 className={style.h3} style={{ fontWeight: headingBoldProps }}>
 					{headingValue}
 				</h3>
 			)}
-			{headingType === ComponentType.H4 && (
+			{headingType === 'h4' && (
 				<h4 className={style.h4} style={{ fontWeight: headingBoldProps }}>
 					📝 {headingValue}
 				</h4>

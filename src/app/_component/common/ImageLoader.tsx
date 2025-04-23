@@ -1,11 +1,19 @@
 import Image, { ImageLoaderProps } from 'next/image';
 import style from './imageLoader.module.css';
 
-// type ImageLoaderProps = {
+export type ImageManagerProps = {
+	imgPath?: string;
+	width?: number;
+	height?: number;
+	alt?: string;
+};
 
-// }
-
-export default function ImageLoader() {
+export default function ImageManager({
+	imgPath = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'http://localhost:3000',
+	width = 100,
+	height = 100,
+	alt = '이미지입니다.',
+}: ImageManagerProps) {
 	const myLoader = ({ src, width, quality }: ImageLoaderProps) => {
 		const baseUrl =
 			process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'http://localhost:3000';
@@ -15,10 +23,10 @@ export default function ImageLoader() {
 		<Image
 			loader={myLoader}
 			className={style.img}
-			src={'profile1.jpg'}
-			alt="프로필 사진"
-			width={112}
-			height={112}
+			src={imgPath}
+			alt={alt}
+			width={width}
+			height={height}
 		/>
 	);
 }

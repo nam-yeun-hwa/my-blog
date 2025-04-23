@@ -1,4 +1,3 @@
-import { promptType } from 'app/_component/detailPage/Prompts';
 import { ComponentType, Folder, IPost, Level } from 'type/post';
 
 /**
@@ -16,7 +15,8 @@ export const totalPostlist: IPost[] = [
 			'모듈을 초기에 모두 미리 로드하기 보다는 필요한 시점에만 로드하는 것이 더 이로울 때가 있습니다. 지연로딩(Lazy-loading)을 사용하면 필요한 시점에 로드할 수 있습니다.',
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `모듈을 사용하면 생기는 이점`,
 			},
 			{
@@ -24,7 +24,8 @@ export const totalPostlist: IPost[] = [
 				value: `모듈형 프로그래밍을 사용하면 다음과 같은 다양한 이점을 얻을 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `1. 한 번만 실행된다.`,
 			},
 			{
@@ -32,7 +33,8 @@ export const totalPostlist: IPost[] = [
 				value: `기존 스크립트는 DOM에 추가될 때마다 실행되는 반면에 모듈 스크립트는 한 번만 실행 됩니다. 자바스크립트 모듈을 사용하면 의존성 트리의 가장 내부에 위치한 모듈이 먼저 실행됩니다. 가장 내부에 위치한 모듈이 먼저 평가되고 여기에 의존하는 모듈에 접근 할 수 있다는 것이 이점입니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `2. 자동으로 지연 로드된다.`,
 			},
 			{
@@ -40,7 +42,8 @@ export const totalPostlist: IPost[] = [
 				value: `즉시 로드되지 않기 위해 다른 스크립트 파일은 defer속성을 붙여야 하지만,  모듈은 자동으로 지연되어 로드됩니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `3. 유지보수와 재사용이 쉽다.`,
 			},
 			{
@@ -48,7 +51,8 @@ export const totalPostlist: IPost[] = [
 				value: `모듈은 다른 모듈에 영향을 주지 않고 독립적으로 실행될 수 있는 코드 조각으로 관리됩니다. 이를 통해 여러 다른 함수에서 동일한 코드를 재사용할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `4. 네임스페이스를 제공한다.`,
 			},
 			{
@@ -56,7 +60,8 @@ export const totalPostlist: IPost[] = [
 				value: `모듈은 관련 변수와 상수를 위한 개별 공간을 생성하여 글로벌 네임스페이스를 오염시키지 않고 모듈 참조를 통해 사용할 수 있게 해줍니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `5. 사용하지 않는 코드를 제거한다.`,
 			},
 			{
@@ -64,12 +69,13 @@ export const totalPostlist: IPost[] = [
 				value: `모듈이 도입되기 전에는 사용하지 않는 코드를 수동으로 제거해야 했습니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value:
 					'모듈을 통해 코드를 가져오게 되면 웹팩(Webpack)이나 롤업(Rollup)같은 번들러를 사용해 사용하지 않는 모듈을 자동으로 제거할 수 있습니다. 이처럼 번들에 추가하기 전에 사용하지 않는 코드를 제거하는 것을 <b>트리쉐이킹(tree-shaking)</b>이라고 합니다.',
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `동적으로 모듈 가져오기`,
 			},
 			{
@@ -105,7 +111,8 @@ export const totalPostlist: IPost[] = [
 				value: `동적 가져오기를 사용하면 모듈이 사용될 때만 다운로드되고 실행됩니다. 사용자 상호작용에 반응하거나 화면에 보이면 실행하기 등 자주 사용되는 패턴은 동적 가져오기를 통해 바닐라 자바스크립트에서도 쉽게 구현할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `사용자 상호작용에 따라 가져오기`,
 			},
 			{
@@ -146,7 +153,8 @@ export const totalPostlist: IPost[] = [
 				value: `Tailwind는 유틸리티 퍼스트(Utility-first) CSS 프레임워크입니다. 이는 기본적으로 미리 정의된 클래스를 활용해 빠르게 스타일링할 수 있도록 도와주는 프레임워크를 의미합니다. 기존의 CSS 방식과는 다르게 Tailwind는 별도의 스타일 시트를 작성하는 대신, HTML 클래스에 직접 스타일링 관련 유틸리티 클래스들을 추가하는 방식으로 작업합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `유틸리티 클래스`,
 			},
 			{
@@ -154,7 +162,8 @@ export const totalPostlist: IPost[] = [
 				value: `Tailwind는 각 스타일을 단일 클래스에 캡슐화합니다. <br/>예를 들어, text-center, bg-blue-500, p-4와 같은 클래스를 조합해 텍스트 정렬, 배경색 설정, 패딩 등을 간단하게 적용할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `반응형 디자인`,
 			},
 			{
@@ -162,7 +171,8 @@ export const totalPostlist: IPost[] = [
 				value: `Tailwind는 기본적으로 반응형 디자인을 쉽게 처리할 수 있도록 도와줍니다. <br/>예를 들어, md:text-center와 같이 특정 화면 크기에서만 적용될 스타일을 정의할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `미리 정의된 테마`,
 			},
 			{
@@ -170,7 +180,8 @@ export const totalPostlist: IPost[] = [
 				value: `Tailwind는 색상, 글꼴 크기, 여백 등을 미리 정의된 값으로 제공하며, 이를 쉽게 커스터마이징할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `유연성`,
 			},
 			{
@@ -178,7 +189,8 @@ export const totalPostlist: IPost[] = [
 				value: `Tailwind는 매우 유연하여 프로젝트의 스타일 가이드를 따르면서도 세부적으로 다양한 스타일을 적용할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `JIT(Just-In-Time)`,
 			},
 			{
@@ -186,11 +198,13 @@ export const totalPostlist: IPost[] = [
 				value: `필요할 때마다 스타일을 생성해 주는 JIT 모드를 지원하여, 사용하지 않는 CSS 클래스가 빌드에 포함되지 않도록 합니다. 이로 인해 빌드 크기를 크게 줄일 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `TailWind 사용 예시`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `기본 폰트 크기 클래스`,
 			},
 			{
@@ -247,7 +261,8 @@ export const totalPostlist: IPost[] = [
       `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `기본 폰트 두께 클래스`,
 			},
 			{
@@ -314,7 +329,8 @@ export const totalPostlist: IPost[] = [
 		preview: `데이타베이스 생성하고 기본 값들에 대해 설명한다.`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `데이타베이스 생성하기`,
 			},
 			{
@@ -350,7 +366,8 @@ Database changed`,
 			},
 
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `MySQL 프롬프트에서 댓글테이블 생성`,
 			},
 			{
@@ -386,11 +403,13 @@ Database changed`,
         DEFAULT now() : 날짜 컬럼의 기본값을 현지 시간으로`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `column 세부 옵션 설명`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `INDEX commenter_idx (commenter ASC)`,
 			},
 			{
@@ -400,7 +419,8 @@ Database changed`,
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `CONSTRAINT commenter`,
 			},
 			{
@@ -410,7 +430,8 @@ Database changed`,
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `FOREIGN KEY (commenter)`,
 			},
 			{
@@ -420,7 +441,8 @@ Database changed`,
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `REFERENCES nodejs.users (id)`,
 			},
 			{
@@ -431,7 +453,7 @@ Database changed`,
         `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `이는 commenter 열의 값이 users 테이블의 id 열에 있는 값 중 하나여야 함을 의미한다.`,
 			},
 			{
@@ -440,7 +462,8 @@ Database changed`,
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `ON DELETE CASCADE`,
 			},
 			{
@@ -449,7 +472,8 @@ Database changed`,
         예를 들어, users 테이블에서 특정 id를 가진 사용자가 삭제되면, 이 id를 참조하는 모든 commenter 레코드도 자동으로 삭제된다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `ON UPDATE CASCADE`,
 			},
 			{
@@ -459,7 +483,8 @@ Database changed`,
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `DEFAULT CHARSET=utf8mb4`,
 			},
 			{
@@ -469,7 +494,8 @@ Database changed`,
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `UNIQUE INDEX name_QNIQUE (name ASC)`,
 			},
 			{
@@ -489,7 +515,8 @@ Database changed`,
 			},
 
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `[테이블] - CREATE 생성`,
 			},
 			{
@@ -503,7 +530,7 @@ mysql> INSERT INTO nodejs.users (name, age, married, comment) VALUES ('zero', 24
 Query OK, 1 row affected (0.01 sec)`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `문자열은 작은 따옴표(')로 감싸야 한다.`,
 			},
 			{
@@ -520,7 +547,8 @@ Query OK, 1 row affected (0.01 sec)`,
 				value: `위 SQL 쿼리는 nodejs.comments 테이블에 사용자 ID가 1인 사용자가 "안녕하세요. commenter1의 댓글입니다."라는 댓글을 추가하는 명령이다.</br></br>`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `[테이블] - READ 조회`,
 			},
 			{
@@ -546,7 +574,8 @@ Query OK, 1 row affected (0.01 sec)`,
         조회하는 명령이다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `WHERE 조건문과 AND `,
 			},
 			{
@@ -563,7 +592,8 @@ Query OK, 1 row affected (0.01 sec)`,
 				value: `쿼리의 내용은 married 필드가 1(즉, 결혼한 상태)이고 age 필드가 30세 이상인 사용자들의 name(이름)과 age(나이)를 조회한다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `WHERE 조건문과 OR `,
 			},
 			{
@@ -580,7 +610,8 @@ Query OK, 1 row affected (0.01 sec)`,
 				value: `쿼리의 내용은 결혼하지 않은 사용자(married가 0인 사용자) 또는 나이가 30세를 초과하는 사용자(age > 30)의 id와 name을 가져온다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `ORDER BY로 특정 컬럼을 순서대로 정렬 한값 가져오기`,
 			},
 			{
@@ -597,7 +628,8 @@ Query OK, 1 row affected (0.01 sec)`,
 				value: `nodejs 데이터베이스의 users 테이블에서 사용자들의 id와 name을 조회하고, age(나이) 값을 기준으로 내림차순(나이가 많은 순서대로)으로 정렬하는 명령이다. </br></br>`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `LIMIT으로 조회할 개수 제한`,
 			},
 			{
@@ -622,7 +654,8 @@ Query OK, 1 row affected (0.01 sec)`,
 				value: `결과 집합에서 가장 첫 번째 행만 가져온다. 즉, 정렬된 결과 중 첫 번째 사용자(나이가 가장 많은 사용자) 하나만 선택한다.</br></br>`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `OFFSET으로 앞의 로우들 스킵하기`,
 			},
 			{
@@ -659,7 +692,8 @@ Query OK, 1 row affected (0.01 sec)`,
 				value: `* 정렬된 결과 집합에서 첫 번째 행을 건너뛰고 두 번째 행부터 시작한다. 이 경우, 내림차순으로 정렬된 사용자 목록에서 두 번째로 나이가 많은 사용자가 선택된다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `[테이블] - UPDATE 수정`,
 			},
 			{
@@ -677,11 +711,12 @@ Rows matched: 1 Changed: 1 Warnings: 0`,
 				value: `nodejs.users 테이블에서 id 값이 2인 행을 찾아서 해당 행의 comment 컬럼의 값을 '바꿀 내용'으로 업데이트한다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `UPDATE시 WHERE를 빼먹으면 모든 사람의 comment가 변경되니 주의해야 한다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `[테이블] - DELETE 삭제`,
 			},
 			{
@@ -731,11 +766,12 @@ Query OK, 1 row affected (0.00 sec)`,
 				value: `이런 문제를 해결하기 위해 켄트백(Kent Beck)은 테스트 코드를 먼저 작성하는 테스트 주도 개발론을 제안하게 되었다. 테스트 줃 개발 방벙론은 테스트 프레임워크 등을 사용하여 자동화된 테스트 시스템에서 미리 정의된 사양을 바탕으로`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `실패하는 테스트 명세를 작성하고 그 테스트 명세를 통과하기 위한 최소한의 코드를 작성한다. 마지막으로 해당 코드를 리팩토링 하는 것으로 개발을 마치는 프로세스이다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `Jest 테스트 프레임워크로 테스트 코드 작성하기`,
 			},
 			{
@@ -743,11 +779,13 @@ Query OK, 1 row affected (0.00 sec)`,
 				value: `Jest는 주로 JavaScript 및 TypeScript 애플리케이션을 테스트하기 위해 사용되는 JavaScript 테스팅 프레임워크로 특히 React 애플리케이션 테스트에 최적화되어 있다. 페이스북(현 메타)에서 개발했으며,  React 외에도 다른 JavaScript 프레임워크나 라이브러리와도 잘 작동한다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `Jest의 주요 쿼리 함수`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `describe 함수 `,
 			},
 			{
@@ -766,7 +804,8 @@ Query OK, 1 row affected (0.00 sec)`,
 });`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `it 함수`,
 			},
 			{
@@ -785,7 +824,8 @@ Query OK, 1 row affected (0.00 sec)`,
 });`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `expect 함수`,
 			},
 			{
@@ -820,7 +860,8 @@ expect(() => functionCall()).toThrow(ErrorType);
         `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `@testing-library로 리액트 컴포넌트 테스트 코드 작성 하기`,
 			},
 			{
@@ -831,7 +872,8 @@ expect(() => functionCall()).toThrow(ErrorType);
         테스트 코드를 작성할 때 컴포넌트 세부 구현사항을 포함하지 않으면서도 신뢰할 수 있는 테스트 코드 작성에 도움을 준다. 이렇게 컴포넌트의 세부 구현 사항을 포함하지 않은 테스트 코드를 작성하면 컴포넌트의 세부 구현 부분을 리팩토링 하여도 테스트 코드를 수정할 필요가 없다, 이로 인해 한번 작성한 테스트 코드는 긴 시간 유지할 수 있으며 오랜 기간 유지 가능하여 테스트 코드를 자주 수정하지 않아도 되므로 개발 생산성을 향상 시켜 준다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `App.js 컴포넌트 - 렌더링 테스트`,
 			},
 			{
@@ -846,7 +888,8 @@ test('renders learn react link', ()=>{
 })`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `test`,
 			},
 			{
@@ -854,7 +897,8 @@ test('renders learn react link', ()=>{
 				value: `test 함수(it 함수와 같은 역할을 하는 함수)를 사용하여 테스트 명세를 작성한 테스트 코드이다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `render`,
 			},
 			{
@@ -862,7 +906,8 @@ test('renders learn react link', ()=>{
 				value: `리액트 컴포넌트를 화면에 표시하기 위함`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `screen`,
 			},
 			{
@@ -870,7 +915,8 @@ test('renders learn react link', ()=>{
 				value: `리액트 컴포넌트가 표시된 화면을 의미한다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `GetByText`,
 			},
 			{
@@ -890,7 +936,8 @@ test('renders Hello World text', () => {
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `toBeInTheDocument`,
 			},
 			{
@@ -901,11 +948,13 @@ test('renders Hello World text', () => {
         react-testing-library의 render 함수를 사용하여 App이라는 컴포넌트를 렌더링 하였다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `React Testing Library의 주요 쿼리 함수`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `getByText`,
 			},
 			{
@@ -926,7 +975,8 @@ test('renders learn react link', () => {
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `getByRole`,
 			},
 			{
@@ -947,7 +997,8 @@ test('renders submit button', () => {
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `getByLabelText`,
 			},
 			{
@@ -969,7 +1020,8 @@ test('finds the username input', () => {
 			},
 
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `getByPlaceholderText`,
 			},
 			{
@@ -990,7 +1042,8 @@ test('finds the input by placeholder', () => {
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `getByAltText`,
 			},
 			{
@@ -1011,7 +1064,8 @@ test('finds the profile picture', () => {
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `getByTestId`,
 			},
 			{
@@ -1032,7 +1086,8 @@ test('finds element by test id', () => {
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `queryByText`,
 			},
 			{
@@ -1053,7 +1108,8 @@ test('does not find non-existing text', () => {
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `findByText`,
 			},
 			{
@@ -1073,11 +1129,13 @@ test('renders welcome message', async () => {
         `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `참고할만한 예제들`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `예제 [1] - 컴포넌트가 올바르게 렌더링되는지를 확인하는 테스트 케이스`,
 			},
 			{
@@ -1105,7 +1163,8 @@ it('renders component correctly', ()=>{
         ③ 이 줄은 'App-logo' 클래스를 가진 첫 번째 요소가 'src' 속성을 가지고 있으며, 그 값이 'logo.svg'인지 확인한다. toHaveAttribute('src', 'logo.svg')는 요소의 src 속성이 'logo.svg'인지를 확인한다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `예제 [2] - <img /> 테스트 코드`,
 			},
 			{
@@ -1129,7 +1188,8 @@ it('renders component correctly', ()=>{
         ③ 이 줄은 <p> 태그를 가진 첫 번째 요소가 'Edit src/App.js and save to reload.'라는 텍스트 내용을 가지고 있는지 확인한다. expect 함수는 기대값을 설정하는 데 사용되고, toHaveTextContent('Edit src/App.js and save to reload.')는 해당 요소의 텍스트 내용이 정확히 일치하는지를 확인한다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `예제 [3] - <p/> 테스트`,
 			},
 			{
@@ -1147,11 +1207,12 @@ it('renders component correctly', ()=>{
         저장된 스냅샷은 App 컴포넌트가 수정되어 화면에 표시되는 HTML 구조가 변경되면 에러를 표시하게 된다. 이렇게 스냅샷은 화면에 표시되는 컴포넌트가 변경되었는지 감지하기 위한 테스트로 많이 사용된다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `만약 컴포넌트를 수정하여 화면 표시가 변경된 것이 의도된 수정이었다면 스냅샷 테스트로 저장된 파일을 업데이트해 주어야 한다. 명령프롬프트에 에러가 표시된 상태에서 키보드 'u'키를 누르면 스냅샷으로 생성된 파일이 업데이트 된다. 그러면 새롭게 업데이트된 스냅샷 파일이 다시 기준이 되어 변경을 감지하고 에러를 표시하게 된다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `예제 [4] - 스냅샷 (화면에 표시되는 내용이 변경 되었는지 체크)`,
 			},
 			{
@@ -1211,7 +1272,8 @@ expect로 해당 요소가 문서에 존재하는지 확인한다.</br></br>
 				value: `⑤ 마지막으로, container의 현재 상태를 스냅샷으로 저장하여 이후 테스트 실행 시 컴포넌트의 출력이 변하지 않았는지 확인합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `예제 [4] - onClick 함수 테스트`,
 			},
 			{
@@ -1245,7 +1307,7 @@ expect로 해당 요소가 문서에 존재하는지 확인한다.</br></br>
 				value: `그다음 화면에 표시된 버튼 컴포넌트를 찾아서 아직 해당 컴포넌트를 클릭하지 않았음을 확인하기 위해 toHaveBeenCalledTimes 함수를 사용하여 우리가 만든 모의함수가 잘 호출되었는지 확인해준다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>모의 함수(Mocking functions)</b></br>
         onClick 이벤트에는 사실 어떤 함수가 연결될지 알 수가 없다. jest에서는 이처럼 어떤 이벤트를 통해 함수가 호출되는지를 확인하기 위해 모의 함수(Mocking functions)를 사용한다. 모의 함수를 사용하여 onClick 이벤트를 테스트 한다.</br></br>
 
@@ -1253,7 +1315,8 @@ jest의 모의함수(jest.fn)을 사용하여 handlerClick 변수를 선언하�
         `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `예제 [5] - <Input /> 입력된 값이 일치 체크`,
 			},
 			{
@@ -1261,7 +1324,8 @@ jest의 모의함수(jest.fn)을 사용하여 handlerClick 변수를 선언하�
 				value: `getByDisplayValue,getByPlaceholderText,fireEvent,fireEvent.change`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `getByDisplayValue를 이용하여 input을 찾아 렌더링 하는 예제`,
 			},
 			{
@@ -1299,7 +1363,8 @@ describe('<Input />', ()=>{
 그래서 Input 컴포넌트의 필수가 아닌 Props인 value값을 설정하고 react-testing-library의 screen.getByDisplayValue를 사용하여 input 컴포넌트를 찾는다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `getByPlaceholderText를 이용하여 input을 찾아 렌더링 하는 예제`,
 			},
 			{
@@ -1312,7 +1377,8 @@ describe('<Input />', ()=>{
 })`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `fireEvent를 이용하여 이벤트 테스트 하는 예제`,
 			},
 			{
@@ -1348,7 +1414,8 @@ it('renders placeholder correctly', ()=>{
 		preview: `React의 문서를 읽다 보면 불변성을 강조하는 부분 또는 State를 직접적으로 변경하지 말라는 말을 본 적이 있을 것이다. 왜 그런 걸까? 리액트에서 상태를 다룰 때는 객체가 지닌 값을 바꾸고 싶다고 해서 값을 직접 수정하면 안된다.`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `리액트에서 불변성을 지켜야 하는 이유는?`,
 			},
 			{
@@ -1373,7 +1440,8 @@ const nextInfo={
 				value: `리액트는 컴포넌트에 변화가 필요한지 필요하지 않은지 Props의 변화 통해 알 수 있는데 컴포넌트의 렌더링 성능을 최적화 하기 위해서는 이전에 컴포넌트가 들고 있던 Props와 새로 받아올 Props를 비교하는 과정이 필요하며 불변성을 유지시켜 주어야 한다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `불변성이 유지되지 않은 같은 참조를 가리키고 있는 데이터`,
 			},
 			{
@@ -1391,11 +1459,12 @@ console.log(sameData === data); // true`,
         따라서 sameData.text 값을 바꾸면 당연히 data.text 값 또한 바뀌게 된다. sameData와 data는 완전히 일치하는 객채이기 때문에 이를 비교하면 결과는 true 이다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `객체의 특정 프로퍼티만 변경하는 작업을 수행하면 리액트에서는 변경이 일어나지 않았다고 인식하여 리렌더링이 일어나지 않는다. <b>불변성을 지켜주면서 값을 전달해 주어야 한다.</b>`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `불변성을 유지하면서 상태를 업데이트하는 방법`,
 			},
 			{
@@ -1412,7 +1481,7 @@ console.log(nextData === data) // false`,
         `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `React는 <b>Props</b>와 <b>State</b>의 변경을 불변성을 이용해서 감지한다.`,
 			},
 			{
@@ -1446,7 +1515,8 @@ console.log(nextData === data) // false`,
         부수효과(Side Effect)를 방지 한다는 것은 동시성 문제도 해결된다는 의미이다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `함수형 vs. 절차형`,
 			},
 			{
@@ -1458,7 +1528,8 @@ console.log(nextData === data) // false`,
 				value: `예) "12345" -> 15`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `절차형 프로그래밍`,
 			},
 			{
@@ -1474,7 +1545,8 @@ for(let i=0; i < stringNumber.length; i+=1){
 }`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `함수형 프로그래밍`,
 			},
 			{
@@ -1489,11 +1561,13 @@ let result = stringNumber.split(" ")
     .reduce((acc, value) => acc + value, 0);`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `선언형 vs. 명령형`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `명령형`,
 			},
 			{
@@ -1501,7 +1575,8 @@ let result = stringNumber.split(" ")
 				value: `명령형 프로그래밍은 프로그램이 어떻게 수행되는지를 명시적으로 나타내는 스타일입니다. 대부분의 절차형 언어가 명령형 패러다임을 따릅니다. 프로그래머는 상태와 명령어의 순서에 중점을 두어 프로그램을 작성합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `control Flow`,
 			},
 			{
@@ -1519,7 +1594,8 @@ let result = stringNumber.split(" ")
     .reduce((acc, value) => acc + value, 0);`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `선언형`,
 			},
 			{
@@ -1527,7 +1603,8 @@ let result = stringNumber.split(" ")
 				value: `선언형 프로그래밍은 원하는 결과를 설명하고, 시스템이 그 결과를 어떻게 달성할지에 대한 구체적인 단계나 순서를 명시하지 않는 스타일이다. 선언형 프로그래밍의 예로 SQL, HTML, CSS 등이 있다. 프로그래머는 "무엇(What)"을 명시하고, 해결방법은 컴퓨터에게 위임하는 방법 이다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `control Flow`,
 			},
 			{
@@ -1542,7 +1619,8 @@ let result = stringNumber.split(" ")
   .forEach(v => console.log(v));`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `함수형 프로그래밍의 장점`,
 			},
 			{
@@ -1580,7 +1658,7 @@ let result = stringNumber.split(" ")
         라는 부분인데 프론트 서버의 존재가 정확히 어떤 일을 하는 것인지 궁금해 졌다..</br>`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `프론트 서버는 어떤 주소에 대한 요청을 보냈을 때, Markup Language (HTML,CSS, JavaScript)를 응답해서 사용자에게 GUI 환경을 제공해준다.`,
 			},
 			{
@@ -1593,11 +1671,13 @@ let result = stringNumber.split(" ")
         `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `브라우저의 전체 흐름`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `SSR`,
 			},
 			{
@@ -1606,7 +1686,8 @@ let result = stringNumber.split(" ")
         브라우저 ➔ 프론트 서버 ➔ 백엔드 서버 ➔ DB`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `SPA`,
 			},
 			{
@@ -1615,7 +1696,8 @@ let result = stringNumber.split(" ")
         브라우저 ➔ 프론트 서버에서 정적파일들을 받아옴(HTML, CSS, JavaScript) </br> 브라우저 ➔ 백엔드 서버(프론트 서버를 거치지 않고 백엔드 서버로 바로 데이터를 요청) ➔ DB`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `프론트 서버(웹 서버)`,
 			},
 			{
@@ -1636,7 +1718,8 @@ let result = stringNumber.split(" ")
         정적인 데이터에 대한 처리를 담당한다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `웹서버를 이해하기에 가장 편했던 유투브 영상</h4>`,
 			},
 			{
@@ -1654,7 +1737,8 @@ let result = stringNumber.split(" ")
 		preview: `이벤트 버블링과 이벤트 캡쳐는 브라우저에서 이벤트가 발생하고 전파되는 방식을 설명하는 개념입니다. 이벤트 버블링은 특정 화면 요소에서 이벤트가 발생했을 때 해당 이벤트가 더 상위의 화면 요소들로 전달되어 가는 특성을 의미합니다. 이는 이벤트가 가장 하위의 요소에서 시작하여 상위 요소로 전파되는 방식입니다.`,
 		post: [
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `이벤트 버블링 - Event Bubbling`,
 			},
 			{
@@ -1689,7 +1773,8 @@ let result = stringNumber.split(" ")
 				value: `클릭한 것이 가장 하위의 div 태그인 "layer3"이라면, 콘솔에는 <b>"layer3 -> layer2 -> layer1" </b> 순서로 출력됩니다. 이는 이벤트가 하위에서 상위 요소로 전파되는 특성을 보여줍니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `이벤트 캡쳐 - Event Capture`,
 			},
 			{
@@ -1720,11 +1805,12 @@ function logEvent(event) {
       `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `여기서는 addEventListener 함수의 <b>세 번째 인자로 true</b>를 전달하여 이벤트 캡처링을 활성화합니다. </br> 클릭한 것이 최상위의 div 태그인 "layer1"이라면, 콘솔에는 "layer1 -> layer2 -> layer3" 순서로 출력됩니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `stopPropagation()`,
 			},
 			{
@@ -1739,7 +1825,7 @@ function logEvent(event) {
 }`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `이렇게 사용하면 클릭한 요소의 이벤트만 발생하고 상위 또는 하위 요소로의 이벤트 전파가 중지됩니다.`,
 			},
 		],
@@ -1753,7 +1839,8 @@ function logEvent(event) {
 		preview: `일반 함수와 화살표 함수의 this 바인딩에 대한 차이에 대한 내용을 약간 각색하여 정리하겠습니다. 일반 함수에서 this는 함수가 호출될 때 동적으로 결정되며, 호출된 컨텍스트에 바인딩됩니다.`,
 		post: [
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `일반 함수`,
 			},
 			{
@@ -1763,7 +1850,8 @@ function logEvent(event) {
 }`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `화살표 함수`,
 			},
 			{
@@ -1775,7 +1863,8 @@ function logEvent(event) {
 				value: `두 함수는 기능적으로 완전히 동일하게 작동합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `JavaScript 일반 함수의 this 바인딩`,
 			},
 			{
@@ -1801,7 +1890,8 @@ cat.foo1(); // undefined
         이 내부함수가 global에서도 제대로 작동하기 위해서 우리는 저 내부함수에 객체의 this를 바인딩 할 필요가 있을 것입니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `JavaScript 화살표 함수의 this 바인딩`,
 			},
 			{
@@ -1825,7 +1915,8 @@ cat.foo1(); // meow
         화살표 함수에서 this는 함수가 정의된 스코프에서 상속됩니다. (Lexical this) 내부 함수의 this는 외부 함수의 this를 상속받아 cat을 가리키므로 meow 출력 됩니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `addEventListener()의 콜백함수`,
 			},
 			{
@@ -1879,7 +1970,8 @@ button.addEventListener('click', function() {
 			},
 
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Object.assign()을 이용한 값이 중첩되지 않은 객체의 복사 (Shallow Copy)`,
 			},
 			{
@@ -1907,7 +1999,7 @@ console.log(updated);
 //}`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `첫번째 객체에 빈 객체를 사용하면 빈객체에 새로운 값이 갱신되어 반환됩니다.</br>다른 객체에는 조작이 발생하지 않습니다.`,
 			},
 			{
@@ -1915,7 +2007,8 @@ console.log(updated);
 				value: `위의 코드는 defaults와 book 객체를 병합하여 얕은 복사를 수행합니다. 하지만 details 객체는 참조 관계가 유지되므로 shallowCopy 객체를 수정하면 defaults나 book에도 영향을 미칠 수 있습니다.</br></br>`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Object.assign()을 이용한 값이 중첩된 객체의 복사 (Deep Copy)`,
 			},
 			{
@@ -1941,7 +2034,7 @@ const employee = Object.assign({}, defaultEmployee);`,
         따라서 원본 객체 또는 복사한 객체 중 어디서라도 중첩된 객체의 값을 변경하면 원본 객체와 복사한 객체 모두 변경됩니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>중첩된 객체</b>가 있는 경우에 <b>Object.assign()</b>을 이용해서 복사하도록 하면 모든 것을 갱신할 수 있습니다.`,
 			},
 			{
@@ -1963,7 +2056,8 @@ const employee2 = Object.assign(
 );`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Lodash를 이용한 깊은 복사 cloneDeep`,
 			},
 			{
@@ -2002,7 +2096,8 @@ console.log(deepCopyResult);`,
 				value: `cloneDeep 함수를 사용하면 중첩된 객체까지 깊은 복사가 이루어집니다. 이후 merge 함수를 사용하여 두 객체를 병합할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `JSON.stringify() 이용한 깊은 복사 cloneDeep`,
 			},
 			{
@@ -2036,7 +2131,8 @@ const deepCopy = JSON.parse(JSON.stringify(originalObject));
 		preview: `let은 재할당 할 수 있다는 점에서 var와 유사합니다. 그렇지만 var는 어휘적 유효범위(lexical scope)를 따르는 반면 let은 블록 유효범위를 따릅니다. 일단 블록 유효범위 변수는 if블록이나 for 반복문 같은 블록의 내부에만 존재한다고 알아두세요.`,
 		post: [
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `블록유효범위를 따르는 const`,
 			},
 			{
@@ -2054,7 +2150,8 @@ for(let i = 0; i < cart.length; i++){
 }`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `블록유효범위를 따르는 let`,
 			},
 			{
@@ -2073,12 +2170,13 @@ for(let i = 0; i < cart.length; i++){
 console.log(blockScopedVar); // 에러: blockScopedVar is not defined`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `var를 사용하는 경우에는 같은 유효범위에서 같은 이름의 변수를 다시 선언할 수 있지만</br>
         let과 const는 같은 이름이 변수를 다시 선언할 수 없습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `어휘적 유효범위(lexical scope)를 따르는 var`,
 			},
 			{
@@ -2097,7 +2195,8 @@ console.log(blockScopedVar); // 에러: blockScopedVar is not defined`,
 console.log(lexicalScopedVar); // 에러: lexicalScopedVar is not defined`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `var를 사용하여 함수 유효범위를 따르는 클로저`,
 			},
 			{
@@ -2130,11 +2229,12 @@ for (var j = 0; j < closuresVarArray.length; j++) {
         `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>var를 사용</b>한 경우 함수 내부에서 만든 <b>클로저에서 외부 변수를 참조할 때 주의</b>가 필요합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `let을 사용하여 클로저 문제를 해결한 코드`,
 			},
 			{
@@ -2166,11 +2266,12 @@ for (let j = 0; j < closuresLetArray.length; j++) {
         따라서 클로저를 호출할 때 각각의 클로저는 자신이 생성된 시점의 i 값을 출력하게 됩니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `쉽게 말해 let을 이용하면 for문이 반복될 때마다 값을 잠급니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `블록 유효범위 (Block Scope)`,
 			},
 			{
@@ -2180,7 +2281,8 @@ for (let j = 0; j < closuresLetArray.length; j++) {
         블록은 주로 조건문 (if, else, for, while 등) 내부, 함수 내부, 또는 단독 중괄호 블록으로 정의됩니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `어휘적 유효범위 (Lexical Scope 또는 Static Scope)`,
 			},
 			{
@@ -2211,7 +2313,8 @@ outer();`,
 				value: `위 예제에서 inner 함수는 자신의 스코프와 외부 함수인 outer 함수의 스코프에 접근할 수 있습니다. 이는 어휘적 유효범위에 의한 것입니다. 변수의 유효 범위는 코드를 작성하는 시점에 이미 정해져 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `함수 유효범위 (Function Scope)`,
 			},
 			{
@@ -2256,7 +2359,7 @@ outer();`,
         클로저는 함수가 선언될 때의 렉시컬 스코프(Lexical Scope)를 기억하여, 함수가 다른 스코프에서 호출되더라도 해당 스코프의 변수에 접근할 수 있게 하는 기능을 말합니다.`,
 			},
 			// {
-			//   type: ComponentType.H2,
+			//   type: ComponentType.HEADING, headingType:'h2',
 			//   value: '클로저 (Closure)',
 			// },
 			{
@@ -2277,7 +2380,8 @@ closure(); // 'zero'
 				value: `makeClosure 함수가 실행될 때 name 변수가 생성되고, 반환된 내부 함수가 클로저 역할을 합니다. 클로저인 내부 함수는 외부 함수의 스코프에 접근할 수 있기 때문에 name 변수에 접근하여 값을 출력할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: '비공개 변수',
 			},
 			{
@@ -2317,7 +2421,8 @@ console.log(counter()); // 2
 				value: `클로저는 함수가 생성될 때의 렉시컬 스코프(어휘적 스코프)에 있는 변수에 대한 참조를 기억합니다. 이를 통해 함수가 나중에 호출될 때에도 해당 변수에 접근할 수 있습니다. 클로저는 함수형 프로그래밍, 비동기 작업, 정보 은닉 등 다양한 상황에서 사용되며, 자바스크립트에서 고유하고 강력한 특징 중 하나입니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: '이벤트 리스너와 클로저',
 			},
 			{
@@ -2361,7 +2466,8 @@ console.log(counter()); // 2
 				value: `호이스팅(Hoisting)은 JavaScript에서 변수와 함수 선언이 최상단으로 끌어올려지는 현상을 말합니다. 하지만 함수 선언식과 함수 표현식은 다르게 동작하므로 주의가 필요합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `함수 선언식`,
 			},
 			{
@@ -2396,7 +2502,8 @@ sayWow();
 zero = 'zero';`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `함수 표현식`,
 			},
 			{
@@ -2443,7 +2550,7 @@ function sayWow() {
 					'함수 표현식은 변수에 함수를 할당하는 형태이므로 변수 호이스팅은 발생하지만 함수의 할당은 유지되지 않아 함수를 먼저 호출할 수 없습니다. ',
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value:
 					'함수 표현식을 사용할 때는 변수에 함수가 할당된 이후에 호출하도록 유의해야 합니다.',
 			},
@@ -2464,7 +2571,7 @@ function sayWow() {
 	//     tag: ['JavaScript'],
 	//     post: [
 	//       {
-	//         type: ComponentType.H2,
+	//         type: ComponentType.HEADING, headingType:'h2',
 	//         value: `실행 컨텍스트(execution context)`,
 	//       },
 	//       {
@@ -2491,7 +2598,7 @@ function sayWow() {
 	//         value: `일단 처음 브라우저가 스크립트를 로딩해서 실행하기 시작하는 순간 모든 것을 포함하는 전역 컨텍스트가 생깁니다. 모든 것을 관리하는 환경입니다. 페이지가 종료될 때까지 유지됩니다.`,
 	//       },
 	//       {
-	//         type: ComponentType.H4,
+	//         type: ComponentType.HEADING, headingType:'h4',
 	//         value: `1. 전역 컨텍스트(Global Context) 생성`,
 	//       },
 	//       {
@@ -2513,7 +2620,7 @@ function sayWow() {
 	//         `,
 	//       },
 	//       {
-	//         type: ComponentType.H4,
+	//         type: ComponentType.HEADING, headingType:'h4',
 	//         value: `2. say 함수 호출 시 컨텍스트 생성`,
 	//       },
 	//       {
@@ -2527,7 +2634,7 @@ function sayWow() {
 	//         value: `맨위 코드에서 say();호출 하는 순간 새로운 컨텍스트인 say함수 컨텍스트가 생깁니다. </br> 아까 전역 컨텍스트는 그대로 있습니다.`,
 	//       },
 	//       {
-	//         type: ComponentType.H4,
+	//         type: ComponentType.HEADING, headingType:'h4',
 	//         value: `say함수 실행`,
 	//       },
 	//       {
@@ -2550,7 +2657,7 @@ function sayWow() {
 	//         찾을 수 없다면 scope chain을 따라 올라가 상위 변수객체에서 찾습니다. 그래서 전역 변수객체에서 찾습니다. </br>전역 변수객체의 variable에 wow라는 함수가 있네요. 이걸 호출합니다.`,
 	//       },
 	//       {
-	//         type: ComponentType.H4,
+	//         type: ComponentType.HEADING, headingType:'h4',
 	//         value: `3. wow 함수 호출 시 컨텍스트 생성`,
 	//       },
 	//       {
@@ -2567,7 +2674,7 @@ function sayWow() {
 	//        `,
 	//       },
 	//       {
-	//         type: ComponentType.H4,
+	//         type: ComponentType.HEADING, headingType:'h4',
 	//         value: `wow 함수 호출 실행`,
 	//       },
 	//       {
@@ -2630,7 +2737,8 @@ function sayWow() {
         콜백 지옥을 해결하기 위한 방법으로는 Promise나 Async/Await와 같은 비동기 처리 방식을 활용하는 것이 있습니다. 이를 통해 코드의 가독성을 향상시키고, 비동기 동작들을 보다 명시적이고 관리하기 쉬운 형태로 구현할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `Promise나 Async/Await을 사용하여 콜백지옥을 해결하는 방법`,
 			},
 			{
@@ -2638,7 +2746,8 @@ function sayWow() {
 				value: `콜백 지옥을 해결하기 위해 Promise나 Async/Await을 사용하는 것은 비동기 코드를 더 간결하고 가독성 있게 만들 수 있는 방법 중 하나입니다. 아래는 각각 Promise와 Async/Await을 사용하여 콜백 지옥을 해결하는 예제 코드입니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `1. Promise 사용`,
 			},
 			{
@@ -2685,7 +2794,8 @@ function sayWow() {
       `,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Async/Await 사용`,
 			},
 			{
@@ -2758,7 +2868,8 @@ function sayWow() {
 				value: `프로미스는 비동기 처리를 위한 패턴 중 하나로, 세 가지 상태를 가지며 각각의 상태에 따라 처리 과정이 이뤄집니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `1. Pending(대기) 상태`,
 			},
 			{
@@ -2773,7 +2884,8 @@ function sayWow() {
         `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `2. Fulfilled(이행) 상태`,
 			},
 			{
@@ -2793,7 +2905,8 @@ myPromise.then((result) => {
         `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `3. Rejected(실패) 상태`,
 			},
 			{
@@ -2858,7 +2971,8 @@ fetchData()
 				value: `JWT(JSON Web Token)는 JSON 객체를 사용하여 모바일이나 웹의 사용자 인증을 위해 사용하며 정보를 안전성 있게 암호화한 토큰을 의미한다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Access Token`,
 			},
 			{
@@ -2878,7 +2992,8 @@ fetchData()
         <b>사용자 식별 정보</b> : Access Token에는 사용자를 고유하게 식별할 수 있는 정보(사용자 ID 등)가 포함될 수 있다. 이를 통해 서버는 특정 사용자에 대한 작업을 수행할 수 있다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Refresh token`,
 			},
 			{
@@ -2996,11 +3111,13 @@ client.interceptors.response.use(
 export default client;`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `보안`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `CSRF(Cross Site Request Forgery)`,
 			},
 			{
@@ -3008,7 +3125,8 @@ export default client;`,
 				value: `CSRF는 Cross-Site Request Forgery의 약자로, 한 사이트에서 인증된 사용자의 권한을 가로채어 다른 사이트에서 공격자가 의도한 동작을 수행하게 하는 공격이다. 이 공격은 사용자가 자신의 의지와 무관하게 공격자가 의도한 요청을 악의적인 웹사이트를 통해 전송함으로써 이루어진다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `CSRF 작동 원리`,
 			},
 			{
@@ -3019,7 +3137,8 @@ export default client;`,
          이를 트리거하기 위해 공격자는 이미 로그인된 사용자의 브라우저에서 악의적인 요청을 보낼 수 있는 방법을 찾는다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `예시 시나리오`,
 			},
 			{
@@ -3030,7 +3149,8 @@ export default client;`,
         이를 통해 은행 웹사이트는 사용자 A의 권한으로 이체를 실행하게 된다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `XSS(Cross Site Scripting)`,
 			},
 			{
@@ -3043,15 +3163,17 @@ export default client;`,
         이 방법으로 피해자 브라우저에 저장된 중요 정보들을 탈취 가능하다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `아무리 다른 공격(CSRF 등)에 대한 방비를 열심히 했다 해도 XSS가 뚫린다면 아무 소용이 없다. js코드로 의도하지 않은 request를 날린다던가 localStorage, 변수 값 등 모든 것이 탈취 가능하기 때문이다. XSS 공격 방지는 웹 보안의 뿌리이며 XSS 공격을 막는 것은 웹 보안을 위한 최소한의 조치이다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `해결 1) localStorage에 저장하는 방법`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `CSRF 공격에는 안전하다.`,
 			},
 			{
@@ -3059,7 +3181,8 @@ export default client;`,
 				value: `그 이유는 자동으로 request에 담기는 쿠키와는 다르게 js 코드에 의해 헤더에 담기므로 XSS를 뚫지 않는 이상 공격자가 정상적인 사용자인 척 request를 보내기가 어렵다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `XSS에 취약하다.`,
 			},
 			{
@@ -3067,11 +3190,13 @@ export default client;`,
 				value: `공격자가 localStorage에 접근하는 js 코드 한 줄만 주입하면 localStorage를 공격자가 내 집처럼 드나들 수 있다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `해결 2) cookie에 저장하는 방법`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `XSS 공격으로부터 localStorage에 비해 안전하다.`,
 			},
 			{
@@ -3085,7 +3210,8 @@ export default client;`,
         공격자가 귀찮을 뿐이지 XSS가 뚫린다면 httpOnly cookie도 안전하진 않다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `CSRF 공격에 취약하다.`,
 			},
 			{
@@ -3093,7 +3219,8 @@ export default client;`,
 				value: `자동으로 http request에 담아서 보내기 때문에 공격자가 request url만 안다면 사용자가 관련 link를 클릭하도록 유도하여 request를 위조하기 쉽다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `해결 3 : refresh token 사용하는 방법`,
 			},
 			{
@@ -3120,11 +3247,13 @@ export default client;`,
 		tag: ['git'],
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `설정 및 설정 💡`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value:
 					'모든 커밋에서 사용할 사용자 이름과 사용할 이메일 주소를 설정합니다.',
 			},
@@ -3134,11 +3263,13 @@ export default client;`,
 git config --global user.email "your email address"`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `프로젝트 시작하기 💡`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '새로운 로컬 저장소를 초기화합니다.',
 			},
 			{
@@ -3146,7 +3277,8 @@ git config --global user.email "your email address"`,
 				value: `git init "project-name"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '기존 프로젝트와 버전 이력을 복제합니다.',
 			},
 			{
@@ -3154,11 +3286,13 @@ git config --global user.email "your email address"`,
 				value: `git clone "git url"`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `변경 및 스테이징 💡`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '작업 디렉터리에서 수정된 파일의 상태를 보여줍니다.',
 			},
 			{
@@ -3166,7 +3300,8 @@ git config --global user.email "your email address"`,
 				value: `git status`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '파일을 스테이징 영역에 추가합니다.',
 			},
 			{
@@ -3174,7 +3309,8 @@ git config --global user.email "your email address"`,
 				value: `git add "file"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '모든 수정된 파일을 스테이징 영역에 추가합니다.',
 			},
 			{
@@ -3182,7 +3318,8 @@ git config --global user.email "your email address"`,
 				value: `git add .`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '설명적인 메시지와 함께 스테이징된 파일을 커밋합니다.',
 			},
 			{
@@ -3190,11 +3327,13 @@ git config --global user.email "your email address"`,
 				value: `git commit -m"commit your message"`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `커밋 관리 💡`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '마지막 커밋을 수정합니다.',
 			},
 			{
@@ -3202,7 +3341,8 @@ git config --global user.email "your email address"`,
 				value: `git commit --amend`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '커밋 메시지를 변경하지 않고 마지막 커밋을 수정합니다.',
 			},
 			{
@@ -3210,7 +3350,8 @@ git config --global user.email "your email address"`,
 				value: `git commit --amend --no-edit`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '압축된 커밋 이력을 표시합니다.',
 			},
 			{
@@ -3218,7 +3359,8 @@ git config --global user.email "your email address"`,
 				value: `git log --oneline`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '커밋 이력을 그래픽 형식으로 표시합니다.',
 			},
 			{
@@ -3226,7 +3368,8 @@ git config --global user.email "your email address"`,
 				value: `git log --graph`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '다른 기본 팁 위에 변경 사항을 다시 적용합니다.',
 			},
 			{
@@ -3234,7 +3377,8 @@ git config --global user.email "your email address"`,
 				value: `git rebase "your branch"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '지정된 변경 사항을 취소하는 새로운 커밋을 만듭니다.',
 			},
 			{
@@ -3242,11 +3386,13 @@ git config --global user.email "your email address"`,
 				value: `git revert "your commit"`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `브랜치 및 병합 💡`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '저장소에 있는 모든 브랜치를 나열합니다.',
 			},
 			{
@@ -3254,7 +3400,8 @@ git config --global user.email "your email address"`,
 				value: `git branch`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '새로운 브랜치를 생성합니다.',
 			},
 			{
@@ -3262,7 +3409,8 @@ git config --global user.email "your email address"`,
 				value: `git branch "branch name"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '지정된 브랜치로 전환합니다.',
 			},
 			{
@@ -3270,7 +3418,8 @@ git config --global user.email "your email address"`,
 				value: `git checkout "branch name"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '지정된 브랜치의 이력을 현재 브랜치에 병합합니다.',
 			},
 			{
@@ -3278,7 +3427,8 @@ git config --global user.email "your email address"`,
 				value: `git merge "branch name"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '지정된 브랜치를 삭제합니다.',
 			},
 			{
@@ -3286,11 +3436,13 @@ git config --global user.email "your email address"`,
 				value: `git branch -d "branch name"`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `프로젝트 시작 및 업데이트 💡`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '로컬 브랜치 커밋을 원격 저장소 브랜치에 업로드합니다.',
 			},
 			{
@@ -3298,7 +3450,8 @@ git config --global user.email "your email address"`,
 				value: `git push "alias" "branch name"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '원격 브랜치 변경 사항을 현재 로컬 브랜치에 통합합니다.',
 			},
 			{
@@ -3306,11 +3459,13 @@ git config --global user.email "your email address"`,
 				value: `git pull`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `검사 및 비교 💡`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '현재 브랜치의 버전 이력을 표시합니다.',
 			},
 			{
@@ -3318,7 +3473,8 @@ git config --global user.email "your email address"`,
 				value: `git log"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '특정 파일의 변경 사항을 표시합니다.',
 			},
 			{
@@ -3326,7 +3482,8 @@ git config --global user.email "your email address"`,
 				value: `git log --follow "file name"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '두 브랜치 사이의 콘텐츠 차이를 표시합니다.',
 			},
 			{
@@ -3334,11 +3491,13 @@ git config --global user.email "your email address"`,
 				value: `git diff "branchB"`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `특정 커밋 사용하기 💡`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '지정된 커밋의 메타데이터와 콘텐츠 변경 사항을 표시합니다.',
 			},
 			{
@@ -3346,7 +3505,8 @@ git config --global user.email "your email address"`,
 				value: `git show "commit"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '지정된 커밋에서 소개된 변경 사항을 현재 브랜치에 적용합니다.',
 			},
 			{
@@ -3354,7 +3514,8 @@ git config --global user.email "your email address"`,
 				value: `git cherry-pick "commit"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '현재 브랜치 팁을 지정된 커밋 위로 이동합니다.',
 			},
 			{
@@ -3362,7 +3523,8 @@ git config --global user.email "your email address"`,
 				value: `git reset --soft "commit"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value:
 					'현재 브랜치 팁을 지정된 커밋으로 이동합니다. 변경 사항을 스테이징하지 않습니다.',
 			},
@@ -3371,7 +3533,8 @@ git config --global user.email "your email address"`,
 				value: `git reset "commit"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value:
 					'작업 디렉터리를 지정된 커밋으로 재설정하고 모든 변경 사항을 삭제합니다.',
 			},
@@ -3380,11 +3543,13 @@ git config --global user.email "your email address"`,
 				value: `git reset --hard "commit"`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `변경 사항 되돌리기 💡`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value:
 					'지정된 커밋 이후의 모든 커밋을 취소하고 변경 사항을 로컬로 유지합니다.',
 			},
@@ -3393,7 +3558,8 @@ git config --global user.email "your email address"`,
 				value: `git reset "commit"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: '지정된 커밋 이후의 모든 변경 사항을 지웁니다.',
 			},
 			{
@@ -3453,7 +3619,8 @@ git config --global user.email "your email address"`,
       `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `단방향 데이터 바인딩(React)`,
 			},
 
@@ -3463,7 +3630,7 @@ git config --global user.email "your email address"`,
         리액트에서 상태(State)와 생명주기(Lifecycle) 관리를 위해 사용되는 메서드들이 호출되어야 한다는 의미이다. 예를 들어, 상태가 변경될 때마다 setState 메서드를 호출하여 컴포넌트를 다시 렌더링하거나, 생명주기 메서드 중에서 변화가 감지되는 경우에 관련 코드를 작성해주어야 한다. 이러한 작업은 번거로울 수 있지만, 리액트의 성능 최적화를 위해서는 필수적이다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>리액트 장단점</b></br>
         - 데이터 변화에 따른 성능 저하 없이 DOM 객체 갱신 가능</br>
         - 데이터 흐름이 단방향(부모->하위 컴포넌트)이라, 코드를 이해하기 쉽고 데이터 추적과 디버깅이 쉽다.</br>
@@ -3471,7 +3638,8 @@ git config --global user.email "your email address"`,
         - 변화를 감지하고 화면을 업데이트 하는 코드를 매번 작성해 줘야 하는 번거로움이 있다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `양방향 데이터 바인딩(Vue)`,
 			},
 			{
@@ -3481,7 +3649,7 @@ git config --global user.email "your email address"`,
 			},
 
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `
         <b>장단점</b></br>
         - 진입 장벽이 낮고, 간단한 프로젝트부터 복잡한 애플리케이션까지 다양한 범위의 프로젝트에 적합하다.</br>
@@ -3489,7 +3657,8 @@ git config --global user.email "your email address"`,
         `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `가상돔(Virtual DOM)`,
 			},
 			{
@@ -3507,13 +3676,18 @@ git config --global user.email "your email address"`,
 		tag: ['JavaScript', 'browser'],
 		preview: `콜스택은 현재 실행 중인 함수의 호출을 기록하는 자료 구조입니다. 함수가 호출되면 해당 함수의 정보가 스택에 추가되고, 함수의 실행이 완료되면 스택에서 제거됩니다. 따라서 콜스택은 함수의 호출 순서를 추적하고, 실행 중인 함수의 컨텍스트를 관리합니다.`,
 		post: [
-			{ type: ComponentType.H2, value: `콜스택 (Call Stack)` },
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `콜스택 (Call Stack)`,
+			},
 			{
 				type: ComponentType.NORMAL,
 				value: `콜스택은 현재 실행 중인 함수의 호출을 기록하는 자료 구조입니다. 함수가 호출되면 해당 함수의 정보가 스택에 추가되고, 함수의 실행이 완료되면 스택에서 제거됩니다. 따라서 콜스택은 함수의 호출 순서를 추적하고, 실행 중인 함수의 컨텍스트를 관리합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `실행 컨텍스트가 생성되고 콜스택에 쌓이는 과정`,
 			},
 			{
@@ -3530,7 +3704,7 @@ function sayHello() {
 sayHello();`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         1. sayHello() 함수가 호출되면서 새로운 실행 컨텍스트가 생성되고 호출 스택에 추가됩니다.`,
 			},
@@ -3539,7 +3713,7 @@ sayHello();`,
 				value: `　호출 스택: [sayHello()]`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         2. sayHello() 함수 내에서 greet("Alice")가 호출되면서 또 다른 실행 컨텍스트가 생성되고 호출 스택에 추가됩니다.`,
 			},
@@ -3548,7 +3722,7 @@ sayHello();`,
 				value: `　호출 스택: [sayHello(), greet("Alice")]`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         3. greet("Alice") 함수 내에서 변수 greeting이 생성되고 값이 할당됩니다.`,
 			},
@@ -3557,7 +3731,7 @@ sayHello();`,
 				value: `　호출 스택: [sayHello(), greet("Alice")]`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         4. console.log(greeting)이 실행되고 호출 스택에서 greet("Alice") 실행 컨텍스트가 제거됩니다.`,
 			},
@@ -3566,7 +3740,7 @@ sayHello();`,
 				value: `　호출 스택: [sayHello()]`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         5. sayHello() 함수 내의 모든 코드가 실행되고 호출 스택에서 해당 실행 컨텍스트가 제거됩니다.`,
 			},
@@ -3575,7 +3749,8 @@ sayHello();`,
 				value: `　호출 스택: []`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `이벤트 루프 큐 (Event Loop Queue)`,
 			},
 			{
@@ -3583,7 +3758,8 @@ sayHello();`,
 				value: `이벤트 루프 큐는 비동기 작업의 완료 또는 이벤트 발생을 기다리는 대기열입니다. 비동기 함수의 콜백 함수나 이벤트 처리기는 이벤트 루프 큐에 추가되어 대기하다가 콜스택이 비어있을 때 실행됩니다. 이벤트 루프는 콜스택이 비어있을 때마다 큐에서 작업을 꺼내어 콜스택에 추가하여 실행될 수 있도록 합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `이벤트 루프와 호출 스택 1`,
 			},
 			{
@@ -3642,7 +3818,8 @@ console.log('world');
 				value: `이렇게 되면 "world"가 먼저 출력되고, 그 후 "hello"가 출력됩니다. 이는 setTimeout의 시간 지연이 0ms로 설정되었더라도, 해당 콜백 함수가 작업 큐에 추가되고 이벤트 루프를 통해 호출 스택에 올라가기 때문입니다. 따라서 JavaScript의 비동기성에 의해 콜백 함수의 실행이 이루어집니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `이벤트 루프와 호출 스택 2`,
 			},
 			{
@@ -3662,7 +3839,7 @@ function sayHello() {
 sayHello();`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         1. sayHello() 함수가 호출되면서 새로운 실행 컨텍스트가 생성되고 호출 스택에 추가됩니다.`,
 			},
@@ -3671,7 +3848,7 @@ sayHello();`,
 				value: `　호출 스택: [sayHello()]`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         2. sayHello() 함수 내에서 greet("Alice")가 호출되면서 또 다른 실행 컨텍스트가 생성되고 호출 스택에 추가됩니다.`,
 			},
@@ -3680,7 +3857,7 @@ sayHello();`,
 				value: `　호출 스택: [sayHello(), greet("Alice")]`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         3. greet("Alice") 함수 내에서 변수 greeting이 생성되고 값이 할당됩니다.`,
 			},
@@ -3689,7 +3866,7 @@ sayHello();`,
 				value: `　호출 스택: [sayHello(), greet("Alice")]`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         4. console.log(greeting)이 실행되고 호출 스택에서 greet("Alice") 실행 컨텍스트가 제거됩니다.`,
 			},
@@ -3698,7 +3875,7 @@ sayHello();`,
 				value: `　호출 스택: [sayHello()]`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         5. setTimeout 함수가 호출되어 타이머가 설정됩니다. 이때 비동기적으로 실행되므로 호출 스택에는 추가되지 않습니다.`,
 			},
@@ -3707,22 +3884,22 @@ sayHello();`,
 				value: `　호출 스택:[sayHello()]`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         6. sayHello() 함수 내의 모든 코드가 실행되었지만, 아직 타이머가 만료되지 않았으므로 이벤트 루프에서 대기합니다.`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         7. 1초 후, 타이머가 만료되면 설정된 콜백 함수가 이벤트 루프 큐에 추가됩니다.`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         8. 이벤트 루프는 호출 스택이 비어있는지 확인하고, 비어있다면 이벤트 루프 큐에서 콜백 함수를 꺼내와 호출 스택에 추가하여 실행합니다.`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `
         9. 비동기 함수 실행 완료" 메시지가 출력되고 호출 스택에서 해당 실행 컨텍스트가 제거됩니다.`,
 			},
@@ -3735,7 +3912,8 @@ sayHello();`,
 				value: `이렇게 비동기 함수가 추가되면, 해당 비동기 함수의 콜백 함수가 이벤트 루프를 통해 적절한 시점에 호출되어 실행됩니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `JavaScript 코드 실행이 브라우저의 성능과 사용자 경험에 미치는 영향`,
 			},
 			{
@@ -3791,12 +3969,13 @@ asyncExample();
     DNS 서버에서 해당 도메인 네임에 해당하는 IP주소를 찾아 사용자가 입력한 URL 정보와 함께 전달한다.`,
 		post: [
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value:
 					'1. 사용자가 입력한 url 주소 중에서 도메인 네임을 DNS 서버에서 검색한다. </br> 　DNS 서버에서 해당 도메인 네임에 해당하는 IP주소를 찾아 사용자가 입력한 URL 정보와 함께 전달한다.',
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `URL에서 도메인 네임 추출`,
 			},
 			{
@@ -3804,7 +3983,8 @@ asyncExample();
 				value: `도메인 네임은 일반적으로 "www.example.com"과 같은 형식을 갖습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `URL 정보와 함께 전달`,
 			},
 			{
@@ -3823,7 +4003,7 @@ asyncExample();
 `,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `2. 웹 페이지 URL + IP 주소는 HTTP 프로토콜을 사용하여 HTTP 요청 메세지를 생성한다.`,
 			},
 			{
@@ -3839,23 +4019,24 @@ Host: www.example.com
 				value: `HTTP 요청 메시지의 내용에는 요청한 페이지의 경로, HTTP 메소드(GET, POST 등), 헤더(Host 등), 요청 바디 등이 포함됩니다.`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `3. HTTP 요청 메세지는 TCP/IP 네트워크를 통해 TCP 프로토콜을 사용하여 인터넷을 거쳐 해당 IP 주소의 컴퓨터로 전송된다 이렇게 도착한 HTTP 요청 메세지는 HTTP 프로토콜을 사용하여 웹 페이지 URL 정보로 변환된다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `웹 서버는 HTTP 요청 메시지를 분석하여 요청된 작업을 수행하고, 이에 대한 응답을 클라이언트에게 반환합니다.`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `4. 웹 서버는 도착한 웹 페이지 URL 정보에 해당하는 데이터를 검색한다.`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `5. 검색된 웹 페이지 데이터는 또다시 HTTP 프로토콜을 사용하여 HTTP 응답 메세지를 생성한다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `HTTP 응답 메시지 생성`,
 			},
 			{
@@ -3899,16 +4080,16 @@ Hello, World!
         `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `이렇게 생성된 HTTP 응답 메시지는 클라이언트에게 전송될 수 있으며, 클라이언트는 이를 해석하여 적절한 작업을 수행합니다.`,
 			},
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `6. 이렇게 생성된 HTTP 응답 메세지는 TCP 프로토콜을 사용하여 인터넷을 거쳐 원래 컴퓨터로 전달된다.`,
 			},
 
 			{
-				type: ComponentType.NUMLIST,
+				type: ComponentType.STRINGLIST,
 				value: `7. 도착한 HTTP 응답 메세지는 HTTP 프로토콜을 이용하여 웹 페이지 데이터로 변환되고, 웹 브라우저에 의해 출력되어 사용자가 볼 수 있게 된다.`,
 			},
 		],
@@ -3926,7 +4107,8 @@ Hello, World!
 				value: `이벤트 바인딩은 발생하는 이벤트와 그 후에 어떤 일이 일어나는지를 알려주는 콜백 함수를 연결해주는 것을 말합니다. 이벤트 바인딩이는 총 3가지 방법이 있는데, HTML이벤트 핸들러, 전통적인 DOM핸들러, EventListener을 이용한 핸들러가있습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `HTML 이벤트 핸들러`,
 			},
 			{
@@ -3966,7 +4148,8 @@ Hello, World!
 				value: `이 예제는 버튼을 클릭할 때마다 콘솔에 메시지를 출력하는 HTML 이벤트 핸들러를 보여줍니다. 여기서는 버튼 요소의 onclick 속성을 사용하여 이벤트 핸들러를 바로 지정합니다. 이 방법은 HTML과 JavaScript가 혼용되는 문제가 있으며, 추천되는 방법은 아닙니다. 대신 JavaScript 코드에서 이벤트 핸들러를 바인딩하는 방법을 사용하는 것이 더 권장됩니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `전통적인 DOM 핸들러`,
 			},
 			{
@@ -4013,7 +4196,8 @@ Hello, World!
 				value: `이 예제는 버튼을 클릭할 때마다 콘솔에 메시지를 출력하는 전통적인 DOM 이벤트 핸들러를 보여줍니다. 여기서는 버튼 요소의 onclick 속성에 함수를 할당하여 이벤트 핸들러를 지정합니다. 이 방법은 HTML 이벤트 핸들러와 달리 JavaScript 코드로 이벤트 핸들러를 바인딩하므로 HTML과 JavaScript의 혼용 문제를 해결합니다. 그러나 하나의 이벤트에 하나의 핸들러만 할당할 수 있고, 핸들러에 인수를 전달하는 것이 불가능하며, 여러 개의 핸들러가 할당된 경우 마지막에 추가된 핸들러만 실행됩니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `EventListener을 이용한 핸들러`,
 			},
 			{
@@ -4092,7 +4276,8 @@ Hello, World!
 				value: `RESTful API(Representational State Transfer API)는 웹 서비스를 구축하기 위한 설계 방식 중 하나로, REST라는 아키텍처 스타일을 따르는 API로, 주로 HTTP 프로토콜을 기반으로하는 웹 서비스 아키텍처입니다. 자원, 메소드, 메시지 등을 정의하여 클라이언트-서버 간의 통신을 가능하게 합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `메시지(Message)`,
 			},
 			{
@@ -4102,7 +4287,8 @@ Hello, World!
 			`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `요청 메시지`,
 			},
 			{
@@ -4113,7 +4299,8 @@ Hello, World!
 			`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `요청(Request)`,
 			},
 			{
@@ -4146,7 +4333,8 @@ Hello, World!
 				value: `응답: 201 Created (성공 시)`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `응답 메시지`,
 			},
 			{
@@ -4160,7 +4348,8 @@ Hello, World!
 <b>HTTP 상태 코드</b>: 200 OK`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `예제) ID가 123인 사용자를 조회`,
 			},
 			{
@@ -4182,7 +4371,8 @@ Hello, World!
 HTTP 상태 코드: 201 Created`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `예제) 새로운 사용자를 추가`,
 			},
 			{
@@ -4204,7 +4394,8 @@ HTTP 상태 코드: 201 Created`,
 				value: `location: 새로 생성된 리소스의 URI를 나타냄 (선택적).`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `서버에서 응답 메시지 설계 팁`,
 			},
 			{
@@ -4217,7 +4408,8 @@ HTTP 상태 코드: 201 Created`,
 `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `자원(Resource)`,
 			},
 			{
@@ -4231,7 +4423,8 @@ HTTP 상태 코드: 201 Created`,
 				`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `메소드(Method) 메시지`,
 			},
 			{
@@ -4246,11 +4439,13 @@ HTTP 상태 코드: 201 Created`,
         <b>DELETE</b>: 서버에서 자원을 삭제하기 위해 사용됩니다. 클라이언트가 서버에게 특정 자원을 삭제하려는 경우 사용됩니다. 예를 들어, /todos/2에 DELETE 요청을 보내면 ID가 2인 할일을 삭제할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `REST의 주요 특징`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `클라이언트-서버 구조 (Client-Server)`,
 			},
 			{
@@ -4258,7 +4453,8 @@ HTTP 상태 코드: 201 Created`,
 				value: `클라이언트와 서버가 명확히 분리되어 있습니다. 클라이언트는 요청을 보내고, 서버는 이에 대한 응답을 제공합니다. 이로 인해 각 구성 요소가 독립적으로 발전할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `유니폼 인터페이스(일관적인 인터페이스)`,
 			},
 			{
@@ -4270,7 +4466,8 @@ HTTP 상태 코드: 201 Created`,
 				value: `예: GET /users/123 (특정 사용자 조회), POST /users (사용자 생성).`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `무상태성(Statelessness)`,
 			},
 			{
@@ -4280,7 +4477,8 @@ HTTP 상태 코드: 201 Created`,
         HTTP는 기본적으로 상태가 없는 프로토콜 입니다. 따라서 HTTP를 사용하는 웹 애플리케이션은 기본적으로 상태가 없는 구조를 따릅니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `캐시 가능 (Cacheable)`,
 			},
 			{
@@ -4288,7 +4486,8 @@ HTTP 상태 코드: 201 Created`,
 				value: `응답 데이터는 캐시 가능 여부를 명시할 수 있어, 클라이언트나 중간 서버가 동일한 요청에 대해 이전 응답을 재사용할 수 있습니다. 이는 성능을 향상시킵니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `계층화 시스템 (Layered System)`,
 			},
 			{
@@ -4296,7 +4495,8 @@ HTTP 상태 코드: 201 Created`,
 				value: `클라이언트는 서버와 직접 통신하는지, 아니면 프록시나 게이트웨이 같은 중간 계층을 거치는지 알 필요가 없습니다. 이는 보안과 확장성을 높입니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `리소스 중심 (Resource-Based)`,
 			},
 			{
@@ -4304,7 +4504,8 @@ HTTP 상태 코드: 201 Created`,
 				value: `모든 데이터는 리소스로 표현되며, 클라이언트는 리소스를 조작합니다. 리소스는 JSON, XML 등의 형식으로 표현됩니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `HTTP 프로토콜 활용`,
 			},
 			{
@@ -4312,7 +4513,8 @@ HTTP 상태 코드: 201 Created`,
 				value: `REST는 주로 HTTP를 기반으로 동작하며, 상태 코드(200 OK, 404 Not Found 등)를 사용해 요청의 성공/실패 여부를 전달합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `기타`,
 			},
 			{
@@ -4424,11 +4626,13 @@ greet.apply(person, ['Good morning']); // "Good morning, Alice!"`,
 		preview: `화살표함수는 함수를 간단하게 표현할 수 있는 ES6문법 이다. 일반 함수는 this가 동적으로 바인딩되는 반면, 화살표 함수는 바로 상위 스코프의 this와 같으며 화살표함수는 프로토타입 프로퍼티를 가지고있지 않기때문에 생성자 함수로 사용이어렵다. `,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `선언방식`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `일반 함수 선언 방식`,
 			},
 			{
@@ -4440,7 +4644,8 @@ function square(x) {
         `,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `화살표 함수 선언 방식       
         `,
 			},
@@ -4453,7 +4658,8 @@ const square = (x) => {
         `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `this 바인딩`,
 			},
 			{
@@ -4461,7 +4667,8 @@ const square = (x) => {
 				value: `일반 함수는 this가 동적으로 바인딩되는 반면 화살표 함수는 바로 상위 스코프의 this와 같다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `일반함수`,
 			},
 			{
@@ -4486,11 +4693,12 @@ cat.foo1();	// undefined`,
 			},
 
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `일반 함수는 함수를 호출할 때 함수가 어디에서 호출되었는지에 따라 this에 바인딩할 객체가 동적으로 결정된다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `화살표 함수`,
 			},
 			{
@@ -4513,11 +4721,12 @@ cat.foo1();	// meow
 				value: `화살표 함수에서의 this는 자기가 정의된 스코프에 존재하는 this를 가르킨다. 즉 자기의 상위에 있는 스코프의 this를 가르키는 것이다. 따라서 내부함수에 어떠한 바인딩도 하지 않았지만 화살표 함수로 함수를 정의했기 때문에 this가 cat 가르키게 된다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `화살표 함수는 함수를 선언할 때 this에 바인딩할 객체가 정적으로 결정된다. 동적으로 결정되는 일반 함수와는 달리 화살표 함수의 this 언제나 상위 스코프의 this를 가리키는 것이다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `생성자 함수로 사용`,
 			},
 			{
@@ -4541,7 +4750,8 @@ console.log(person2.age); // 출력: 25
         `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `arguments 전달`,
 			},
 			{
@@ -4549,7 +4759,8 @@ console.log(person2.age); // 출력: 25
 				value: `일반함수에서는 함수 내에서 모든 전달된 인자를 포함하고 있는 arguments변수가 전달되어 사용할 수 있지만, 화살표 함수에서는 arguments변수가 전달되지 않는다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `일반 함수`,
 			},
 			{
@@ -4562,7 +4773,8 @@ regularFunction(1, 2, 3); // 출력: { '0': 1, '1': 2, '2': 3
 }`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `화살표 함수`,
 			},
 			{
@@ -4601,7 +4813,8 @@ arrowFunctionWithRest(1, 2, 3); // 출력: [1, 2, 3]`,
 				value: `HTML(하이퍼텍스트 마크업 언어)에서 속성(Attribute)과 프로퍼티(Property)는 특정 요소에 대한 정보를 지정하는 데 사용되는 용어입니다. 그러나 두 용어 간에는 몇 가지 차이가 있습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `속성(Attribute)`,
 			},
 			{
@@ -4622,7 +4835,8 @@ arrowFunctionWithRest(1, 2, 3); // 출력: [1, 2, 3]`,
 				value: `위의 예에서 href는 속성이며, "https://www.example.com"은 해당 속성의 값입니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `프로퍼티(Property)`,
 			},
 			{
@@ -4642,7 +4856,7 @@ var element = document.getElementById("myDiv");
 console.log(element.id); // "myDiv"`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `위의 예에서 HTML에서는 id라는 속성을 사용하고, JavaScript에서는 id라는 프로퍼티를 사용하여 해당 값을 가져옵니다.`,
 			},
 			{
@@ -4757,7 +4971,8 @@ console.log(boundGetX()); // 42`,
          async나 defer 속성을 사용하여 스크립트를 비동기적으로 로드할 수 있습니다. 이를 통해 스크립트 로드가 병렬적으로 이루어지므로 페이지 파싱이 중단되지 않습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `HTML 코드`,
 			},
 			{
@@ -4777,7 +4992,8 @@ console.log(boundGetX()); // 42`,
 </html>`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `script.js`,
 			},
 			{
@@ -4789,7 +5005,8 @@ console.log(boundGetX()); // 42`,
 				value: `여기서 async와 defer 속성을 가진 <script> 태그가 있습니다. 이 두 가지 속성의 차이를 살펴보겠습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `async 속성`,
 			},
 			{
@@ -4799,7 +5016,8 @@ console.log(boundGetX()); // 42`,
               따라서 console.log가 실행될 때까지 HTML 파싱은 멈추게 됩니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `defer 속성`,
 			},
 			{
@@ -4857,7 +5075,8 @@ console.log(boundGetX()); // 42`,
 		preview: `"He is just some guy I work with!"는 상황에 따라 여러 의미로 해석될 수 있습니다. 가장 일반적인 해석은 아래와 같습니다.`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `"He is just some guy I work with!" (그냥 직장 동료라고!)`,
 			},
 			{
@@ -4865,7 +5084,8 @@ console.log(boundGetX()); // 42`,
 				value: `는 상황에 따라 여러 의미로 해석될 수 있습니다. 가장 일반적인 해석은 아래와 같습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `"work with" (~와 함께 일하다 [사람/집단])`,
 			},
 			{
@@ -4873,7 +5093,8 @@ console.log(boundGetX()); // 42`,
 				value: `I work whith a great team (저는 훈륭한 팀과 함꼐 일합니다.)`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `"work for" + (~를 위해 일하다[고용관계]) `,
 			},
 			{
@@ -4881,7 +5102,8 @@ console.log(boundGetX()); // 42`,
 				value: `Mike works for a computer company (마이크는 컴퓨터 회사에서 일합니다.)`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `"work at" (~에서 일하다[장소])`,
 			},
 			{
@@ -4889,7 +5111,8 @@ console.log(boundGetX()); // 42`,
 				value: `He works at the hospital (그는 병원에서 일합니다.)`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `"work in" (~에서 일하다 [분야/부서])`,
 			},
 			{
@@ -4907,11 +5130,12 @@ console.log(boundGetX()); // 42`,
 		preview: `"There is gotta be = There is got to be!"는 분명히 ~이 있을 것이다.`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `"have got to = gotta" (~해야한다. ~임이 틀림없다.)`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>have to/ have got to/ gotta</b>는 <span style="color: red;">필요성</span>이나 <span style="color: red;">의무</span>를 나타내는 표현이다.`,
 			},
 			{
@@ -4924,8 +5148,8 @@ console.log(boundGetX()); // 42`,
 				value: `<b>Gotta (꼭 해야 한다, 반드시 해야 한다)</b> : Gotta는 have got to의 구어체 축약형으로, 강한 필요성이나 의무를 표현할 때 사용됩니다. 이는 매우 비공식적인 상황이나 대화에서 자주 사용됩니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
-				propsType: 'TIP' as unknown as promptType,
+				type: ComponentType.GUIDE_MESSAGE,
+				promptTypeProps: 'TIP',
 				value: `<b>구어체</b>는 일상적인 대화에서 주로 사용되는 말의 표현 방식입니다. 글로 쓰는 문어체와는 달리, 자연스럽고 자유로운 표현이 특징입니다. 구어체는 사람들이 실제로 대화할 때 쓰는 어휘, 문장 구조, 억양 등을 반영하며, 문법적 완전성을 꼭 따르지 않을 수도 있습니다.`,
 			},
 		],
@@ -4948,7 +5172,8 @@ console.log(boundGetX()); // 42`,
 				value: `<b>CORS(Cross-Origin Resource Sharing)</b>는 웹 브라우저에서 실행되는 스크립트가 <b>도메인 혹은 포트가 다른 출처(origin)</b>에서 외부서버의 자원을 요청할때 생긴다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `출처(Origin) 주요 개념`,
 			},
 			{
@@ -4968,7 +5193,8 @@ CORS는 서버 측에서 크로스 오리진 요청을 허용하거나 제한하
 			},
 
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `프론트 요청`,
 			},
 			{
@@ -4983,7 +5209,8 @@ Origin: https://example.com
 			},
 
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `서버 응답`,
 			},
 			{
@@ -4995,7 +5222,11 @@ Origin: https://example.com
 				value: `Access-Control-Allow-Origin: https://example.com
 `,
 			},
-			{ type: ComponentType.H4, value: `Node.js (Express)` },
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `Node.js (Express)`,
+			},
 			{
 				type: ComponentType.CODE,
 				value: `const express = require('express');
@@ -5015,7 +5246,8 @@ app.get('/data', (req, res) => {
 app.listen(3000);`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Nginx (웹 서버 설정)`,
 			},
 			{
@@ -5046,12 +5278,13 @@ app.listen(3000);`,
 				value: `고전적 조건화(classical conditioning)`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `[페이지 23] </br>파블로프가 발견한 것은 소위 <b>고전적 조건화(classical conditioning)</b>라는 것이다. </br>즉 사람이 눈을 깜빡이거나 깜짝 놀라거나 침을 흘리는 것과 같은 무조건적인 동물 반사를 조건화하게 되면, 새로운 자극앞에서도 그런 반응이 나타날 수 있다는 것이다.
 개가 음식을 보고 종소리를 연상하면 나중에 종소리만 들려도 침을 흘린다는 파블로프의 그 유명한 이론 말이다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `감상평`,
 			},
 			{
@@ -5104,13 +5337,14 @@ app.listen(3000);`,
 				value: `행동과학`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `
 				[페이지 26] </br>
 				한 생명체가 어떻게 학습을 하고 우리가 그 학습 결과를 어떻게 <b>예측 통제</b>할 수 있는가에 관한 <b>수량화가 가능한 데이터</b>를 만들어 냈다. 행동의 예측과 통제라는 성과와 더불어 <b>통계학 분포도와 막대 그래프 그리고 수학이 동반되는 진정한 의미의 행동과학</b>이 탄생한 것이었다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `감상평`,
 			},
 			{
@@ -5134,7 +5368,8 @@ app.listen(3000);`,
 </b>에서 <b>비동기 작업</b>으로 <b>동시성을 지원하는 메커니즘</b>입니다. 이벤트 루프는 이벤트 처리, 콜백실행, 태스크 큐 관리 등을 담당하여 비동기 작업을 효율적으로 처리 합니다. 요청된 비동기 작업이 완료되면 콜백이 태스크 큐로 이동하고 콜스택이 빈 상태가 되면 이벤트 루프는 큐에서 첫번째 콜백을 꺼내와 콜스택에 넣어주고 콜스택에서 콜백함수를 실행 합니다. 이 과정을 반복하여 비동기 작업을 순차적으로 처리 합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `코드 예제 1`,
 			},
 			{
@@ -5156,7 +5391,8 @@ Promise.resolve()
 console.log("5");`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `출력`,
 			},
 			{
@@ -5168,7 +5404,8 @@ console.log("5");`,
 2`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `설명`,
 			},
 			{
@@ -5181,7 +5418,7 @@ setTimeout은 Task Queue에서 마지막에 실행 ("2")
 			},
 
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `setTimeout은 지연 시간이 비록 <b>0ms</b>라도 Microtask가 우선`,
 			},
 			{
@@ -5189,7 +5426,8 @@ setTimeout은 Task Queue에서 마지막에 실행 ("2")
 				value: `<img style="border-radius:15px" src="https://blog.kakaocdn.net/dn/bfVyEB/btsvNysLSVD/Qg3G7SIl2KrYMdfslBw50k/img.gif">`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `코드 예제 2`,
 			},
 			{
@@ -5215,7 +5453,8 @@ for (let i = 0; i < 3; i++) {
 console.log("끝");`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `실행 순서와 설명`,
 			},
 			{
@@ -5251,7 +5490,8 @@ Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Pro
 `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `이벤트 루프의 동작 요약`,
 			},
 			{
@@ -5303,11 +5543,12 @@ Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Pro
 				<b>Event Loop</b> : 스택과 큐 사이의 작업 이동을 조정.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `Call Stack (호출 스택)`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `현재 실행 중인 함수 호출을 추적합니다. `,
 			},
 			{
@@ -5323,11 +5564,12 @@ Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Pro
 				value: `a와 b가 스택에 순차적으로 쌓였다가 제거됩니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `Heap (힙)`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `객체와 데이터가 저장되는 메모리 공간입니다.`,
 			},
 			{
@@ -5343,11 +5585,12 @@ Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Pro
 				value: `위 코드에서 obj는 스택에 참조로 저장되고, { name: "myName" }는 Heap에 저장되며 비동기 작업에서 생성된 객체(예: Promise 객체)도 Heap에 저장되며, 이후 Microtask Queue나 Task Queue에서 참조됩니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `Web API`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `setTimeout, fetch, DOM 이벤트 등 비동기 작업을 처리합니다.`,
 			},
 			{
@@ -5363,7 +5606,8 @@ Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Pro
 				value: `1초 후 콜백을 Task Queue에 추가해준다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `Task Queue (Macro Task Queue)`,
 			},
 			{
@@ -5371,7 +5615,8 @@ Call Stack이 비어짐: 이벤트 루프가 Microtask Queue를 확인하고 Pro
 				value: `Web API에서 완료된 비동기 작업(예: setTimeout, setInterval, I/O)의 콜백이 대기하는 큐입니다. (FIFO 방식) 이벤트 루프가 Call Stack이 비었을 때 Task Queue에서 작업을 가져와 실행 할수 있도록 합니다. Microtask Queue보다 우선순위가 낮습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `Microtask Queue (마이크로 큐)`,
 			},
 			{
@@ -5391,7 +5636,8 @@ console.log("End");`,
 이유: Microtask Queue(Promise)가 Task Queue(setTimeout)보다 먼저 처리됨.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `Event Loop (이벤트 루프)`,
 			},
 			{
@@ -5399,7 +5645,8 @@ console.log("End");`,
 				value: `Call Stack, Microtask Queue, Task Queue를 감시하며 작업을 적절히 스택으로 이동시킵니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `동작 순서`,
 			},
 			{
@@ -5413,7 +5660,8 @@ Task Queue에서 작업을 하나씩 꺼내 실행.`,
 				value: `Heap에 저장된 데이터와 큐에 대기 중인 콜백을 연결하며, 싱글 스레드 환경에서 비동기 작업을 조율한다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `자바스크립트 런타임 전체 흐름`,
 			},
 			{
@@ -5425,7 +5673,8 @@ let obj = { message: "Heap" };
 console.log(obj.message);`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Heap`,
 			},
 			{
@@ -5433,7 +5682,8 @@ console.log(obj.message);`,
 				value: `Heap: { message: "Heap" } 객체가 Heap에 저장되고, obj는 스택에서 참조한다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Call Stack`,
 			},
 			{
@@ -5444,7 +5694,8 @@ Promise.resolve().then 호출 → Promise 객체는 Heap에, .then 콜백은 Mic
 console.log(obj.message) 실행 후 제거.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Web API`,
 			},
 			{
@@ -5452,7 +5703,8 @@ console.log(obj.message) 실행 후 제거.`,
 				value: `setTimeout이 0초 후 콜백을 Task Queue에 추가.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Event Loop`,
 			},
 			{
@@ -5461,7 +5713,8 @@ console.log(obj.message) 실행 후 제거.`,
 Task Queue에서 Timeout 콜백 실행.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `출력`,
 			},
 			{
@@ -5496,12 +5749,13 @@ Task Queue에서 Timeout 콜백 실행.`,
 				value: `변동 강화 계획(variable schedules of reinforcement)`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `[페이지 26] </br><b>변동 강화 계획(variable schedules of reinforcement)</b> 이라고 명명한 실험을 계속 해 나갔다. 그리고 마침내 무엇보다 중요한 발견을 했다. 그는 동물들이 지랫대를 누를 때 부 정기적으로 음식을 주었다, 대부분의 경우에는 음식이 나오지 않았고 아주 가끔식 가령 40번을 누르거나 60번을 눌러야 음식이 나왔다, 직관적으로 보면 보상을 아무 때나 주거나 드물게 주면 좌절감이 생겨 행동이 소멸될 것 같지만 실제로는 그렇지 않았다. 스키너는 음식이라는 보상을 간헐적으로 줄 때 쥐들이 그 결과와 무관하게 지렛대를 계속 누른다는 사실을 알아냈다. 보상이 비저이적으로 이루어질 때 행동이 소멸되기가 가장 어렵다는 사실을 발견했다.</br></br>
 				보상이 지속적으로 생기지 않는데도 어리석은 행동을 계속하는 이유가 무엇인지, 왜 남자들은 위험할 정도까지 주식 투자를 하는가? 그것은 소위 간헐적 강화라는 것으로 스키너는 그 메커니즘과 우연성이 가진 강방석을 여실히 보여 주었다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `감상평`,
 			},
 			{
@@ -5529,7 +5783,8 @@ Task Queue에서 Timeout 콜백 실행.`,
 				value: `useCallback과 useMemo는 둘 다 ReactHooks 입니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `useCallback`,
 			},
 			{
@@ -5575,11 +5830,12 @@ function Parent() {
 }`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `여기서 handleClick은 useCallback으로 감싸져 있어, Parent가 리렌더링되더라도 동일한 함수 참조를 유지합니다. </br>따라서 Child 컴포넌트는 불필요하게 리렌더링되지 않습니다(단, React.memo와 함께 사용하면 더 효과적).`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `useMemo`,
 			},
 			{
@@ -5627,9 +5883,9 @@ function ExpensiveComponent() {
 				value: `여기서 expensiveResult는 number가 변경될 때만 새로 계산되고, 그렇지 않으면 이전 값을 재사용합니다. Computing... 로그는 number가 바뀔 때만 출력됩니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `두 훅 모두 성능 최적화를 위한 도구이지만, 남용하면 코드가 복잡해질 수 있으니 정말 필요한 상황(예: 자주 리렌더링되거나 계산 비용이 큰 경우)에만 사용하는 것이 좋습니다.`,
-				propsType: 'DANGER' as unknown as promptType,
+				promptTypeProps: 'DANGER',
 			},
 		],
 	},
@@ -5647,12 +5903,13 @@ function ExpensiveComponent() {
 				value: `인간에게 자유 의지가 없다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `[페이지 31] </br>스키너 박사가 실험을 통해 도출해낸 추론은 어떻습니까? </br>인간에게 자유 의지가 없다는 것 말입니다. </br>우리가 오로지 강화물에 의해 지배된다는 그의 이런을 믿으시나요?"</br>
 케이건 교수가 물었다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `감상평`,
 			},
 			{
@@ -5692,9 +5949,9 @@ function ExpensiveComponent() {
 반면, 키를 제공하지 않으면 리액트는 기본적으로 배열의 인덱스를 키로 사용합니다. 하지만 인덱스를 키로 사용하는 것은 <b>리스트의 순서가 변경되거나 항목이 추가/삭제될 때 문제가 발생</b>할 수 있는데 예를 들어, 항목의 순서가 바뀌면 인덱스가 해당 항목의 고유성을 보장하지 못해 리액트가 잘못된 요소를 업데이트하거나 전체 목록을 다시 렌더링하게 될 가능성이 높아집니다. `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `이는 성능 저하뿐만 아니라 UI의 일관성을 해칠 수 있는 버그를 유발할 수 있습니다.`,
-				propsType: 'DANGER' as unknown as promptType,
+				promptTypeProps: 'DANGER',
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -5702,7 +5959,8 @@ function ExpensiveComponent() {
 따라서 키(Key)로는 리스트 내에서 고유하고 안정적인 값(예: 데이터베이스의 ID나 UUID)을 사용하는 것이 권장됩니다. 임시로 생성된 값이나 변동성이 높은 값은 피해야 하며, 키가 고유하지 않으면 리액트가 경고를 출력할 수도 있습니다. 이를 통해 리액트의 재조정(reconciliation) 과정이 최적화되고, 사용자 경험과 애플리케이션 성능이 향상됩니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `왜 인덱스를 키로 사용하면 문제가 생기는가?`,
 			},
 			{
@@ -5724,9 +5982,9 @@ React 입장에서는 키 0이 A에서 B로, 키 1이 B에서 A로 바뀐 것으
 `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: ` 인덱스를 키로 사용하면 리스트의 항목이 추가되거나 삭제될 때 키 값이 다시 변경되기 때문에 문제가 발생합니다. 인덱스는 항목의 본질적인 고유성을 나타내는 것이 아니라 단순히 리스트 내에서의 위치만을 나타내기 때문입니다. </br>React는 키를 통해 "이 항목이 이전과 동일한 항목인가?"를 판단하는데, 인덱스는 그 기준으로 부적합합니다.`,
-				propsType: 'WARNING' as unknown as promptType,
+				promptTypeProps: 'WARNING',
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -5774,12 +6032,13 @@ return (
 			},
 
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `[페이지 32]</br>신경학자의 가정에 따르면 우리는 전두엽 피질을 통해 독립적으로 사고하고 과거에 비추어 미래를 상상하며, 계획을 세우는 방법을 배운다. 또한 모든 창의성과 놀라운 탈선이 이곳에서 비롯된다. 하지만 코슬린 교수의 의견은 이렇다. 우리의 인식 가운데 일부분만이 전두엽 피질에 의해 중재되고 그 밖의 학습은 상당 부분 습관에 의해 이루어 집니다. 스키너 박사는 실험을 통해 그러한 습관들의 신경 물질을 우리로 하여금 발견하게 해주었지요.
 				`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `감상평`,
 			},
 			{
@@ -5794,9 +6053,9 @@ return (
 				창의적 문제 해결은 전두엽 피질에서 시작될 수 있지만, 반복된 경험과 패턴 인식(기저 신경절의 역할)이 이를 뒷받침할 수 있다고 생각하면 된다. </br></br>이는 스키너의 행동주의 이론을 현대 신경과학의 맥락에서 재해석하려는 시도로, 뇌의 두 영역이 상호보완적으로 작동한다는 관점을 제시한 것이라 보았다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `위에서  전두엽 피질(frontal cortex) 설명시 인간의 <b>이성과 야망</b>이 앞뒤로 연결 되어 있다는 내용은 "이성"은 <b>논리적 사고</b>, 계획, 문제 해결과 같은 의식적 기능을 뜻하고, "야망"은 목표 지향적 행동이나 동기 부여와 관련된 <b>감정적·인지적 요소</b>를 의미할 가능성으로 해석 한다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 		],
 	},
@@ -5819,12 +6078,13 @@ return (
 			},
 
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `[페이지 36]</br>그는 상자라는 새로운 장치를 고안하면서 <b>인간의 자유에 대해 무한한 자부심을 품고 있던 서구 사상에 과감히 맞서는 의문을 제기함과 동시에 인간의 자유가 얼마나 견고한가에 관하여 엄청난 의구심을 품었다.</b> 환원주의에 대한 우리의 두려움, 실제로 인간이란 자동화된 일련의 반응에 불과하다는 우리의 의구심은 많은 사람들의 생각처럼 산업화 시대의 산물이 아니다. 그것은 훨씬 더 오래전부터 존재해온 방식이다. 오이디푸스가 치밀하게 짜여진 자신의 운명에 분노하고, 길가메시가 신이 짜놓은 계획에서 벗어나기 위해 안간힘을 쓴 이래로 <b>우리 인간들은 자신의 행동을 얼마나 주체적으로 지휘할 수 있는가의 문제에 의문을 품어 왔으며, 그것을 심각하게 걱정해 왔다.</b> 그리고 스키너의 상자는 새로운 광채를 발하는 20세기 기계들의 그림자 속에 영원히 반복되는 이러한 근심들을 담아낸 데모나 그릇이었다.
 				`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `감상평`,
 			},
 			{
@@ -5842,9 +6102,9 @@ return (
 `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>환원주의(reductionism)</b></br>환원주의는 복잡한 현상이나 개념을 더 단순한 구성 요소로 분해하여 설명하려는 접근 방식을 말한다. 철학, 과학, 심리학 등 다양한 분야에서 사용되며, 기본적으로 "전체는 부분들의 합"이라는 전제에서 출발한다. 환원주의는 복잡한 것을 이해하기 쉽게 만들고, 분석 가능한 단위로 나눠 탐구할 수 있게 해주는 강력한 도구로 여겨지지만, 동시에 전체의 특성이나 맥락을 간과할 수 있다는 비판도 받는다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 		],
 	},
@@ -5865,7 +6125,8 @@ return (
 				value: `자바스크립트는 단일 스레드(Single-threaded) 언어로, 한 번에 하나의 작업만 처리할 수 있다. 이는 코드가 순차적으로 실행된다는 의미인데, 만약 모든 작업을 동기적으로 처리한다면 시간이 오래 걸리는 작업(예: 서버 요청, 파일 읽기)이 끝날 때까지 프로그램 전체가 멈춰버릴 수 있다. 자바스크립트에서는 이런 문제를 해결하기 위해 비동기 함수를 사용하는데 이는 시간 지연 작업을 효율적으로 처리하고, 사용자 경험을 개선하며, 자원을 최적화 할수 있게 해준다. 이러한 특성 덕분에 비동기 프로그래밍은 현대 웹 개발에서 필수적인 요소로 자리 잡았으며, Promise와 async/await를 활용하면 더욱 강력하고 깔끔한 코드를 작성할 수 있다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `시간 지연 작업 처리에 대해 응답성 향상`,
 			},
 			{
@@ -5877,7 +6138,8 @@ return (
 사용자가 회원가입 버튼을 눌렀을 때 서버에 데이터를 전송하고 응답을 기다리는 동안 "로딩 중" 메시지를 표시하며, 사용자가 화면을 스크롤하거나 다른 버튼을 클릭할 수 있게 해준다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `사용자 경험(UX) 개선`,
 			},
 			{
@@ -5886,7 +6148,8 @@ return (
 `,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `자원 효율성`,
 			},
 			{
@@ -5894,7 +6157,8 @@ return (
 				value: `작업이 완료되기를 기다리는 동안 CPU와 메모리를 유휴 상태로 두지 않고, 다른 작업을 수행할 수 있어 자원을 효율적으로 활용할수 있다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `현실적인 애플리케이션 요구사항`,
 			},
 			{
@@ -5902,7 +6166,8 @@ return (
 				value: `현대 웹 애플리케이션은 다중 작업, 즉  데이터 로드, 이미지 렌더링, 사용자 입력 처리을 동시에 처리해야 하는데, 이를 비동기 방식으로만 구현할 수 있다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `가독성과 유지보수성 개선 aync/await`,
 			},
 			{
@@ -5959,7 +6224,8 @@ fetchUserData();`,
 				value: `위 코드에서 fetch는 비동기적으로 데이터를 가져오는 함수이다. await를 사용해 응답이 완료될 때까지 기다린 후, JSON 데이터를 파싱한다. 에러가 발생하면 catch 블록에서 처리된다. async/await 방식이 훨씬 읽기 쉽고 디버깅도 간편해진다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Promise란`,
 			},
 			{
@@ -5967,7 +6233,8 @@ fetchUserData();`,
 				value: `Promise는 비동기 작업을 다루기 위한 객체로, 작업의 성공(resolve) 또는 실패(reject) 상태를 명확히 관리할 수 있고 비동기 작업의 흐름을 체계적으로 처리하는 데 유용합니다. `,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `구성`,
 			},
 			{
@@ -5998,7 +6265,8 @@ myPromise
   });`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `상태`,
 			},
 			{
@@ -6052,7 +6320,8 @@ failPromise
   });`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `메서드`,
 			},
 			{
@@ -6085,11 +6354,13 @@ fetchData()
 				value: `Promise 객체는 비동기 작업의 성공/실패를 처리하며 .then()과 .catch()로 결과를 핸들링합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `async/await와 Promise의 차이`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `에러 처리`,
 			},
 			{
@@ -6120,7 +6391,8 @@ async function getData() {
 }`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `확장성과 병렬 처리`,
 			},
 			{
@@ -6152,7 +6424,8 @@ async function getData() {
 				value: `자바스크립트의 호이스팅(hoisting)은 코드를 한 줄 한 줄 실행하기에 앞서, 선언된 변수, 함수, 클래스 등의 선언문을 코드의 최상단으로 끌어올려 런타임 이전에 한 번 실행해 메모리에 미리 올려놓는 과정을 의미합니다. 이는 자바스크립트 엔진이 코드를 실행하기 전에 실행 컨텍스트(Execution Context)를 생성하며 변수와 함수 선언을 처리하는 방식에서 비롯됩니다. 호이스팅 덕분에 개발자는 코드의 물리적 위치와 상관없이 변수나 함수를 사용할 수 있지만, 이로 인해 예상치 못한 동작이 발생할 수도 있어 주의가 필요합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `변수 호이스팅`,
 			},
 			{
@@ -6165,7 +6438,8 @@ async function getData() {
 `,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `함수 선언과 호이스팅`,
 			},
 			{
@@ -6189,13 +6463,14 @@ var bar = function() {
 				value: `위 예시에서 bar는 var로 선언되었으므로 undefined로 초기화된 상태에서 함수 호출이 시도되어 에러가 발생합니다. 이는 사용된 변수 선언 키워드(var, let, const)의 초기화 규칙을 따르기 때문입니다. 다만, 발생하는 에러의 종류는 키워드에 따라 달라집니다. `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>객체 환경 레코드(Object Environment Record)</b>: 주로 전역 스코프나 with 문에서 사용되며, 변수와 함수가 객체의 속성처럼 저장됩니다.</br>
 <b>선언적 환경 레코드(Declarative Environment Record)</b>: 함수 스코프나 블록 스코프에서 사용되며, let, const와 같은 변수가 저장됩니다.
 `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `실행 컨텍스트(Execution Context)`,
 			},
 			{
@@ -6204,11 +6479,12 @@ var bar = function() {
 자바스크립트 엔진이 코드를 실행할 때, 해당 코드가 올바르게 동작할 수 있도록 변수, 함수, 스코프, this 바인딩 등을 추적하고 관리하기 위해 실행 컨텍스트를 생성합니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `쉽게 말해, 실행 컨텍스트는 <b>현재 실행 중인 코드와 그 코드를 실행하기 위한 환경 정보</b>를 담고 있는 <b>일종의 컨테이너</b>라고 볼 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `생성 단계(Creation Phase)`,
 			},
 			{
@@ -6227,7 +6503,8 @@ let과 const는 선언만 되고 초기화는 나중에 이루어집니다(TDZ).
 				value: `현재 컨텍스트에서 접근 가능한 외부 변수들을 스코프 체인(Scope Chain)에 연결합니다. 이는 중첩된 함수에서 상위 스코프를 참조할 수 있게 합니다. 현재 실행 중인 코드에서 this가 가리킬 객체가 결정됩니다. 함수 호출 방식(예: 메서드 호출, 일반 함수 호출 등)에 따라 달라집니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `실행 단계(Execution Phase)`,
 			},
 			{
@@ -6235,7 +6512,8 @@ let과 const는 선언만 되고 초기화는 나중에 이루어집니다(TDZ).
 				value: `실행 컨텍스트(Execution Context) 실행 단계(Execution Phase)에서는 생성 단계가 완료되면 코드가 한 줄씩 실행됩니다. 이 단계에서 변수에 값이 할당(Assignment)되고, 함수가 호출되며, 실제 로직이 수행됩니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `실행 컨텍스트의 종류`,
 			},
 			{
@@ -6268,7 +6546,7 @@ let과 const는 선언만 되고 초기화는 나중에 이루어집니다(TDZ).
 				value: `함수가 선언될 때 자동으로 생성되는 렉시컬 환경에 대한 설명이다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `클로저는 함수가 자신이 <b>선언된 환경을 기억</b>하고, 그 환경에 있는 <b>변수나 데이터를 계속 사용</b>할 수 있게 해주는 메커니즘이다.`,
 			},
 			{
@@ -6278,7 +6556,8 @@ let과 const는 선언만 되고 초기화는 나중에 이루어집니다(TDZ).
 예를 들어서, 클로저는 아래와 같이 작동한다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `외부함수 내부에 함수가 존재하는 예제`,
 			},
 			{
@@ -6326,7 +6605,8 @@ console.log(counter()); // 3`,
 즉, 클로저는 함수와 그 함수가 접근할 수 있는 환경이 함께 묶여서, 유연하면서도 강력한 코드를 작성할 수 있게 해주는 자바스크립트의 핵심 기능 중 하나이다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `실행 컨텍스트와 렉시컬 스코프`,
 			},
 			{
@@ -6345,7 +6625,8 @@ console.log(counter()); // 3`,
 여기서 중요한 건 렉시컬 스코프인데 렉시컬 스코프는 함수가 어디서 선언되었는지에 따라 그 함수가 접근할 수 있는 변수의 범위가 정해진다. 즉, 함수가 작성된 위치에 따라 "정적으로" 스코프가 결정된다는 뜻이다. 이 렉시컬 스코프는 실행 컨텍스트가 만들어질 때 함수의 환경을 기억하는 데 핵심적인 역할을 한다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `스코프와 스코프 체인`,
 			},
 			{
@@ -6354,7 +6635,8 @@ console.log(counter()); // 3`,
 				위에서 말한 스코프 체인은 함수가 선언된 렉시컬 스코프를 기반으로, 변수에 접근할 때 따라가는 일종의 "탐색 경로"이다. 자바스크립트는 내부 함수에서 참조할 변수가 현재 스코프에 없으면, 그 상위 스코프로 범위를 넓혀 가며 찾아 올라가는데 실행 컨텍스트 안에 저장된 스코프 체인이 바로 이 과정을 가능하게 해줍니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `클로저의 탄생`,
 			},
 			{
@@ -6365,7 +6647,8 @@ console.log(counter()); // 3`,
 `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `가비지 컬렉션과 참조`,
 			},
 			{
@@ -6403,11 +6686,13 @@ inner는 스코프 체인을 통해 outer의 렉시컬 환경(그 안에 x = 10 
 `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `렉시컬 환경`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `렉시컬 환경의 구성 요소`,
 			},
 			{
@@ -6416,7 +6701,8 @@ inner는 스코프 체인을 통해 outer의 렉시컬 환경(그 안에 x = 10 
 외부 렉시컬 환경 참조(Outer Reference): 상위 스코프의 렉시컬 환경을 가리킴.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `스코프 체인(Scope Chain)과 렉시컬 환경`,
 			},
 			{
@@ -6427,7 +6713,8 @@ inner는 스코프 체인을 통해 outer의 렉시컬 환경(그 안에 x = 10 
 `,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `렉시컬 스코프(Lexical Scope)와 렉시컬 환경`,
 			},
 			{
@@ -6436,7 +6723,8 @@ inner는 스코프 체인을 통해 outer의 렉시컬 환경(그 안에 x = 10 
 `,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `this 값과 실행컨텍스트`,
 			},
 			{
@@ -6444,7 +6732,8 @@ inner는 스코프 체인을 통해 outer의 렉시컬 환경(그 안에 x = 10 
 				value: `실행 컨텍스트는 렉시컬 환경(Lexical Environment), 변수 객체(Variable Object), 그리고 this 바인딩을 포함하는 렉시컬 환경보다 더 큰 구조이다. 렉시컬 환경은 그 안에서 변수와 스코프만 다루고, this는 함수가 "어떻게 호출되었는지"에 따라 동적으로 결정 한다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `예제로 확인`,
 			},
 			{
@@ -6497,18 +6786,20 @@ inner의 렉시컬 환경: 로컬 변수 없음, 외부 참조는 outer의 렉�
 		preview: `"I'm sure you did a good job. 난 네가 잘했을 거라고 확신해"`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `case 1`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>I'm sure you did a good job.</b></br>
 				 "난 네가 잘했을 거라고 확신해" 
 				`,
 			},
 
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `문장 분석`,
 			},
 			{
@@ -6519,11 +6810,12 @@ a good job → 좋은 일, 잘한 일
 `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `그런데 good 앞에 왜 a가 붙을까?`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `"job"은 <b>가산명사</b>라서 <b>단수</b>로 쓰일 때는 반드시 <b>관사(a/an/the)</b>가 필요합니다.</br></br>
 
 ✅ "a good job" (O) → "좋은 하나의 일"</br>
@@ -6533,21 +6825,23 @@ a good job → 좋은 일, 잘한 일
 "Have a nice day!" (좋은 하루 보내!)</br></br>
 ✅ "a big mistake" → (실수도 가산명사)</br>
 "That was a big mistake." (그건 큰 실수였어.)`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `case 2`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>I'm sure things will work out.</b></br>
 				 "나는 확실해, 모든 일이 잘 풀릴 거야."
 				`,
 			},
 
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `문장 분석`,
 			},
 			{
@@ -6558,18 +6852,20 @@ will work out → "잘 해결될 것이다" / "잘 풀릴 것이다"
 `,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `case 3`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>I'm certain that learning English is a good thing for my future.</b></br>
 				"나는 영어를 배우는 것이 내 미래에 좋은 일이라고 확신해."
 				`,
 			},
 
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `문장 분석`,
 			},
 			{
@@ -6581,17 +6877,19 @@ for my future → "내 미래를 위해"
 `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `그런데 동명사(Gerund)란 무엇일까?`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `동명사는 동사의 원형에 -ing를 붙여서 명사처럼 사용하는 형태입니다. </br>
 즉, 동사의 성질(행동)을 가지면서도 문장에서 <b>주어, 목적어, 보어</b> 역할을 합니다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `동명사의 주어 역할`,
 			},
 			{
@@ -6601,7 +6899,8 @@ Learning English is fun. → <u>영어를 배우는 것</u>은 재미있다.
 `,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `동명사의 목적어 역할`,
 			},
 			{
@@ -6611,13 +6910,14 @@ She finished writing the report. → 그녀는 <u>보고서를 작성하는 것<
 `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `동명사를 <b>목적어</b>로 취하는 대표적인 <b>동사</b></br>
  enjoy, finish, avoid, consider, mind, suggest, recommend 등`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `동명사의 보어 역할`,
 			},
 			{
@@ -6641,7 +6941,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `미드저니(Midjourney)의 퍼스널라이즈(Personalize) 탭에서 프로파일(Profile)과 무드보드(Moodboard)는 모두 사용자의 취향을 반영해 AI 이미지 생성을 개인화하는 도구지만, 그 목적과 사용 방식에서 차이가 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `프로파일 (Profile)`,
 			},
 			{
@@ -6649,9 +6950,9 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `프로파일은 사용자의 미적 취향을 학습한 개인화된 스타일 설정입니다. 미드저니가 <b>사용자가 선호하는 시각적 스타일을 파악</b>해 이미지 생성 시 이를 반영합니다. 여러 프로젝트에 걸쳐 <b>"나만의 기본 스타일"</b>을 적용하고 싶을 때 유용합니다. 예를 들어, "나는 항상 선명하고 화려한 색감을 좋아해"라는 취향을 반영하고 싶다면 프로파일을 사용하세요.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `결과적으로 추상적이고 일반적인 취향(예: 밝은 색상, 강한 선, 사실적인 묘사 등)을 반영한 결과물이 생성됩니다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
 				type: ComponentType.STRINGLIST,
@@ -6669,7 +6970,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `프로파일 코드에 따라 사용자의 취향에 맞춘 미래 도시 이미지가 생성됩니다. 사용자의 전반적인 미적 성향을 반영하므로, 다양한 프롬프트에 걸쳐 일관된 스타일을 유지할 수 있습니다. `,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `무드보드 (Moodboard)`,
 			},
 			{
@@ -6691,7 +6993,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `무드보드에 포함된 이미지의 분위기와 스타일을 반영한 아늑한 오두막 이미지가 생성됩니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `혼합 사용`,
 			},
 			{
@@ -6713,7 +7016,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 		preview: `미드저니(Midjourney)는 AI를 활용해 텍스트 프롬프트로 이미지를 생성하는 도구로, 디스코드에서 작동합니다. 아래는 미드저니에서 가장 필수적이고 자주 사용되는 명령어와 그 설명입니다. 이 명령어들은 초보자부터 고급 사용자까지 유용하게 활용할 수 있습니다.`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `--ar (Aspect Ratio)`,
 			},
 			{
@@ -6730,7 +7034,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				--ar 4:3, --ar 2:3 등 원하는 비율로 조정 가능`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `--v (Version)`,
 			},
 			{
@@ -6746,12 +7051,13 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `V6 모델로 더 정교한 중세 성 이미지를 생성.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `버전을 지정하지 않으면 기본 설정이 적용`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `--q (Quality)`,
 			},
 			{
@@ -6767,7 +7073,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `고품질의 디테일한 용 이미지 생성.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `--no`,
 			},
 			{
@@ -6784,10 +7091,10 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				여러 요소를 제외하려면 --no trees, water처럼 쉼표로 구분하세요.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `만약 <b>변화를 작게</b> 하고 싶다면 --iw를 2 이상으로 올리거나(최대 2), <b>"no changes"</b>를 더 강조하세요.
 				변화 최소화: 프롬프트에 "minimal edits", "preserve original details" 같은 표현을 추가하면 원본 손실을 더 줄일 수 있습니다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 		],
 	},
@@ -6800,7 +7107,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 		preview: `이벤트 버블링(Event Bubbling)은 HTML에서 이벤트가 발생했을 때, 해당 이벤트가 발생한 요소에서 시작하여 상위 요소로 점진적으로 전파되는 현상을 의미합니다. 이는 DOM(Document Object Model)의 계층 구조를 따라 이벤트가 처리되는 기본 동작 방식입니다. `,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `이벤트 버블링(Event Bubbling)`,
 			},
 			{
@@ -6808,7 +7116,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `이벤트 버블링(Event Bubbling)은 HTML에서 이벤트가 발생했을 때, 해당 이벤트가 발생한 요소에서 시작하여 상위 요소로 점진적으로 전파되는 현상을 의미합니다. 이는 DOM(Document Object Model)의 계층 구조를 따라 이벤트가 처리되는 기본 동작 방식입니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `이벤트 버블링의 동작 원리`,
 			},
 			{
@@ -6816,7 +7125,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `이벤트 버블링은 사용자가 특정 요소에서 이벤트를 발생시켰을 때(예: 버튼 클릭), <b>해당 요소에서 이벤트가 처리된 후 부모 요소로 이벤트가 전달되는 과정</b>입니다. 예를 들어, <div> 안에 <button>이 있고 버튼을 클릭하면, 먼저 <button>에서 이벤트가 처리되고, 그 다음 <div>로 이벤트가 전파됩니다. 이 과정은 DOM 트리의 최상위 요소(보통 document나 window)에 도달할 때까지 계속됩니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `이벤트 위임(Event Delegation)`,
 			},
 			{
@@ -6824,7 +7134,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `이벤트 버블링을 활용하면 이벤트 위임을 구현할 수 있습니다. 이벤트 위임은 개별 하위 요소마다 이벤트 핸들러를 등록하는 대신, <b>공통 부모 요소에 하나의 핸들러를 등록하여 하위 요소에서 발생한 이벤트를 처리하는 방식</b>입니다. 이는 코드 효율성을 높이고, 동적으로 추가된 요소에도 이벤트 처리를 적용할 수 있게 해줍니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `이벤트 전파 방지`,
 			},
 			{
@@ -6832,7 +7143,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 				value: `때로는 이벤트가 <b>상위 요소로 전파되는 것을 막고 싶을 때</b>가 있습니다. 이를 위해 이벤트 객체의 stopPropagation() 메서드를 사용하면 이벤트가 더 이상 버블링 또는 캡쳐링되지 않도록 중지할 수 있습니다. 단, stopPropagation()은 이벤트 전파만 막을 뿐, 기본 동작(예: 링크 클릭 시 페이지 이동)을 막지는 않습니다. 기본 동작을 막으려면 preventDefault()를 추가로 사용해야 합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `HTML 구조`,
 			},
 			{
@@ -6843,7 +7155,8 @@ The hardest part of the job is dealing with customers. → 그 일에서 가장 
 </div>`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `JavaScript 코드`,
 			},
 			{
@@ -6865,7 +7178,8 @@ document.getElementById('child1').addEventListener('click', function() {
 });`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `버블링 확인`,
 			},
 			{
@@ -6875,7 +7189,8 @@ document.getElementById('child1').addEventListener('click', function() {
 추가로 stopPropagation()이 호출되므로 더 이상 상위로 전파되지 않습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `이벤트 위임 확인`,
 			},
 			{
@@ -6884,7 +7199,8 @@ document.getElementById('child1').addEventListener('click', function() {
 이를 통해 개별 버튼마다 핸들러를 등록하지 않아도 부모에서 모든 클릭 이벤트를 처리할 수 있음을 알 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `실제 활용 예시`,
 			},
 			{
@@ -6893,7 +7209,8 @@ document.getElementById('child1').addEventListener('click', function() {
 			},
 
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `이벤트 캡쳐링(Event Capturing)`,
 			},
 			{
@@ -6901,7 +7218,8 @@ document.getElementById('child1').addEventListener('click', function() {
 				value: `이벤트 캡쳐링(Event Capturing)은 이벤트가 최상위 요소에서 시작해 하위 요소로 내려가는 방식으로, 버블링과는 반대 방향으로 작동합니다. HTML에서는 기본적으로 버블링이 주로 사용되지만, 필요에 따라 캡쳐링도 활용할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `캡쳐링 사용 예제`,
 			},
 			{
@@ -6926,7 +7244,8 @@ document.getElementById('child1').addEventListener('click', function() {
 
 		post: [
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Flex (Flexbox)`,
 			},
 			{
@@ -6967,7 +7286,7 @@ document.getElementById('child1').addEventListener('click', function() {
 
 
 `,
-				children: true,
+				codePreviewProps: true,
 			},
 
 			{
@@ -6975,7 +7294,8 @@ document.getElementById('child1').addEventListener('click', function() {
 				value: `위 예제에서 .flex-container는 display: flex를 통해 가로 방향으로 아이템을 배치합니다. justify-content: space-between 속성은 아이템 사이의 공간을 균등하게 나누어 배치합니다. 결과적으로 세 개의 박스가 수평으로 나란히 정렬됩니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Grid`,
 			},
 			{
@@ -7022,7 +7342,7 @@ document.getElementById('child1').addEventListener('click', function() {
 </body>
 </html>
 `,
-				children: true,
+				codePreviewProps: true,
 			},
 
 			{
@@ -7030,7 +7350,8 @@ document.getElementById('child1').addEventListener('click', function() {
 				value: `위 예제에서는 grid-container가 2x2 그리드 구조를 형성합니다. grid-template-columns: 1fr 1fr로 두 개의 열을 동일한 비율로 나누고, grid-template-rows로 행 높이를 100px로 고정했습니다. gap 속성으로 셀 사이에 10px 간격을 추가했습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Grid는 반응형에 적합한가?`,
 			},
 			{
@@ -7082,7 +7403,7 @@ document.getElementById('child1').addEventListener('click', function() {
 </body>
 </html>
 `,
-				children: true,
+				codePreviewProps: true,
 			},
 
 			{
@@ -7111,7 +7432,8 @@ document.getElementById('child1').addEventListener('click', function() {
 				value: `자바스크립트에서 this의 값은 함수가 호출될 때 결정되며, 호출 방식에 따라 다르게 작동합니다. 아래에서 주요 경우와 예제를 통해 설명하겠습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `전역 컨텍스트에서의 this`,
 			},
 			{
@@ -7142,7 +7464,8 @@ function sayThis() {
 sayThis(); // undefined`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `객체 메서드에서의 this`,
 			},
 			{
@@ -7177,7 +7500,8 @@ const func = person.sayName;
 func(); // undefined (this는 전역 객체 Window를 가리킴)`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `내부 함수에서의 this 문제`,
 			},
 			{
@@ -7203,7 +7527,8 @@ obj.outer();
 // Inner this: undefined (this는 Window)`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `해결방법`,
 			},
 			{
@@ -7244,7 +7569,8 @@ obj.outer(); // Inner this: Kate`,
 obj.outer(); // Inner this: Kate`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `생성자 함수에서의 this`,
 			},
 			{
@@ -7262,7 +7588,8 @@ const myCar = new Car("Tesla");
 console.log(myCar.model); // "Tesla"`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `명시적 바인딩 (call, apply, bind)`,
 			},
 			{
@@ -7270,7 +7597,8 @@ console.log(myCar.model); // "Tesla"`,
 				value: `call, apply, bind를 사용하면 this를 명시적으로 설정할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `call 예제`,
 			},
 			{
@@ -7284,7 +7612,8 @@ const user = { name: "Bob" };
 introduce.call(user, 25); // "Bob, 25"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `apply 예제`,
 			},
 			{
@@ -7298,12 +7627,13 @@ const user = { name: "Bob" };
 introduce.apply(user, [30]); // "Bob 30"`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `호출 시점에 <b>this를 동적</b>으로 결정해야 하는 상황에서는 <b>call</b>이나 <b>apply</b>가 매우 유용합니다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `bind 예제`,
 			},
 			{
@@ -7319,7 +7649,8 @@ const boundIntroduce = introduce.bind(user);
 boundIntroduce(35); // "Bob 35"`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `화살표 함수에서의 this(가장 간단한 해결책)`,
 			},
 			{
@@ -7339,7 +7670,8 @@ obj.sayName(); // "Charlie" (this는 obj를 가리킴)`,
 				value: `화살표 함수는 this를 lexical scope(정적 범위)에서 가져옵니다. 즉, 함수가 정의된 위치의 상위 스코프에서 this를 상속받습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `일반 함수(외부 스코프의 this를 저장) `,
 			},
 			{
@@ -7370,7 +7702,8 @@ bind(): 명시적 바인딩 필요 시
 self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `이벤트 핸들러에서의 this`,
 			},
 			{
@@ -7384,7 +7717,8 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 });`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `화살표 함수를 사용한 이벤트 핸들러에서의 this`,
 			},
 			{
@@ -7394,7 +7728,8 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 });`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `결과적으로`,
 			},
 			{
@@ -7421,17 +7756,19 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 		preview: `"I'm sure that a lot of Koreans use social networking sites these days 전 대학원 진학하는 것에 대해 확신하고 있지 않아요"`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `case 1`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>I'm sure that a lot of Koreans use social networking sites these days</b></br>
 				 "나는 요즘 많은 한국인들이 소셜 네트워킹 사이트를 사용한다고 확신해" 
 				`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `문장 분석`,
 			},
 			{
@@ -7443,23 +7780,25 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `- 만약 "lot of Koreans"라고 쓰면 문법적으로 맞지 않습니다. "lot"은 그 자체로 막연한 명사이기 때문에, <b>관사(a)</b>나 다른 <b>한정사(the, this 등)</b>가 없으면 자연스럽지 않고 의미가 모호해집니다.</br>
 - 예외적으로 <b>lots of Koreans</b>처럼 "lots"가 사용될 수 있는데, 이는 <u>"a lot of"보다 약간 더 구어체이며, "a"가 생략된 형태로 이해할 수 있습니다.</u>`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `case 2`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>I'm not sure about going to graduate school.</b></br>
 				 "나는 대학원에 가는 것에 대해 확신이 없어."
 				`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `문장 분석`,
 			},
 			{
@@ -7469,22 +7808,24 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				going to graduate school → 대학원에 가는 것`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>going</b>은 <b>가다라는 동작</b>을 <b>동명사(gerund) 형태</b>로 사용해 명사처럼 기능하게  합니다. </br>graduate school은 "대학원"을 뜻하는 단어입니다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `case 3`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>I'm not sure what to say.</b></br>
 				 "나는 무엇을 말해야 할지 확신이 없어."
 				`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `문장 분석`,
 			},
 			{
@@ -7493,10 +7834,10 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				what to say → 무엇을 말해야 할지`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>to say</b>는 <b>말하다</b>라는 <b>동작</b>을 <b>부정사(to + 동사 원형) 형태</b>로 사용해 what의 구체적인 대상을 설명한다.
 <b>what to say</b> 전체는 I'm not sure의 <b>보어 역할</b>을 한다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 		],
 	},
@@ -7509,7 +7850,8 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 		preview: `쿠키는 웹 브라우저에서 클라이언트 측 데이터를 저장하는 전통적인 방법으로, 주로 사용자 인증(예: 로그인 세션 유지)이나 간단한 설정 저장에 사용됩니다. 하지만 몇 가지 단점이 있습니다`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `쿠키(Cookie)의 특징과 단점`,
 			},
 			{
@@ -7524,28 +7866,30 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 네트워크 부하: 쿠키는 HTTP 요청마다 서버로 자동 전송되므로, 불필요한 데이터 전송이 발생해 성능 저하를 유발할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>쿠키를 사용한 사용자 인증, 특히 로그인 세션 유지에 대해 설명하자면, 이는 웹 애플리케이션에서 사용자가 로그인 상태를 유지할 수 있도록 하는 일반적인 방법 중 하나입니다.</b></br></br>
 				- <b>로그인 요청</b>: 사용자가 웹사이트에 아이디와 비밀번호를 입력해 로그인하면, 서버는 해당 자격 증명을 확인합니다. 인증이 성공하면 서버는 사용자에게 <u>고유한 세션 ID를 생성</u>합니다.</br></br>
 - <b>쿠키 생성 및 저장</b>: <u>서버는 이 세션 ID를 포함한 쿠키를 생성해 사용자의 브라우저로 보냅니다.</u> 브라우저는 이 쿠키를 로컬에 저장합니다. 이 쿠키는 보통 "세션 쿠키"로 설정되며, 브라우저가 닫히면 자동으로 삭제되거나(임시 세션), 만료 날짜가 설정된 경우 그때까지 유지됩니다(영속 세션).</br></br>
 - <b>세션 유지</b>: 이후 사용자가 웹사이트의 다른 페이지를 방문할 때마다,<u>브라우저는 저장된 쿠키를 요청 헤더에 포함시켜 서버로 보냅니다.</u> 서버는 이 쿠키의 세션 ID를 확인해 사용자가 이미 인증된 사용자인지 판단하고, 별도의 로그인 없이 접근을 허용합니다.</br></br>`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `
 <b>쿠키 보안 고려사항</b></br></br>
 - <b>HttpOnly</b>: 쿠키에 HttpOnly 속성을 설정하면 자바스크립트를 통한 접근을 차단해 <b>XSS(크로스 사이트 스크립팅) 공격을 방지</b>할 수 있습니다.</br></br>
 - <b>Secure</b>: Secure 속성을 추가하면 HTTPS 연결에서만 쿠키가 전송되어 데이터 도청을 방지합니다.</br></br>
 - <b>SameSite</b>: 이 속성으로 쿠키가 동일 출처 요청에만 전송되도록 설정해 <b>CSRF(크로스 사이트 요청 위조) 공격</b>을 줄일 수 있습니다.
 <b>로그아웃</b>: 사용자가 로그아웃하면 서버는 해당 세션 ID를 무효화하고, 브라우저의 쿠키를 삭제하거나 만료시켜 세션을 종료합니다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `웹 스토리지(Web Storage)의 등장`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `로컬 스토리지 (Local Storage)`,
 			},
 			{
@@ -7556,7 +7900,8 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 장점: 만료 기간을 별도로 설정할 필요가 없어 관리가 간편합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `세션 스토리지 (Session Storage)`,
 			},
 			{
@@ -7636,7 +7981,8 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				value: `타입스크립트는 자바스크립트 기반의 언이이며 자바스크립트의 상위확정전입니다. 정적타입으로 컴파일 단계에서 오류를 포착할수 있는 장점이 있고 강력한 객체지향 프로그래밍을 지원합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `타입스크립트 특징`,
 			},
 			{
@@ -7650,12 +7996,12 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				<b>명시적인 정적 타입 지정은 코드의 가독성을 크게 향상시키며, 특히 협업 환경에서 다른 개발자가 코드를 이해하고 유지보수하는 데 도움을 줍니다.</b></br> 예를 들어, 함수의 매개변수나 반환값에 타입을 명시하면 해당 함수가 어떤 데이터를 다루는지 바로 알 수 있어 디버깅 과정도 훨씬 수월해집니다. 게다가 타입스크립트는 타입 추론(Type Inference) 기능을 제공하여, 개발자가 모든 타입을 직접 명시하지 않더라도 컴파일러가 문맥을 통해 타입을 자동으로 추론하게 함으로써 편리함과 안전성을 동시에 제공합니다.</br>`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>타입추론이란?</b></br>
 				<b>변수 선언에서의 타입 추론</b>: 변수를 초기화할 때 값을 할당하면, 타입스크립트는 해당 값의 타입을 기반으로 변수의 타입을 추론합니다.</br>
 				<b>함수 반환 타입 추론</b>:함수의 반환값을 명시적으로 타입으로 선언하지 않아도, 타입스크립트는 함수 내부의 로직을 분석해 반환 타입을 추론합니다.</br>
 				<b>객체 리터럴에서의 타입 추론</b>:객체를 생성할 때 각 속성의 타입을 명시하지 않아도, 초기화된 값에 따라 타입이 추론됩니다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -7674,14 +8020,15 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 		preview: `타입스크립트는 자바스크립트 기반의 언이이며 자바스크립트의 상위확정전입니다. 정적타입으로 컴파일 단계에서 오류를 포착할수 있는 장점이 있고 강력한 객체지향 프로그래밍을 지원합니다.`,
 		post: [
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `interface나 type으로 정의하여 쓸수 있는데 d.ts로 사용하는 이유 대하여`,
 			},
 			{
 				type: ComponentType.NORMAL,
 				value: `타입스크립트에서 interface나 type을 사용해 타입을 정의할 수 있는데도 .d.ts 파일을 사용하는 이유는 사용 목적과 맥락의 차이에 있습니다. .d.ts 파일은 주로 <b>선언 파일(Declaration File)</b>로서 특정한 역할을 수행하며, 일반적인 interface나 type 정의와는 다른 상황에서 유용합니다. 아래에서 .d.ts를 사용하는 이유와 그 장점을 구체적으로 설명하겠습니다.
 				`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
 				type: ComponentType.STRINGLIST,
@@ -7695,7 +8042,7 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				value: `반면, 프로젝트 내부에서만 타입을 정의하고 사용할 때는 interface나 type을 .ts 파일에 작성하는 것이 더 간단하고 적합합니다. .d.ts는 특히 외부와의 인터페이스를 다룰 때 빛을 발하는 도구라고 볼 수 있습니다.`,
 			},
 			// 			{
-			// 				type: ComponentType.H4,
+			// 				type: ComponentType.HEADING, headingType:'h4',
 			// 				value: `자바스크립트와 타입스크립트 간의 연결성 제공`,
 			// 			},
 			// 			{
@@ -7705,7 +8052,8 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 			// <b>해결</b>: .d.ts 파일을 작성하여 자바스크립트 코드에 타입 정보를 추가하면, 타입스크립트가 이를 인식해 타입 검사를 수행할 수 있습니다.`,
 			// 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `간단한 자바스크립트 함수에 타입 정의 추가`,
 			},
 			{
@@ -7713,7 +8061,8 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 				value: `기존 자바스크립트 파일에 타입이 없는 상황을 가정하고, .d.ts 파일로 타입을 제공하는 예제입니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `자바스크립트 파일 (math.js)`,
 			},
 			{
@@ -7725,7 +8074,8 @@ self 변수: 오래된 코드와의 호환성이나 특정 상황에서`,
 module.exports = { add };`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `타입 선언 파일 (math.d.ts)`,
 			},
 			{
@@ -7733,7 +8083,8 @@ module.exports = { add };`,
 				value: `export function add(a: number, b: number): number;`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `타입스크립트에서 사용 (app.ts)`,
 			},
 			{
@@ -7750,7 +8101,8 @@ console.log(result); // 8
 				value: `math.js는 타입 정보가 없는 자바스크립트 파일이지만, math.d.ts에서 add 함수의 매개변수와 반환 타입을 정의해줍니다. 타입스크립트는 이 선언 파일을 참조하여 타입 검사를 수행하며, 잘못된 타입 사용 시 오류를 발생시킵니다. 타입정의는 컴파일 시 타입 체크에 사용되고 자바스크립트로 변환된 런타임 코드에는 타입이 직접 포함되지 않습니다. 실제 실행되는 로직만 남습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Lodash와 같은 외부 라이브러리 통합`,
 			},
 			{
@@ -7758,7 +8110,8 @@ console.log(result); // 8
 				value: `Lodash는 인기 있는 자바스크립트 유틸리티 라이브러리입니다. 타입스크립트에서 이를 사용하려면 @types/lodash와 같은 타입 정의 패키지를 설치하거나 직접 .d.ts 파일을 작성할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Lodash 설치`,
 			},
 			{
@@ -7767,7 +8120,8 @@ console.log(result); // 8
 npm install --save-dev @types/lodash //타입 정의 설치 (DefinitelyTyped 제공)`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `타입스크립트에서 사용`,
 			},
 			{
@@ -7785,7 +8139,8 @@ console.log(sum); // 10
 				value: `@types/lodash 패키지는 Lodash의 모든 함수에 대한 타입 정의를 제공합니다. 예를 들어, _.sum은 숫자 배열을 받아 숫자를 반환하는 함수로 타입이 정의되어 있으며, 타입스크립트는 이를 기반으로 타입 검사를 수행합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `React 컴포넌트와 통합`,
 			},
 			{
@@ -7793,7 +8148,8 @@ console.log(sum); // 10
 				value: `React는 자바스크립트로 작성된 라이브러리지만, 타입스크립트에서 사용하려면 타입 정의가 필요합니다.</br> @types/react와 @types/react-dom을 통해 이를 해결할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `React 설치`,
 			},
 			{
@@ -7802,7 +8158,8 @@ console.log(sum); // 10
 npm install --save-dev @types/react @types/react-dom`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `타입스크립트로 React 컴포넌트 작성`,
 			},
 			{
@@ -7827,7 +8184,8 @@ ReactDOM.render(<Greeting name="Alice" />, document.getElementById("root"));
 				value: `@types/react는 React의 타입 정의를 제공하며, React.FC와 같은 타입을 통해 함수형 컴포넌트의 props 타입을 정의할 수 있습니다. name props가 string으로 정의되었으므로, 숫자를 전달하면 컴파일 오류가 발생합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `React에 커스텀 타입을 추가하고 싶다면 커스텀 .d.ts로 확장 (선택적)`,
 			},
 			{
@@ -7835,7 +8193,8 @@ ReactDOM.render(<Greeting name="Alice" />, document.getElementById("root"));
 				value: `만약 React에 커스텀 타입을 추가하고 싶다면, 다음과 같이 custom.d.ts 파일을 작성할 수 있습니다. 이 경우 customProp을 React 컴포넌트에서 타입 안전하게 사용할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `custom.d.ts`,
 			},
 			{
@@ -7847,7 +8206,8 @@ ReactDOM.render(<Greeting name="Alice" />, document.getElementById("root"));
 }`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `CustomComponent.tsx`,
 			},
 			{
@@ -7861,7 +8221,8 @@ const CustomComponent: React.FC<CustomComponentProps> = ({ customProp }) => {
 export default CustomComponent;`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `App.tsx`,
 			},
 			{
@@ -7878,7 +8239,8 @@ const App: React.FC = () => {
 export default App;`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `커스텀 .d.ts로 확장`,
 			},
 			{
@@ -7886,7 +8248,8 @@ export default App;`,
 				value: `타입스크립트가 인식하지 못하는 타입이나 타입스크립트 내에서 사용할 타입들을 정의 할때 예로 <b>svg 파일</b>을 타입스크립트에서 불러올 수 있게 하도록 custom.d.ts 파일을 생성해준다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `custom.d.ts`,
 			},
 			// 			{
@@ -7943,7 +8306,8 @@ const App: React.FC = () => (
 iconPath는 string 타입으로 이미지 소스로 활용됩니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `구현 코드와 타입 정의의 분리`,
 			},
 			{
@@ -7951,7 +8315,8 @@ iconPath는 string 타입으로 이미지 소스로 활용됩니다.`,
 				value: `타입 정의와 실제 구현 코드를 분리하고 싶을 때, .d.ts 파일은 선언만 포함하고 이는 런타임에 영향을 주지 않습니다. 반면 .ts 파일에 interface나 type과 함께 구현 코드를 섞으면 컴파일 시 자바스크립트 코드로 변환되어 런타임에 포함됩니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `.ts 파일에 모두 작성(math.ts)`,
 			},
 			{
@@ -7967,7 +8332,8 @@ export { add };`,
 				value: `math.ts 컴파일 결과: interface는 사라지고 구현 코드만 남음.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `math.d.ts`,
 			},
 			{
@@ -7978,7 +8344,8 @@ export { add };`,
 export const add: MathOperation;`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `math.js`,
 			},
 			{
@@ -7993,7 +8360,8 @@ export const add: MathOperation;`,
 			},
 
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `interface/type과 .d.ts의 차이점 요약`,
 			},
 			{
@@ -8057,7 +8425,8 @@ export const add: MathOperation;`,
 		preview: `"Build"와 "컴파일"은 소프트웨어 개발에서 자주 사용되는 용어인데, 서로 관련이 있지만 약간 다른 개념을 가리킵니다. 한국어로 자연스럽게 설명해볼게요.`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `컴파일 (Compile)`,
 			},
 			{
@@ -8070,7 +8439,8 @@ export const add: MathOperation;`,
 <u>문법 오류</u>나 <u>타입 오류</u> 같은 문제가 있으면 컴파일러가 이를 잡아내고 <b>에러 메시지를 출력</b>합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `빌드 (Build)`,
 			},
 			{
@@ -8094,7 +8464,8 @@ export const add: MathOperation;`,
 <b>빌드</b>: 컴파일 + 추가 작업까지 포함한 전체 준비 과정.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `리액트 빌드(Build)도구`,
 			},
 			{
@@ -8102,7 +8473,8 @@ export const add: MathOperation;`,
 				value: `리액트(React)에서 주로 사용되는 빌드 도구들은 프론트엔드 개발에서 코드 번들링, 트랜스파일링, 최적화 등을 담당하며, 개발 경험과 배포 효율성을 높여줍니다. 아래에 리액트 프로젝트에서 많이 사용되는 대표적인 빌드 도구들을 설명 하겠습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `웹팩(Webpack)`,
 			},
 			{
@@ -8127,7 +8499,8 @@ export const add: MathOperation;`,
 결론적으로, 웹팩은 단순히 파일을 묶는 것을 넘어, 현대 웹 개발에서 필수적인 코드 최적화와 성능 개선을 담당하는 강력한 도구입니다. 다만, 설정이 복잡할 수 있다는 단점 때문에 최근에는 Vite나 Parcel 같은 대안도 주목받고 있죠.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `바벨(Babel)`,
 			},
 			{
@@ -8141,7 +8514,8 @@ export const add: MathOperation;`,
 				특정 브라우저에서 지원되지 않는 최신 기능을 사용할 수 있게끔 코드를 재구성해 줍니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `트랜스파일링(Transpiling)의 의미`,
 			},
 			{
@@ -8156,7 +8530,8 @@ export const add: MathOperation;`,
 <b>폴리필(Polyfill)</b>: 바벨 자체는 문법만 변환하지만, @babel/polyfill이나 core-js와 함께 사용하면 Promise, Array.includes 같은 최신 API도 구형 브라우저에서 동작하게 추가 가능.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `작동 방식`,
 			},
 			{
@@ -8166,7 +8541,8 @@ export const add: MathOperation;`,
 생성(Generating): 수정된 AST를 기반으로 최종 자바스크립트 코드를 출력.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `플러그인과 프리셋`,
 			},
 			{
@@ -8189,7 +8565,8 @@ export const add: MathOperation;`,
 		preview: `TTP는 서버 클라이언트 모델을 따라 데이터를 주고받기 위한 프로토콜이다. HTTPS는 HTTP에 데이터 암호화가 추가된 프로토콜이다. 공개키 개인키 암호화 방식을 통해 데이터를 암호화한다.`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `HTTP와 HTTPS`,
 			},
 			{
@@ -8197,7 +8574,8 @@ export const add: MathOperation;`,
 				value: `HTTP(HyperText Transfer Protocol)는 클라이언트(예: 웹 브라우저)와 서버 간에 데이터를 주고받기 위한 규약으로, 주로 텍스트, 이미지, 쿼리 등을 전송하는 데 사용됩니다. 그러나 HTTP는 데이터가 평문(plain text)으로 전송되기 때문에, 네트워크 상에서 제3자가 데이터를 가로채면 쉽게 내용을 볼 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `평문(plain text) 전송 예시`,
 			},
 			{
@@ -8238,7 +8616,8 @@ Host: example.com`,
 				value: `HTTPS를 사용하면 위 데이터가 암호화되어 전송되므로, 가로채더라도 해독할 수 없는 난수처럼 보입니다(예: a8f5g9h2...). HTTP의 평문 전송은 단순히 속도와 편리함을 제공하지만, 보안이 중요한 현대 인터넷 환경에서는 점차 사용이 줄어드는 이유이기도 합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `공개키/개인키 암호화 방식의 작동 원리`,
 			},
 			{
@@ -8246,7 +8625,8 @@ Host: example.com`,
 				value: `HTTPS에서 사용하는 공개키(Public Key)와 개인키(Private Key)는 <b>비대칭 암호화 방식의 핵심</b>입니다. 공개키는 누구나 접근할 수 있으며 데이터를 암호화하는 데 사용되고, <b>개인키는 서버만이 가지고 있어 암호화된 데이터를 복호화</b>하는 데 사용됩니다. 이 과정에서 클라이언트와 서버는 초기 연결 시 <b>대칭키(예: AES)</b>를 교환하는데, 이를 위해 공개키 암호화가 사용됩니다. 이후 실제 데이터 전송은 더 빠른 대칭키 암호화로 이루어집니다. 이 "하이브리드 암호화" 방식은 보안성과 효율성을 동시에 충족합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `속도 차이에 대한 추가 설명`,
 			},
 			{
@@ -8254,7 +8634,8 @@ Host: example.com`,
 				value: `HTTPS가 HTTP보다 느리다고 언급되었는데, 이는 암호화와 복호화 과정에서 약간의 계산 오버헤드가 발생하기 때문입니다. 하지만 현대 하드웨어와 최적화된 SSL/TLS 프로토콜 덕분에 <b>속도차이는 미미</b>하며, 사용자 경험에 큰 영향을 주지 않는 경우가 많습니다. 또한 <u>HTTP/2나 HTTP/3 같은 최신 프로토콜은 HTTPS와 함께 사용되며 성능을 오히려 향상</u>시키기도 합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `인증서 발급과 비용의 현실`,
 			},
 			{
@@ -8262,7 +8643,8 @@ Host: example.com`,
 				value: `HTTPS를 사용하려면 CA(Certificate Authority, 인증 기관)에서 <b>SSL/TLS 인증서</b>를 발급받아야 합니다. 과거에는 인증서가 유료였지만, 현재는 <u>Let’s Encrypt 같은 무료 인증서 제공 서비스가 널리 사용되며 비용 부담이 크게 줄었습니다.</u> 다만, 대규모 사이트나 특정 보안 요구사항이 있는 경우(예: EV 인증서)에는 여전히 유료 인증서를 선택하기도 합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `HTTP와 HTTPS의 사용 사례 구체화`,
 			},
 			{
@@ -8270,9 +8652,9 @@ Host: example.com`,
 				value: `HTTPS는 개인정보(로그인 정보, 신용카드 번호 등)를 다룰 때 필수적이지만, 단순 정보 조회 사이트(예: 공개 위키 페이지, 정적 콘텐츠)에서는 HTTP로도 충분 합니다. `,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `그러나 구글 크롬 같은 브라우저는 HTTP 사이트에 "보안되지 않음(Not Secure)" 경고를 표시하며, SEO(검색 엔진 최적화)에서도 HTTPS가 유리하다는 점에서 HTTPS로 전환하는 추세가 강합니다.`,
-				propsType: 'INFO' as unknown as promptType,
+				promptTypeProps: 'INFO',
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -8303,7 +8685,8 @@ Host: example.com`,
 				value: `이를 <u>Base64 URL 인코딩 방식</u>으로 <u>직렬화</u>하여 <b>헤더 . 페이로드 . 서명 형태의 문자열</b>로 표현됩니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Header`,
 			},
 			{
@@ -8319,7 +8702,8 @@ Host: example.com`,
 }`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Payload`,
 			},
 			{
@@ -8336,7 +8720,8 @@ Host: example.com`,
 }`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `Signature`,
 			},
 			{
@@ -8348,16 +8733,17 @@ Host: example.com`,
 				value: `HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>서버의 비밀 키</b></br>
 				- 서버의 비밀 키(secret key)는 서버 애플리케이션이 설계되고 배포되는 단계에서 생성되거나 설정됩니다.</br>
 				- JWT를 생성하고 검증하기 위해 서버 측에서 미리 설정되고 관리되는 고정된 값입니다. </br>
 				- 이 키는 JWT의 Signature 부분을 생성하고, 나중에 토큰의 유효성을 검증할 때 사용됩니다.
 				`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `장점`,
 			},
 			{
@@ -8367,7 +8753,8 @@ Host: example.com`,
 <b>호환성</b> : JSON 기반이므로 다양한 플랫폼과 언어에서 쉽게 파싱하고 사용할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `단점 및 고려사항`,
 			},
 			{
@@ -8377,18 +8764,19 @@ Host: example.com`,
 <b>Payload 노출</b> : JWT의 Payload는 암호화되지 않고 Base64로 인코딩만 되어 있어 누구나 디코딩해 내용을 볼 수 있습니다. 따라서 민감한 정보(예: 비밀번호)는 절대 포함시키지 않아야 합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `토큰 탈취 위험`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>HttpOnly</b></br>
 				HttpOnly는 쿠키에 붙이는 속성 중 하나로,
 JavaScript에서 해당 쿠키에 접근하지 못하게 막는 기능입니다.</br></br>
 <b>Secure</b></br>HTTPS에서만 전송되게 하는 속성 입니다.</br></br>
 <b>SameSite</b></br>CSRF 방지를 위해 쿠키가 어떤 상황에서 자동으로 브라우저에 전송될지를 제한하는 속성입니다.</br>SameSite=Strict 설정일때에는 쿠키가 동일 출처 요청에만 전송되도록 설정합니다.
 				`,
-				propsType: 'INFO' as unknown as promptType,
+				promptTypeProps: 'INFO',
 			},
 			{
 				type: ComponentType.CODE,
@@ -8410,7 +8798,8 @@ console.log(document.cookie); // "" (빈 문자열 출력)`,
 				value: `HTTPOnly는 쿠키를 클라이언트 측 스크립트로부터 보호하는 간단하면서도 강력한 보안 메커니즘입니다. 특히 인증 관련 데이터를 쿠키에 저장할 때 필수적으로 고려해야 하며, Secure와 SameSite 속성과 함께 사용하면 웹 애플리케이션의 보안을 더욱 강화할 수 있습니다. 다만, 클라이언트 측에서 토큰을 직접 다뤄야 하는 경우에는 대안(예: Authorization 헤더)을 고려해야 합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `유효기간 설정의 중요성`,
 			},
 			{
@@ -8424,7 +8813,8 @@ console.log(document.cookie); // "" (빈 문자열 출력)`,
 결론적으로, JWT는 서버 부하를 줄이고 효율적인 인증을 가능하게 하지만, 보안 설계(짧은 유효기간, Refresh Token 도입, HTTPS 필수 등)를 신중히 고려해야 효과적으로 사용할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `로그인 과정에서의 JWT`,
 			},
 			{
@@ -8453,7 +8843,8 @@ JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIn0.서명값`,
 		preview: `자바스크립트에서 프로토타입(prototype)이란 객체가 생성될 때 그 객체를 만드는 데 사용된 원형, 즉 템플릿 역할을 하는 프로토타입 객체를 의미합니다.`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `프로토타입(prototype)`,
 			},
 			{
@@ -8461,7 +8852,8 @@ JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIn0.서명값`,
 				value: `프로토타입(prototype)이란 객체가 생성될 때 그 객체를 만드는 데 사용된 원형, 즉 <b>템플릿 역할</b>을 하는 프로토타입 객체를 의미합니다. 모든 자바스크립트 객체는 이 프로토타입 객체와 연결되어 있으며, 이 연결은 객체의 숨겨진 속성인 <span class="point">__proto__</span>  (proto 속성)를 통해 참조됩니다. 이 <span class="point">__proto__</span> 속성은 <b>해당 객체가 어떤 프로토타입 객체를 기반</b>으로 만들어졌는지를 가리키는 링크 역할을 합니다. 따라서 프로토타입은 객체와 그 원형 객체를 연결하는 핵심적인 메커니즘이라고 볼 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `기본 객체의 __proto__`,
 			},
 			{
@@ -8474,14 +8866,15 @@ console.log(obj.__proto__); // [Object: null prototype] {} (Object.prototype)
 console.log(obj.__proto__.__proto__); // null`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `obj는 기본 객체로, Object 생성자를 통해 만들어졌습니다.</br>
 obj.__proto__는 <b>Object.prototype을 참조</b>합니다. 이는 <b>모든 기본 객체의 프로토타입</b>입니다.</br>
 Object.prototype의 __proto__는 null로, 프로토타입 체인의 끝을 나타냅니다.`,
-				propsType: 'INFO' as unknown as promptType,
+				promptTypeProps: 'INFO',
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `배열 객체의 __proto__`,
 			},
 			{
@@ -8501,7 +8894,8 @@ arr.__proto__는 Array.prototype을 참조하며, 배열 관련 메서드(push, 
 Array.prototype의 __proto__는 Object.prototype을 참조합니다. 따라서 배열도 기본적으로 객체의 속성을 상속받습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `커스텀 객체와 생성자 함수`,
 			},
 			{
@@ -8535,9 +8929,9 @@ Person.prototype에는 sayHello 메서드가 정의되어 있으므로, person�
 Person.prototype.__proto__는 Object.prototype을 참조하며, 체인은 결국 null로 끝납니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `__proto__는 비표준 속성이지만, 대부분의 브라우저에서 디버깅 용도로 접근 가능합니다. </br> 실제 코드에서는 Object.getPrototypeOf(obj)를 사용하는 것이 권장됩니다.`,
-				propsType: 'TIP' as unknown as promptType,
+				promptTypeProps: 'TIP',
 			},
 			{
 				type: ComponentType.CODE,
@@ -8548,7 +8942,8 @@ Person.prototype.__proto__는 Object.prototype을 참조하며, 체인은 결국
 				value: `__proto__는 객체와 프로토타입 간의 연결을 보여주며, 이를 통해 프로토타입 체이닝이 동작합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `프로토타입 체인(prototype chain)`,
 			},
 			{
@@ -8556,7 +8951,8 @@ Person.prototype.__proto__는 Object.prototype을 참조하며, 체인은 결국
 				value: `프로토타입 체인(prototype chain)에 대해 살펴보면, 객체의 __proto__ 속성이 또 다른 객체의 프로토타입을 참조하고, 그 참조된 프로토타입 객체의 __proto__가 다시 또 다른 프로토타입을 참조하는 식으로 연쇄적으로 이어진 구조를 말합니다. 이 체인은 최종적으로 Object.prototype이라는 기본 프로토타입 객체에 도달 할 때까지 이어지며, 그 끝에는 __proto__가 null인 지점이 존재합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `프로토타입 체이닝(prototype chaining)`,
 			},
 			{
@@ -8564,7 +8960,8 @@ Person.prototype.__proto__는 Object.prototype을 참조하며, 체인은 결국
 				value: `이러한 프로토타입 체인을 활용하여 자바스크립트는 속성이나 메서드를 검색하는데, 이를 프로토타입 체이닝(prototype chaining)이라고 합니다. 예를 들어, 객체에서 특정 속성이나 메서드를 호출하려 할 때, 자바스크립트 엔진은 먼저 그 객체 자체에서 해당 속성을 찾습니다. 만약 찾지 못하면 __proto__를 통해 연결된 프로토타입 객체로 이동하여 검색을 계속하고, 이 과정을 체인을 따라 끝까지 반복합니다. 이렇게 체인을 따라가며 속성을 탐색하는 방식이 프로토타입 체이닝의 핵심입니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `프로토타입 기반 상속(prototype-based inheritance)`,
 			},
 			{
@@ -8578,7 +8975,8 @@ Person.prototype.__proto__는 Object.prototype을 참조하며, 체인은 결국
 <b>체인 구조</b>: 상속은 단일 객체 수준에서 끝나는 것이 아니라, 프로토타입 체인을 따라 여러 단계로 이어질 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `객체를 통해 상속으로 이해하는 예시`,
 			},
 			{
@@ -8610,7 +9008,8 @@ console.log(dog.__proto__ === animal);
 dog 자체에는 eat 메서드가 없지만, __proto__를 통해 animal의 eat 메서드를 상속받아 사용할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `생성자 함수를 통한 상속 예시`,
 			},
 			{
@@ -8649,7 +9048,8 @@ Animal.call(this, name)으로 <b>name 속성을 상속</b>받고, Object.setProt
 이는 전통적인 상속처럼 "부모(Animal)로부터 자식(Dog)이 기능을 물려받는다"는 개념으로 이해할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `상속으로 볼 수 있는 이유`,
 			},
 			{
@@ -8659,11 +9059,11 @@ Animal.call(this, name)으로 <b>name 속성을 상속</b>받고, Object.setProt
 <b>확장 가능성</b>: 프로토타입에 새로운 기능을 추가하면 이를 상속받는 모든 객체가 그 기능을 사용할 수 있어, 상속의 유연성을 보여줍니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>주의할 점</b></br>
 				자바스크립트의 상속은 클래스 기반 언어처럼 고정된 계층 구조를 따르지 않고, 객체 간의 동적 연결(__proto__)에 의존합니다.
 상속받은 속성이나 메서드는 실제로 객체 자체에 복사되는 것이 아니라 참조되는 것이므로, <b>프로토타입을 수정하면 모든 상속받은 객체에 영향을 미칩니다.</b>`,
-				propsType: 'WARNING' as unknown as promptType,
+				promptTypeProps: 'WARNING',
 			},
 		],
 	},
@@ -8680,7 +9080,8 @@ Animal.call(this, name)으로 <b>name 속성을 상속</b>받고, Object.setProt
 				value: `리액트에서 리렌더링(re-rendering)은 컴포넌트가 다시 그려지는 과정입니다. 즉, 어떤 변화가 발생했을 때, 리액트가 해당 컴포넌트(혹은 그 자식들 포함)를 다시 실행해서 UI를 업데이트하는 걸 말합니다. 리렌더링이 너무 많이 발생하면 성능에 부정적인 영향을 줄 수 있습니다. 특히 대규모 애플리케이션이나 자주 렌더링되는 컴포넌트에서는 주의가 필요합니다. 그래서 이번 글에서는 리액트 리렌더링에 대해 이야기 해보려고 합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `언제 리렌더링이 발생할까요?`,
 			},
 			{
@@ -8695,7 +9096,7 @@ Animal.call(this, name)으로 <b>name 속성을 상속</b>받고, Object.setProt
 				value: `위와 같은 경우에 리액트 컴포넌트에서는 리렌더링이 발생합니다. 한 컴포넌트에 여러가지 스테이트들이 존재하고 UI에서는 여러 인터렉션(버튼 클릭, 입력, 체크박스 등)이 발생하며 스테이드 값들이 변경될때 컴포넌트는 리렌더링 되고 있다고 생각하면 됩니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `리렌더링된다고 해서 DOM 전체를 다시 그리는 건 아닙니다. 리액트는 "Virtual DOM"을 이용해서 변경된 부분만 최소한으로 UI를 업데이트 하며 컴포넌트에 있는 함수들은 새로 생성됩니다. 예를 들면 아래 코드를 보시면 이해 하실 수 있습니다.`,
 			},
 			{
@@ -8761,7 +9162,8 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
 따라서 useEffect가 실행됨 → 콘솔에 로그 출력!`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `그럼 왜 리렌더링 때마다 새로 생성될까요?`,
 			},
 			{
@@ -8774,7 +9176,8 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
 				value: `한 컴포넌트에서 여러 기능을 가지고 여러 스테이트들을 관리하던 것을 훅에서 스테이트 값이나 상태 값을 관리하고, 컴포넌트는 순수하게 인터렉션만 처리하도록 설계된 경우, 해당 컴포넌트는 스테이트 변경에 따른 리렌더링을 피할 수 있습니다. 하지만 이게 보장되려면 몇 가지 조건과 주의점이 필요합니다. 아래에서 이 상황을 자세히 분석하고, 왜 리렌더링이 일어나지 않을 수 있는지, 그리고 어떤 경우에 주의해야 하는지 설명하겠습니다. 코드를 통해 살펴 보겠습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `[커스텀 훅] usePdfController.js`,
 			},
 			{
@@ -8792,7 +9195,8 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
 };`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `[자식 컴포넌트] FileUpload.jsx (인터랙션만 처리)`,
 			},
 			{
@@ -8808,7 +9212,8 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
 `,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `[부모 컴포넌트] StampController.jsx`,
 			},
 			{
@@ -8833,11 +9238,13 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
 <b>인터랙션 처리</b>: 인터랙션은 훅이나 스토어에서 제공하는 함수(예: handlePDFChange, handleDownload)를 호출.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `자식 컴포넌트 <FileUpload/> 리렌더링`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `스테이트 소유 여부`,
 			},
 			{
@@ -8846,7 +9253,8 @@ Virtual DOM에서 변화 비교 후, 실제 DOM은 필요한 부분만 업데이
 스테이트는 usePdfController에서 관리되며, file 변경은 StampController 같은 부모 컴포넌트에 영향을 줍니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Props 안정성`,
 			},
 			{
@@ -8869,7 +9277,8 @@ FileUpload가 props로 받는 handlePDFChange가 메모이제이션되지 않으
 				value: `InputRef는 useRef로 생성된 참조로, 렌더링 간에 변경되지 않습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `부모 컴포넌트의 리렌더링 영향 `,
 			},
 			{
@@ -8904,7 +9313,8 @@ export default React.memo(FileUpload);`,
 				value: `인터랙션의 경우 (예: 파일 선택)은 handlePDFChange를 호출하고, 이는 usePdfController의 file 상태를 변경합니다. 하지만 이 변경은 StampController의 렌더링에만 직접 영향을 주고, FileUpload은 스테이트를 소유하지 않으므로 간접적인 리렌더링을 피할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `<FileUpload/> Children Props 변경`,
 			},
 			{
@@ -8918,7 +9328,8 @@ export default React.memo(FileUpload);`,
 </FileUpload>`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `<FileUpload/> 같은 자식 컴포넌트가 스토어 상태를 직접 구독하지 않도록 하여 리렌더링을 방지 한다.`,
 			},
 			{
@@ -8935,7 +9346,8 @@ const FileUpload = ({ onChange, InputRef, children }) => {
 };`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `리렌더링이 되지 않는 조건을 지켜는 방법`,
 			},
 			{
@@ -8960,7 +9372,8 @@ const FileUpload = ({ onChange, InputRef, children }) => {
 				value: `자바스크립트에서 원시값(Primitive Values)과 참조형(Reference Types)의 동작 방식, 그리고 이들의 불변성(Immutability)과 가변성(Mutability)에 대해 설명 해 보겠습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `원시값 (Primitive Values)`,
 			},
 			{
@@ -8988,7 +9401,8 @@ b = 20으로 값을 변경하면, b는 새로운 메모리 공간에 20을 저�
 원시값은 불변적이므로, a나 b의 값을 직접 수정하는 대신 새로운 값을 메모리에 할당합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `참조형 (Reference Types)`,
 			},
 			{
@@ -9025,7 +9439,8 @@ obj2.age = 30 또는 obj2.city = "Seoul"로 객체를 수정하면, 동일한 �
 참조형은 가변적이므로, 객체의 프로퍼티를 동적으로 추가(city), 갱신(age), 삭제(delete obj1.city)할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `원시값 vs 참조형 비교`,
 			},
 			{
@@ -9076,7 +9491,8 @@ obj2.age = 30 또는 obj2.city = "Seoul"로 객체를 수정하면, 동일한 �
 				},
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `참조형의 깊은 복사(Deep Copy)`,
 			},
 			{
@@ -9084,7 +9500,8 @@ obj2.age = 30 또는 obj2.city = "Seoul"로 객체를 수정하면, 동일한 �
 				value: `참조형의 기본 복사는 얕은 복사(Shallow Copy)로, 동일한 객체를 참조하게 됩니다. 객체를 독립적으로 복사하려면 깊은 복사가 필요합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `얕은 복사 vs 깊은 복사`,
 			},
 			{
@@ -9114,7 +9531,8 @@ console.log(deepCopy); // { name: "David", info: { age: 60 } }`,
 깊은 복사(JSON.parse(JSON.stringify()))는 객체 전체를 새로 생성하여 독립적인 복사본을 만듭니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `원시값 활용`,
 			},
 			{
@@ -9133,7 +9551,8 @@ console.log(playerScore); // 50 (원본 값은 변경되지 않음)`,
 				value: `원시값은 함수 내부에서 수정해도 원본에 영향을 주지 않습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `참조형 활용`,
 			},
 			{
@@ -9201,7 +9620,8 @@ console.log(deepCopy);
 Date 객체도 별도의 인스턴스로 복사되며, JSON 방식과 달리 손실 없이 복사됩니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `재귀 함수를 사용한 깊은 복사`,
 			},
 			{
@@ -9263,7 +9683,8 @@ console.log(deepCopy);
 이 방식은 JSON 방식의 한계를 극복하고, 함수나 undefined 같은 값도 커스터마이징하여 처리할 수 있습니다(필요 시 추가 로직 구현 가능).`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Lodash 라이브러리의 _.cloneDeep`,
 			},
 			{
@@ -9350,7 +9771,8 @@ JSON 방식보다 다양한 데이터 타입(예: 함수, RegExp, Map)을 지원
 				},
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `복잡한 객체(중첩 객체, 배열, Date, Map 포함)를 사용한 예제`,
 			},
 			{
@@ -9409,7 +9831,8 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 		preview: `CSRF 공격은 <b>사용자의 인증 정보를 악용</b>하여 의도하지 않은 요청을 서버에 보내는 공격입니다. 이를 방어하기 위한 주요 방법은 다음과 같습니다.`,
 		post: [
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `CSRF 토큰 이란`,
 			},
 			{
@@ -9417,11 +9840,13 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 				value: `CSRF 토큰은 크로스 사이트 요청 위조(Cross-Site Request Forgery, CSRF) 공격을 방어하기 위해 사용되는 고유한 랜덤 문자열입니다. 서버에서 생성되어 사용자 세션과 연결되며, 클라이언트가 서버에 요청(예: 폼 제출, AJAX 호출)을 보낼 때 이 토큰을 함께 전송하여 요청의 유효성을 검증합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `CSRF 토큰의 일반적인 흐름`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `서버에서 CSRF 토큰 생성`,
 			},
 			{
@@ -9431,7 +9856,8 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 서버 세션은 사용자마다 고유하며, 서버가 관리하는 상태 저장소입니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `클라이언트로 CSRF 토큰 전달`,
 			},
 			{
@@ -9449,7 +9875,8 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 				value: `클라이언트는 이 토큰을 받아서 저장합니다. 이 저장은 주로 프론트엔드의 메모리(예: JavaScript 변수)나 HTML 폼에 일시적으로 유지되며, 프론트엔드의 세션 스토리지나 로컬 스토리지에 저장하는 경우는 드뭅니다(보안상 권장되지 않음).`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `클라이언트가 요청 전송`,
 			},
 			{
@@ -9458,7 +9885,8 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 예: <b>POST 요청의 바디에 _csrf 필드로 포함</b>되거나, <b>헤더에 X-CSRF-Token으로 추가</b>됨.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `서버에서 CSRF 토큰 검증`,
 			},
 			{
@@ -9468,7 +9896,8 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 토큰이 일치하지 않거나 없으면 요청을 거부(예: 403 Forbidden 응답).`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `세션 유지 및 토큰 갱신`,
 			},
 			{
@@ -9478,7 +9907,8 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 			},
 
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `예시`,
 			},
 			{
@@ -9490,7 +9920,8 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 </form>`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `예제: JavaScript (Fetch API)`,
 			},
 			{
@@ -9539,7 +9970,8 @@ Content-Type: application/json
 X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `HTTP 요청 헤더`,
 			},
 			{
@@ -9550,7 +9982,8 @@ Content-Type: application/json
 X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `요청 바디`,
 			},
 			{
@@ -9562,7 +9995,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `서버는 _csrf 값이 세션의 토큰과 일치하는지 확인 후 요청을 처리합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `CSRF 토큰의 중요성`,
 			},
 			{
@@ -9571,7 +10005,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 <b>간단한 구현</b>: 대부분의 웹 프레임워크(예: Spring, Django, Laravel)는 CSRF 토큰 생성 및 검증 기능을 기본 제공합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `추가 고려사항`,
 			},
 			{
@@ -9581,7 +10016,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 <b>SameSite 쿠키와 조합</b>: CSRF 토큰 외에 SameSite 속성을 쿠키에 설정하면 추가적인 보호를 제공합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `쿠키 속성 설정(SameSite)`,
 			},
 			{
@@ -9604,7 +10040,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 			<b>Referer/Origin 헤더 검증</b>: 요청의 출처를 확인하여 신뢰할 수 있는 도메인에서만 요청을 허용합니다. 단, Referer 헤더는 브라우저 설정에 따라 누락될 수 있으므로 보조적 수단으로 사용합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `XSS 공격 방어`,
 			},
 			{
@@ -9612,7 +10049,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `XSS 공격은 악성 스크립트를 웹 페이지에 삽입하여 사용자의 브라우저에서 실행되도록 만드는 공격입니다. 이를 방어하기 위한 방법은 다음과 같습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `입력 값 유효성 검증 및 특수문자 이스케이프`,
 			},
 			{
@@ -9620,7 +10058,7 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `사용자로부터 입력받은 데이터(예: 텍스트, URL, JSON 등)의 유효성을 검증하고, HTML, JavaScript, SQL 등에서 실행 가능한 특수문자(<span class="point"> <, >, ", ', &</span> 등)를 이스케이프 처리합니다.`,
 			},
 			{
-				type: ComponentType.EMPHASIS,
+				type: ComponentType.GUIDE_MESSAGE,
 				value: `<b>이스케이프 처리란?</b></br>
 				사용자가 <script>alert('악성 코드')</script>를 입력했다고 가정한다면</br>
 				- <b>이스케이프 처리 전</b>: 브라우저가 이를 JavaScript로 실행하여 경고창이 표시됨(XSS 공격 성공).</br>
@@ -9645,7 +10083,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `클라이언트와 서버 모두에서 입력 검증을 수행해야 하며 서버에서는 데이터베이스 저장 전, 클라이언트에서는 사용자 경험을 위해 검증합니다. 예를 들어,  <script>는 <span class="point">&amplt;script&ampgt;</span>로 변환하여 렌더링 시 실행되지 않도록 합니다. 라이브러리(예: DOMPurify, OWASP Java Encoder)를 사용하면 이스케이프 처리가 더 안전합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `CSP(Content Security Policy) 설정`,
 			},
 			{
@@ -9672,7 +10111,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 			<b>프레임워크 보안</b>: React, Angular 등 현대 프레임워크는 기본적으로 XSS 방어를 제공하지만, dangerouslySetInnerHTML 같은 기능을 사용할 때는 주의가 필요합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `HTTPS를 통한 통신 보안`,
 			},
 			{
@@ -9680,7 +10120,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `HTTP는 데이터가 평문으로 전송되어 도청 및 조작에 취약합니다. HTTPS는 <b>SSL/TLS</b>를 통해 통신을 암호화하여 보안을 강화합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `HTTPS 적용`,
 			},
 			{
@@ -9688,7 +10129,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `HSTS는 웹 브라우저에게 해당 사이트는 항상 HTTPS로만 접속해야 한다고 지시하는 보안 기능입니다. 한 번 브라우저가 이 헤더를 받으면, 이후엔 자동으로 HTTP 요청을 HTTPS로 업그레이드합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `HSTS 헤더 예시`,
 			},
 			{
@@ -9704,7 +10146,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `HTTPS는 데이터 무결성과 기밀성을 보장하며, CSRF와 XSS 공격에서 쿠키나 토큰이 탈취되는 것을 방지합니다. HSTS는 중간자 공격(MITM)을 줄이는 데 효과적입니다. 또한, 최신 TLS 버전(예: TLS 1.3)과 강력한 암호화 알고리즘을 사용하는 것이 중요합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `추가 보안 고려사항`,
 			},
 			{
@@ -9713,7 +10156,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 			<b>혼합 콘텐츠 방지</b>: HTTPS 페이지에서 HTTP 리소스(이미지, 스크립트 등)를 로드하지 않도록 주의합니다. 브라우저는 혼합 콘텐츠를 차단하거나 경고를 표시할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `종합적인 보안 전략`,
 			},
 			{
@@ -9741,7 +10185,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `React는 기본적으로 XSS(크로스 사이트 스크립팅) 공격을 방어하기 위한 강력한 메커니즘을 제공합니다. React의 설계 자체가 XSS 취약점을 줄이도록 만들어져 있으며, 이를 통해 사용자 입력이나 동적 데이터를 안전하게 렌더링할 수 있습니다. 하지만 특정 상황에서는 주의가 필요합니다. 아래에서 React의 XSS 방어 메커니즘과 주의사항을 정리하겠습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `React의 기본 XSS 방어 메커니즘`,
 			},
 			{
@@ -9749,7 +10194,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `React는 JSX와 내부 렌더링 방식 덕분에 XSS 공격을 방지하는 몇 가지 기본 기능을 제공합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `자동 이스케이프 처리`,
 			},
 			{
@@ -9768,7 +10214,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `브라우저에 <span class="point"><script>alert('XSS')</script></span> 가 이스케이프 처리 후 <span class="point">&amplt;script&ampgt;alert('XSS')&amplt;/script&ampgt;</span>  텍스트로 표시되며, 스크립트는 실행되지 않음. React는 {} 내부의 문자열을 textContent로 처리하여 HTML로 해석되지 않도록 합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `JSX의 안전한 구조`,
 			},
 			{
@@ -9780,7 +10227,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `<div>{userInput}</div>는 React.createElement로 변환되어 안전하게 처리됨.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `속성 이스케이프`,
 			},
 			{
@@ -9788,7 +10236,8 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 				value: `HTML 속성(예: value, href)에 동적 데이터를 삽입할 때도 React는 특수 문자를 이스케이프하여 악성 코드(예: javascript:alert('XSS'))가 실행되지 않도록 합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `안전하지 않은 dangerouslySetInnerHTML 사용.`,
 			},
 			{
@@ -9802,7 +10251,8 @@ return <div dangerouslySetInnerHTML={{ __html: userInput }} />;`,
 			},
 
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `안전한 방법 dangerouslySetInnerHTML 사용`,
 			},
 			{
@@ -9829,7 +10279,8 @@ return <div dangerouslySetInnerHTML={{ __html: sanitized }} />;`,
 				value: `React의 기본 방어에 더해 추가적인 보안 조치를 적용하면 더 안전한 애플리케이션을 만들 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `사용자 입력 검증`,
 			},
 			{
@@ -9838,7 +10289,8 @@ return <div dangerouslySetInnerHTML={{ __html: sanitized }} />;`,
 예: 이메일 입력은 이메일 형식이 맞는지 확인.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `DOMPurify 사용`,
 			},
 			{
@@ -9891,7 +10343,8 @@ return <div dangerouslySetInnerHTML={{ __html: sanitized }} />;`,
 이유: 위험한 CSS 표현식 제거.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Content Security Policy(CSP)`,
 			},
 			{
@@ -9907,7 +10360,8 @@ return <div dangerouslySetInnerHTML={{ __html: sanitized }} />;`,
 				value: `React 앱에서는 인라인 스크립트를 최소화하고, nonce나 strict-dynamic을 활용.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `안전한 API 사용`,
 			},
 			{
@@ -9916,7 +10370,8 @@ return <div dangerouslySetInnerHTML={{ __html: sanitized }} />;`,
 React의 기본 렌더링 방식을 따르고, 직접 DOM 조작을 피함.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `HTTPS 사용`,
 			},
 			{
@@ -9925,7 +10380,8 @@ React의 기본 렌더링 방식을 따르고, 직접 DOM 조작을 피함.`,
 React 앱은 보통 HTTPS로 배포되므로, 서버 설정에서 확인.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `서버 측 방어`,
 			},
 			{
@@ -9947,7 +10403,8 @@ React 앱은 보통 HTTPS로 배포되므로, 서버 설정에서 확인.`,
 				value: `브라우저의 HTML 렌더링은 <b>웹 페이지를 화면에 표시</b>하기 위해 브라우저가 <b>HTML, CSS, JavaScript 등의 리소스를 처리하고 시각적으로 표현하는 과정</b>입니다. 이 과정은 브라우저의 렌더링 엔진(예: Chrome의 Blink, Firefox의 Gecko, Safari의 WebKit)에 의해 수행되며, 여러 단계로 나눌 수 있습니다. 아래에서 이 과정을 자세히 설명하겠습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `브라우저 렌더링 과정의 개요`,
 			},
 			{
@@ -9968,7 +10425,8 @@ CSS 파싱 및 CSSOM 생성
 				value: `이 과정은 <b>Critical Rendering Path(CRP, 중요 렌더링 경로)</b>라고 불리며, 웹 페이지 로딩 속도와 사용자 경험에 직접적인 영향을 미칩니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `HTML 파싱 및 DOM 생성`,
 			},
 			{
@@ -9981,7 +10439,8 @@ CSS 파싱 및 CSSOM 생성
 				value: `비동기 리소스 처리: HTML 파싱 중 &lt;script>, &lt;img>, &lt;link> 등의 외부 리소스를 만나면 브라우저는 해당 리소스를 병렬적으로 요청합니다. 단, &lt;script> 태그는 기본적으로 파싱을 차단(blocking)할 수 있으므로 async 또는 defer 속성을 사용하는 것이 일반적입니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `CSS 파싱 및 CSSOM 생성`,
 			},
 			{
@@ -9992,7 +10451,8 @@ CSS는 계층적이며, 상속과 우선순위(예: !important, 선택자 특이
 <b>렌더링 차단</b>: CSS는 렌더링을 차단하는 리소스입니다. CSSOM이 완성되기 전에는 화면 렌더링이 시작되지 않으므로, CSS 파일을 최적화(예: 최소화, 인라인 CSS 사용)하는 것이 중요합니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `렌더 트리(Render Tree) 생성`,
 			},
 			{
@@ -10002,7 +10462,8 @@ CSS는 계층적이며, 상속과 우선순위(예: !important, 선택자 특이
 <b>렌더 트리의 역할</b>: <u>렌더 트리는 레이아웃 단계에서 요소의 크기와 위치를 계산</u>하는 데 사용됩니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `레이아웃(Layout, Reflow)`,
 			},
 			{
@@ -10012,7 +10473,8 @@ CSS는 계층적이며, 상속과 우선순위(예: !important, 선택자 특이
 <b>리플로우(Reflow)</b>: 레이아웃 계산은 초기 렌더링뿐만 아니라 DOM이나 CSS 변경(예: JavaScript로 스타일 변경, 창 크기 조정) 시에도 발생할 수 있습니다. 리플로우는 성능에 큰 영향을 미치므로 최소화해야 합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `페인팅(Painting)`,
 			},
 			{
@@ -10022,7 +10484,8 @@ CSS는 계층적이며, 상속과 우선순위(예: !important, 선택자 특이
 <b>GPU 가속</b>: 현대 브라우저는 <b>GPU를 활용해 페인팅을 가속화</b>합니다. <b>CSS 속성 중 will-change를 사용</b>하면 특정 요소의 렌더링을 최적화할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `will-change를 사용한 CSS 애니메이션 최적화`,
 			},
 			{
@@ -10052,7 +10515,7 @@ CSS는 계층적이며, 상속과 우선순위(예: !important, 선택자 특이
   <div class="box"></div>
 </body>
 </html>`,
-				children: true,
+				codePreviewProps: true,
 			},
 			{
 				type: ComponentType.STRINGLIST,
@@ -10061,7 +10524,8 @@ CSS는 계층적이며, 상속과 우선순위(예: !important, 선택자 특이
 <b>주의사항</b> </br> - will-change를 과도하게 사용하면 메모리 사용량이 증가할 수 있으므로, 실제로 애니메이션이나 변경이 빈번한 요소에만 적용하세요. </br> - 애니메이션이 끝난 후에는 will-change를 제거하는 것이 좋습니다(예: JavaScript로 동적으로 추가/제거).`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `스크롤 애니메이션`,
 			},
 			{
@@ -10082,8 +10546,10 @@ document.addEventListener('scroll', () => {
 				type: ComponentType.NORMAL,
 				value: `이 경우, will-change: transform은 스크롤에 따른 요소 이동을 GPU로 처리하여 부드러운 렌더링을 보장합니다. will-change는 GPU 가속을 활용해 애니메이션이나 전환 성능을 개선하지만, 적절히 사용해야 리소스 낭비를 피할 수 있습니다. 위 예시는 transform에 초점을 맞췄지만, opacity, scroll-position 등 다른 속성에도 적용 가능합니다.`,
 			},
+
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `컴포지팅(Compositing, 선택적)`,
 			},
 			{
@@ -10093,7 +10559,8 @@ document.addEventListener('scroll', () => {
 <b>성능 고려</b>: 컴포지팅은 리플로우나 리페인팅보다 비용이 적으므로, 애니메이션에 적합한 속성을 사용하는 것이 중요합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `박스 모델과의 연관성`,
 			},
 			{
@@ -10140,7 +10607,8 @@ box-sizing 속성은 박스 크기 계산 방식(content-box vs border-box)을 �
 <b>페인팅</b>: &lt;div>의 배경색, 테두리, 텍스트가 화면에 그려집니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `추가 고려사항`,
 			},
 			{
@@ -10163,7 +10631,8 @@ box-sizing 속성은 박스 크기 계산 방식(content-box vs border-box)을 �
 				value: `리플로우(Reflow)와 리페인트(Repaint)는 브라우저의 렌더링 과정에서 발생하는 두 가지 중요한 단계로, 웹 페이지의 시각적 업데이트와 관련이 있습니다. 이들은 <u>DOM이나 CSS의 변경으로 인해 요소의 레이아웃이나 스타일이 수정될 때 브라우저가 화면을 다시 그리는 과정</u>에서 발생합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `리플로우(Reflow)란?`,
 			},
 			{
@@ -10171,7 +10640,8 @@ box-sizing 속성은 박스 크기 계산 방식(content-box vs border-box)을 �
 				value: `리플로우는 브라우저가 요소의 <b>레이아웃(크기, 위치 등)</b>을 다시 계산하는 과정입니다. 이는 렌더 트리의 구조나 요소의 기하학적 속성(geometric properties, 예: 너비, 높이, 위치)이 변경될 때 발생합니다. 리플로우는 레이아웃 단계에서 수행되며, 변경된 요소뿐만 아니라 그에 영향을 받는 다른 요소(예: 부모, 자식, 형제 요소)의 레이아웃도 재계산할 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `리플로우의 비용`,
 			},
 			{
@@ -10185,7 +10655,8 @@ box-sizing 속성은 박스 크기 계산 방식(content-box vs border-box)을 �
 박스 모델 관련 속성 변경: box-sizing, display (예: block → none).`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `리페인트(Repaint)란?`,
 			},
 			{
@@ -10199,7 +10670,8 @@ opacity 변경 (단, GPU 가속이 적용되면 리페인트를 피할 수 있�
 			},
 
 			{
-				type: ComponentType.H3,
+				type: ComponentType.HEADING,
+				headingType: 'h3',
 				value: `리페인트의 비용`,
 			},
 			{
@@ -10208,7 +10680,8 @@ opacity 변경 (단, GPU 가속이 적용되면 리페인트를 피할 수 있�
 그러나 페이지에 많은 요소가 있거나 복잡한 스타일(예: 그림자, 그라디언트)이 적용된 경우 리페인트도 성능에 영향을 줄 수 있습니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `리플로우와 리페인트의 관계`,
 			},
 			{
@@ -10218,7 +10691,8 @@ opacity 변경 (단, GPU 가속이 적용되면 리페인트를 피할 수 있�
 <b>컴포지팅</b>: 현대 브라우저에서는 transform이나 opacity 같은 속성 변경은 레이아웃이나 페인팅 없이 컴포지팅 단계에서 처리됩니다. 이는 리플로우와 리페인트를 모두 피할 수 있어 성능이 뛰어납니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `리플로우와 리페인트의 예시`,
 			},
 			{
@@ -10275,15 +10749,16 @@ export default App;`,
 <b>문제점</b> </br> - 여러 스타일 변경이 개별적으로 적용되면 React의 상태 업데이트로 인해 불필요한 리렌더링이 발생할 수 있습니다. </br> - 레이아웃 변경은 성능 비용이 크므로 빈번한 변경 시 사용자 경험이 저하될 수 있습니다.`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.HEADING,
 				value: `컴포지팅 활용 및 React 최적화`,
+				headingType: 'h2',
 			},
 			{
-				type: ComponentType.H3,
+				type: ComponentType.NORMAL,
 				value: `이 예제는 리플로우와 리페인트를 최소화하기 위해 transform과 같은 컴포지팅 속성을 사용하고, React의 렌더링 최적화 기법을 적용합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.CODE,
 				value: `// src/App.jsx
 import { useState, useCallback } from 'react';
 import './App.css';
@@ -10339,7 +10814,8 @@ export default App;`,
 }`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `컴포지팅 활용`,
 			},
 			{
@@ -10435,7 +10911,8 @@ export default App;`,
 }`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `CSS 애니메이션`,
 			},
 			{
@@ -10444,7 +10921,8 @@ export default App;`,
 transform은 컴포지팅만 유발하므로 리플로우와 리페인트를 피합니다.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `React.memo`,
 			},
 			{
@@ -10462,11 +10940,13 @@ transform은 컴포지팅만 유발하므로 리플로우와 리페인트를 피
 React의 상태 변경은 DOM 조작을 유발하지만, CSS로 처리되므로 성능 영향이 최소화됩니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `React 환경에서 리플로우와 리페인트를 최소화하기 위한 주요 전략`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `컴포지팅 속성 사용`,
 			},
 			{
@@ -10475,7 +10955,8 @@ React의 상태 변경은 DOM 조작을 유발하지만, CSS로 처리되므로 
 예: left 대신 transform: translateX 사용.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `CSS 기반 애니메이션`,
 			},
 			{
@@ -10512,7 +10993,8 @@ React.memo로 컴포넌트 리렌더링을 최소화.
 React Developer Tools로 컴포넌트 리렌더링 분석.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `브라우저 개발자 도구 활용`,
 			},
 			{
@@ -10521,7 +11003,8 @@ React Developer Tools로 컴포넌트 리렌더링 분석.`,
 Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 시각적으로 확인 가능.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `Core Web Vitals 고려`,
 			},
 			{
@@ -10530,7 +11013,8 @@ Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 �
 리페인트는 LCP(Largest Contentful Paint)에 영향을 줄 수 있으므로, 중요한 콘텐츠의 렌더링을 최적화.`,
 			},
 			{
-				type: ComponentType.H4,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `라이브러리 사용`,
 			},
 			{
@@ -10560,7 +11044,8 @@ Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 �
 				value: `웹 애니메이션 이미지를 보고 전체적인 흐름에 따라 리플로우 리페인트 쟁크현상 병목현상등을 알아보고 이해하는 시간을 가지려고 합니다.`,
 			},
 			{
-				type: ComponentType.H2,
+				type: ComponentType.HEADING,
+				headingType: 'h2',
 				value: `리플로우(Reflow)란?`,
 			},
 		],

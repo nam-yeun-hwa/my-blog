@@ -1,4 +1,8 @@
-import { headingWeightProps } from 'app/_component/detailPage/Heading';
+import { ImageManagerProps } from 'app/_component/common/ImageLoader';
+import {
+	HeadingType,
+	HeadingWeightProps,
+} from 'app/_component/detailPage/Heading';
 import { promptType } from 'app/_component/detailPage/Prompts';
 import { TableProps } from 'app/_component/table/BasicTypeTable';
 import { ReactNode } from 'react';
@@ -21,9 +25,11 @@ export interface IPost<T = any> {
 	post: {
 		type: ComponentType;
 		value: string;
-		propsType?: promptType | headingWeightProps;
-		// propsType?: ['TIP' | 'INFO' | 'WARNING' | 'DANGER' | 'NORMAL' | 'BOLD'];
-		children?: boolean;
+		headingWeightProps?: HeadingWeightProps;
+		promptTypeProps?: promptType;
+		codePreviewProps?: boolean;
+		imageloader?: ImageManagerProps;
+		headingType?: HeadingType;
 		tables?: TableProps<T>;
 	}[];
 }
@@ -92,18 +98,15 @@ export enum Level {
  */
 export enum ComponentType {
 	NORMAL = 'normal',
-	EMPHASIS = 'emphasis',
+	GUIDE_MESSAGE = 'GuideMessage',
 	CODE = 'code',
-	CODE_EXCUTE = 'code_excute',
 	TABLE = 'table',
 	STRINGLIST = 'stringlist',
-	NUMLIST = 'numlist',
 	KEYWORD = 'keyword',
-	H1 = 'h1',
-	H2 = 'h2',
-	H4 = 'h4',
-	H3 = 'H3',
+	HEADING = 'Heading',
+	IMAGE_LOADER = 'ImageLoader',
 	REFERENCES = 'references',
+	// NUMLIST = 'numlist',
 }
 
 /**

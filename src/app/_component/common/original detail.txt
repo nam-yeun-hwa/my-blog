@@ -1,0 +1,244 @@
+
+//** PostDetail 초기버전**//
+
+import style from './postDetail.module.css';
+import LanguageConsole from 'app/_component/detailPage/LanguageConsole';
+import Prompts, { promptType } from 'app/_component/detailPage/Prompts';
+import { ComponentType, IPost } from 'type/post';
+import { sortedTotalPostlist } from 'data/post_db';
+import Footer from 'app/_component/common/Footer';
+import StringDot from 'app/_component/detailPage/ListStyle';
+import HeadingString from 'app/_component/detailPage/Heading';
+import PostNavigation from './PostNavigation';
+
+import PostUserInfo from './PostUserInfo';
+import KeywordWord from '../detailPage/Keyword';
+import BasicTypeTable from '../table/BasicTypeTable';
+import ImageLoader from './ImageLoader';
+import ImageManager from './ImageLoader';
+
+type Props = {
+	postid: string;
+};
+
+export default function PostDetail({ postid }: Props) {
+	const currentPostId = parseInt(postid);
+	const prePostTitle = sortedTotalPostlist.find(value => {
+		return value.id === currentPostId - 1;
+	}) as IPost;
+	const nextPostTile = sortedTotalPostlist.find(value => {
+		return value.id === currentPostId + 1;
+	}) as IPost;
+	const { title, post, date } = sortedTotalPostlist.find(value => {
+		return value.id === currentPostId;
+	}) as IPost;
+	// createdAt
+
+	return (
+		<>
+			<PostUserInfo title={title} date={date} />
+
+			{post.map((components, idx) => {
+				if (components.type === ComponentType.GUIDE_MESSAGE)
+					return (
+						<Prompts
+							key={idx}
+							promptType={components.promptTypeProps}
+							detail={components.value}
+						/>
+					);
+				if (components.type === ComponentType.IMAGE_LOADER)
+					return <ImageManager key={idx} {...components.imageloader} />;
+				if (components.type === ComponentType.CODE)
+					return (
+						<LanguageConsole
+							key={idx}
+							code={components.value}
+							children={components.codePreviewProps}
+						/>
+					);
+
+				if (components.type === ComponentType.TABLE)
+					return (
+						<>
+							{components.tables && (
+								<BasicTypeTable
+									key={idx}
+									header={components.tables.header}
+									contents={components.tables.contents}
+								/>
+							)}
+						</>
+					);
+				if (components.type === ComponentType.STRINGLIST)
+					return <StringDot key={idx} list={components.value} />;
+				if (components.type === ComponentType.KEYWORD) {
+					return <KeywordWord key={idx} keyword={components.value} />;
+				}
+				if (components.type === ComponentType.HEADING) {
+					return (
+						<HeadingString
+							key={idx}
+							headingType={components.headingType}
+							headingValue={components.value}
+							headingBoldProps={components.headingWeightProps}
+						/>
+					);
+				}
+				return (
+					<div
+						key={idx}
+						className={style.content}
+						dangerouslySetInnerHTML={{ __html: components.value }}
+					/>
+				);
+			})}
+
+			{}
+			<PostNavigation
+				postid={currentPostId}
+				prePostTitle={nextPostTile}
+				nextPostTile={prePostTitle}
+				segment={'posts'}
+			/>
+			<Footer />
+		</>
+	);
+}
+
+
+
+======================================================================
+
+//** PostDetail 초기버전 2 **//
+
+
+import style from './postDetail.module.css';
+import LanguageConsole from 'app/_component/detailPage/LanguageConsole';
+import Prompts from 'app/_component/detailPage/Prompts';
+import { ComponentType, IPost } from 'type/post';
+import { sortedTotalPostlist } from 'data/post_db';
+import Footer from 'app/_component/common/Footer';
+import StringDot from 'app/_component/detailPage/ListStyle';
+import HeadingString from 'app/_component/detailPage/Heading';
+import PostNavigation from './PostNavigation';
+import PostUserInfo from './PostUserInfo';
+import KeywordWord from '../detailPage/Keyword';
+import BasicTypeTable from '../table/BasicTypeTable';
+import ImageLoader from './ImageLoader';
+
+type Props = {
+	postid: string;
+};
+
+export default function PostDetail({ postid }: Props) {
+	const currentPostId = parseInt(postid, 10);
+
+	const currentPost = sortedTotalPostlist.find(
+		post => post.id === currentPostId,
+	) as IPost;
+	const prevPost = sortedTotalPostlist.find(value => {
+		return value.id === currentPostId - 1;
+	}) as IPost;
+	const nextPost = sortedTotalPostlist.find(value => {
+		return value.id === currentPostId + 1;
+	}) as IPost;
+	const { title, post, date } = sortedTotalPostlist.find(value => {
+		return value.id === currentPostId;
+	}) as IPost;
+
+	if (!currentPost) return null;
+
+	const componentMap: Record<
+		ComponentType,
+		(component: any, idx: number) => JSX.Element | null
+	> = {
+		[ComponentType.GUIDE_MESSAGE]: (component, idx) => (
+			<Prompts
+				key={idx}
+				promptType={component.promptTypeProps}
+				detail={component.value}
+			/>
+		),
+		[ComponentType.IMAGE_LOADER]: (component, idx) => (
+			<ImageLoader key={idx} {...component.imageloader} />
+		),
+		[ComponentType.CODE]: (component, idx) => (
+			<LanguageConsole key={idx} code={component.value}>
+				{component.codePreviewProps}
+			</LanguageConsole>
+		),
+		[ComponentType.TABLE]: (component, idx) =>
+			component.tables ? (
+				<BasicTypeTable
+					key={idx}
+					header={component.tables.header}
+					contents={component.tables.contents}
+				/>
+			) : null,
+		[ComponentType.STRINGLIST]: (component, idx) => (
+			<StringDot key={idx} list={component.value} />
+		),
+		[ComponentType.KEYWORD]: (component, idx) => (
+			<KeywordWord key={idx} keyword={component.value} />
+		),
+		[ComponentType.HEADING]: (component, idx) => (
+			<HeadingString
+				key={idx}
+				headingType={component.headingType}
+				headingValue={component.value}
+				headingBoldProps={component.headingWeightProps}
+			/>
+		),
+		// 빠진 것들 처리 (fallback으로)
+		[ComponentType.NORMAL]: (component, idx) => (
+			<div
+				key={idx}
+				className={style.content}
+				dangerouslySetInnerHTML={{ __html: component.value }}
+			/>
+		),
+		[ComponentType.REFERENCES]: (component, idx) => (
+			<div
+				key={idx}
+				className={style.content}
+				dangerouslySetInnerHTML={{ __html: component.value }}
+			/>
+		),
+	};
+
+	const renderComponent = (component: IPost['post'][number], idx: number) => {
+		const renderer = componentMap[component.type];
+		if (renderer) {
+			return renderer(component, idx);
+		}
+		// 기본: HTML 문자열 렌더링
+		return (
+			<div
+				key={idx}
+				className={style.content}
+				dangerouslySetInnerHTML={{ __html: component.value }}
+			/>
+		);
+	};
+
+	return (
+		<>
+			<PostUserInfo title={title} date={date} />
+
+			{currentPost.post.map((component, idx) =>
+				renderComponent(component, idx),
+			)}
+
+			<PostNavigation
+				postid={currentPostId}
+				prePostTitle={nextPost}
+				nextPostTile={prevPost}
+				segment="posts"
+			/>
+
+			<Footer />
+		</>
+	);
+}
+

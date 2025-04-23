@@ -1,12 +1,11 @@
 import style from './Prompts.module.css';
 import cx from 'classnames';
 
-type Props = promptType & {
-	detail: string;
-};
+export type promptType = 'TIP' | 'INFO' | 'WARNING' | 'DANGER';
 
-export type promptType = {
-	promptType: 'TIP' | 'INFO' | 'WARNING' | 'DANGER';
+type Props = {
+	promptType: promptType | undefined;
+	detail: string;
 };
 
 export default function Prompts({ promptType, detail }: Props) {

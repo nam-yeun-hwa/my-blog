@@ -1,4 +1,5 @@
 .img {
-  border-radius: 50%;
-  background-color: aquamarine;
+	border-radius: 50%;
+	background-color: aquamarine;
+	object-fit: contain;
 }
