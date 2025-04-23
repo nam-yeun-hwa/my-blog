@@ -11,7 +11,25 @@ export default function PostDefaultComponent({
 	return (
 		<div
 			className={style.content}
-			dangerouslySetInnerHTML={{ __html: sanitizeHtml(value) }}
+			dangerouslySetInnerHTML={{
+				__html: sanitizeHtml(value, {
+					allowedTags: ['span', 'b', 'i', 'em', 'strong', 'a'], // span 태그를 허용
+					allowedAttributes: {
+						span: ['style', 'class'], // span 태그에 허용할 속성
+						a: ['href', 'title'],
+					},
+					allowedStyles: {
+						span: {
+							// style 속성에서 허용할 CSS 속성
+							color: [
+								/^#([0-9a-f]{3}){1,2}$/i,
+								/^rgb\(\d{1,3}, \d{1,3}, \d{1,3}\)$/,
+							], // 예: 색상값만 허용
+							'font-size': [/^\d+(?:px|em|rem)$/],
+						},
+					},
+				}),
+			}}
 		/>
 	);
 }

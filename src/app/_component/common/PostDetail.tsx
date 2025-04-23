@@ -44,28 +44,28 @@ export default function PostDetail({ postid }: Props) {
 				detail={component.value}
 			/>
 		),
-		[ComponentType.IMAGE_LOADER]: (component, idx) => (
+		[ComponentType.IMAGE_LOADER]: component => (
 			<ImageLoader {...component.imageloader} />
 		),
-		[ComponentType.CODE]: (component, idx) => (
+		[ComponentType.CODE]: component => (
 			<LanguageConsole code={component.value}>
 				{component.codePreviewProps}
 			</LanguageConsole>
 		),
-		[ComponentType.TABLE]: (component, idx) =>
+		[ComponentType.TABLE]: component =>
 			component.tables ? (
 				<BasicTypeTable
 					header={component.tables.header}
 					contents={component.tables.contents}
 				/>
 			) : null,
-		[ComponentType.STRINGLIST]: (component, idx) => (
+		[ComponentType.STRINGLIST]: component => (
 			<StringDot list={component.value} />
 		),
-		[ComponentType.KEYWORD]: (component, idx) => (
+		[ComponentType.KEYWORD]: component => (
 			<KeywordWord keyword={component.value} />
 		),
-		[ComponentType.HEADING]: (component, idx) => (
+		[ComponentType.HEADING]: component => (
 			<HeadingString
 				headingType={component.headingType}
 				headingValue={component.value}

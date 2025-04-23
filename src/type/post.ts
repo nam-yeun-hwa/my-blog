@@ -7,10 +7,10 @@ import { promptType } from 'app/_component/detailPage/Prompts';
 import { TableProps } from 'app/_component/table/BasicTypeTable';
 import { ReactNode } from 'react';
 
-export type headerType = {
-	accessorKey: string;
-	header: string;
-};
+// export type headerType = {
+// 	accessorKey: string;
+// 	header: string;
+// };
 
 /**
  * POST 인터페이스

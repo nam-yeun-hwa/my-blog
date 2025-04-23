@@ -10628,8 +10628,60 @@ box-sizing 속성은 박스 크기 계산 방식(content-box vs border-box)을 �
 		post: [
 			{
 				type: ComponentType.NORMAL,
-				value: `리플로우(Reflow)와 리페인트(Repaint)는 브라우저의 렌더링 과정에서 발생하는 두 가지 중요한 단계로, 웹 페이지의 시각적 업데이트와 관련이 있습니다. 이들은 <u>DOM이나 CSS의 변경으로 인해 요소의 레이아웃이나 스타일이 수정될 때 브라우저가 화면을 다시 그리는 과정</u>에서 발생합니다.`,
+				value: `리플로우(Reflow)와 리페인트(Repaint)는 브라우저의 렌더링 과정에서 발생하는 두 가지 중요한 단계로, 웹 페이지의 시각적 업데이트와 관련이 있습니다. 이들은 <u>DOM이나 CSS의 변경으로 인해 요소의 레이아웃이나 스타일이 수정될 때 브라우저가 화면을 다시 그리는 과정</u>에서 발생합니다. 먼저 브라우저의 렌더링 과정을 설명하겠습니다. 브라우저 렌더링은 웹 페이지를 화면에 표시하기 위해 여러 단계를 거칩니다. 아래는 주요 단계를 간단히 설명한 내용입니다.`,
 			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `브라우저 렌더링 과정`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `DOM 및 CSSOM 생성`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `HTML을 파싱하여 DOM(Document Object Model) 트리를 생성합니다.
+CSS를 파싱하여 CSSOM(CSS Object Model) 트리를 생성합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `렌더 트리(Render Tree) 생성`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `DOM과 CSSOM을 결합하여 실제 화면에 표시할 요소들로 구성된 렌더 트리를 만듭니다. 표시되지 않는 요소(예: display: none)는 포함되지 않습니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `레이아웃(Layout, Reflow)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `렌더 트리의 각 요소의 위치와 크기를 계산합니다. 이 과정에서 뷰포트 크기, 요소의 스타일 등이 반영됩니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `페인트(Paint, Repaint)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `계산된 렌더 트리를 기반으로 픽셀 단위로 화면에 그리는 과정을 수행합니다. 색상, 이미지, 텍스트 등이 포함됩니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `컴포지팅(Compositing)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `페인트된 레이어를 합성하여 최종 화면을 렌더링합니다. GPU를 활용하여 레이어 이동, 변형(예: transform: translateX(100px)) 등을 효율적으로 처리합니다.`,
+			},
+
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
@@ -10637,7 +10689,7 @@ box-sizing 속성은 박스 크기 계산 방식(content-box vs border-box)을 �
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `리플로우는 브라우저가 요소의 <b>레이아웃(크기, 위치 등)</b>을 다시 계산하는 과정입니다. 이는 렌더 트리의 구조나 요소의 기하학적 속성(geometric properties, 예: 너비, 높이, 위치)이 변경될 때 발생합니다. 리플로우는 레이아웃 단계에서 수행되며, 변경된 요소뿐만 아니라 그에 영향을 받는 다른 요소(예: 부모, 자식, 형제 요소)의 레이아웃도 재계산할 수 있습니다.`,
+				value: `리플로우는 브라우저가 요소의 <b>레이아웃(크기, 위치 등)</b>을 다시 계산하는 과정입니다. 이는 렌더 트리의 구조나 요소의 기하학적 속성(예: 너비, 높이, 위치)이 변경될 때 발생합니다. 리플로우는 레이아웃 단계에서 수행되며, 변경된 요소뿐만 아니라 그에 영향을 받는 다른 요소(예: 부모, 자식, 형제 요소)의 레이아웃도 재계산할 수 있습니다.`,
 			},
 			{
 				type: ComponentType.HEADING,
@@ -10661,7 +10713,7 @@ box-sizing 속성은 박스 크기 계산 방식(content-box vs border-box)을 �
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `리페인트는 요소의 시각적 스타일(색상, 배경, 그림자 등)이 변경되었을 때, 브라우저가 해당 요소를 화면에 다시 그리는 과정입니다. 리페인트는 페인팅 단계에서 수행되며, 레이아웃(크기나 위치) 변경 없이 스타일만 업데이트합니다.`,
+				value: `리페인트는 요소의 시각적 스타일(예: 색상, 배경, 그림자 등)이 변경되었을 때, 브라우저가 해당 요소를 화면에 다시 그리는 과정입니다. 리페인트는 페인팅 단계에서 수행되며, 레이아웃(예: 크기나 위치) 변경 없이 스타일만 업데이트합니다.`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
@@ -10676,8 +10728,11 @@ opacity 변경 (단, GPU 가속이 적용되면 리페인트를 피할 수 있�
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `리페인트는 리플로우보다 계산 비용이 적습니다. 레이아웃을 재계산하지 않고 픽셀만 다시 그리기 때문입니다.
-그러나 페이지에 많은 요소가 있거나 복잡한 스타일(예: 그림자, 그라디언트)이 적용된 경우 리페인트도 성능에 영향을 줄 수 있습니다.`,
+				value: `리페인트는 리플로우보다 계산 비용이 적습니다. 레이아웃을 재계산하지 않고 픽셀만 다시 그리기 때문입니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `그러나 페이지에 많은 요소가 있거나 복잡한 스타일(예: 그림자, 그라디언트)이 적용된 경우 리페인트도 성능에 영향을 줄 수 있습니다.`,
 			},
 			{
 				type: ComponentType.HEADING,
@@ -10688,7 +10743,7 @@ opacity 변경 (단, GPU 가속이 적용되면 리페인트를 피할 수 있�
 				type: ComponentType.STRINGLIST,
 				value: `<b>리플로우 → 리페인트</b>: 리플로우는 레이아웃을 변경하므로, 레이아웃이 바뀐 요소는 다시 그려져야 하므로 리페인트가 발생합니다.
 <b>리페인트만 발생</b>: 레이아웃에 영향을 주지 않는 스타일 변경(예: color, background)은 리페인트만 유발합니다.
-<b>컴포지팅</b>: 현대 브라우저에서는 transform이나 opacity 같은 속성 변경은 레이아웃이나 페인팅 없이 컴포지팅 단계에서 처리됩니다. 이는 리플로우와 리페인트를 모두 피할 수 있어 성능이 뛰어납니다.`,
+<b>컴포지팅</b>: <span class="point">현대 브라우저에서는 transform이나 opacity 같은 속성 변경은 레이아웃이나 페인팅 없이 컴포지팅 단계에서 처리됩니다. 이는 리플로우와 리페인트를 모두 피할 수 있어 성능이 뛰어납니다.</span> `,
 			},
 			{
 				type: ComponentType.HEADING,
@@ -10702,8 +10757,8 @@ opacity 변경 (단, GPU 가속이 적용되면 리페인트를 피할 수 있�
 			{
 				type: ComponentType.CODE,
 				value: `// src/App.jsx
+				
 import { useState } from 'react';
-import './App.css';
 
 function App() {
   const [boxStyle, setBoxStyle] = useState({
@@ -10725,7 +10780,7 @@ function App() {
   return (
     <div>
       <h1>리플로우와 리페인트 예제</h1>
-      <div className="box" style={boxStyle}>
+      <div style={boxStyle}>
         테스트 박스
       </div>
       <button onClick={changeStyle}>스타일 변경</button>
@@ -10734,13 +10789,6 @@ function App() {
 }
 
 export default App;`,
-			},
-			{
-				type: ComponentType.CODE,
-				value: `/* src/App.css */
-.box {
-  transition: all 0.3s ease; /* 스타일 변경에 애니메이션 적용 */
-}`,
 			},
 			{
 				type: ComponentType.STRINGLIST,
@@ -10755,11 +10803,12 @@ export default App;`,
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `이 예제는 리플로우와 리페인트를 최소화하기 위해 transform과 같은 컴포지팅 속성을 사용하고, React의 렌더링 최적화 기법을 적용합니다.`,
+				value: `이 예제는 리플로우와 리페인트를 최소화하기 위해 <b>transform과 같은 컴포지팅 속성을 사용</b> 하고, React의 렌더링 최적화 기법을 적용합니다.`,
 			},
 			{
 				type: ComponentType.CODE,
 				value: `// src/App.jsx
+
 import { useState, useCallback } from 'react';
 import './App.css';
 
@@ -10767,7 +10816,6 @@ function App() {
   const [isTransformed, setIsTransformed] = useState(false);
   const [isColorChanged, setIsColorChanged] = useState(false);
 
-  // useCallback으로 이벤트 핸들러 메모이제이션
   const toggleTransform = useCallback(() => {
     setIsTransformed((prev) => !prev);
   }, []);
@@ -10823,7 +10871,8 @@ export default App;`,
 				value: `transform: translateX(100px)는 레이아웃이나 픽셀을 다시 계산하지 않고 GPU를 활용해 컴포지팅 단계에서 처리됩니다. 이는 리플로우와 리페인트를 피합니다.`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `리페인트만 유발`,
 			},
 			{
@@ -10831,166 +10880,14 @@ export default App;`,
 				value: `background-color 변경은 리페인트만 유발하며, 레이아웃에 영향을 주지 않습니다.`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `React 최적화`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `<b>클래스 기반 스타일 변경</b>: style 객체를 직접 변경하는 대신 CSS 클래스를 토글하여 리렌더링 비용을 줄입니다.
-<b>useCallback</b>: 이벤트 핸들러를 메모이제이션하여 불필요한 함수 재생성을 방지합니다.
 <b>CSS 애니메이션</b>: transition 속성을 사용해 부드러운 애니메이션을 구현하며, 브라우저의 최적화(GPU 가속)를 활용합니다.`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `CSS 애니메이션과 React.memo`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `복잡한 컴포넌트에서 렌더링 성능을 더욱 개선하기 위해 CSS 애니메이션과 React.memo를 사용한 예제를 추가합니다. 이 예제는 박스가 주기적으로 이동하는 애니메이션을 구현합니다.`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `// src/App.jsx
-import { useState, useEffect, memo } from 'react';
-import './App.css';
-
-// Box 컴포넌트를 React.memo로 래핑
-const Box = memo(({ isAnimated }) => {
-  return (
-    <div className={"box \${isAnimated ? "animated" : ""}"}>
-      애니메이션 박스
-    </div>
-  );
-});
-
-function App() {
-  const [isAnimated, setIsAnimated] = useState(false);
-
-  useEffect(() => {
-    // 주기적으로 애니메이션 토글
-    const interval = setInterval(() => {
-      setIsAnimated((prev) => !prev);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div>
-      <h1>CSS 애니메이션과 React.memo</h1>
-      <Box isAnimated={isAnimated} />
-    </div>
-  );
-}
-
-export default App;`,
-			},
-			{
-				type: ComponentType.CODE,
-				value: `/* src/App.css */
-.box {
-  width: 200px;
-  height: 100px;
-  margin: 20px;
-  background-color: lightcoral;
-}
-
-.animated {
-  animation: moveBox 1s ease infinite;
-}
-
-@keyframes moveBox {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(100px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}`,
-			},
-			{
-				type: ComponentType.HEADING,
-				headingType: 'h4',
-				value: `CSS 애니메이션`,
-			},
-			{
-				type: ComponentType.STRINGLIST,
-				value: `@keyframes와 transform을 사용해 박스가 좌우로 이동하는 애니메이션을 구현합니다.
-transform은 컴포지팅만 유발하므로 리플로우와 리페인트를 피합니다.`,
-			},
-			{
-				type: ComponentType.HEADING,
-				headingType: 'h4',
-				value: `React.memo`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `Box 컴포넌트를 React.memo로 래핑하여 props가 변경되지 않으면 리렌더링을 방지합니다.
-이는 부모 컴포넌트의 상태 변경(isAnimated)이 불필요한 자식 컴포넌트 리렌더링을 유발하지 않도록 합니다.`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `useEffect`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `setInterval로 주기적으로 상태를 변경하여 애니메이션을 트리거합니다.
-React의 상태 변경은 DOM 조작을 유발하지만, CSS로 처리되므로 성능 영향이 최소화됩니다.`,
-			},
-			{
-				type: ComponentType.HEADING,
-				headingType: 'h2',
-				value: `React 환경에서 리플로우와 리페인트를 최소화하기 위한 주요 전략`,
-			},
-			{
-				type: ComponentType.HEADING,
-				headingType: 'h4',
-				value: `컴포지팅 속성 사용`,
-			},
-			{
-				type: ComponentType.STRINGLIST,
-				value: `transform, opacity를 사용해 리플로우와 리페인트를 피하고 GPU 가속을 활용.
-예: left 대신 transform: translateX 사용.`,
-			},
-			{
-				type: ComponentType.HEADING,
-				headingType: 'h4',
-				value: `CSS 기반 애니메이션`,
-			},
-			{
-				type: ComponentType.STRINGLIST,
-				value: `JavaScript로 스타일을 직접 변경하는 대신 CSS transition이나 @keyframes를 사용.
-React 상태는 클래스를 토글하는 데만 사용.`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `React 렌더링 최적화`,
-			},
-			{
-				type: ComponentType.STRINGLIST,
-				value: `useCallback, useMemo로 함수와 객체를 메모이제이션하여 불필요한 리렌더링 방지.
-React.memo로 컴포넌트 리렌더링을 최소화.
-상태 업데이트를 최소화하고, 한 번에 여러 스타일 변경을 처리.`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `DOM 조작 최소화`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `React의 가상 DOM을 활용해 실제 DOM 조작을 줄임.
-스타일 변경은 클래스 기반으로 처리.`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `성능 측정`,
-			},
-			{
-				type: ComponentType.NORMAL,
-				value: `브라우저 개발자 도구의 Performance 탭을 사용해 리플로우와 리페인트 발생 여부를 확인.
-React Developer Tools로 컴포넌트 리렌더링 분석.`,
 			},
 			{
 				type: ComponentType.HEADING,
@@ -11009,8 +10906,8 @@ Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 �
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `리플로우는 CLS(Cumulative Layout Shift)를 유발할 수 있으므로, 레이아웃 이동을 최소화.
-리페인트는 LCP(Largest Contentful Paint)에 영향을 줄 수 있으므로, 중요한 콘텐츠의 렌더링을 최적화.`,
+				value: `<span class="point">리플로우</span>는 <b>CLS(Cumulative Layout Shift)를 유발</b>할 수 있으므로, 레이아웃 이동을 최소화.
+<span class="point">리페인트</span>는 <b>LCP(Largest Contentful Paint)에 영향</b>을 줄 수 있으므로, 중요한 콘텐츠의 렌더링을 최적화 하여 사용 하도록 합니다.`,
 			},
 			{
 				type: ComponentType.HEADING,
@@ -11019,7 +10916,7 @@ Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 �
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `React에서 애니메이션을 위해 framer-motion이나 react-spring 같은 라이브러리를 사용하면 컴포지팅을 자동으로 활용 가능`,
+				value: `React에서 애니메이션을 위해 framer-motion이나 react-spring 같은 라이브러리를 사용하면 컴포지팅을 자동으로 활용 가능합니다.`,
 			},
 		],
 	},
