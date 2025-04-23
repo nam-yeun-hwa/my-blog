@@ -19,14 +19,15 @@ export default function SideMenu({ onToggle, moveToggle }: Props) {
 			className={cx(style.sidebar, onToggle && style.sidebar_move)}
 		>
 			<header className={style.profile_wrapper}>
-				<Link href={'/posts'}>
-					<ImageLoader
-						imgPath="profile1.jpg"
-						width={112}
-						height={112}
-						alt="프로필이미지"
-					/>
-				</Link>
+				<div className={style.profile}>
+					<Link href={'/posts'}>
+						<ImageLoader
+							imgPath="profile1.jpg"
+							alt="프로필이미지"
+							round="50%"
+						/>
+					</Link>
+				</div>
 				<h1 className={style.blog_name_txt}>my blog</h1>
 				<p className={style.site_subtitle}>
 					You can only earn as much as an ant does by working like an ant.

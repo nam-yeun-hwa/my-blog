@@ -10941,9 +10941,13 @@ Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 �
 				value: `웹 애니메이션 이미지를 보고 전체적인 흐름에 따라 리플로우 리페인트 쟁크현상 병목현상등을 알아보고 이해하는 시간을 가지려고 합니다.`,
 			},
 			{
-				type: ComponentType.HEADING,
-				headingType: 'h2',
+				type: ComponentType.IMAGE_LOADER,
 				value: `리플로우(Reflow)란?`,
+				imageloader: {
+					imgPath: 'ImageOptimizationSample1.jpg',
+					alt: '이미지최적화 샘플1',
+					width: '55%',
+				},
 			},
 		],
 	},

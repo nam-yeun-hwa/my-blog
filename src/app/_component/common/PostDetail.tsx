@@ -36,7 +36,7 @@ export default function PostDetail({ postid }: Props) {
 
 	const componentMap: Record<
 		ComponentType,
-		(component: IPost['post'][number], idx: number) => JSX.Element | null
+		(component: IPost['post'][number]) => JSX.Element | null
 	> = {
 		[ComponentType.GUIDE_MESSAGE]: component => (
 			<Prompts
@@ -107,6 +107,11 @@ export default function PostDetail({ postid }: Props) {
 // };
 // 특정 키 집합에 대해 동일한 값 타입을 강제.
 // 예: 모든 키가 string이고 값이 number인 객체.
+
+// IPost['post']는 이 배열 타입을 가리키며, TypeScript에서 배열의 타입은 Array<T> 또는 T[]로 표현됩니다. 여기서 T는 배열 요소의 타입입니다.
+// IPost['post'][number]에서 [number]는 post 배열의 단일 요소 타입을 추출하기 위해 사용됩니다.
+// 배열의 인덱스는 숫자이므로 [number]는 배열 요소 타입을 얻는 TypeScript의 표준 방식입니다.
+// component: IPost['post'][number]는 post 배열의 각 객체를 처리하는 함수의 파라미터 타입을 정의합니다.
 
 //================================ [2]
 // enum ComponentType {
