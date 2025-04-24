@@ -10947,7 +10947,26 @@ Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 �
 					imgPath: 'ImageOptimizationSample1.jpg',
 					alt: '이미지최적화 샘플1',
 					width: '55%',
+					round: '12px',
 				},
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `그래프를 클릭하거나 페이지에 들어서면 애니메이션이 실행되는 페이지이다.`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: `리플로우(Reflow)란?`,
+				imageloader: {
+					imgPath: 'ImageOptimizationSample2.jpg',
+					alt: '이미지최적화 샘플2',
+					width: '100%',
+					round: '12px',
+				},
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위의 이미지에서 Timings는 그래프를 클릭 할때마다 리액트 함수가 실행되는 타이밍을 보여주고 있으며 그 타이밍에 맞춰 브라우저에 화면을 그리는 작업을 수행하는 내용을 아래 에서 확인 할 수 있다.`,
 			},
 		],
 	},
