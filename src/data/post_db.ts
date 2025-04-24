@@ -10956,17 +10956,93 @@ Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 �
 			},
 			{
 				type: ComponentType.IMAGE_LOADER,
-				value: `리플로우(Reflow)란?`,
+				value: ``,
 				imageloader: {
 					imgPath: 'ImageOptimizationSample2.jpg',
 					alt: '이미지최적화 샘플2',
-					width: '100%',
+					width: '80%',
 					round: '12px',
 				},
 			},
 			{
 				type: ComponentType.NORMAL,
 				value: `위의 이미지에서 Timings는 그래프를 클릭 할때마다 리액트 함수가 실행되는 타이밍을 보여주고 있으며 그 타이밍에 맞춰 브라우저에 화면을 그리는 작업을 수행하는 내용을 아래 에서 확인 할 수 있다.`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: ``,
+				imageloader: {
+					imgPath: 'ImageOptimizationSample3.jpg',
+					alt: '이미지최적화 샘플3',
+					width: '80%',
+					round: '12px',
+				},
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Timings 아래 부분을 확대해 보았다. 애니메이션을 변경될때마다 브라우저에 렌더링 하는 과정을 반복하는 것을 확인 할 수 있다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `➀ 스타일을 다시 계산하고 (dom tree, cssom tree를 생성하고 렌더 트리를 새로 생성 과정)
+➁ 레이아웃 과정
+③ 페인트 과정
+③ 레이어 합성 과정`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `5번의 경우 점선이 그어져 있는데 이 점선은 브라우저 화면에 렌더링 화면이 노출되어야 하는 시점이다. 하지만 마지막 레이어 합성과정이 완료 되지 않은 상태로 보여 진다.
+
+위와 같은 현상이 일어나면 프레임이 드랍되거나 쟁크 현상이 일어나 애니메이션이 매끄럽지 않다.
+
+이럴때는 reflow을 일으키는 속성들 사용 보다는 repaint를 일으키는 속성이나 layout, paint 단계를 건너띌수 있는 transform 속성을 사용 하는 것이 좋다.
+`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Reflow, Repaint를 피하여 CSS 애니메이션 최적화하기`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `.style_ani{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: \${({ width }) => width}%;
+    transition: width 1.5s ease;
+    height: 100%;
+    background: \${({ isSelected }) => isSelected ? 'rgba(126, 198, 81, 0.7)' : 'rgb(198, 198, 198)'};
+    z-index: 1;}`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 css는 width값을 이용하여 애니메이션을 적용하는 리액트의 스타일 컴포넌트이다. 이 내용을 scaleX 속성을 이용하여 변경하여 Reflow, Repaint 피하고 GPU 도움 받아 렌더링 하도록 변경한다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `.style_ani{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: scaleX(\${props => props.width / 100});
+    transform-origin: center left;
+    transition: width 1.5s ease;
+    height: 100%;
+    background: \${({ isSelected }) => isSelected ? 'rgba(126, 198, 81, 0.7)' : 'rgb(198, 198, 198)'};
+    z-index: 1;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `scaleX의 축은 가운데를 기준으로 스케일이 변경되기 때문에 transform-origin 속성을 추가하여 세로는 가운데로 가로는 왼쪽으로 스케일이 변경 되도록 수정한다.
+
+또 애니메이션이 transform에 적용되도록 transition 속성의 값을 transform으로 변경하여 준다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `애니메이션 Reflow에서 GPU사용으로 변경 후`,
 			},
 		],
 	},
