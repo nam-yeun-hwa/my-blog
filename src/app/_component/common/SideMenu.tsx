@@ -80,7 +80,7 @@ export default function SideMenu({ onToggle, moveToggle }: Props) {
 							<span className={style.nav_txt}>ARCHIVES</span>
 						</Link>
 					</li>
-					<li
+					{/* <li
 						className={cx(
 							style.nav_item,
 							segment === 'algorithm' && style.active,
@@ -91,7 +91,7 @@ export default function SideMenu({ onToggle, moveToggle }: Props) {
 							<i className={`fa-solid fa-mug-saucer ${style.ico}`}></i>
 							<span className={style.nav_txt}>CODING</span>
 						</Link>
-					</li>
+					</li> */}
 				</ul>
 			</nav>
 			<div className="sidebar-bottom"></div>

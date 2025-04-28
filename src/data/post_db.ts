@@ -10987,7 +10987,7 @@ Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 �
 				value: `➀ 스타일을 다시 계산하고 (dom tree, cssom tree를 생성하고 렌더 트리를 새로 생성 과정)
 ➁ 레이아웃 과정
 ③ 페인트 과정
-③ 레이어 합성 과정`,
+④ 레이어 합성 과정`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -11043,6 +11043,61 @@ Rendering 탭에서 "Paint Flashing"을 활성화하면 리페인트 영역을 �
 				type: ComponentType.HEADING,
 				headingType: 'h2',
 				value: `애니메이션 Reflow에서 GPU사용으로 변경 후`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: ``,
+				imageloader: {
+					imgPath: 'ImageOptimizationSample4.png',
+					alt: '이미지최적화 샘플4',
+					width: '80%',
+					round: '12px',
+				},
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `FPS`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `웹 브라우저는 호출 스택에 실행 컨텍스트가 존재하는 동안, 즉 실행 중인 함수가 존재하는 동안에는 먹통이 되어 버립니다. 브라우저는 60 프레임으로 애니메이션을 렌더링 하고 있는데 그래프의 애니메이션이 뚝뚝 끊기는 현상은 애니메이션을 렌더링 하는데 60 프레임을 넘어가 프레임 드롭 현상이 나타나는 것입니다. 이는 사용자 경험에 악영향을 미칠 수 있습니다.
+
+따라서, 브라우저에서 동작하는 JavaScript 코드, 특히 사용자와의 상호작용을 위한 코드를 작성할 때에는 코드의 실행 시간이 얼마나 될지를 항상 염두에 두어야 합니다.`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: ``,
+				imageloader: {
+					imgPath: 'ImageOptimizationSample5.jpg',
+					alt: '이미지최적화 샘플5',
+					width: '80%',
+					round: '12px',
+				},
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Reflow 영역의 그래프`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Reflow가 일어난 영역에서는 보라색과 초록색 등 메인 쓰레드의 역할이 매우 활발한 것을 볼 수 있다.`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: ``,
+				imageloader: {
+					imgPath: 'ImageOptimizationSample6.jpg',
+					alt: '이미지최적화 샘플6',
+					width: '80%',
+					round: '12px',
+				},
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `출처 : 
+https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-%EB%A6%AC%EC%95%A1%ED%8A%B8-1&unitId=48065&tab=curriculum`,
 			},
 		],
 	},
