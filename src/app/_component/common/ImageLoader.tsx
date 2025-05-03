@@ -11,15 +11,14 @@ export type ImageManagerProps = {
 };
 
 export default function ImageManager({
-	imgPath = process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'http://localhost:3000',
+	imgPath = process.env.NEXT_PUBLIC_IMAGE_BASE_URL!!,
 	alt = '이미지입니다.',
 	width = '100%',
 	round = '0%',
 }: ImageManagerProps) {
 	const myLoader = ({ src, width, quality }: ImageLoaderProps) => {
-		const finalWidth = width || 1920;
-		const baseUrl =
-			process.env.NEXT_PUBLIC_IMAGE_BASE_URL || 'http://localhost:3000';
+		// const finalWidth = width || 1920;
+		const baseUrl = process.env.NEXT_PUBLIC_IMAGE_BASE_URL;
 		return `${baseUrl}/image/${src}?w=${width}&q=${quality || 75}`;
 	};
 	return (

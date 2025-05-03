@@ -11101,12 +11101,104 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 			},
 		],
 	},
+	{
+		id: 68,
+		title: `[TECH-QA] 이미지 Preloading`,
+		date: '2025-05-03 14:20:05',
+		folder: Folder.JAVASCRIPT,
+		tag: ['웹성능최적화', 'TECH-QA'],
+		preview: `화면에 모든 리소스들이 마운트 되었을때 자바스크립트의 new Image()를 사용하여 이미지를 미리 로드하여 캐싱하여 준다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `화면에 모든 리소스들이 마운트 되었을때 자바스크립트의 new Image()를 사용하여 이미지를 미리 로드하여 캐싱하여 준다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `useEffect(()=> {
+  const img = new Image();
+  img.src = '이미지주소';
+},[])`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `이미지에 cache-control 속성 확인`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: ``,
+				imageloader: {
+					imgPath: 'preloading1.jpg',
+					alt: '브라우저 cache-control 이미지',
+					width: '80%',
+					round: '12px',
+				},
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `캐싱 상태를 네트워크 패널에서 확인`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: ``,
+				imageloader: {
+					imgPath: 'preloading2.jpg',
+					alt: '브라우저 cache-control 상태',
+					width: '80%',
+					round: '12px',
+				},
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `처음 이미지를 한번 new Image()로 로딩하고 이미지의 cache-control 상태에 따라 다음번 이미지를 불러올때는 이미지가 캐싱되어 로딩하는 깜빡임 없이 바로 화면에 뜨는 것을 확인 할 수 있다.
+`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `(참고)브라우저 캐시 비우기 및 강력 새로고침 활용하기`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: ``,
+				imageloader: {
+					imgPath: 'preloading3.jpg',
+					alt: '브라우저 캐시 비우기 및 강력 새로고침 이미지',
+					width: '80%',
+					round: '12px',
+				},
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `출처
+https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-%EB%A6%AC%EC%95%A1%ED%8A%B8-1&unitId=48067&tab=curriculum`,
+			},
+		],
+	},
 ];
 
 // {
 // 	type: ComponentType.NORMAL,
 // 	value: ``,
 // },
+
+// {
+// 	id: 67,
+// 	title: `[TECH-QA] 리플로우(Reflow)와 리페인트(Repaint)는 브라우저의 렌더링 과정`,
+// 	date: '2025-04-17 14:07:33',
+// 	folder: Folder.JAVASCRIPT,
+// 	tag: ['브라우저', 'TECH-QA', 'Reflow', 'Repaint', '리플로우', '리페인트'],
+// 	preview: `리플로우(Reflow)와 리페인트(Repaint)는 브라우저의 렌더링 과정에서 발생하는 두 가지 중요한 단계로, 웹 페이지의 시각적 업데이트와 관련이 있습니다. 이들은 DOM이나 CSS의 변경으로 인해 요소의 레이아웃이나 스타일이 수정될 때 브라우저가 화면을 다시 그리는 과정에서 발생합니다.`,
+// 	post: [
+// 		{
+// 			type: ComponentType.NORMAL,
+// 			value: `리플로우(Reflow)와 리페인트(Repaint)는 브라우저의 렌더링 과정에서 발생하는 두 가지 중요한 단계로, 웹 페이지의 시각적 업데이트와 관련이 있습니다. 이들은 <u>DOM이나 CSS의 변경으로 인해 요소의 레이아웃이나 스타일이 수정될 때 브라우저가 화면을 다시 그리는 과정</u>에서 발생합니다. 먼저 브라우저의 렌더링 과정을 설명하겠습니다. 브라우저 렌더링은 웹 페이지를 화면에 표시하기 위해 여러 단계를 거칩니다. 아래는 주요 단계를 간단히 설명한 내용입니다.`,
+// 		},
+// 	],
+// },
+
 /**
  * @description 날짜별로 SORT
  */
