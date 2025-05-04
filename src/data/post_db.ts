@@ -11103,7 +11103,7 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 	},
 	{
 		id: 68,
-		title: `[TECH-QA] 이미지 Preloading`,
+		title: `[TECH-QA] 이미지 Preloading, 아마지 caching`,
 		date: '2025-05-03 14:20:05',
 		folder: Folder.JAVASCRIPT,
 		tag: ['웹성능최적화', 'TECH-QA'],
@@ -11177,27 +11177,32 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 			},
 		],
 	},
+	{
+		id: 69,
+		title: `[TECH-QA] Lazy loading, preload`,
+		date: '2025-05-04 17:14:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['브라우저', 'TECH-QA', '웹성능최적화'],
+		preview: `화면에서 쿨락헌 순간 모달에 관련된 파일들을 불러오고 모달에 관련된 파일들이 모두 불러와지면 Javascript를 Evaluate하고 모달이 뜨도록 코드를 실행하고 모달이 오픈된다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Lazy loading 단점`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: ``,
+				imageloader: {
+					imgPath: 'lazyLoading_1.jpg',
+					alt: 'lazyLoading_1 단점',
+					width: '80%',
+					round: '12px',
+				},
+			},
+		],
+	},
 ];
-
-// {
-// 	type: ComponentType.NORMAL,
-// 	value: ``,
-// },
-
-// {
-// 	id: 67,
-// 	title: `[TECH-QA] 리플로우(Reflow)와 리페인트(Repaint)는 브라우저의 렌더링 과정`,
-// 	date: '2025-04-17 14:07:33',
-// 	folder: Folder.JAVASCRIPT,
-// 	tag: ['브라우저', 'TECH-QA', 'Reflow', 'Repaint', '리플로우', '리페인트'],
-// 	preview: `리플로우(Reflow)와 리페인트(Repaint)는 브라우저의 렌더링 과정에서 발생하는 두 가지 중요한 단계로, 웹 페이지의 시각적 업데이트와 관련이 있습니다. 이들은 DOM이나 CSS의 변경으로 인해 요소의 레이아웃이나 스타일이 수정될 때 브라우저가 화면을 다시 그리는 과정에서 발생합니다.`,
-// 	post: [
-// 		{
-// 			type: ComponentType.NORMAL,
-// 			value: `리플로우(Reflow)와 리페인트(Repaint)는 브라우저의 렌더링 과정에서 발생하는 두 가지 중요한 단계로, 웹 페이지의 시각적 업데이트와 관련이 있습니다. 이들은 <u>DOM이나 CSS의 변경으로 인해 요소의 레이아웃이나 스타일이 수정될 때 브라우저가 화면을 다시 그리는 과정</u>에서 발생합니다. 먼저 브라우저의 렌더링 과정을 설명하겠습니다. 브라우저 렌더링은 웹 페이지를 화면에 표시하기 위해 여러 단계를 거칩니다. 아래는 주요 단계를 간단히 설명한 내용입니다.`,
-// 		},
-// 	],
-// },
 
 /**
  * @description 날짜별로 SORT
