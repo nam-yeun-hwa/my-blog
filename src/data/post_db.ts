@@ -11179,17 +11179,12 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 	},
 	{
 		id: 69,
-		title: `[TECH-QA] Lazy loading, preload`,
+		title: `[TECH-QA] 모달을 통해 알아보는 동적 임포트(Dynamic Import)와 지연 로딩(Lazy Loading)을 활용`,
 		date: '2025-05-04 17:14:33',
 		folder: Folder.JAVASCRIPT,
 		tag: ['브라우저', 'TECH-QA', '웹성능최적화'],
 		preview: `화면에서 쿨락헌 순간 모달에 관련된 파일들을 불러오고 모달에 관련된 파일들이 모두 불러와지면 Javascript를 Evaluate하고 모달이 뜨도록 코드를 실행하고 모달이 오픈된다.`,
 		post: [
-			{
-				type: ComponentType.HEADING,
-				headingType: 'h2',
-				value: `Lazy loading 단점`,
-			},
 			{
 				type: ComponentType.IMAGE_LOADER,
 				value: ``,
@@ -11199,6 +11194,130 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 					width: '80%',
 					round: '12px',
 				},
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Lazy loading시 화면에서 클락한 순간 모달에 관련된 파일들을 불러오고 모달에 관련된 파일들이 모두 불러와지면 Javascript를 Evaluate하고 모달이 뜨도록 코드를 실행하고 모달이 오픈된다.
+
+즉 최초 로딩 시점에서는 페이지 로딩이 빨라졌지만 모달을 띄울때는 오히려 성능이 더 느려진것을 볼 수 있다.
+`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `컴포넌트 preload로 성능 개선하기`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `버튼을 눌러 모달을 열기 전에 미리 모달과 관련된 코드들을 로드해 놓는다. 모달에 관련된 코드는 미리 로드가 되었으므로 클릭한 순간에 바로 모달의 화면을 확인 할 수 있다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `버튼위에 마우스를 올려 놨을때 모달을 로딩 하는 방법`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const handlerMouseEnter = () => {
+  const lazyModalComponent = import('./components/ImageModal');
+}`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `최초 페이지 로드에서 중요 파일들의 로드가 완료 된후 모달 로딩`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `중요 파일들의 컴포넌트가 모두 마운트 된 후에 모달을 import 해주도록 한다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `useEffect(()=> {
+  const lazyModalComponent = import('./components/ImageModal');
+},[])`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `여러 컴포넌트를 프리로드 해줘야 할 경우`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `매번 import를 써주기는 번거로울때 팩토리 패턴으로 함수를 만들어서 사용하도록 하는 방법.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function lazyWidthPreload(importFunction){
+  const Component = React.lazy(importFunction);
+  Component.preload = importFunction;
+  return Component;
+}
+
+const lazyImageModal = lazyWidthPreload(() =>  import('./components/ImageModal'));
+
+useEffect(()=> {
+  lazyImageModal.preload(); 
+},[])`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `1.lazyWidthPreload 함수`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function lazyWidthPreload(importFunction) {
+  const Component = React.lazy(importFunction);
+  Component.preload = importFunction;
+  return Component;
+}`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React의 React.lazy를 확장하여, 컴포넌트를 지연 로딩하면서도 필요할 때 미리 로드(preload)할 수 있도록 기능을 추가합니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>importFunction</b>: 동적 임포트를 위한 함수 (예: () => import('./someComponent')).
+<b>React.lazy(importFunction)</b>: 주어진 importFunction을 사용해 컴포넌트를 지연 로딩하도록 설정합니다. 이로 인해 컴포넌트는 처음 렌더링 시 로드되지 않고, <b>필요할 때 비동기적으로 로드</b>됩니다.
+Component.preload = importFunction: Component에 preload 메서드를 추가하여, 개발자가 원할 때 해당 컴포넌트를 미리 로드할 수 있도록 합니다.
+return Component: 지연 로딩 컴포넌트를 반환하며, preload 메서드가 추가된 상태입니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `2.lazyImageModal 생성`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const lazyImageModal = lazyWidthPreload(() => import('./components/ImageModal'));`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>설명</b>: lazyWidthPreload를 사용하여 ./components/ImageModal 컴포넌트를 지연 로딩하도록 설정합니다.
+<b>결과</b>: lazyImageModal은 React.lazy로 생성된 지연 로딩 컴포넌트이며, 추가로 preload 메서드를 통해 ImageModal을 미리 로드할 수 있습니다.
+<b>장점</b>: 초기 번들 크기를 줄이고, ImageModal이 필요할 때만 로드하여 성능을 최적화합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `3. useEffect로 preload 호출`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `useEffect(() => {
+  lazyImageModal.preload();
+}, []);`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `컴포넌트가 마운트될 때 lazyImageModal의 preload 메서드를 호출하여 ImageModal 컴포넌트를 미리 로드합니다. 사용자가 곧 ImageModal을 열 가능성이 높은 경우, 미리 로드하여 사용자 경험을 개선할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `useEffect는 컴포넌트가 마운트된 후 실행되며, 의존성 배열 []를 사용하므로 한 번만 실행됩니다.
+<span class="point">lazyImageModal.preload()</span>: ImageModal 컴포넌트를 비동기적으로 로드하여, 이후 렌더링 시 지연 없이 사용할 수 있도록 준비합니다.`,
 			},
 		],
 	},
@@ -11210,3 +11329,29 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 export const sortedTotalPostlist = totalPostlist.sort((a, b) => {
 	return new Date(b.date).getTime() - new Date(a.date).getTime();
 });
+
+// {
+// 	id: 69,
+// 	title: `[TECH-QA] Lazy loading, preload`,
+// 	date: '2025-05-04 17:14:33',
+// 	folder: Folder.JAVASCRIPT,
+// 	tag: ['브라우저', 'TECH-QA', '웹성능최적화'],
+// 	preview: `화면에서 쿨락헌 순간 모달에 관련된 파일들을 불러오고 모달에 관련된 파일들이 모두 불러와지면 Javascript를 Evaluate하고 모달이 뜨도록 코드를 실행하고 모달이 오픈된다.`,
+// 	post: [
+// 		{
+// 			type: ComponentType.HEADING,
+// 			headingType: 'h2',
+// 			value: `Lazy loading 단점`,
+// 		},
+// 		{
+// 			type: ComponentType.IMAGE_LOADER,
+// 			value: ``,
+// 			imageloader: {
+// 				imgPath: 'lazyLoading_1.jpg',
+// 				alt: 'lazyLoading_1 단점',
+// 				width: '80%',
+// 				round: '12px',
+// 			},
+// 		},
+// 	],
+// },
