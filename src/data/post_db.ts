@@ -11102,7 +11102,7 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 		],
 	},
 	{
-		id: 68,
+		id: 69,
 		title: `[TECH-QA] 이미지 Preloading, 아마지 caching`,
 		date: '2025-05-03 14:20:05',
 		folder: Folder.JAVASCRIPT,
@@ -11178,7 +11178,7 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 		],
 	},
 	{
-		id: 69,
+		id: 71,
 		title: `[TECH-QA] 모달을 통해 알아보는 동적 임포트(Dynamic Import)와 지연 로딩(Lazy Loading)을 활용`,
 		date: '2025-05-04 17:14:33',
 		folder: Folder.JAVASCRIPT,
@@ -11319,8 +11319,64 @@ return Component: 지연 로딩 컴포넌트를 반환하며, preload 메서드�
 				value: `useEffect는 컴포넌트가 마운트된 후 실행되며, 의존성 배열 []를 사용하므로 한 번만 실행됩니다.
 <span class="point">lazyImageModal.preload()</span>: ImageModal 컴포넌트를 비동기적으로 로드하여, 이후 렌더링 시 지연 없이 사용할 수 있도록 준비합니다.`,
 			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `정리`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>지연 로딩</b>: React.lazy를 통해 ImageModal 컴포넌트를 초기 로드에서 제외하여 페이지 로딩 속도를 향상시킵니다. 웹 앱이 로드될 때 ImageModal은 로드되지 않음 (초기 로딩 속도 개선).
+<b>미리 로드</b>: preload 메서드를 통해 필요한 시점에 컴포넌트를 미리 로드하여, 사용자가 컴포넌트를 요청할 때 대기 시간을 줄입니다. 컴포넌트 마운트 시 useEffect가 lazyImageModal.preload()를 호출하여 ImageModal을 백그라운드에서 로드.
+<b>성능 최적화</b>: 초기 번들 크기를 줄이고, 필요한 컴포넌트만 로드하며, 사용자 인터랙션에 따라 동적으로 리소스를 관리합니다. 사용자가 ImageModal을 열 때, 이미 로드된 컴포넌트가 즉시 렌더링되어 부드러운 경험 제공.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `Suspense`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React.lazy로 로드된 컴포넌트를 렌더링하려면 <Suspense>로 감싸야 하며, 로딩 상태를 처리하기 위해 fallback UI를 제공해야 합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `<Suspense fallback={<div>Loading...</div>}>
+  <lazyImageModal />
+</Suspense>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>네트워크 상태 고려</b>: preload는 네트워크 요청을 발생시키므로, 네트워크가 느린 환경에서는 타이밍을 조정하거나 조건부로 호출하는 것이 좋습니다.
+<b>의존성 배열</b>: useEffect의 []는 한 번만 실행되도록 보장하지만, 특정 조건에 따라 preload를 호출하려면 의존성을 추가할 수 있습니다.`,
+			},
 		],
 	},
+	// {
+	// 	id: 70,
+	// 	title: `[TECH-QA] Code Splitting & Lazy Loading`,
+	// 	date: '2025-05-04 17:14:33',
+	// 	folder: Folder.JAVASCRIPT,
+	// 	tag: ['브라우저', 'TECH-QA', '웹성능최적화'],
+	// 	preview: `화면에서 쿨락헌 순간 모달에 관련된 파일들을 불러오고 모달에 관련된 파일들이 모두 불러와지면 Javascript를 Evaluate하고 모달이 뜨도록 코드를 실행하고 모달이 오픈된다.`,
+	// 	post: [
+	// 		{
+	// 			type: ComponentType.HEADING,
+	// 			headingType: 'h2',
+	// 			value: `Lazy loading 단점`,
+	// 		},
+	// 		{
+	// 			type: ComponentType.IMAGE_LOADER,
+	// 			value: ``,
+	// 			imageloader: {
+	// 				imgPath: 'lazyLoading_1.jpg',
+	// 				alt: 'lazyLoading_1 단점',
+	// 				width: '80%',
+	// 				round: '12px',
+	// 			},
+	// 		},
+	// 	],
+	// },
 ];
 
 /**
