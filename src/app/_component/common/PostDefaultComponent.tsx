@@ -13,7 +13,7 @@ export default function PostDefaultComponent({
 			className={style.content}
 			dangerouslySetInnerHTML={{
 				__html: sanitizeHtml(value, {
-					allowedTags: ['span', 'b', 'i', 'em', 'strong', 'a'], // span 태그를 허용
+					allowedTags: ['span', 'b', 'i', 'em', 'strong', 'a', 'br', 'p'], // span 태그를 허용
 					allowedAttributes: {
 						span: ['style', 'class'], // span 태그에 허용할 속성
 						a: ['href', 'title'],

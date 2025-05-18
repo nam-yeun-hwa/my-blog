@@ -11262,8 +11262,8 @@ useEffect(()=> {
 			},
 			{
 				type: ComponentType.HEADING,
-				headingType: 'h3',
-				value: `1.lazyWidthPreload 함수`,
+				headingType: 'h4',
+				value: `1. lazyWidthPreload 함수`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -11286,8 +11286,8 @@ return Component: 지연 로딩 컴포넌트를 반환하며, preload 메서드�
 			},
 			{
 				type: ComponentType.HEADING,
-				headingType: 'h3',
-				value: `2.lazyImageModal 생성`,
+				headingType: 'h4',
+				value: `2. lazyImageModal 생성`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -11301,7 +11301,7 @@ return Component: 지연 로딩 컴포넌트를 반환하며, preload 메서드�
 			},
 			{
 				type: ComponentType.HEADING,
-				headingType: 'h3',
+				headingType: 'h4',
 				value: `3. useEffect로 preload 호출`,
 			},
 			{
@@ -11321,7 +11321,7 @@ return Component: 지연 로딩 컴포넌트를 반환하며, preload 메서드�
 			},
 			{
 				type: ComponentType.HEADING,
-				headingType: 'h3',
+				headingType: 'h2',
 				value: `정리`,
 			},
 			{
@@ -11332,7 +11332,7 @@ return Component: 지연 로딩 컴포넌트를 반환하며, preload 메서드�
 			},
 			{
 				type: ComponentType.HEADING,
-				headingType: 'h3',
+				headingType: 'h2',
 				value: `Suspense`,
 			},
 			{
@@ -11352,31 +11352,377 @@ return Component: 지연 로딩 컴포넌트를 반환하며, preload 메서드�
 			},
 		],
 	},
-	// {
-	// 	id: 70,
-	// 	title: `[TECH-QA] Code Splitting & Lazy Loading`,
-	// 	date: '2025-05-04 17:14:33',
-	// 	folder: Folder.JAVASCRIPT,
-	// 	tag: ['브라우저', 'TECH-QA', '웹성능최적화'],
-	// 	preview: `화면에서 쿨락헌 순간 모달에 관련된 파일들을 불러오고 모달에 관련된 파일들이 모두 불러와지면 Javascript를 Evaluate하고 모달이 뜨도록 코드를 실행하고 모달이 오픈된다.`,
-	// 	post: [
-	// 		{
-	// 			type: ComponentType.HEADING,
-	// 			headingType: 'h2',
-	// 			value: `Lazy loading 단점`,
-	// 		},
-	// 		{
-	// 			type: ComponentType.IMAGE_LOADER,
-	// 			value: ``,
-	// 			imageloader: {
-	// 				imgPath: 'lazyLoading_1.jpg',
-	// 				alt: 'lazyLoading_1 단점',
-	// 				width: '80%',
-	// 				round: '12px',
-	// 			},
-	// 		},
-	// 	],
-	// },
+	{
+		id: 72,
+		title: `[TECH-QA] Text Compression`,
+		date: '2025-05-18 09:59:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['브라우저', 'TECH-QA', '웹성능최적화'],
+		preview: `웹 페이지를 로드 할때는 그에 필요한 리소스 들도 같이 다운로드 받습니다. 대표적으로 HTML, JS, CSS 와 같은 텍스트들로 이루어진 리소스들이 있는데요.
+		이 리소스들의 사이즈가 클수록 페이지의 로딩속도는 느려질 수 밖에 없습니다.
+		이런 문서들의 사이즈를 줄이기 위한 여러가지 방법 중 Text Compression을 소개해 보려고 합니다.
+`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `웹 페이지를 로드 할때는 그에 필요한 리소스 들도 같이 다운로드 받습니다. 대표적으로 HTML, JS, CSS 와 같은 텍스트들로 이루어진 리소스들이 있는데요.
+		이 리소스들의 사이즈가 클수록 페이지의 로딩속도는 느려질 수 밖에 없습니다.
+		이런 문서들의 사이즈를 줄이기 위한 여러가지 방법 중 Text Compression을 소개해 보려고 합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: 'Text Compression',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `서버에서 보내는 리소스를 압축해서 다운로드할 파일들의 용량을 줄여 더 빠른 서비스를 이용 할수 있도록 합니다.`,
+			},
+			{
+				type: ComponentType.IMAGE_LOADER,
+				value: ``,
+				imageloader: {
+					imgPath: 'textCompression_image1.jpg',
+					alt: 'textCompression 사용',
+					width: '80%',
+					round: '12px',
+				},
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `웹서비스를 실행하고 네트워크 탭에서 api가 호출되는 부분을 클릭하여 헤더를 살펴 보면 Response Headers의 내용 중  <span class="point">Content-Encoding</span>를 확인 할 수 있습니다. <span class="point">이미지를 확인해 보면 gzip 이라는 인코딩 방식을 통해서 압축</span>되어 있다는 것을 알 수 있습니다.
+
+<b>요청을 보낼 때 클라이언트가 어떤 압축 알고리즘을 수용할 수 있는지 나타내면서 서버에서 이러한 방식으로 압축해달라고 요청하는 의미가 됩니다.</b>
+
+요청을 받으면 서버에서는 클라이언트가 원하는 압축 방식중에서 가능한 알고리즘으로 압축한 뒤에 응답을 보내주고 사용된 압축 알고리즘이 content-encoding 헤더에 명시 하게 됩니다.
+
+이 헤더들의 값으로 gzip, compress, br, deflate 등 압축알고리즘에는 여러가지가 있지만 웹상에서는 일반적으로 GZIP과 Deplate 두가지를 사용 합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: 'gzip',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `gzip 은 유닉스에서 태어난 오픈소스 압축 프로그램 입니다. 알집이나 7zip 에서 사용하는 것과 동일한 Deflate 압축 알고리즘을 사용하지만 하나의 파일만 압축할 수 있기 때문에 주로 tar 프로그램과 함께 사용하곤 합니다. 불편하기 짝이없어 보이는 gzip 압축 프로그램에 주목해야 하는 이유는 gzip 압축이 웹사이트 성능 개선과 밀접한 연관이 있기 때문입니다.
+
+GZIP은 Deplate을 단독으로 사용하는 것보다 더 좋은 압축률을 제공 합니다.
+
+gzip의 압축 알고리즘은 deflate 알고리즘과 같으며 deflate와 비교해서 차이점은 <span class="point"> gzip 포맷은 추가적인 헤더와 체크섬을 사용하여 오류검출에 더 강점이 있습니다.</span>`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: 'gzip을 사용한 텍스트 압축',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `gzip은 텍스트 파일을 압축하는데 있어서 최상의 성능을 내는 것으로 알려져 있습니다. 우리의 웹사이트는 이미지를 제외한 대부분이 텍스트 콘텐츠로 구성되어 있습니다. 자바스크립트, HTML, CSS, JSON 등 사이트를 구성하는 거의 모든 요소가 텍스트 콘텐츠 입니다.
+
+<span class="point">우리가 사용하는 대부분의 브라우저는 이미 gzip 압축프로그램을 내장하고 있습니다. 게다가 자동으로 gzip 으로 압축된 파일을 해제하는 기능도 탑재하고 있습니다. 즉, 서버에서 gzip 으로 압축된 형태의 텍스트 리소스가 내려오면 브라우저는 자동으로 gzip 압축을 해제하여 페이지를 표시합니다.</span>
+`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `사실 gzip 인코딩 기능은 HTTP/1.1 명세에 포함되어 있으며 HTTP/1.1 을 지원하는 대부분의 현재의 브라우저는 gzip 으로 압축된 콘텐츠를 사용 가능합니다.
+
+웹 사이트 응답속도 개선에 있어 가장 먼저 적용을 고려해야 하고 또 적용 이후에도 즉각적인 효과를 볼 수 있는 가장 탁월한 수단이 바로 gzip 압축 전송의 적용입니다. 웹서버에 간단한 설정만으로 적용이 가능하고 별다른 사이드 이펙트를 찾기도 어렵습니다. <span class="point">gzip 압축이 영향을 주는 구간이 <b>웹서버와 사용자 브라우저 사이의 네트웍 구간</b>이기 때문에 프로그램의 실행 로직등에는 영향을 주지 않기 때문입니다.</span>`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `gzip 압축 전송을 이용하면 사이트 트래픽의 대부분을 점유하는 Big 3 (자바스크립트, CSS, HTML) 요소를 크게는 90% 가까이 압축하여 전송할 수 있기 때문에 네트웍 대역폭 사용량을 크게 감소시킬 수 있습니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: 'gzip 압축을 적용하는 4가지 방법',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `사이트에 gzip 압축을 적용하는 방법은 <b>응답할 데이터를 압축하는 작업을 누가 처리하도록 하느냐</b>에 따라서 크게 4가지로 구분 할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Apache 나 Nginx 등 Web서버에서 처리하기
+Tomcat 이나 Weblogic 등 어플리케이션 서버(Was)에서 처리하기
+Servlet Filter 를 등록하여 처리하기
+정적인 파일을 미리 gzip 으로 압축하여 올리기`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `일반적으로는 Web 서버에서 처리하도록 하고 있으나, 프로젝트나 사이트의 사정에 따라서는 다른 방법을 고려할 수 도 있습니다. 가령 Web서버와 Was 구간의 대역폭을 확보해야 한다거나 하는 이유로 말이죠.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: 'nginx 에 gzip 으로 컨텐츠 압축 설정하기',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `압축 설정은 가상 호스트마다 하지 말고 메인 설정 파일(/etc/nginx/nginx.conf) 의 http 블록에 설정하면 전역적으로 적용되므로 편리합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `http {
+  include       /etc/nginx/mime.types;
+  default_type  application/octet-stream;
+    
+  # 압축 설정
+}`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이 코드는 Nginx 웹 서버의 설정 파일(nginx.conf 또는 관련 설정 파일)에서 HTTP 블록의 일부를 나타냅니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<p><b>include /etc/nginx/mime.types;</b><p>/etc/nginx/mime.types 파일을 포함시켜 Nginx가 파일 확장자에 따라 적절한 <b>MIME 타입을 설정</b>하도록 합니다. 예를 들어 아래와 같이 처리됩니다.
+이를 통해 클라이언트(브라우저)가 파일을 올바르게 해석할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `.html 파일은 text/html
+				 .jpg 파일은 image/jpeg`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<p><b>default_type application/octet-stream;</b><p>/etc/nginx/mime.types 파일을 포함시켜 Nginx가 파일 확장자에 따라 적절한 <b>MIME 타입을 설정</b>하도록 합니다. 예를 들어 아래와 같이 처리됩니다.
+이를 통해 클라이언트(브라우저)가 파일을 올바르게 해석할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `MIME 타입을 설정하지 않은 파일이나 알 수 없는 확장자의 파일에 대해 기본적으로 application/octet-stream 타입을 지정합니다.
+application/octet-stream은 일반적인 바이너리 파일을 의미하며, 브라우저는 이를 다운로드하거나 기본적으로 처리합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `제일 먼저 설정할 항목은 gzip on; 으로 컨텐츠 압축 사용을 지시하는 것입니다`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `http {
+  gzip on;
+  gzip_disable "msie6";
+}`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>gzip on;</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Gzip 압축을 활성화합니다.
+이를 통해 서버가 응답 데이터를 압축하여 클라이언트(브라우저)로 전송하므로, 데이터 전송량을 줄이고 페이지 로드 속도를 개선할 수 있습니다.
+압축 대상은 일반적으로 HTML, CSS, JavaScript, JSON, XML 등 텍스트 기반 파일입니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>gzip_disable "msie6";</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `특정 사용자 에이전트(브라우저)에 대해 Gzip 압축을 비활성화합니다.
+여기서는 "msie6" (Microsoft Internet Explorer 6)을 대상으로 지정하여, 이 브라우저에서는 압축된 콘텐츠를 전송하지 않습니다.
+Internet Explorer 6은 Gzip 압축 처리에 버그가 있거나 호환성 문제가 있을 수 있어, 이를 방지하기 위해 압축을 비활성화합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: 'nginx 에 gzip 으로 컨텐츠 압축 설정',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `gzip_comp_level 6;
+gzip_min_length 500;
+gzip_buffers 16 8k;
+gzip_proxied any;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>gzip_comp_level </b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Gzip 압축 수준을 설정합니다. 값은 1(최소 압축, 빠른 처리)에서 9(최대 압축, 느린 처리)까지 가능합니다.
+6은 압축률과 성능 간의 균형이 좋은 중간 수준으로, 기본값이기도 합니다.
+높은 압축 수준은 파일 크기를 더 줄이지만 CPU 사용량이 증가합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>gzip_min_length 500</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `압축을 적용할 응답 데이터의 최소 길이를 바이트 단위로 지정합니다.
+여기서는 응답 데이터가 500바이트 이상일 때만 Gzip 압축을 적용합니다.
+작은 데이터는 압축해도 크기 감소 효과가 미미하므로, 불필요한 CPU 사용을 줄이기 위해 설정합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>gzip_buffers 16 8k;</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Gzip 압축을 처리하기 위해 할당할 메모리 버퍼의 개수와 크기를 지정합니다.
+16 8k는 16개의 8KB 버퍼를 사용한다는 의미입니다(총 128KB).
+이 설정은 압축 데이터를 처리하는 데 필요한 메모리 공간을 정의하며, 서버의 메모리와 부하에 따라 조정할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>gzip_proxied any;</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `프록시된 요청에 대해 Gzip 압축을 적용할 조건을 설정합니다.
+any는 모든 프록시 요청(예: CDN, 리버스 프록시 등)에 대해 압축을 활성화합니다.
+이는 클라이언트가 아닌 중간 프록시 서버를 통해 요청이 올 때도 압축된 데이터를 전송하도록 보장합니다.
+any: 항상 압축합니다.
+off: 프락시에서 요청할 경우 압축하지 않습니다.
+expired: 요청 헤더에 Expires 가 있고 만료되었을 경우에만 압축합니다.
+no-cache: 요청 헤더에 Cache-Control 가 있고 no-cache 일 경우에만 압축합니다.
+no-store: 요청 헤더에 Cache-Control 가 있고 no-store 일 경우에만 압축합니다.
+`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `그 외 가능한 설정은 <a href="http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_proxied">Nginx gzip_proxied Documentation</a>을 참고하세요.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: 'nginx 에 gzip 으로 content type 설정하기',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `컨텐츠의 유형에 따라 gzip_types 지시자로 압축 여부를 설정할 수 있으며 아래 설정은 일반적으로 많이 사용하는 컨텐츠 유형에 대해 압축하는 예로 가독성을 위해 개행을 적용했습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `gzip_types
+    text/plain
+    text/css
+    text/js
+    text/xml
+    text/javascript
+    application/javascript
+    application/x-javascript
+    application/json
+    application/xml
+    application/rss+xml
+    image/svg+xml;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>gzip_types 지시문</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Gzip 압축을 적용할 콘텐츠의 MIME 타입을 정의합니다.
+기본적으로 text/html은 항상 압축되므로 이 목록에 포함되지 않아도 됩니다.
+이 설정은 gzip on;이 활성화된 경우에만 적용됩니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>지정된 MIME 타입</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>text/plain</b>: 일반 텍스트 파일(예: .txt).
+<b>text/css</b>: CSS 스타일시트 파일(예: .css).
+<b>text/js</b>: JavaScript 파일. 참고: text/js는 비표준 MIME 타입으로, 현대 웹에서는 application/javascript가 권장됩니다. 일부 레거시 시스템에서 사용될 수 있음.
+<b>text/xml</b>: XML 형식의 텍스트 파일(예: .xml).
+<b>text/javascript</b>: JavaScript 파일. 참고: 과거에 사용되었으나, 현재는 application/javascript로 대체됨.
+<b>application/javascript</b>: 현대 표준 JavaScript 파일(예: .js).
+<b>application/x-javascript</b>: JavaScript 파일의 비표준/레거시 MIME 타입. 호환성을 위해 포함.
+<b>application/json</b>: JSON 데이터 파일(예: .json).
+<b>application/xml</b>: XML 형식의 애플리케이션 데이터.
+<b>application/rss+xml</b>: RSS 피드(예: RSS XML 파일).
+<b>image/svg+xml</b>: SVG 벡터 이미지 파일(예: .svg).`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이 설정은 위 MIME 타입에 해당하는 파일이 클라이언트로 전송될 때 <span class="point"><b>Gzip 압축을 적용하도록 Nginx에 지시</b></span>합니다.
+예를 들어 .css, .js, .json, .svg 등의 파일은 압축되어 전송되며, 이는 대역폭을 절약하고 페이지 로드 속도를 개선합니다.
+text/js, text/javascript, application/x-javascript는 JavaScript 파일을 다양한 MIME 타입으로 처리하는 브라우저와의 호환성을 보장하기 위해 포함되었습니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `주의사항`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>비표준 MIME 타입</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `text/js와 application/x-javascript는 비표준이며, 최신 웹 환경에서는 application/javascript만 사용하는 것이 좋습니다. 하지만 레거시 클라이언트를 지원하려면 포함할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>기본값과의 중복</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Nginx의 기본 gzip_types에는 text/html이 포함되어 있으므로, 이 설정은 추가적인 MIME 타입을 확장하는 역할을 합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>압축 효율성</b>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `SVG(image/svg+xml)와 같은 파일은 텍스트 기반이므로 압축 효과가 크지만, 이미 압축된 파일(예: JPEG, PNG)은 gzip_types에 포함시키지 않는 것이 일반적입니다(압축 효과가 미미함).`,
+			},
+
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>gzip_types 설정</b>은 텍스트 기반 파일(CSS, JavaScript, JSON, XML, SVG 등)에 Gzip 압축을 적용하여 데이터 전송 효율성을 높입니다. 다양한 JavaScript MIME 타입을 포함해 호환성을 강화했으며, 특히 웹 애플리케이션에서 자주 사용되는 파일 형식을 대상으로 합니다. 최신 환경에서는 text/js와 같은 비표준 타입을 제거하고 간소화할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: 'nginx 에 gzip 으로 컨텐츠 압축 최종 코드',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `http {
+# nginx 의 메인 설정 파일인 nginx.conf 의 http 항목에 다음과 같이 설정
+include       /etc/nginx/mime.types;
+default_type  application/octet-stream;
+	
+# 압축 설정
+gzip  on;
+gzip_disable "msie6";
+
+
+gzip_comp_level 6;
+gzip_min_length 1100;
+gzip_buffers 16 8k;
+gzip_proxied any;
+
+gzip_types
+  text/plain
+  text/css
+  text/js
+  text/xml
+  text/javascript
+  application/javascript
+  application/x-javascript
+  application/json
+  application/xml
+  application/rss+xml
+  image/svg+xml;
+}`,
+			},
+			{
+				type: ComponentType.GUIDE_MESSAGE,
+				promptTypeProps: 'WARNING',
+				value: `압축을 하는데에도 시간이 조금 걸리지만 압축을 해제 하는 데에도 시간이 조금 걸리기 때문에 모든 파일을 압축하고 압축해제 하는 것 보다는 <b>파일의 크기가 2KB이상일 경우에는 압축을 하는것이 낫고 2KB 이하일 경우에는 압축을 진행하지 않는것이 더 효율적</b> 이라고 합니다.`,
+			},
+		],
+	},
 ];
 
 /**
