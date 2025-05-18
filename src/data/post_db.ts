@@ -11179,10 +11179,10 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 	},
 	{
 		id: 71,
-		title: `[TECH-QA] 모달을 통해 알아보는 동적 임포트(Dynamic Import)와 지연 로딩(Lazy Loading)을 활용`,
+		title: `[TECH-QA] 모달을 통해 알아보는 동적 임포트(Dynamic Import)와 지연 로딩(Lazy Loading)을 활용 및 팩토리패턴`,
 		date: '2025-05-04 17:14:33',
 		folder: Folder.JAVASCRIPT,
-		tag: ['브라우저', 'TECH-QA', '웹성능최적화'],
+		tag: ['브라우저', 'TECH-QA', '웹성능최적화', '팩토리패턴'],
 		preview: `화면에서 쿨락헌 순간 모달에 관련된 파일들을 불러오고 모달에 관련된 파일들이 모두 불러와지면 Javascript를 Evaluate하고 모달이 뜨도록 코드를 실행하고 모달이 오픈된다.`,
 		post: [
 			{
