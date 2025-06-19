@@ -11723,6 +11723,94 @@ gzip_types
 			},
 		],
 	},
+	{
+		id: 73,
+		title: `[TECH-QA] 훅으로 분리할 이유가 있을까?`,
+		date: '2025-06-19 13:52:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['React', 'TECH-QA', '리액트'],
+		preview: `커스텀 훅(Custom Hook)으로 로직을 분리하는 것은 React 개발에서 상태 관리, 비즈니스 로직, 또는 재사용 가능한 기능을 캡슐화하는 강력한 방법입니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `커스텀 훅(Custom Hook)으로 분리한다는 것은 컴포넌트 내부의 상태 관리(useState), 부수 효과(useEffect), 또는 기타 로직을 별도의 함수(커스텀 훅)로 추출해 <b>컴포넌트와 독립적으로 관리</b>하는 것을 의미합니다. 커스텀 훅은 React의 훅(useState, useEffect 등)을 사용하며, 일반적으로 use로 시작하는 이름을 가집니다.`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '가독성과 유지보수성',
+				value: `UI 렌더링과 기능 로직을 분리하여 가독성과 유지보수 향상 `,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `컴포넌트 내부에 상태 관리와 UI 렌더링 로직이 섞여 있으면 코드가 복잡해지고 읽기 어려워집니다.
+훅으로 로직을 분리하면 컴포넌트는 JSX와 UI 렌더링에 집중하고, 로직은 별도로 관리되어 가독성이 향상됩니다.`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '재사용성',
+				value: `동일한 로직을 여러 컴포넌트에서 사용할 때 `,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `동일한 로직을 여러 컴포넌트에서 사용할 때, 훅으로 분리하면 중복 코드를 줄이고 일관성을 유지할 수 있습니다.
+비록 현재 재사용하지 않더라도, 나중에 필요할 가능성을 대비해 분리하는 것이 유리할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '테스트 용이성',
+				value: `UI렌더링과 기능 로직은 분리하여 독립적으로 검증 가능`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `훅은 컴포넌트와 독립적으로 테스트할 수 있습니다. UI를 렌더링하지 않고 로직만 검증 가능.
+예: useCounter 훅을 테스트할 때, 카운트 증가와 타이머 동작을 별도로 확인할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '기능 별로 분리',
+				value: `상태 관리, 데이터 fetching, 이벤트 처리, 캡슐화 `,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `상태 관리, 데이터 fetching, 이벤트 처리 등 특정 기능(관심사)을 훅으로 캡슐화해 컴포넌트의 책임을 줄입니다.
+이는 코드의 모듈화와 유지보수성을 높입니다.`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '복잡한 로직 관리',
+				value: `로직을 체계적으로 구조화`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `로직이 복잡할수록(예: 여러 useState, useEffect 조합) 컴포넌트 내부에 두면 관리가 어렵습니다. 훅으로 분리하면 로직을 체계적으로 구조화할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `언제 훅으로 분리해야 하나?`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `로직이 복잡하거나 여러 줄의 코드를 차지할 때(예: useEffect와 useState가 조합된 경우).
+가독성을 높이고 컴포넌트를 간결하게 유지하고 싶을 때.
+테스트를 독립적으로 수행하고 싶을 때.
+현재 또는 미래에 로직을 재사용할 가능성이 있을 때.
+예) 데이터 fetching, 폼 관리, 타이머, 애니메이션 등.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `분리하지 않아도 되는 경우?`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `로직이 매우 단순할 때(예: 단일 useState로 충분한 경우).
+로직이 특정 컴포넌트에 강하게 의존적이고 재사용 가능성이 전혀 없을 때.
+추가 파일을 만드는 오버헤드가 로직의 복잡도에 비해 클 때.
+예) const [isOpen, setIsOpen] = useState(false); 같은 단순한 상태 관리.`,
+			},
+		],
+	},
 ];
 
 /**

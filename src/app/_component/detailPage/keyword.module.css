@@ -9,9 +9,14 @@
 	margin-top: 10px;
 }
 
-.keywordTilte {
+.keywordTilteNormal {
 	font-weight: 700;
 	font-size: 16px;
+}
+
+.keywordTilte {
+	font-weight: 700;
+	font-size: 20px;
 }
 
 .keyword {

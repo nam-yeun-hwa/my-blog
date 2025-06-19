@@ -63,7 +63,7 @@ export default function PostDetail({ postid }: Props) {
 			<StringDot list={component.value} />
 		),
 		[ComponentType.KEYWORD]: component => (
-			<KeywordWord keyword={component.value} />
+			<KeywordWord keyword={component.value} title={component.keyworldTitle} />
 		),
 		[ComponentType.HEADING]: component => (
 			<HeadingString

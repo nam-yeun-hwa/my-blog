@@ -7,7 +7,7 @@ import { Provider, useSelector } from 'react-redux';
 import { RootState, store } from 'store/index';
 
 type Props = {
-  children: React.ReactNode;
+	children: React.ReactNode;
 };
 
 // const imb_plex_sans_kR = IBM_Plex_Sans_KR({
@@ -19,8 +19,8 @@ type Props = {
 // });
 
 export const metadata: Metadata = {
-  title: 'be come 💡',
-  description: 'App for an Ant Who Wants to Become a Bejjangyi',
+	title: 'be come 💡',
+	description: 'App for an Ant Who Wants to Become a Bejjangyi',
 };
 
 // const myFont = localFont({
@@ -29,24 +29,24 @@ export const metadata: Metadata = {
 // });
 
 export default function RootLayout({ children }: Props) {
-  return (
-    <html lang="en" className={``}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          as="style"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap"
-          as="style"
-        />
-      </head>
+	return (
+		<html lang="en" className={``}>
+			<head>
+				<link
+					rel="stylesheet"
+					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+					as="style"
+				/>
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				<link rel="preconnect" href="https://fonts.gstatic.com" />
+				<link
+					rel="stylesheet"
+					href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap"
+					as="style"
+				/>
+			</head>
 
-      <body>{children}</body>
-    </html>
-  );
+			<body>{children}</body>
+		</html>
+	);
 }

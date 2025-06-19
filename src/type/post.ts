@@ -25,6 +25,7 @@ export interface IPost<T = any> {
 	post: {
 		type: ComponentType;
 		value: string;
+		keyworldTitle?: string;
 		headingWeightProps?: HeadingWeightProps;
 		promptTypeProps?: promptType;
 		codePreviewProps?: boolean;
