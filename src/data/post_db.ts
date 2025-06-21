@@ -197,126 +197,479 @@ export const totalPostlist: IPost[] = [
 				type: ComponentType.NORMAL,
 				value: `필요할 때마다 스타일을 생성해 주는 JIT 모드를 지원하여, 사용하지 않는 CSS 클래스가 빌드에 포함되지 않도록 합니다. 이로 인해 빌드 크기를 크게 줄일 수 있습니다.`,
 			},
+
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `TailWind 사용 예시`,
+				value: `tailwond 텍스트 크기 클래스(font-size)`,
 			},
 			{
-				type: ComponentType.HEADING,
-				headingType: 'h3',
-				value: `기본 폰트 크기 클래스`,
+				type: ComponentType.NORMAL,
+				value:
+					'테일윈드 CSS(Tailwind CSS)에서 폰트 크기는 text- 접두사를 사용하여 설정하며, 기본적으로 다양한 크기 클래스를 제공합니다. 아래는 테일윈드의 폰트 크기 클래스의 예시와 그에 해당하는 실제 크기입니다. (Tailwind CSS v3.4 기준)',
 			},
 			{
-				type: ComponentType.TABLE,
-				value: `
-		<div class="table-wrapper"> 
-      <table>
-        <thead>
-          <tr>
-            <th>클래스</th>
-            <th>크기 (rem)</th>
-            <th>크기 (픽셀)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>text-xs</td>
-            <td>0.75rem</td>
-            <td>12px</td>
-          </tr>
-					<tr>
-            <td>text-sm</td>
-            <td>0.875rem</td>
-            <td>14px</td>
-          </tr>
-					<tr>
-            <td>text-base</td>
-            <td>1rem</td>
-            <td>16px</td>
-          </tr>
-					<tr>
-            <td>text-lg</td>
-            <td>1.125rem</td>
-            <td>18px</td>
-          </tr>
-					<tr>
-            <td>text-xl</td>
-            <td>1.25rem</td>
-						<td>20px</td>
-          </tr>
-					<tr>
-            <td>text-2xl</td>
-						<td>1.5rem</td>
-						<td>24px</td>
-          </tr>
-					<tr>
-            <td>text-3xl</td>
-						<td>1.875rem</td>
-            <td>30px</td>
-          </tr>
-        </tbody>
-      </table>
-		</div>
-      `,
-			},
-			{
-				type: ComponentType.HEADING,
-				headingType: 'h3',
-				value: `기본 폰트 두께 클래스`,
+				type: ComponentType.CODE,
+				value: `<p class="text-xs">text-xs: 0.75rem (12px)</p>
+<p class="text-sm">text-sm: 0.875rem (14px)</p>
+<p class="text-base">text-base: 1rem (16px)</p>
+<p class="text-lg">text-lg: 1.125rem (18px)</p>
+<p class="text-xl">text-xl: 1.25rem (20px)</p>
+<p class="text-2xl">text-2xl: 1.5rem (24px)</p>
+<p class="text-3xl">text-3xl: 1.875rem (30px)</p>
+<p class="text-4xl">text-4xl: 2.25rem (36px)</p>
+<p class="text-5xl">text-5xl: 3rem (48px)</p>
+<p class="text-6xl">text-6xl: 3.75rem (60px)</p>
+<p class="text-7xl">text-7xl: 4.5rem (72px)</p>
+<p class="text-8xl">text-8xl: 6rem (96px)</p>
+<p class="text-9xl">text-9xl: 8rem (128px)</p>`,
 			},
 			{
 				type: ComponentType.TABLE,
-				value: `
-		<div class="table-wrapper"> 
-      <table>
-        <thead>
-          <tr>
-            <th>클래스</th>
-            <th>굵기 (font-weight)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>font-thin </td>
-            <td>100</td>
-          </tr>
-					<tr>
-            <td>font-extralight </td>
-            <td>200</td>
-          </tr>
-					<tr>
-            <td>font-light </td>
-            <td>300</td>
-          </tr>
-					<tr>
-            <td>font-normal </td>
-            <td>400</td>
-          </tr>
-					<tr>
-            <td>font-medium </td>
-            <td>500</td>
-          </tr>
-					<tr>
-            <td>font-semibold </td>
-            <td>600</td>
-          </tr>
-					<tr>
-            <td>font-bold </td>
-            <td>700</td>
-          </tr>
-					<tr>
-            <td>font-extrabold </td>
-            <td>800</td>
-          </tr>
-					<tr>
-            <td>font-black</td>
-            <td>900</td>
-          </tr>
-        </tbody>
-      </table>
-		</div>
+				value: ``,
+				tables: {
+					header: [
+						{
+							accessorKey: 'className',
+							header: '클래스',
+						},
+						{
+							accessorKey: 'rem',
+							header: 'rem 크기',
+						},
+						{
+							accessorKey: 'px',
+							header: 'px 크기',
+						},
+					],
+					contents: [
+						{
+							className: 'text-xs',
+							rem: '0.75rem',
+							px: '12px',
+						},
+						{
+							className: 'text-sm',
+							rem: '0.875rem',
+							px: '14px',
+						},
+						{
+							className: 'text-base',
+							rem: '1rem',
+							px: '16px',
+						},
+						{
+							className: 'text-lg',
+							rem: '1.125rem',
+							px: '18px',
+						},
+						{
+							className: 'text-xl',
+							rem: '1.25rem',
+							px: '20px',
+						},
+						{
+							className: 'text-xs',
+							rem: '0.75rem',
+							px: '12px',
+						},
+						{
+							className: 'text-2xl',
+							rem: '1.5rem',
+							px: '24px',
+						},
+						{
+							className: 'text-3xl',
+							rem: '1.875rem',
+							px: '30px',
+						},
+						{
+							className: 'text-4xl',
+							rem: '2.25rem',
+							px: '36px',
+						},
+						{
+							className: 'text-5xl',
+							rem: '3rem',
+							px: '48px',
+						},
+						{
+							className: 'text-6xl',
+							rem: '3.75rem',
+							px: '60px',
+						},
+						{
+							className: 'text-7xl',
+							rem: '4.5rem',
+							px: '72px',
+						},
+						{
+							className: 'text-8xl',
+							rem: '6rem',
+							px: '96px',
+						},
+						{
+							className: 'text-9xl',
+							rem: '8rem',
+							px: '128px',
+						},
+					],
+				},
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `tailwond 폰트 두께 (font-weight)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `<p class="font-thin">font-thin: font-weight: 100</p>
+<p class="font-extralight">font-extralight: font-weight: 200</p>
+<p class="font-light">font-light: font-weight: 300</p>
+<p class="font-normal">font-normal: font-weight: 400</p>
+<p class="font-medium">font-medium: font-weight: 500</p>
+<p class="font-semibold">font-semibold: font-weight: 600</p>
+<p class="font-bold">font-bold: font-weight: 700</p>
+<p class="font-extrabold">font-extrabold: font-weight: 800</p>
+<p class="font-black">font-black: font-weight: 900</p>
       `,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: '',
+				tables: {
+					header: [
+						{
+							accessorKey: 'className',
+							header: '클래스',
+						},
+						{
+							accessorKey: 'font-weight',
+							header: 'font-weight',
+						},
+					],
+					contents: [
+						{
+							className: 'font-thin',
+							'font-weight': '100',
+						},
+						{
+							className: 'font-extralight',
+							'font-weight': '200',
+						},
+						{
+							className: 'font-light',
+							'font-weight': '300',
+						},
+						{
+							className: 'font-normal',
+							'font-weight': '400',
+						},
+						{
+							className: 'font-medium',
+							'font-weight': '500',
+						},
+						{
+							className: 'font-semibold',
+							'font-weight': '600',
+						},
+						{
+							className: 'font-bold',
+							'font-weight': '700',
+						},
+						{
+							className: 'font-extrabold',
+							'font-weight': '800',
+						},
+						{
+							className: 'font-black',
+							'font-weight': '900',
+						},
+					],
+				},
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `tailwond 라인 높이 (line-height)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `<p class="leading-none">leading-none: line-height: 1</p>
+<p class="leading-tight">leading-tight: line-height: 1.25</p>
+<p class="leading-snug">leading-snug: line-height: 1.375</p>
+<p class="leading-normal">leading-normal: line-height: 1.5</p>
+<p class="leading-relaxed">leading-relaxed: line-height: 1.625</p>
+<p class="leading-loose">leading-loose: line-height: 2</p>
+<p class="leading-3">leading-3: line-height: 0.75rem (12px)</p>
+<p class="leading-4">leading-4: line-height: 1rem (16px)</p>
+<p class="leading-5">leading-5: line-height: 1.25rem (20px)</p>
+<!-- leading-6 ~ leading-10까지 지원 -->`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: '',
+				tables: {
+					header: [
+						{
+							accessorKey: 'className',
+							header: '클래스',
+						},
+						{
+							accessorKey: 'line-height',
+							header: 'line-height',
+						},
+					],
+					contents: [
+						{
+							className: 'leading-none',
+							'font-weight': '1',
+						},
+						{
+							className: 'leading-tight',
+							'font-weight': '1.25',
+						},
+						{
+							className: 'leading-snug',
+							'font-weight': '1.375',
+						},
+						{
+							className: 'leading-normal',
+							'font-weight': '1.5',
+						},
+						{
+							className: 'leading-relaxed',
+							'font-weight': '1.625',
+						},
+						{
+							className: 'leading-loose',
+							'font-weight': '2',
+						},
+						{
+							className: 'leading-3',
+							'font-weight': '0.75rem (12px)',
+						},
+						{
+							className: 'leading-4',
+							'font-weight': '1rem (16px)',
+						},
+						{
+							className: 'leading-5',
+							'font-weight': '1.25rem (20px)',
+						},
+						{
+							className: 'leading-6',
+							'font-weight': '1.5rem (24px)',
+						},
+						{
+							className: 'leading-7',
+							'font-weight': '1.75rem (28px)',
+						},
+						{
+							className: 'leading-8',
+							'font-weight': '2rem (32px)',
+						},
+						{
+							className: 'leading-9',
+							'font-weight': '2.25rem (36px)',
+						},
+						{
+							className: 'leading-10',
+							'font-weight': '2.5rem (40px)',
+						},
+					],
+				},
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `tailwond 레터 스페이싱 (letter-spacing)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `<p class="tracking-tighter">tracking-tighter: letter-spacing: -0.05em</p>
+<p class="tracking-tight">tracking-tight: letter-spacing: -0.025em</p>
+<p class="tracking-normal">tracking-normal: letter-spacing: 0</p>
+<p class="tracking-wide">tracking-wide: letter-spacing: 0.025em</p>
+<p class="tracking-wider">tracking-wider: letter-spacing: 0.05em</p>
+<p class="tracking-widest">tracking-widest: letter-spacing: 0.1em</p>`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: '',
+				tables: {
+					header: [
+						{
+							accessorKey: 'className',
+							header: '클래스',
+						},
+						{
+							accessorKey: 'letter-spacing',
+							header: 'letter-spacing',
+						},
+					],
+					contents: [
+						{
+							className: 'tracking-tighter',
+							'letter-spacing': '-0.05em',
+						},
+						{
+							className: 'tracking-tight',
+							'letter-spacing': '-0.025em',
+						},
+						{
+							className: 'tracking-normal',
+							'letter-spacing': '0',
+						},
+						{
+							className: 'tracking-wide',
+							'letter-spacing': '0.025em',
+						},
+						{
+							className: 'tracking-wider',
+							'letter-spacing': '0.05em',
+						},
+						{
+							className: 'tracking-widest',
+							'letter-spacing': '0.1em',
+						},
+					],
+				},
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `tailwond 테일윈드 스페이싱 스케일`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `테일윈드의 마진(m-)과 패딩(p-)은 동일한 스페이싱 스케일을 공유합니다.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `1 단위 = 0.25rem = 4px (브라우저 기본 루트 폰트 크기 1rem = 16px 기준)
+n 값에 따라 n * 0.25rem으로 계산
+테일윈드의 스페이싱 시스템은 top, right, bottom, left 방향에 대해 동일한 값을 사용합니다.
+마진: mt-n, mr-n, mb-n, ml-n은 모두 동일한 n * 0.25rem 값을 가짐.
+패딩: pt-n, pr-n, pb-n, pl-n도 동일한 n * 0.25rem 값을 가짐.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `<div class="mt-0">mt-0: margin-top: 0px</div> <!-- mr-0, mb-0, ml-0 동일 -->
+<div class="mt-1">mt-1: margin-top: 0.25rem (4px)</div> <!-- mr-1, mb-1, ml-1 동일 -->
+<div class="mt-2">mt-2: margin-top: 0.5rem (8px)</div> <!-- mr-2, mb-2, ml-2 동일 -->
+<div class="mt-3">mt-3: margin-top: 0.75rem (12px)</div> <!-- mr-3, mb-3, ml-3 동일 -->
+<div class="mt-4">mt-4: margin-top: 1rem (16px)</div> <!-- mr-4, mb-4, ml-4 동일 -->
+<div class="mt-5">mt-5: margin-top: 1.25rem (20px)</div> <!-- mr-5, mb-5, ml-5 동일 -->
+<div class="mt-6">mt-6: margin-top: 1.5rem (24px)</div> <!-- mr-6, mb-6, ml-6 동일 -->
+<div class="mt-7">mt-7: margin-top: 1.75rem (28px)</div> <!-- mr-7, mb-7, ml-7 동일 -->
+<div class="mt-8">mt-8: margin-top: 2rem (32px)</div> <!-- mr-8, mb-8, ml-8 동일 -->
+<div class="mt-9">mt-9: margin-top: 2.25rem (36px)</div> <!-- mr-9, mb-9, ml-9 동일 -->
+<div class="mt-10">mt-10: margin-top: 2.5rem (40px)</div> <!-- mr-10, mb-10, ml-10 동일 -->`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: '',
+				tables: {
+					header: [
+						{
+							accessorKey: 'className',
+							header: 'mt-n, mr-n, mb-n, ml-n, pt-n, pr-n, pb-n, pl-n',
+						},
+						{
+							accessorKey: 'scale',
+							header: '스케일',
+						},
+					],
+					contents: [
+						{
+							className: 'n=0',
+							scale: '0px',
+						},
+						{
+							className: 'n=1',
+							scale: '0.25rem (4px)',
+						},
+						{
+							className: 'n=2',
+							scale: '0.5rem (8px)',
+						},
+						{
+							className: 'n=3',
+							scale: '0.75rem (12px)',
+						},
+						{
+							className: 'n=4',
+							scale: '1rem (16px)',
+						},
+						{
+							className: 'n=5',
+							scale: '1.25rem (20px)',
+						},
+						{
+							className: 'n=6',
+							scale: '1.5rem (24px)',
+						},
+						{
+							className: 'n=7',
+							scale: '1.75rem (28px))',
+						},
+						{
+							className: 'n=8',
+							scale: '2rem (32px)',
+						},
+						{
+							className: 'n=6',
+							scale: '1.5rem (24px)',
+						},
+						{
+							className: 'n=9',
+							scale: '2.25rem (36px)',
+						},
+						{
+							className: 'n=10',
+							scale: '2.5rem (40px)',
+						},
+					],
+				},
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: 'tailwond 커스텀 설정 (tailwind.config.js)',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    extend: {
+      // 커스텀 패딩
+      padding: {
+        '10': '2.5rem', // 40px
+        '12': '3rem',   // 48px
+      },
+      // 커스텀 마진
+      margin: {
+        '10': '2.5rem', // 40px
+        '12': '3rem',   // 48px
+      },
+      // 커스텀 폰트 두께
+      fontWeight: {
+        'extra-thin': 50,
+      },
+      // 커스텀 라인 높이
+      lineHeight: {
+        11: '2.75rem', // 44px
+        12: '3rem',    // 48px
+      },
+      // 커스텀 레터 스페이싱
+      letterSpacing: {
+        'extra-wide': '0.15em',
+      },
+    },
+  },
+};`,
 			},
 		],
 	},
@@ -9824,7 +10177,7 @@ structuredClone은 모든 수준에서 독립적인 복사본을 생성하여 �
 	},
 	{
 		id: 64,
-		title: `[TECH-QA] CSRF와 XSS`,
+		title: `[TECH-QA] CSRF(Cross-Site Request Forgery)와 XSSCross-Site Scripting`,
 		date: '2025-04-14 22:48:33',
 		folder: Folder.JAVASCRIPT,
 		tag: ['JavaScript', 'TECH-QA', 'XSS', 'CSRF'],
@@ -9876,7 +10229,7 @@ AJAX 요청을 위해 HTTP 헤더(예: X-CSRF-Token)로 전달.
 			},
 			{
 				type: ComponentType.HEADING,
-				headingType: 'h2',
+				headingType: 'h4',
 				value: `클라이언트가 요청 전송`,
 			},
 			{
@@ -10042,7 +10395,7 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `XSS 공격 방어`,
+				value: `XSS 공격 이란`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -10112,7 +10465,7 @@ X-CSRF-Token: 3f9a8b2c-7e5d-4a1b-9c0f-1234567890ab`,
 			},
 			{
 				type: ComponentType.HEADING,
-				headingType: 'h3',
+				headingType: 'h4',
 				value: `HTTPS를 통한 통신 보안`,
 			},
 			{
