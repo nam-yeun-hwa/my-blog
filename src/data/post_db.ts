@@ -619,10 +619,6 @@ n 값에 따라 n * 0.25rem으로 계산
 							scale: '2rem (32px)',
 						},
 						{
-							className: 'n=6',
-							scale: '1.5rem (24px)',
-						},
-						{
 							className: 'n=9',
 							scale: '2.25rem (36px)',
 						},
