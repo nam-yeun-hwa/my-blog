@@ -12160,6 +12160,133 @@ gzip_types
 			},
 		],
 	},
+	{
+	id: 74,
+	title: `[TECH-QA] 개방-폐쇄 원칙(Open-Closed Principle, OCP)`,
+	date: '2025-07-16 14:16:33',
+	folder: Folder.REACT,
+	tag: ['TECH-QA'],
+	preview: `OCP는 소프트웨어 엔티티(클래스, 모듈, 컴포넌트 등)가 확장에는 열려 있고, 변경에는 닫혀 있어야 한다는 원칙으로, 새로운 기능을 추가할 때 기존 코드를 수정하지 않고 확장할 수 있도록 설계하는 것을 목표로 합니다.`,
+	post: [
+		{
+			type: ComponentType.HEADING,
+			headingType: 'h2',
+			value: `OCP를 위반하는 Button 컴포넌트(안티패턴)`,
+		},
+		{
+			type:ComponentType.KEYWORD,
+			value:"OCP를 위반"
+		},
+		{
+			type: ComponentType.NORMAL,
+			value: `먼저, 새로운 버튼 variant를 추가할 때마다 기존 코드를 수정해야 하는 안티패턴을 살펴보겠습니다. 이 방식은 OCP를 위반하며 유지보수성을 떨어뜨립니다.`,
+		},
+		{
+			type: ComponentType.CODE,
+			value: `// 안티패턴: OCP를 위반하는 Button 컴포넌트
+function Button({ variant, children, ...props }) {
+  let className = 'button';
+
+  if (variant === 'primary') {
+    className += ' button--primary';
+  } else if (variant === 'secondary') {
+    className += ' button--secondary';
+  } else if (variant === 'danger') {
+    className += ' button--danger';
+  }
+
+  return (
+    <button className={className} {...props}>
+      {children}
+    </button>
+  );
+}
+
+// 사용 예시
+<Button variant="primary">Primary Button</Button>
+<Button variant="secondary">Secondary Button</Button>
+<Button variant="danger">Danger Button</Button>`,
+		},
+		{
+			type: ComponentType.HEADING,
+			headingType: 'h4',
+			value: `문제점`,
+		},
+		{
+			type: ComponentType.STRINGLIST,
+			value: `새로운 variant (예: success)를 추가하려면 Button 컴포넌트 내부의 if-else 로직을 수정해야 함.
+이는 OCP의 "변경에 닫혀 있어야 한다"를 위반.
+코드가 복잡해지고, 새로운 요구사항이 생길 때마다 기존 코드 수정이 불가피해짐.`,
+		},
+		{
+			type: ComponentType.HEADING,
+			headingType: 'h2',
+			value: `OCP를 준수하는 리팩터링 ButtonBase 컴포넌트`,
+		},
+		
+		{
+			type:ComponentType.KEYWORD,
+			value:"OCP를 준수"
+		},
+		{
+			type: ComponentType.NORMAL,
+			value: `OCP를 준수하기 위해 ButtonBase라는 기본 컴포넌트를 만들고, 이를 확장하여 다양한 버튼 변형을 생성하는 방식으로 리팩터링합니다. 이를 통해 새로운 variant를 추가할 때 기존 코드를 수정하지 않고도 확장이 가능해집니다.`,
+		},
+		{
+			type: ComponentType.CODE,
+			value: `// 기본 컴포넌트: ButtonBase
+function ButtonBase({ className, children, ...props }) {
+  return (
+    <button className={\`button \${className}\`} {...props}>
+      {children}
+    </button>
+  );
+}
+
+// 확장된 버튼 컴포넌트들
+const PrimaryButton = ({ children, ...props }) => (
+  <ButtonBase className="button--primary" {...props}>
+    {children}
+  </ButtonBase>
+);
+
+const SecondaryButton = ({ children, ...props }) => (
+  <ButtonBase className="button--secondary" {...props}>
+    {children}
+  </ButtonBase>
+);
+
+const DangerButton = ({ children, ...props }) => (
+  <ButtonBase className="button--danger" {...props}>
+    {children}
+  </ButtonBase>
+);
+
+// 사용 예시
+<PrimaryButton>Primary Button</PrimaryButton>
+<SecondaryButton>Secondary Button</SecondaryButton>
+<DangerButton>Danger Button</DangerButton>
+
+// 새로운 SuccessButton 추가 (기존 코드 수정 없이 가능)
+const SuccessButton = ({ children, ...props }) => (
+  <ButtonBase className="button--success" {...props}>
+    {children}
+  </ButtonBase>
+);`},
+		{
+			type: ComponentType.HEADING,
+			headingType: 'h4',
+			value: `장점`,
+		},
+		{
+			type: ComponentType.STRINGLIST,
+			value: `확장성: 새로운 버튼 변형(예: SuccessButton)을 추가할 때 ButtonBase나 기존 컴포넌트를 수정하지 않아도 됨.
+유지보수성: 각 버튼 변형이 독립적이어서 코드가 간결하고 관리하기 쉬움.
+OCP 준수: 새로운 기능을 추가하기 위해 기존 코드를 변경하지 않고 확장 가능.`,
+		},
+		
+	],
+},
 ];
 
 /**
