@@ -12161,29 +12161,29 @@ gzip_types
 		],
 	},
 	{
-	id: 74,
-	title: `[TECH-QA] 개방-폐쇄 원칙(Open-Closed Principle, OCP)`,
-	date: '2025-07-16 14:16:33',
-	folder: Folder.REACT,
-	tag: ['TECH-QA'],
-	preview: `OCP는 소프트웨어 엔티티(클래스, 모듈, 컴포넌트 등)가 확장에는 열려 있고, 변경에는 닫혀 있어야 한다는 원칙으로, 새로운 기능을 추가할 때 기존 코드를 수정하지 않고 확장할 수 있도록 설계하는 것을 목표로 합니다.`,
-	post: [
-		{
-			type: ComponentType.HEADING,
-			headingType: 'h2',
-			value: `OCP를 위반하는 Button 컴포넌트(안티패턴)`,
-		},
-		{
-			type:ComponentType.KEYWORD,
-			value:"OCP를 위반"
-		},
-		{
-			type: ComponentType.NORMAL,
-			value: `먼저, 새로운 버튼 variant를 추가할 때마다 기존 코드를 수정해야 하는 안티패턴을 살펴보겠습니다. 이 방식은 OCP를 위반하며 유지보수성을 떨어뜨립니다.`,
-		},
-		{
-			type: ComponentType.CODE,
-			value: `// 안티패턴: OCP를 위반하는 Button 컴포넌트
+		id: 74,
+		title: `[TECH-QA] 개방-폐쇄 원칙(Open-Closed Principle, OCP)`,
+		date: '2025-07-16 14:16:33',
+		folder: Folder.REACT,
+		tag: ['TECH-QA'],
+		preview: `OCP는 소프트웨어 엔티티(클래스, 모듈, 컴포넌트 등)가 확장에는 열려 있고, 변경에는 닫혀 있어야 한다는 원칙으로, 새로운 기능을 추가할 때 기존 코드를 수정하지 않고 확장할 수 있도록 설계하는 것을 목표로 합니다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `OCP를 위반하는 Button 컴포넌트(안티패턴)`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				value: 'OCP 위반,Button 컴포넌트',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `먼저, 새로운 버튼 variant를 추가할 때마다 기존 코드를 수정해야 하는 안티패턴을 살펴보겠습니다. 이 방식은 OCP를 위반하며 유지보수성을 떨어뜨립니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 안티패턴: OCP를 위반하는 Button 컴포넌트
 function Button({ variant, children, ...props }) {
   let className = 'button';
 
@@ -12206,35 +12206,35 @@ function Button({ variant, children, ...props }) {
 <Button variant="primary">Primary Button</Button>
 <Button variant="secondary">Secondary Button</Button>
 <Button variant="danger">Danger Button</Button>`,
-		},
-		{
-			type: ComponentType.HEADING,
-			headingType: 'h4',
-			value: `문제점`,
-		},
-		{
-			type: ComponentType.STRINGLIST,
-			value: `새로운 variant (예: success)를 추가하려면 Button 컴포넌트 내부의 if-else 로직을 수정해야 함.
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `문제점`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `새로운 variant (예: success)를 추가하려면 Button 컴포넌트 내부의 if-else 로직을 수정해야 함.
 이는 OCP의 "변경에 닫혀 있어야 한다"를 위반.
 코드가 복잡해지고, 새로운 요구사항이 생길 때마다 기존 코드 수정이 불가피해짐.`,
-		},
-		{
-			type: ComponentType.HEADING,
-			headingType: 'h2',
-			value: `OCP를 준수하는 리팩터링 ButtonBase 컴포넌트`,
-		},
-		
-		{
-			type:ComponentType.KEYWORD,
-			value:"OCP를 준수"
-		},
-		{
-			type: ComponentType.NORMAL,
-			value: `OCP를 준수하기 위해 ButtonBase라는 기본 컴포넌트를 만들고, 이를 확장하여 다양한 버튼 변형을 생성하는 방식으로 리팩터링합니다. 이를 통해 새로운 variant를 추가할 때 기존 코드를 수정하지 않고도 확장이 가능해집니다.`,
-		},
-		{
-			type: ComponentType.CODE,
-			value: `// 기본 컴포넌트: ButtonBase
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `OCP를 준수하는 리팩터링 ButtonBase 컴포넌트`,
+			},
+
+			{
+				type: ComponentType.KEYWORD,
+				value: 'OCP 준수, ButtonBase 컴포넌트',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `OCP를 준수하기 위해 ButtonBase라는 기본 컴포넌트를 만들고, 이를 확장하여 다양한 버튼 변형을 생성하는 방식으로 리팩터링합니다. 이를 통해 새로운 variant를 추가할 때 기존 코드를 수정하지 않고도 확장이 가능해집니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// 기본 컴포넌트 ButtonBase
 function ButtonBase({ className, children, ...props }) {
   return (
     <button className={\`button \${className}\`} {...props}>
@@ -12272,21 +12272,134 @@ const SuccessButton = ({ children, ...props }) => (
   <ButtonBase className="button--success" {...props}>
     {children}
   </ButtonBase>
-);`},
-		{
-			type: ComponentType.HEADING,
-			headingType: 'h4',
-			value: `장점`,
-		},
-		{
-			type: ComponentType.STRINGLIST,
-			value: `확장성: 새로운 버튼 변형(예: SuccessButton)을 추가할 때 ButtonBase나 기존 컴포넌트를 수정하지 않아도 됨.
-유지보수성: 각 버튼 변형이 독립적이어서 코드가 간결하고 관리하기 쉬움.
-OCP 준수: 새로운 기능을 추가하기 위해 기존 코드를 변경하지 않고 확장 가능.`,
-		},
-		
-	],
-},
+);`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `장점`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>확장성</b>: 새로운 버튼 변형(예: SuccessButton)을 추가할 때 ButtonBase나 기존 컴포넌트를 수정하지 않아도 됨.
+<b>유지보수성</b>: 각 버튼 변형이 독립적이어서 코드가 간결하고 관리하기 쉬움.
+<b>OCP 준수</b>: 새로운 기능을 추가하기 위해 기존 코드를 변경하지 않고 확장 가능.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `컴포넌트 합성 패턴 Card 컴포넌트`,
+			},
+
+			{
+				type: ComponentType.KEYWORD,
+				value: '컴포넌트 합성 패턴',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `OCP를 준수하는 또 다른 방법은 컴포넌트 합성 패턴을 사용하는 것입니다. Card 컴포넌트를 예로 들어, 다양한 콘텐츠를 유연하게 확장할 수 있도록 설계해 보겠습니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `기본 Card 컴포넌트`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function Card({ header, body, footer, ...props }) {
+  return (
+    <div className="card" {...props}>
+      {header && <div className="card-header">{header}</div>}
+      {body && <div className="card-body">{body}</div>}
+      {footer && <div className="card-footer">{footer}</div>}
+    </div>
+  );
+}
+
+// 사용 예시
+<Card
+  header={<h2>Card Title</h2>}
+  body={<p>This is the card content.</p>}
+  footer={<PrimaryButton>Action</PrimaryButton>}
+/>`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `새로운 확장: 이미지 포함 Card`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const ImageCard = ({ image, ...props }) => (
+  <Card
+    header={image && <img src={image} alt="Card Image" className="card-image" />}
+    {...props}
+  />
+);
+
+// 사용 예시
+<ImageCard
+  image="https://example.com/image.jpg"
+  body={<p>This is an image card.</p>}
+  footer={<SecondaryButton>Learn More</SecondaryButton>}
+/>`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `장점`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>유연성</b>: Card 컴포넌트는 다양한 콘텐츠(헤더, 바디, 푸터)를 조합하여 확장 가능.
+<b>재사용성</b>: ImageCard와 같은 새로운 컴포넌트를 기존 Card를 활용해 쉽게 생성.
+<b>OCP 준수</b>: 새로운 Card 변형을 추가할 때 기존 Card 컴포넌트를 수정할 필요 없음.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `고차 컴포넌트(HOC)를 통한 확장`,
+			},
+
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'고차 컴포넌트(HOC)를 사용하면 기존 컴포넌트에 새로운 기능을 추가하여 OCP를 준수할 수 있습니다. 예를 들어, 버튼에 로딩 상태를 추가하는 HOC를 만들어 보겠습니다.',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// HOC: 로딩 상태를 추가
+function withLoading(Component) {
+  return function LoadingComponent({ isLoading, children, ...props }) {
+    return (
+      <Component {...props} disabled={isLoading}>
+        {isLoading ? 'Loading...' : children}
+      </Component>
+    );
+  };
+}
+
+// 로딩 가능한 버튼 생성
+const LoadingPrimaryButton = withLoading(PrimaryButton);
+const LoadingSecondaryButton = withLoading(SecondaryButton);
+
+// 사용 예시
+<LoadingPrimaryButton isLoading={true}>Click Me</LoadingPrimaryButton>
+<LoadingSecondaryButton isLoading={false}>Click Me</LoadingSecondaryButton>`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `장점`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>기능 확장</b>: withLoading HOC를 통해 기존 버튼 컴포넌트에 로딩 기능을 추가.
+<b>OCP 준수</b>: 기존 PrimaryButton이나 SecondaryButton 코드를 수정하지 않고 새로운 기능 추가 가능.
+<b>재사용성</b>: HOC는 다른 컴포넌트에도 적용 가능.`,
+			},
+		],
+	},
 ];
 
 /**
