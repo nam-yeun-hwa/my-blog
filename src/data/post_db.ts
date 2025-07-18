@@ -12409,9 +12409,70 @@ const LoadingSecondaryButton = withLoading(SecondaryButton);
 		preview: `NextAuth.js (현재 Auth.js로 알려짐)는 Next.js 애플리케이션에서 인증을 구현하기 위한 강력한 라이브러리로, 서버와 클라이언트 측 모두에서 세션을 관리할 수 있는 다양한 기능을 제공합니다.`,
 		post: [
 			{
+				type: ComponentType.NORMAL,
+				value:
+					'App Router를 사용하는 경우, /app/api/auth/[...nextauth]/route.ts 파일에서 설정합니다. 이 파일은 NextAuth가 인증 관련 요청(로그인, 로그아웃, 세션 관리 등)을 처리하는 엔드포인트 역할을 합니다.<br/><br/>만약 Pages Router(/pages)를 사용한다면, /pages/api/auth/[...nextauth].ts 파일에서 비슷한 방식으로 설정하지만, App Router에서는 route.ts 파일을 사용합니다. 또한, App Router에서는 GET, POST 등의 HTTP 메서드를 명시적으로 내보내야 합니다.',
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>App Router</b>: App Router에서는 next-auth의 최신 버전(4.x)을 사용하고, next-auth/middleware를 활용해 보호된 라우트를 설정할 수 있습니다.
+<b>미들웨어</b>: 인증이 필요한 페이지를 보호하려면 /app/middleware.ts에서 NextAuth 미들웨어를 설정합니다.
+<b>환경 변수</b>: NEXTAUTH_SECRET과 제공자(예: Google, GitHub)의 클라이언트 ID/시크릿은 .env 파일에 설정해야 합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: '프로젝트 구조 예시',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `my-nextjs-app/
+├── app/
+│   ├── api/
+│   │   ├── auth/
+│   │   │   └── [...nextauth]/
+│   │   │       └── route.ts         # NextAuth 설정 (인증 엔드포인트)
+│   ├── (auth)/
+│   │   ├── login/
+│   │   │   └── page.tsx            # 커스텀 로그인 페이지
+│   │   ├── signup/
+│   │   │   └── page.tsx            # 커스텀 회원가입 페이지 (선택)
+│   ├── dashboard/
+│   │   └── page.tsx                # 보호된 페이지 (인증 필요)
+│   ├── layout.tsx                  # 루트 레이아웃
+│   ├── page.tsx                    # 홈 페이지
+│   └── globals.css                 # 전역 스타일
+├── lib/
+│   ├── auth.ts                     # NextAuth 설정 (authOptions)
+│   └── db.ts                       # 데이터베이스 연결 (예: Prisma)
+├── components/
+│   ├── Header.tsx                  # 헤더 컴포넌트
+│   ├── Footer.tsx                  # 푸터 컴포넌트
+│   └── AuthButton.tsx              # 로그인/로그아웃 버튼 컴포넌트
+├── public/
+│   ├── images/                     # 정적 이미지 파일
+│   └── favicon.ico                 # 파비콘
+├── middleware.ts                   # NextAuth 미들웨어 (보호된 라우트 설정)
+├── .env                            # 환경 변수 (NEXTAUTH_SECRET, Google ID 등)
+├── next.config.mjs                 # Next.js 설정
+├── tsconfig.json                   # TypeScript 설정 (TypeScript 사용 시)
+├── package.json                    # 프로젝트 의존성 및 스크립트
+└── README.md                       # 프로젝트 설명`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `/app/(auth)/login/page.tsx : 커스텀 로그인 페이지로, signIn 함수를 호출하거나 UI를 제공합니다. 필요에 따라 회원가입 페이지(/signup) 등을 추가.
+/app/dashboard/page.tsx : 인증이 필요한 보호된 페이지. NextAuth 미들웨어로 접근을 제어할 수 있음.`,
+			},
+			{
 				type: ComponentType.HEADING,
 				headingType: 'h4',
-				value: `경로 /app/api/auth/[...nextauth]/route.ts`,
+				value: `/app/api/auth/[...nextauth]/route.ts`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `NextAuth의 인증 엔드포인트를 처리하는 파일입니다. GET, POST 메서드로 NextAuth를 설정합니다. </br>
+				 `,
 			},
 			{
 				type: ComponentType.CODE,
@@ -12432,17 +12493,69 @@ export { handlers as GET, handlers as POST };`,
 			{
 				type: ComponentType.NORMAL,
 				value:
-					'이 코드는 GitHub OAuth를 설정하며, handlers는 인증 관련 API 엔드포인트를 처리합니다.',
-			},
-			{
-				type: ComponentType.KEYWORD,
-				keyworldTitle: '클라이언트 사용법',
-				value: 'SessionProvider',
+					'NextAuth(authOptions)를 호출하여 Google, GitHub 등의 인증 제공자를 처리하며 handlers는 인증 관련 API 엔드포인트를 처리합니다.',
 			},
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h4',
-				value: 'app/layout.tsx - SessionProvider 사용',
+				value: `/lib/auth.js`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'NextAuth 설정(authOptions)을 정의합니다. GoogleProvider, 세션 콜백, JWT 설정 등을 설정합니다. ',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+
+export const {
+  handlers: { GET, POST },
+  auth,
+  signIn,
+  signOut,
+} = NextAuth({
+  providers: [
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials) {
+        const authResponse = await fetch("/your/endpoint", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(credentials),
+        });
+
+        if (!authResponse.ok) {
+          return null;
+        }
+        const user = await authResponse.json();
+        return user;
+      },
+    }),
+  ],
+});
+`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '클라이언트 사용법',
+				value: 'SessionProvider 사용',
+			},
+			{
+				type: ComponentType.GUIDE_MESSAGE,
+				promptTypeProps: 'TIP',
+				value:
+					'클라이언트에서는 next-auth/react의 훅(useSession, signIn, signOut 등)을 사용해 인증 상태를 관리하거나 로그인/로그아웃을 처리합니다.',
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: 'app/layout.tsx',
 			},
 			{
 				type: ComponentType.CODE,
@@ -12459,14 +12572,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }`,
 			},
 			{
-				type: ComponentType.GUIDE_MESSAGE,
-				promptTypeProps: 'WARNING',
+				type: ComponentType.NORMAL,
 				value: `App Router에서는 SessionProvider가 클라이언트 컴포넌트이므로, 루트 레이아웃에 직접 추가할 수 없습니다. 별도의 클라이언트 컴포넌트를 만들어야 합니다.`,
 			},
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h4',
-				value: 'Pages Router : pages/_app.tsx - SessionProvider 사용',
+				value: 'pages/_app.tsx',
 			},
 			{
 				type: ComponentType.CODE,
@@ -12485,16 +12597,23 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
 			{
 				type: ComponentType.KEYWORD,
 				keyworldTitle: '클라이언트 사용법',
-				value: 'useSession',
+				value: 'useSession 사용',
+			},
+			{
+				type: ComponentType.GUIDE_MESSAGE,
+				promptTypeProps: 'TIP',
+				value:
+					'클라이언트에서는 next-auth/react의 훅(useSession, signIn, signOut 등)을 사용해 인증 상태를 관리하거나 로그인/로그아웃을 처리합니다.',
 			},
 			{
 				type: ComponentType.NORMAL,
 				value:
-					'클라이언트 컴포넌트에서 useSession 훅을 사용하여 세션 상태를 확인합니다.',
+					'클라이언트 컴포넌트에서 useSession 훅을 사용하여 <b>세션 상태</b>를 확인합니다.',
 			},
 			{
 				type: ComponentType.CODE,
 				value: `// app/client/page.tsx
+
 "use client";
 
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -12564,47 +12683,6 @@ export default function UpdateSessionPage() {
 				value: `update 메서드는 서버의 jwt 콜백을 트리거하여 세션 데이터를 갱신합니다.`,
 			},
 
-			{
-				type: ComponentType.HEADING,
-				headingType: 'h4',
-				value: `경로 /app/auth.js`,
-			},
-			{
-				type: ComponentType.CODE,
-				value: `import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-
-export const {
-  handlers: { GET, POST },
-  auth,
-  signIn,
-  signOut,
-} = NextAuth({
-  providers: [
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
-        password: { label: "Password", type: "password" },
-      },
-      async authorize(credentials) {
-        const authResponse = await fetch("/your/endpoint", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(credentials),
-        });
-
-        if (!authResponse.ok) {
-          return null;
-        }
-        const user = await authResponse.json();
-        return user;
-      },
-    }),
-  ],
-});
-`,
-			},
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
@@ -12693,7 +12771,12 @@ export async function getServerSideProps(context) {
 			},
 			{
 				type: ComponentType.NORMAL,
-				value: `경로 /app/middleware.ts`,
+				value: `/middleware.ts`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					"NextAuth 미들웨어를 설정하여 특정 경로(예: /dashboard)에 인증이 필요하도록 제한. 예: export { default } from 'next-auth/middleware';",
 			},
 			{
 				type: ComponentType.CODE,
