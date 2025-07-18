@@ -12400,6 +12400,374 @@ const LoadingSecondaryButton = withLoading(SecondaryButton);
 			},
 		],
 	},
+	{
+		id: 75,
+		title: `[TECH-QA] NextAuth.js`,
+		date: '2025-07-18 09:32:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['NextAuth', 'TECH-QA'],
+		preview: `NextAuth.js (현재 Auth.js로 알려짐)는 Next.js 애플리케이션에서 인증을 구현하기 위한 강력한 라이브러리로, 서버와 클라이언트 측 모두에서 세션을 관리할 수 있는 다양한 기능을 제공합니다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `경로 /app/api/auth/[...nextauth]/route.ts`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import NextAuth from "next-auth";
+import GitHubProvider from "next-auth/providers/github";
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  providers: [
+    GitHubProvider({
+      clientId: process.env.AUTH_GITHUB_ID,
+      clientSecret: process.env.AUTH_GITHUB_SECRET,
+    }),
+  ],
+});
+
+export { handlers as GET, handlers as POST };`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'이 코드는 GitHub OAuth를 설정하며, handlers는 인증 관련 API 엔드포인트를 처리합니다.',
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '클라이언트 사용법',
+				value: 'SessionProvider',
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: 'app/layout.tsx - SessionProvider 사용',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import { SessionProvider } from "next-auth/react";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="ko">
+      <body>
+        <SessionProvider>{children}</SessionProvider>
+      </body>
+    </html>
+  );
+}`,
+			},
+			{
+				type: ComponentType.GUIDE_MESSAGE,
+				promptTypeProps: 'WARNING',
+				value: `App Router에서는 SessionProvider가 클라이언트 컴포넌트이므로, 루트 레이아웃에 직접 추가할 수 없습니다. 별도의 클라이언트 컴포넌트를 만들어야 합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: 'Pages Router : pages/_app.tsx - SessionProvider 사용',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `
+import { SessionProvider } from "next-auth/react";
+
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
+  return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  );
+}
+`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '클라이언트 사용법',
+				value: 'useSession',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'클라이언트 컴포넌트에서 useSession 훅을 사용하여 세션 상태를 확인합니다.',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// app/client/page.tsx
+"use client";
+
+import { useSession, signIn, signOut } from "next-auth/react";
+
+export default function ClientPage() {
+  const { data: session, status } = useSession();
+
+  if (status === "loading") return <p>로딩 중...</p>;
+  if (status === "authenticated") {
+    return (
+      <>
+        <p>{session.user?.name}님으로 로그인됨</p>
+        <button onClick={() => signOut()}>로그아웃</button>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <p>로그인하지 않음</p>
+      <button onClick={() => signIn("github")}>GitHub로 로그인</button>
+    </>
+  );
+}
+`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `useSession은 data (세션 객체)와 status (loading, authenticated, unauthenticated)를 반환합니다.
+signIn과 signOut은 각각 로그인과 로그아웃을 처리합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `세션 업데이트`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'useSession의 update 메서드를 사용하여 클라이언트 측에서 세션을 업데이트할 수 있습니다.',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `// app/client/page.tsx
+"use client";
+
+import { useSession } from "next-auth/react";
+
+export default function UpdateSessionPage() {
+  const { data: session, update } = useSession();
+
+  const handleUpdate = async () => {
+    await update({ name: "새로운 이름" }); // 세션 데이터 업데이트
+  };
+
+  return (
+    <>
+      <p>현재 사용자: {session?.user?.name}</p>
+      <button onClick={handleUpdate}>이름 업데이트</button>
+    </>
+  );
+}
+`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `update 메서드는 서버의 jwt 콜백을 트리거하여 세션 데이터를 갱신합니다.`,
+			},
+
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `경로 /app/auth.js`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+
+export const {
+  handlers: { GET, POST },
+  auth,
+  signIn,
+  signOut,
+} = NextAuth({
+  providers: [
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials) {
+        const authResponse = await fetch("/your/endpoint", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(credentials),
+        });
+
+        if (!authResponse.ok) {
+          return null;
+        }
+        const user = await authResponse.json();
+        return user;
+      },
+    }),
+  ],
+});
+`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `<서버 측 사용법> App Router에서 서버 세션 확인`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				value: 'auth 함수',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'/app/api/auth/[...nextauth]/route.ts에서 내보낸 <span class="point">auth 함수</span>를 사용합니다.',
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: '페이지 app/server/page.tsx',
+			},
+
+			{
+				type: ComponentType.CODE,
+				value: `import { auth , GET, POST } from @/app/auth";
+
+export default async function ServerPage() {
+  const session = await auth();
+
+  if (!session) {
+    return <p>로그인이 필요합니다.</p>;
+  }
+
+  return <p>서버에서 확인된 사용자: {session.user?.name}</p>;
+}`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'auth 함수는 서버 컴포넌트, 미들웨어, API 라우트 등에서 사용할 수 있는 통합 메서드입니다.',
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: '<서버 측 사용법> Pages Router에서 서버 세션 확인',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: 'Pages Router에서는 getServerSession을 사용합니다.',
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `경로 pages/server.js`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import { getServerSession } from "next-auth/next";
+import { authOptions } from "./api/auth/[...nextauth]";
+
+export default function ServerPage({ session }) {
+  if (!session) {
+    return <p>로그인이 필요합니다.</p>;
+  }
+
+  return <p>서버에서 확인된 사용자: {session.user?.email}</p>;
+}
+
+export async function getServerSideProps(context) {
+  const session = await getServerSession(context.req, context.res, authOptions);
+  return {
+    props: {
+      session,
+    },
+  };
+}`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'getServerSession은 세션 확인 속도가 빠르며, 추가 네트워크 요청을 줄입니다.',
+			},
+
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `미들웨어로 페이지 보호`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `경로 /app/middleware.ts`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import { withAuth } from "next-auth/middleware";
+
+export default withAuth({
+  callbacks: {
+    authorized: ({ token }) => !!token, // 토큰이 있으면 인증된 것으로 간주
+  },
+});
+
+export const config = {
+  matcher: ["/dashboard/:path*"], // /dashboard 경로와 하위 경로 보호
+};
+`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `/dashboard로 시작하는 모든 경로에 대해 인증을 요구`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `커스텀 로그인 페이지`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `기본 로그인 페이지를 커스터마이징하려면 pages 옵션을 사용합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `경로 app/api/auth/[...nextauth]/route.ts`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `export const { handlers, auth } = NextAuth({
+  providers: [GitHubProvider({ clientId: process.env.AUTH_GITHUB_ID, clientSecret: process.env.AUTH_GITHUB_SECRET })],
+  pages: {
+    signIn: "/auth/signin",
+  },
+});
+`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `경로 app/auth/signin/page.tsx`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import { getProviders, signIn } from "next-auth/react";
+
+export default async function SignIn() {
+  const providers = await getProviders();
+
+  return (
+    <div>
+      <h1>로그인</h1>
+      {providers &&
+        Object.values(providers).map((provider) => (
+          <div key={provider.name}>
+            <button onClick={() => signIn(provider.id)}>
+              {provider.name}으로 로그인
+            </button>
+          </div>
+        ))}
+    </div>
+  );
+}
+`,
+			},
+		],
+	},
 ];
 
 /**
