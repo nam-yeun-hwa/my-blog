@@ -12899,6 +12899,241 @@ export default async function SignIn() {
 			},
 		],
 	},
+	{
+		id: 76,
+		title: `[TECH-QA] "TypeScript의 강력한 도구: 유틸리티 타입 활용법"`,
+		date: '2025-05-21 14:14:33',
+		folder: Folder.TYPESCRIPT,
+		tag: ['TECH-QA', 'TypeScript'],
+		preview: `TypeScript의 유틸리티 타입(Utility Types)은 기존 타입을 기반으로 새로운 타입을 생성하거나 변환하는 데 사용되는 내장 타입 도구입니다. 이를 통해 코드의 재사용성과 타입 안전성을 높일 수 있습니다. 아래는 주요 유틸리티 타입과 그 설명입니다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Partial<t></t>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `interface User {
+  name: string;
+  age: number;
+}
+
+type PartialUser = Partial<User>;
+// PartialUser = { name?: string; age?: number; }`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `객체의 일부 속성만 업데이트하거나 부분적으로 사용할 때 유용.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Required<t></t>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `interface User {
+  name?: string;
+  age?: number;
+}
+
+type RequiredUser = Required<User>;
+// RequiredUser = { name: string; age: number; }`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `타입 T의 모든 속성을 필수(required)로 만듭니다. 선택적 속성을 강제로 필수로 만들 때 사용.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Readonly<t></t>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `interface User {
+  name: string;
+  age: number;
+}
+
+type ReadonlyUser = Readonly<User>;
+// ReadonlyUser = { readonly name: string; readonly age: number; }`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `타입 T의 모든 속성을 읽기 전용(readonly)으로 만듭니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Pick<T, K>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `interface User {
+  name: string;
+  age: number;
+  email: string;
+}
+
+type PickUser = Pick<User, 'name' | 'age'>;
+// PickUser = { name: string; age: number; }`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `타입 T에서 지정된 키 K만 선택하여 새로운 타입을 만듭니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Omit<T, K>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `interface User {
+  name: string;
+  age: number;
+  email: string;
+}
+
+type OmitUser = Omit<User, 'email'>;
+// OmitUser = { name: string; age: number; }`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `타입 T에서 지정된 키 K를 제외한 새로운 타입을 만듭니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Record<K, T>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `type Role = 'admin' | 'user' | 'guest';
+type UserRecord = Record<Role, string>;
+// UserRecord = { admin: string; user: string; guest: string; }`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `키 타입 K와 값 타입 T로 구성된 객체 타입을 생성합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Exclude<T, U>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `type MyUnion = 'a' | 'b' | 'c';
+type Excluded = Exclude<MyUnion, 'a'>;
+// Excluded = 'b' | 'c'`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `타입 T에서 U에 할당 가능한 타입을 제외합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Extract<T, U>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `type MyUnion = 'a' | 'b' | 'c';
+type Extracted = Extract<MyUnion, 'a' | 'b'>;
+// Extracted = 'a' | 'b'`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `타입 T에서 U에 할당 가능한 타입만 추출합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `NonNullable<t></t>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `type Nullable = string | null | undefined;
+type NonNullableType = NonNullable<Nullable>;
+// NonNullableType = string`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `null 또는 undefined가 포함된 타입을 안전하게 다룰 때 사용.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `ReturnType<t></t>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function getUser() {
+  return { name: 'Alice', age: 30 };
+}
+
+type UserReturn = ReturnType<typeof getUser>;
+// UserReturn = { name: string; age: number; }`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `함수 타입 T의 반환 타입을 추출합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Parameters<t></t>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `function add(a: number, b: string): string {
+  return \`\${a}\${b}\`;
+}
+
+type AddParams = Parameters<typeof add>;
+// AddParams = [number, string]`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `함수 타입 T의 매개변수 타입을 튜플로 추출합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Awaited<t></t>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `type PromiseType = Promise<string>;
+type ResolvedType = Awaited<PromiseType>;
+// ResolvedType = string`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Promise 타입 T의 해결(resolve) 타입을 추출합니다. 비동기 작업의 결과 타입을 다룰 때 사용.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Uppercase<t>, Lowercase<t>, Capitalize<t>, Uncapitalize<t></t></t></t></t>`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `type Greeting = 'hello world';
+type UpperGreeting = Uppercase<Greeting>;
+// UpperGreeting = 'HELLO WORLD'
+type CapitalizedGreeting = Capitalize<Greeting>;
+// CapitalizedGreeting = 'Hello world'`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `문자열 리터럴 타입을 대문자, 소문자, 첫 글자 대문자, 첫 글자 소문자로 변환합니다. 문자열 리터럴 타입을 변환할 때 사용.`,
+			},
+		],
+	},
 ];
 
 /**

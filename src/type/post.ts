@@ -79,6 +79,7 @@ export enum Folder {
 	GENERATIVEAI = 'Generative AI',
 	HTTP = 'Http',
 	NEXTJS = 'next.js',
+	TYPESCRIPT = 'typescript',
 }
 
 /**
