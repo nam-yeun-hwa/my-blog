@@ -12902,7 +12902,7 @@ export default async function SignIn() {
 	{
 		id: 76,
 		title: `[TECH-QA] "TypeScript의 강력한 도구: 유틸리티 타입 활용법"`,
-		date: '2025-05-21 14:14:33',
+		date: '2025-07-21 14:14:33',
 		folder: Folder.TYPESCRIPT,
 		tag: ['TECH-QA', 'TypeScript'],
 		preview: `TypeScript의 유틸리티 타입(Utility Types)은 기존 타입을 기반으로 새로운 타입을 생성하거나 변환하는 데 사용되는 내장 타입 도구입니다. 이를 통해 코드의 재사용성과 타입 안전성을 높일 수 있습니다. 아래는 주요 유틸리티 타입과 그 설명입니다.`,
@@ -12923,7 +12923,7 @@ type PartialUser = Partial<User>;
 // PartialUser = { name?: string; age?: number; }`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `객체의 일부 속성만 업데이트하거나 부분적으로 사용할 때 유용.`,
 			},
 			{
@@ -12942,7 +12942,7 @@ type RequiredUser = Required<User>;
 // RequiredUser = { name: string; age: number; }`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `타입 T의 모든 속성을 필수(required)로 만듭니다. 선택적 속성을 강제로 필수로 만들 때 사용.`,
 			},
 			{
@@ -12961,7 +12961,7 @@ type ReadonlyUser = Readonly<User>;
 // ReadonlyUser = { readonly name: string; readonly age: number; }`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `타입 T의 모든 속성을 읽기 전용(readonly)으로 만듭니다.`,
 			},
 			{
@@ -12981,7 +12981,7 @@ type PickUser = Pick<User, 'name' | 'age'>;
 // PickUser = { name: string; age: number; }`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `타입 T에서 지정된 키 K만 선택하여 새로운 타입을 만듭니다.`,
 			},
 			{
@@ -13001,7 +13001,7 @@ type OmitUser = Omit<User, 'email'>;
 // OmitUser = { name: string; age: number; }`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `타입 T에서 지정된 키 K를 제외한 새로운 타입을 만듭니다.`,
 			},
 			{
@@ -13016,7 +13016,7 @@ type UserRecord = Record<Role, string>;
 // UserRecord = { admin: string; user: string; guest: string; }`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `키 타입 K와 값 타입 T로 구성된 객체 타입을 생성합니다.`,
 			},
 			{
@@ -13031,7 +13031,7 @@ type Excluded = Exclude<MyUnion, 'a'>;
 // Excluded = 'b' | 'c'`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `타입 T에서 U에 할당 가능한 타입을 제외합니다.`,
 			},
 			{
@@ -13046,7 +13046,7 @@ type Extracted = Extract<MyUnion, 'a' | 'b'>;
 // Extracted = 'a' | 'b'`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `타입 T에서 U에 할당 가능한 타입만 추출합니다.`,
 			},
 			{
@@ -13061,7 +13061,7 @@ type NonNullableType = NonNullable<Nullable>;
 // NonNullableType = string`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `null 또는 undefined가 포함된 타입을 안전하게 다룰 때 사용.`,
 			},
 			{
@@ -13079,7 +13079,7 @@ type UserReturn = ReturnType<typeof getUser>;
 // UserReturn = { name: string; age: number; }`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `함수 타입 T의 반환 타입을 추출합니다.`,
 			},
 			{
@@ -13097,7 +13097,7 @@ type AddParams = Parameters<typeof add>;
 // AddParams = [number, string]`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `함수 타입 T의 매개변수 타입을 튜플로 추출합니다.`,
 			},
 			{
@@ -13112,13 +13112,13 @@ type ResolvedType = Awaited<PromiseType>;
 // ResolvedType = string`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `Promise 타입 T의 해결(resolve) 타입을 추출합니다. 비동기 작업의 결과 타입을 다룰 때 사용.`,
 			},
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `Uppercase<t>, Lowercase<t>, Capitalize<t>, Uncapitalize<t></t></t></t></t>`,
+				value: `Uppercase<t> Lowercase<t>, Capitalize<t>, Uncapitalize<t></t></t></t></t>`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -13129,7 +13129,7 @@ type CapitalizedGreeting = Capitalize<Greeting>;
 // CapitalizedGreeting = 'Hello world'`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.STRINGLIST,
 				value: `문자열 리터럴 타입을 대문자, 소문자, 첫 글자 대문자, 첫 글자 소문자로 변환합니다. 문자열 리터럴 타입을 변환할 때 사용.`,
 			},
 		],
