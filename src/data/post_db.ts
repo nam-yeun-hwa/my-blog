@@ -12514,7 +12514,7 @@ AUTH_SECRET은 애플리케이션 수준에서 설정되는 단일 비밀 키로
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h4',
-				value: `/app/api/auth/[...nextauth]/route.ts`,
+				value: `app/api/auth/[...nextauth]/route.ts`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -12747,7 +12747,7 @@ export default function UpdateSessionPage() {
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h4',
-				value: '페이지 app/server/page.tsx',
+				value: 'app/server/page.tsx',
 			},
 
 			{
@@ -12781,7 +12781,7 @@ export default async function ServerPage() {
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h4',
-				value: `경로 pages/server.js`,
+				value: `pages/server.js`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -12817,7 +12817,8 @@ export async function getServerSideProps(context) {
 				value: `미들웨어로 페이지 보호`,
 			},
 			{
-				type: ComponentType.NORMAL,
+				type: ComponentType.HEADING,
+				headingType: 'h4',
 				value: `/middleware.ts`,
 			},
 			{
@@ -12856,7 +12857,7 @@ export const config = {
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h4',
-				value: `경로 app/api/auth/[...nextauth]/route.ts`,
+				value: `app/api/auth/[...nextauth]/route.ts`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -12871,7 +12872,7 @@ export const config = {
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h4',
-				value: `경로 app/auth/signin/page.tsx`,
+				value: `app/auth/signin/page.tsx`,
 			},
 			{
 				type: ComponentType.CODE,
