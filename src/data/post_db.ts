@@ -12409,6 +12409,53 @@ const LoadingSecondaryButton = withLoading(SecondaryButton);
 		preview: `NextAuth.js (현재 Auth.js로 알려짐)는 Next.js 애플리케이션에서 인증을 구현하기 위한 강력한 라이브러리로, 서버와 클라이언트 측 모두에서 세션을 관리할 수 있는 다양한 기능을 제공합니다.`,
 		post: [
 			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: '기본 설정',
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '환경 변수 설정',
+				value: 'AUTH_SECRET',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'프로젝트 루트에 .env 파일을 생성하고 필요한 환경 변수를 추가합니다.',
+			},
+			{
+				type: ComponentType.CODE,
+				value: `AUTH_SECRET=your-secret-key
+AUTH_GITHUB_ID=your-github-client-id
+AUTH_GITHUB_SECRET=your-github-client-secret`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'AUTH_SECRET은 JWT 암호화를 위해 필수입니다. ext-auth에서 AUTH_SECRET은 세션 관리와 JWT(JSON Web Token) 서명을 위해 사용되는 비밀 키(secret key)입니다. 이 환경 변수는 NextAuth.js가 사용자 세션을 안전하게 암호화하고 인증 토큰을 생성하거나 검증할 때 사용됩니다. openssl rand -base64 32 명령어로 생성할 수 있습니다.',
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `AUTH_SECRET은 유저별로 생성되거나 전달되지 않습니다.
+AUTH_SECRET은 애플리케이션 수준에서 설정되는 단일 비밀 키로, 모든 사용자에 대해 동일하게 사용됩니다. 즉, 개별 유저마다 다른 AUTH_SECRET을 사용할 필요는 없습니다. 이 키는 NextAuth.js가 세션 관리와 JWT 서명을 위해 <span class="point">서버 측에서 사용하는 고정된 값</span>입니다. 이 모든 작업은 서버에서 일관되게 이루어지며, 유저별로 다른 키를 사용할 필요가 없습니다.
+<b>JWT 서명</b>: next-auth는 기본적으로 JWT를 사용하여 사용자 세션을 관리합니다. AUTH_SECRET은 JWT를 서명하고 검증하는 데 사용되는 비밀 키로, 이 키가 없거나 잘못되면 토큰이 유효하지 않게 됩니다.
+<b>세션 암호화</b>: 세션 데이터(예: 사용자 정보)를 암호화하여 보안을 강화합니다.
+<b>CSRF 토큰 보호</b>: next-auth가 CSRF(Cross-Site Request Forgery) 공격을 방지하기 위해 생성하는 토큰에도 이 키가 사용됩니다.
+<b>유저별 토큰과 혼동 가능성</b>: 로그인 시 서버는 유저별로 고유한 JWT를 생성합니다. 이 토큰에는 유저의 정보(예: userId, email, role)가 포함되며, <span class="point">AUTH_SECRET을 사용해 서명</span>됩니다. 하지만 AUTH_SECRET 자체는 토큰을 생성/검증하는 데 사용되는 고정된 키일 뿐입니다.
+<b>클라이언트로 전달되지 않음</b>: AUTH_SECRET은 절대 클라이언트(브라우저)로 전달되지 않습니다. 이는 서버 내부에서만 사용되는 비밀 값으로, 유저와 직접적인 상호작용이 없습니다.
+<b>세션 데이터</b>: NextAuth.js는 세션 데이터를 데이터베이스(옵션) 또는 JWT 자체에 저장할 수 있습니다. 유저별 정보는 이 세션 데이터에 저장되며, AUTH_SECRET은 이 데이터를 암호화하거나 보호하는 데 사용됩니다.
+서버는 요청마다 AUTH_SECRET으로 JWT를 검증해 유저를 인증.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value:
+					'값은 안전하고 예측하기 어려운 문자열이어야 하며, 최소 32자 이상의 무작위 문자열을 사용하는 것이 권장됩니다. 예를 들어, 다음 명령어로 생성할 수 있습니다.',
+			},
+			{
+				type: ComponentType.CODE,
+				value: 'openssl rand -base64 32',
+			},
+			{
 				type: ComponentType.NORMAL,
 				value:
 					'App Router를 사용하는 경우, /app/api/auth/[...nextauth]/route.ts 파일에서 설정합니다. 이 파일은 NextAuth가 인증 관련 요청(로그인, 로그아웃, 세션 관리 등)을 처리하는 엔드포인트 역할을 합니다.<br/><br/>만약 Pages Router(/pages)를 사용한다면, /pages/api/auth/[...nextauth].ts 파일에서 비슷한 방식으로 설정하지만, App Router에서는 route.ts 파일을 사용합니다. 또한, App Router에서는 GET, POST 등의 HTTP 메서드를 명시적으로 내보내야 합니다.',
