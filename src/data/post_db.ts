@@ -12902,7 +12902,7 @@ export default async function SignIn() {
 	{
 		id: 76,
 		title: `[TECH-QA] "TypeScript의 강력한 도구: 유틸리티 타입 활용법"`,
-		date: '2025-07-21 14:14:33',
+		date: '2025-07-21 11:14:33',
 		folder: Folder.TYPESCRIPT,
 		tag: ['TECH-QA', 'TypeScript'],
 		preview: `TypeScript의 유틸리티 타입(Utility Types)은 기존 타입을 기반으로 새로운 타입을 생성하거나 변환하는 데 사용되는 내장 타입 도구입니다. 이를 통해 코드의 재사용성과 타입 안전성을 높일 수 있습니다. 아래는 주요 유틸리티 타입과 그 설명입니다.`,
@@ -13198,7 +13198,7 @@ type AlertModalComponent = React.ForwardRefRenderFunction<
 	{
 		id: 77,
 		title: `[TECH-QA] TypeScript에서 객체 리터럴을 불변(immutable)으로 사용하기`,
-		date: '2025-07-22 09:35:33',
+		date: '2025-07-22 13:35:33',
 		folder: Folder.JAVASCRIPT,
 		tag: ['TECH-QA'],
 		preview: `TypeScript에서 as const를 사용하여 객체 리터럴을 불변(immutable)으로 만드는 예제를 보여드리겠습니다. as const는 객체, 배열, 또는 기본 타입을 읽기 전용(readonly)으로 만들어 타입을 좁히고, 값이 변경되지 않도록 보장합니다.`,
@@ -13206,7 +13206,7 @@ type AlertModalComponent = React.ForwardRefRenderFunction<
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `기본 객체 리터럴`,
+				value: `기본 객체 리터럴과 as const`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -13231,7 +13231,7 @@ fetchData(config.apiUrl); // 정상 작동`,
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `중첩 객체`,
+				value: `중첩 객체와 as const`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -13261,7 +13261,7 @@ displayUser(userSettings);`,
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `as const`,
+				value: `배열과 as const`,
 			},
 			{
 				type: ComponentType.CODE,
