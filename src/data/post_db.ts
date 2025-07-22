@@ -13134,6 +13134,176 @@ type CapitalizedGreeting = Capitalize<Greeting>;
 			},
 		],
 	},
+	{
+		id: 76,
+		title: `[TECH-QA] Intersection Type (&)이란?`,
+		date: '2025-07-22 09:35:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['브라우저', 'TECH-QA', '웹성능최적화'],
+		preview: `화면에서 쿨락헌 순간 모달에 관련된 파일들을 불러오고 모달에 관련된 파일들이 모두 불러와지면 Javascript를 Evaluate하고 모달이 뜨도록 코드를 실행하고 모달이 오픈된다.`,
+		post: [
+			{
+				type: ComponentType.STRINGLIST,
+				value: `A & B는 타입 A와 타입 B의 모든 속성을 동시에 만족하는 새로운 타입을 정의합니다.
+즉, 결과 타입은 A와 B의 속성을 모두 포함합니다.
+예를 들어, AlertModalProps와 React.RefAttributes<HTMLDivElement>를 결합하면, 새로운 타입은 AlertModalProps의 모든 속성과 React.RefAttributes<HTMLDivElement>의 모든 속성을 포함합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `interface AlertModalProps {
+  title: string;
+  message: string;
+  onClose: () => void;
+}
+
+const AlertModal = React.forwardRef<HTMLDivElement, AlertModalProps>(
+  ({ title, message, onClose }, ref) => {
+    return (
+      <div ref={ref}>
+        <h1>{title}</h1>
+        <p>{message}</p>
+        <button onClick={onClose}>Close</button>
+      </div>
+    );
+  }
+);
+
+// 타입 정의
+type AlertModalComponent = React.ForwardRefRenderFunction<
+  HTMLDivElement,
+  AlertModalProps & React.RefAttributes<HTMLDivElement>
+>;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `여기서 AlertModalProps & React.RefAttributes<HTMLDivElement>는 AlertModalProps의 속성(title, message, onClose)과 React.RefAttributes<HTMLDivElement>의 속성(ref)을 모두 포함하는 타입을 정의합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const modalRef = React.useRef<HTMLDivElement>(null);
+
+<AlertModal
+  title="경고"
+  message="이것은 경고 메시지입니다."
+  onClose={() => console.log("닫기")}
+  ref={modalRef}
+/>;`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React.RefAttributes<HTMLDivElement>는 ref 속성을 추가로 제공하므로, AlertModalProps에 ref를 직접 포함하지 않고도 ref를 지원할 수 있게 됩니다.`,
+			},
+		],
+	},
+	{
+		id: 77,
+		title: `[TECH-QA] TypeScript에서 객체 리터럴을 불변(immutable)으로 사용하기`,
+		date: '2025-07-22 09:35:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA'],
+		preview: `TypeScript에서 as const를 사용하여 객체 리터럴을 불변(immutable)으로 만드는 예제를 보여드리겠습니다. as const는 객체, 배열, 또는 기본 타입을 읽기 전용(readonly)으로 만들어 타입을 좁히고, 값이 변경되지 않도록 보장합니다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `기본 객체 리터럴`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const config = {
+  apiUrl: "https://api.example.com",
+  port: 8080,
+  timeout: 5000
+} as const;
+
+// 타입: { readonly apiUrl: "https://api.example.com"; readonly port: 8080; readonly timeout: 5000; }
+
+// 값 변경 시도 - 에러 발생
+// config.apiUrl = "https://new-url.com"; // 오류: Cannot assign to 'apiUrl' because it is a read-only property.
+
+// 사용 예시
+function fetchData(url: string) {
+  console.log(\`Fetching from \${url}\`);
+}
+
+fetchData(config.apiUrl); // 정상 작동`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `중첩 객체`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const userSettings = {
+  user: {
+    name: "Alice",
+    age: 30
+  },
+  preferences: {
+    theme: "dark",
+    notifications: true
+  }
+} as const;
+
+// 타입: { readonly user: { readonly name: "Alice"; readonly age: 30; }; readonly preferences: { readonly theme: "dark"; readonly notifications: true; }; }
+
+// 값 변경 시도 - 에러 발생
+// userSettings.user.name = "Bob"; // 오류: Cannot assign to 'name' because it is a read-only property.
+
+// 사용 예시
+function displayUser(settings: typeof userSettings) {
+  console.log(\`User: \${settings.user.name}, Theme: \${settings.preferences.theme}\`);
+}
+
+displayUser(userSettings);`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `as const`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const colors = ["red", "green", "blue"] as const;
+
+// 타입: readonly ["red", "green", "blue"]
+
+// 배열 요소 변경 시도 - 에러 발생
+// colors[0] = "yellow"; // 오류: Cannot assign to '0' because it is a read-only property.
+
+// 사용 예시
+function pickColor(color: typeof colors[number]) {
+  console.log(\`Selected color: \${color}\`);
+}
+
+pickColor(colors[0]); // 정상 작동: "red"`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `as const의 효과: 객체와 배열의 모든 프로퍼티를 readonly로 만들고, 리터럴 타입으로 좁힙니다. 예를 들어, string 대신 "specific-value"로 타입이 지정됩니다.
+불변성 보장: 컴파일 타임에 값 변경을 방지하며, 코드의 안정성을 높입니다.
+사용 사례: 상수 데이터, 설정 객체, 열거형(enum) 대체 등에 유용합니다.
+제한사항: as const는 객체를 완전히 동결(freeze)하지 않으므로, 런타임에서 Object.freeze와 함께 사용할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `Object.freeze`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const frozenConfig = Object.freeze({
+  apiUrl: "https://api.example.com",
+  port: 8080
+}) as const;
+
+// 런타임과 컴파일 타임 모두 불변
+// frozenConfig.apiUrl = "new-url"; // 컴파일 에러
+// frozenConfig.port = 3000; // 컴파일 에러`,
+			},
+		],
+	},
 ];
 
 /**
