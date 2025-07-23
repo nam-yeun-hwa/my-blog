@@ -13098,7 +13098,7 @@ type AddParams = Parameters<typeof add>;
 			},
 			{
 				type: ComponentType.STRINGLIST,
-				value: `함수 타입 T의 매개변수 타입을 튜플로 추출합니다.`,
+				value: `함수 타입 T의 매개변수 타입을 튜플(tuple) 타입으로 정의되었습니다. 튜플은 배열과 유사하지만, 고정된 길이와 각 요소의 타입이 명시적으로 정의된 배열입니다.`,
 			},
 			{
 				type: ComponentType.HEADING,
@@ -13135,7 +13135,7 @@ type CapitalizedGreeting = Capitalize<Greeting>;
 		],
 	},
 	{
-		id: 76,
+		id: 77,
 		title: `[TECH-QA] Intersection Type (&)이란?`,
 		date: '2025-07-22 09:35:33',
 		folder: Folder.JAVASCRIPT,
@@ -13196,7 +13196,7 @@ type AlertModalComponent = React.ForwardRefRenderFunction<
 		],
 	},
 	{
-		id: 77,
+		id: 78,
 		title: `[TECH-QA] TypeScript에서 객체 리터럴을 불변(immutable)으로 사용하기`,
 		date: '2025-07-22 13:35:33',
 		folder: Folder.JAVASCRIPT,
@@ -13301,6 +13301,138 @@ pickColor(colors[0]); // 정상 작동: "red"`,
 // 런타임과 컴파일 타임 모두 불변
 // frozenConfig.apiUrl = "new-url"; // 컴파일 에러
 // frozenConfig.port = 3000; // 컴파일 에러`,
+			},
+		],
+	},
+	{
+		id: 79,
+		title: `[TECH-QA] TypeScript로 깔끔한 쿼리 문자열 만들기: Record<string, never> 활용법`,
+		date: '2025-07-23 18:14:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA'],
+		preview: `qsStringify와 유사한 기능을 수행하는 새로운 함수 buildQueryString를 TypeScript로 작성한 예제입니다. 이 함수는 입력 객체를 쿼리 문자열로 변환하며, 유효하지 않은 값(null, undefined, 빈 문자열/배열)을 제거합니다. Record<string, never>를 기본 타입으로 사용해 빈 객체를 처리합니다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `🚩 Record<string, never> 활용법`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import { isNil, isArray, isEmpty } from 'lodash';
+import qs from 'query-string';
+
+const buildQueryString = <T = Record<string, never>>(params?: T): string => {
+  // 유효하지 않은 값(null, undefined, 빈 문자열/배열) 제거
+  const cleanedParams = omitBy(params || {}, (val) => {
+    if (isNil(val)) return true;
+    return isArray(val) && (val as string[]).every((v) => !v);
+  });
+
+  // 객체가 비어 있으면 빈 문자열 반환, 아니면 쿼리 문자열 생성
+  return isEmpty(cleanedParams) ? '' : \`?$\{qs.stringify(cleanedParams, { arrayFormat: 'comma', encode: false })}\`;
+};
+
+// 사용 예제
+console.log(buildQueryString()); // ''
+console.log(buildQueryString({ name: 'John', age: '25', empty: '' })); // '?name=John,age=25'
+console.log(buildQueryString({ items: [], invalid: null })); // ''
+console.log(buildQueryString({ tags: ['red', 'blue'], empty: null })); // '?tags=red,blue'`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `buildQueryString 함수는 프론트엔드에서 API 요청을 위한 쿼리 문자열을 생성하는 유틸리티 함수입니다. 입력 객체에서 유효하지 않은 값(null, undefined, 빈 문자열, 빈 배열 또는 모든 요소가 빈 값인 배열)을 제거하고, 유효한 데이터만 포함한 쿼리 문자열을 반환합니다. 이는 API 요청을 간결하게 만들고, 서버의 처리 부담을 줄이며, 사용자 경험을 개선하는 데 기여합니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `함수 구조`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '제네릭 타입',
+				value: '<T = Record<string،  never>>:',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `T는 입력 파라미터 params의 타입을 나타냅니다.
+기본 타입 Record<string, never>는 속성이 없는 빈 객체 {}를 의미합니다.
+params가 undefined이거나 전달되지 않을 경우, 빈 객체 {}로 처리되어 함수가 안전하게 동작합니다.`,
+			},
+		],
+	},
+	{
+		id: 80,
+		title: `[TECH-QA] TypeScript Record<string, number> 기본`,
+		date: '2025-07-23 09::33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA'],
+		preview: `qsStringify와 유사한 기능을 수행하는 새로운 함수 buildQueryString를 TypeScript로 작성한 예제입니다. 이 함수는 입력 객체를 쿼리 문자열로 변환하며, 유효하지 않은 값(null, undefined, 빈 문자열/배열)을 제거합니다. Record<string, never>를 기본 타입으로 사용해 빈 객체를 처리합니다.`,
+		post: [
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Record 유틸리티 타입은 TypeScript에서 제공하는 내장 타입으로, 특정 타입의 키와 값으로 구성된 객체를 정의할 때 사용됩니다
+				<b>키(key)</b>: string 타입 (예: "age", "score", "id" 등).
+<b>값(value)</b>: number 타입 (예: 42, 100, 3.14 등).
+즉, 모든 키가 문자열이고, 모든 값이 숫자인 객체를 나타냅니다..`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const scores: Record<string, number> = {
+  math: 95,
+  science: 88,
+  history: 92
+};'`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 객체는 Record<string, number> 타입에 부합합니다. 키는 math, science, history (모두 string)이고, 값은 95, 88, 92 (모두 number)입니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `특징`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>동적 키 허용</b>: 키가 고정되지 않고, 문자열인 어떤 키든 가질 수 있습니다.
+<b>값 타입 강제</b>: 모든 값은 number 타입이어야 하며, 다른 타입(예: string, boolean)을 넣으면 컴파일 에러가 발생합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const invalid: Record<string, number> = {
+  name: "John" // 에러: "John"은 number가 아님
+};`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>빈 객체 가능</b>: Record<string, number> 타입의 객체는 속성이 없어도 유효합니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const empty: Record<string, number> = {};`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `다른 타입과의 비교`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>{ [key: string]: number } 와 동일</b>: Record<string, number>는 인덱스 시그니처 { [key: string]: number }와 같은 의미입니다. 하지만 Record는 더 간결하고 가독성이 좋습니다.
+<b>제한된 키 타입</b>: 키를 특정 문자열 리터럴로 제한하려면 Record<"key1" | "key2", number>처럼 사용할 수 있습니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const limited: Record<"width" | "height", number> = {
+  width: 100,
+  height: 200
+  // depth: 50 // 에러: "depth"는 허용되지 않는 키
+};`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `값 타입 일관성: 모든 값이 number여야 하며, undefined나 null도 허용되지 않습니다 (단, Record<string, number | undefined>처럼 명시적으로 허용 가능).`,
 			},
 		],
 	},
