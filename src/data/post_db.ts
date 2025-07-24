@@ -13351,13 +13351,125 @@ console.log(buildQueryString({ tags: ['red', 'blue'], empty: null })); // '?tags
 			{
 				type: ComponentType.KEYWORD,
 				keyworldTitle: '제네릭 타입',
-				value: '<T = Record<string،  never>>:',
+				value: '<T = Record<string،  never>>',
 			},
 			{
 				type: ComponentType.NORMAL,
 				value: `T는 입력 파라미터 params의 타입을 나타냅니다.
 기본 타입 Record<string, never>는 속성이 없는 빈 객체 {}를 의미합니다.
 params가 undefined이거나 전달되지 않을 경우, 빈 객체 {}로 처리되어 함수가 안전하게 동작합니다.`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '파라미터',
+				value: 'params?: T',
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `params는 선택적이며, 객체 형태로 전달됩니다.
+params || {}를 통해 undefined일 경우 빈 객체로 대체됩니다.`,
+			},
+			{
+				type: ComponentType.KEYWORD,
+				keyworldTitle: '로직',
+				value: 'Lodash의 omitBy',
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `Lodash의 omitBy를 사용해 <span class="point">null, undefined, 빈 문자열</span> 또는 <span class="point">모든 요소가 빈 값인 배열</span>을 제거.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `{ name: "John", empty: null, items: [""] } → <span class="point"> { name: "John" }.</span>`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Lodash의 isEmpty로 정리된 객체가 비어 있는지 확인.
+비어 있으면 ' '를 반환.
+그렇지 않으면 qs.stringify를 사용해 쿼리 문자열로 변환하고, ?를 접두사로 추가.
+arrayFormat: 'comma'는 배열을 쉼표로 구분 (예: tags=red,blue).
+encode: false는 URL 인코딩을 비활성화해 가독성을 높임.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `입력 없음`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `buildQueryString(); // 출력: ''`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `params가 undefined이므로 빈 객체 {}로 처리.
+omitBy({}, ...)는 빈 객체를 반환, isEmpty가 true이므로 '' 반환.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `유효한 값 포함`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `buildQueryString({ name: 'John', age: '25', empty: '' }); // 출력: '?name=John,age=25'`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `empty: ''는 제거됨.
+cleanedParams = { name: 'John', age: '25' }.
+qs.stringify로 name=John,age=25를 생성하고, ?를 추가.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `유효하지 않은 값만 포함`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `buildQueryString({ items: [], invalid: null }); // 출력: ''`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `items: []와 invalid: null은 제거됨.
+cleanedParams = {}, isEmpty가 true이므로 '' 반환.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `배열 포함`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `buildQueryString({ tags: ['red', 'blue'], empty: null }); // 출력: '?tags=red,blue'`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `empty: null은 제거됨.
+cleanedParams = { tags: ['red', 'blue'] }.
+qs.stringify로 tags=red,blue를 생성하고, ?를 추가.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `배열 포함`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>효율적인 요청</b>: 불필요한 파라미터를 제거해 네트워크 요청 크기를 줄이고, 서버의 처리 부담을 완화.
+<b>타입 안전성</b>: Record<string, never>를 기본 타입으로 사용해 입력이 없거나 빈 객체일 때도 안전하게 처리.
+<b>사용자 경험</b>: 간결한 쿼리 문자열은 URL을 깔끔하게 유지하며, 브라우저 히스토리나 공유 링크의 가독성을 높임.
+<b>서버 부하 감소</b>: 유효한 데이터만 서버로 전송되므로 서버의 검증 로직이 간소화됨.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `트래픽 관리와의 연관성`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `프론트엔드에서 데이터를 정리하면 불필요한 데이터 전송이 줄어들어 네트워크 트래픽이 감소.
+서버는 유효한 데이터만 처리하므로 CPU/메모리 사용량이 줄고, 캐싱 효율성이 향상.
+이는 트래픽 스파이크를 간접적으로 방지하며, 전체 시스템 성능을 최적화.`,
 			},
 		],
 	},
@@ -13374,7 +13486,7 @@ params가 undefined이거나 전달되지 않을 경우, 빈 객체 {}로 처리
 				value: `Record 유틸리티 타입은 TypeScript에서 제공하는 내장 타입으로, 특정 타입의 키와 값으로 구성된 객체를 정의할 때 사용됩니다
 				<b>키(key)</b>: string 타입 (예: "age", "score", "id" 등).
 <b>값(value)</b>: number 타입 (예: 42, 100, 3.14 등).
-즉, 모든 키가 문자열이고, 모든 값이 숫자인 객체를 나타냅니다..`,
+즉, 모든 키가 문자열이고, 모든 값이 숫자인 객체를 나타냅니다.`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -13433,6 +13545,150 @@ params가 undefined이거나 전달되지 않을 경우, 빈 객체 {}로 처리
 			{
 				type: ComponentType.NORMAL,
 				value: `값 타입 일관성: 모든 값이 number여야 하며, undefined나 null도 허용되지 않습니다 (단, Record<string, number | undefined>처럼 명시적으로 허용 가능).`,
+			},
+		],
+	},
+	{
+		id: 81,
+		title: `[TECH-QA] React에서 SVG 아이콘 다루기: 실용적인 예제와 팁`,
+		date: '2025-07-24 12:57:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA', 'SVG'],
+		preview: `React에서 ref를 부모 컴포넌트에서 생성하여 자식 컴포넌트(예: _Icon)에 전달하고, 이를 통해 SVG와 같은 DOM 요소에 직접 접근하는 이유와 용도를 간단히 설명하겠습니다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `ref를 사용하는 이유`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `React는 선언적 UI 라이브러리로, 일반적으로 상태와 props를 통해 UI를 관리합니다. 하지만 특정 상황에서는 DOM 요소에 직접 접근해야 할 때가 있습니다. ref는 이를 가능하게 하며, 부모 컴포넌트에서 ref를 생성해 자식 컴포넌트에 전달하면 자식의 DOM 요소(여기서는 <svg>)를 부모에서 조작하거나 정보를 얻을 수 있습니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `ref를 통해 할 수 있는 작업`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `_Icon 컴포넌트의 SVG 요소에 ref를 전달하여 부모 컴포넌트에서 수행할 수 있는 작업의 예시입니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `DOM 속성/상태 조회`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `SVG 요소의 크기, 위치, 속성 등을 확인.
+예: ref.current.getBoundingClientRect()를 호출해 SVG의 화면상 위치나 크기를 확인.
+용도: 애니메이션이나 툴팁 위치 계산.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `직접 DOM 조작`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `React 상태 외부에서 SVG의 속성을 동적으로 변경.
+예: ref.current.setAttribute('fill', 'red')로 색상을 변경.
+용도: React로 처리하기 복잡한 동적 스타일링.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `애니메이션 제어`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `SVG 요소에 애니메이션을 적용하거나 제어.
+예: ref.current.animate()를 사용해 CSS/SVG 애니메이션을 트리거.
+용도: 아이콘에 클릭 시 깜빡이는 효과 추가.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `포커스 관리`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `SVG 요소에 포커스를 설정하거나 확인.
+예: ref.current.focus()로 접근성 개선.
+용도: 키보드 내비게이션 지원.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `외부 라이브러리와 통합`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `D3.js, GSAP 같은 라이브러리가 DOM 요소를 직접 조작해야 할 때.
+예: ref.current를 라이브러리에 전달해 SVG 경로 애니메이션 적용.
+용도: 복잡한 시각화 작업.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `이벤트 처리`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `특정 DOM 이벤트(예: 마우스 오버, 드래그)를 직접 감지.
+예: ref.current.addEventListener('mouseover', handleMouseOver).
+용도: React의 합성 이벤트로 처리하기 어려운 경우.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import React, { useRef, useEffect } from 'react';
+import { _ICon } from './IcArrowLeft';
+
+const ParentComponent = () => {
+  const svgRef = useRef(null);
+
+  useEffect(() => {
+    if (svgRef.current) {
+      // SVG 요소에 접근하여 작업 수행
+      console.log('SVG 크기:', svgRef.current.getBoundingClientRect());
+      
+      // 예: 색상 변경
+      svgRef.current.setAttribute('fill', 'purple');
+      
+      // 예: 클릭 이벤트 추가
+      svgRef.current.addEventListener('click', () => {
+        alert('SVG 클릭됨!');
+      });
+    }
+  }, []);
+
+  return (
+    <div>
+      <_ICon
+        ref={svgRef}
+        size={32}
+        color="blue"
+        filled={true}
+        aria-label="왼쪽 화살표"
+      />
+    </div>
+  );
+};
+
+export default ParentComponent;`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>React 철학 준수</b>: React는 DOM 직접 조작을 최소화하도록 권장합니다. 가능하면 상태/props로 UI를 관리하세요.
+<b>적절한 사용</b>: ref는 포커스 관리, 애니메이션, 외부 라이브러리 통합 등 필수적인 경우에만 사용하세요.
+<b>접근성 고려</b>: SVG에 aria-label 같은 속성을 추가해 접근성을 유지하세요.
+<b>ref 전달 방식</b>: _ICon React.forwardRef로 래핑되어 있어야 ref가 SVG 요소에 올바르게 연결됩니다.`,
 			},
 		],
 	},
