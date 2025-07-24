@@ -13722,23 +13722,23 @@ export default ParentComponent;`,
 const buttonVariants = cva(
   'inline-flex items-center justify-center rounded-md font-medium', // 기본 스타일
   {
-    variants: {
-      intent: {
-        primary: 'bg-blue-500 text-white hover:bg-blue-600',
-        secondary: 'bg-gray-500 text-white hover:bg-gray-600',
-        danger: 'bg-red-500 text-white hover:bg-red-600',
+   variants: {
+       intent: {
+       primary: 'bg-blue-500 text-white hover:bg-blue-600',
+       secondary: 'bg-gray-500 text-white hover:bg-gray-600',
+       danger: 'bg-red-500 text-white hover:bg-red-600',
+   },
+   size: {
+       small: 'px-2 py-1 text-sm',
+       medium: 'px-4 py-2 text-base',
+       large: 'px-6 py-3 text-lg',
       },
-      size: {
-        small: 'px-2 py-1 text-sm',
-        medium: 'px-4 py-2 text-base',
-        large: 'px-6 py-3 text-lg',
+   },
+   defaultVariants: {
+   	intent: 'primary',
+   	size: 'medium',
       },
-    },
-    defaultVariants: {
-      intent: 'primary',
-      size: 'medium',
-    },
-  }
+   }
 );
 
 // React 컴포넌트에서 사용
@@ -13758,12 +13758,12 @@ const Button = ({ intent, size, children }: ButtonProps) => {
 
 // 사용 예시
 const App = () => (
-  <div>
-    <Button intent="primary" size="small">Primary Small</Button>
-    <Button intent="secondary" size="medium">Secondary Medium</Button>
-    <Button intent="danger" size="large">Danger Large</Button>
-    <Button>Default Button</Button> {/* 기본값: primary, medium */}
-  </div>
+ <div>
+   <Button intent="primary" size="small">Primary Small</Button>
+   <Button intent="secondary" size="medium">Secondary Medium</Button>
+   <Button intent="danger" size="large">Danger Large</Button>
+   <Button>Default Button</Button> {/* 기본값: primary, medium */}
+ </div>
 );
 
 export default App;`,
@@ -13771,7 +13771,7 @@ export default App;`,
 			{
 				type: ComponentType.STRINGLIST,
 				value: `<b>cva 함수</b>: 기본 스타일과 변형(variants)을 정의합니다. 위 예시에서는 intent(버튼 색상)와 size(버튼 크기)를 변형으로 설정했습니다.
-<b>변형(variants)</<b>b>: intent와 size에 따라 Tailwind CSS 클래스를 동적으로 적용합니다.
+<b>변형(variants)</b>: intent와 size에 따라 Tailwind CSS 클래스를 동적으로 적용합니다.
 <b>기본값(defaultVariants)</b>: 변형이 지정되지 않을 때 기본적으로 적용될 스타일을 설정합니다.
 <b>컴포넌트 사용</b>: Button 컴포넌트는 buttonVariants를 호출해 동적으로 클래스 이름을 생성하고, 이를 <button> 요소에 적용합니다.`,
 			},
