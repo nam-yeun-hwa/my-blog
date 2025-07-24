@@ -13692,6 +13692,95 @@ export default ParentComponent;`,
 			},
 		],
 	},
+	{
+		id: 82,
+		title: `[TECH-QA] class-variance-authority 라이브러리`,
+		date: '2025-07-24 14:30:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['tailwind', 'style', 'CVA'],
+		preview: `CVA는 JavaScript/TypeScript 기반의 오픈소스 라이브러리로, CSS 클래스 이름을 조건에 따라 체계적으로 관리하고 컴포넌트의 다양한 스타일 변형(variants)을 쉽게 정의할 수 있도록 도와줍니다. 특히 Tailwind CSS와 같은 유틸리티 퍼스트 CSS 프레임워크와 함께 사용될 때 유용하며, React, Vue, Angular 등 다양한 프레임워크와 호환됩니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `CVA는 JavaScript/TypeScript 기반의 오픈소스 라이브러리로, CSS 클래스 이름을 조건에 따라 체계적으로 관리하고 컴포넌트의 다양한 스타일 변형(variants)을 쉽게 정의할 수 있도록 도와줍니다. 특히 Tailwind CSS와 같은 유틸리티 퍼스트 CSS 프레임워크와 함께 사용될 때 유용하며, React, Vue, Angular 등 다양한 프레임워크와 호환됩니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `CVA는 컴포넌트의 스타일 변형(예: 버튼의 크기, 색상, 상태 등)을 타입 안전하게 정의하고, 코드의 가독성과 유지보수성을 높이는 데 초점을 맞춘 도구입니다. 예를 들어, 버튼 컴포넌트의 "primary", "secondary" 변형이나 "small", "large" 크기를 간단히 정의하고, 이를 기반으로 클래스 이름을 동적으로 생성할 수 있습니다.cva.style
+
+간단히 말해, CVA는 UI 컴포넌트의 스타일링을 더 구조적이고 선언적으로 관리할 수 있게 해주는 유틸리티 라이브러리입니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `TypeScript와 Tailwind CSS를 사용해 버튼 컴포넌트의 다양한 변형을 정의하는 코드 예제입니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import { cva } from 'class-variance-authority';
+
+// CVA로 버튼 스타일 변형 정의
+const buttonVariants = cva(
+  'inline-flex items-center justify-center rounded-md font-medium', // 기본 스타일
+  {
+    variants: {
+      intent: {
+        primary: 'bg-blue-500 text-white hover:bg-blue-600',
+        secondary: 'bg-gray-500 text-white hover:bg-gray-600',
+        danger: 'bg-red-500 text-white hover:bg-red-600',
+      },
+      size: {
+        small: 'px-2 py-1 text-sm',
+        medium: 'px-4 py-2 text-base',
+        large: 'px-6 py-3 text-lg',
+      },
+    },
+    defaultVariants: {
+      intent: 'primary',
+      size: 'medium',
+    },
+  }
+);
+
+// React 컴포넌트에서 사용
+interface ButtonProps {
+  intent?: 'primary' | 'secondary' | 'danger';
+  size?: 'small' | 'medium' | 'large';
+  children: React.ReactNode;
+}
+
+const Button = ({ intent, size, children }: ButtonProps) => {
+  return (
+    <button className={buttonVariants({ intent, size })}>
+      {children}
+    </button>
+  );
+};
+
+// 사용 예시
+const App = () => (
+  <div>
+    <Button intent="primary" size="small">Primary Small</Button>
+    <Button intent="secondary" size="medium">Secondary Medium</Button>
+    <Button intent="danger" size="large">Danger Large</Button>
+    <Button>Default Button</Button> {/* 기본값: primary, medium */}
+  </div>
+);
+
+export default App;`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `<b>cva 함수</b>: 기본 스타일과 변형(variants)을 정의합니다. 위 예시에서는 intent(버튼 색상)와 size(버튼 크기)를 변형으로 설정했습니다.
+<b>변형(variants)</<b>b>: intent와 size에 따라 Tailwind CSS 클래스를 동적으로 적용합니다.
+<b>기본값(defaultVariants)</b>: 변형이 지정되지 않을 때 기본적으로 적용될 스타일을 설정합니다.
+<b>컴포넌트 사용</b>: Button 컴포넌트는 buttonVariants를 호출해 동적으로 클래스 이름을 생성하고, 이를 <button> 요소에 적용합니다.`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `CVA를 사용하면 스타일 변형을 체계적으로 관리할 수 있고, 타입 안전성(TypeScript)을 보장하여 개발자 경험을 향상시킵니다.`,
+			},
+		],
+	},
 ];
 
 /**
