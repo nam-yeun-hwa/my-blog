@@ -13781,6 +13781,131 @@ export default App;`,
 			},
 		],
 	},
+	{
+		id: 83,
+		title: `[TECH-QA] ES6+에서 객체 디스트럭처링(...rest)`,
+		date: '2025-07-25 09:14:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA'],
+		preview: `odash에서 _.omit과 _.pick은 객체에서 특정 속성을 필터링할 때 사용하는 유틸리티 함수로, 비슷한 목적을 가지지만 동작 방식이 반대입니다. 아래에 차이점을 간단히 설명합니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: ` lodash에서 <span class="point">_.omit<span>과 </span>_.pick</span>은 객체에서 특정 속성을 필터링할 때 사용하는 유틸리티 함수로, 비슷한 목적을 가지지만 동작 방식이 반대입니다. 아래에 차이점을 간단히 설명합니다. ES6+에서 객체 디스트럭처링(...rest)을 사용해 _.omit과 유사한 효과를 얻을 수 있습니다. 아래는 ...rest를 사용한 예제입니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const object = { a: 1, b: 2, c: 3 };
+
+// a와 c를 제외한 나머지 속성을 추출
+const { a, c, ...rest } = object;
+
+console.log(rest); // { b: 2 }`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: ` ...rest: 객체 디스트럭처링에서 명시적으로 선택한 속성(a, c)을 제외한 나머지 속성을 rest 객체에 수집합니다.
+ 동작: _.omit(object, ['a', 'c'])와 동일한 결과를 반환.
+ 장점: Lodash 없이 네이티브 JavaScript로 간단히 구현 가능.
+ 제한: 제외할 속성을 명시적으로 변수로 선언해야 하므로, 동적으로 속성 목록을 처리하려면 추가 로직이 필요할 수 있습니다.`,
+			},
+
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `동적 속성 제외 예제`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const object = { a: 1, b: 2, c: 3 };
+const keysToOmit = ['a', 'c'];
+
+const result = Object.fromEntries(
+  Object.entries(object).filter(([key]) => !keysToOmit.includes(key))
+);
+
+console.log(result); // { b: 2 }`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: 'Object.entries(object)',
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Object.entries는 객체의 키-값 쌍을 배열로 변환합니다.
+입력 객체: object = { a: 1, b: 2, c: 3 }
+출력: [['a', 1], ['b', 2], ['c', 3]]
+각 요소는 [key, value] 형태의 배열입니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: '.filter(([key]) => !keysToOmit.includes(key))',
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `filter 메서드는 배열의 요소를 조건에 따라 걸러냅니다.
+[key]는 배열 디스트럭처링을 사용해 각 키-값 쌍에서 key만 추출합니다. (값은 무시됨)
+keysToOmit은 제외하려는 키가 담긴 배열, 예: ['a', 'c'].
+!keysToOmit.includes(key)는 key가 keysToOmit 배열에 없으면 true를 반환.
+예: key = 'a' → keysToOmit.includes('a')는 true이므로 !true는 false → 제외. key = 'b' → keysToOmit.includes('b')는 false이므로 !false는 true → 유지.
+필터링 결과: [['b', 2]] (a와 c는 제외됨).`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: 'Object.fromEntries(...)',
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Object.fromEntries는 키-값 쌍 배열을 다시 객체로 변환합니다.
+입력: [['b', 2]]
+출력: { b: 2 }`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: '결과',
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `Object.entries로 객체를 키-값 배열로 변환.
+filter로 제외할 키(keysToOmit)를 제외한 항목만 유지.
+Object.fromEntries로 필터링된 배열을 다시 객체로 변환.
+결과적으로, 지정된 키를 제외한 새로운 객체를 생성.
+입력: object = { a: 1, b: 2, c: 3 }, keysToOmit = ['a', 'c']
+출력: result = { b: 2 }
+이는 _.omit(object, ['a', 'c'])와 동일한 결과를 반환.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `_.pick과 유사한 효과`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `_.pick을 대체하려면, 특정 속성만 선택해 새로운 객체를 만드는 방식`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `const object = { a: 1, b: 2, c: 3 };
+const keysToPick = ['a', 'c'];
+
+const result = Object.fromEntries(
+  Object.entries(object).filter(([key]) => keysToPick.includes(key))
+);
+
+console.log(result); // { a: 1, c: 3 }`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `
+- ...rest는 _.omit과 유사한 기능을 네이티브로 제공하지만, 동적 속성 처리는 추가 코드 필요.
+- Object.entries와 Object.fromEntries를 사용하면 _.omit과 _.pick 모두 유연하게 대체 가능.`,
+			},
+		],
+	},
 ];
 
 /**
@@ -13791,7 +13916,7 @@ export const sortedTotalPostlist = totalPostlist.sort((a, b) => {
 });
 
 // {
-// 	id: 69,
+// 	id: 83,
 // 	title: `[TECH-QA] Lazy loading, preload`,
 // 	date: '2025-05-04 17:14:33',
 // 	folder: Folder.JAVASCRIPT,
