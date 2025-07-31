@@ -13790,6 +13790,11 @@ export default App;`,
 		preview: `odash에서 _.omit과 _.pick은 객체에서 특정 속성을 필터링할 때 사용하는 유틸리티 함수로, 비슷한 목적을 가지지만 동작 방식이 반대입니다. 아래에 차이점을 간단히 설명합니다.`,
 		post: [
 			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `_.omit과 유사한 효과`,
+			},
+			{
 				type: ComponentType.NORMAL,
 				value: ` lodash에서 <span class="point">_.omit<span>과 </span>_.pick</span>은 객체에서 특정 속성을 필터링할 때 사용하는 유틸리티 함수로, 비슷한 목적을 가지지만 동작 방식이 반대입니다. 아래에 차이점을 간단히 설명합니다. ES6+에서 객체 디스트럭처링(...rest)을 사용해 _.omit과 유사한 효과를 얻을 수 있습니다. 아래는 ...rest를 사용한 예제입니다.`,
 			},
@@ -13880,7 +13885,7 @@ Object.fromEntries로 필터링된 배열을 다시 객체로 변환.
 			},
 			{
 				type: ComponentType.HEADING,
-				headingType: 'h4',
+				headingType: 'h2',
 				value: `_.pick과 유사한 효과`,
 			},
 			{
@@ -13903,6 +13908,69 @@ console.log(result); // { a: 1, c: 3 }`,
 				value: `
 - ...rest는 _.omit과 유사한 기능을 네이티브로 제공하지만, 동적 속성 처리는 추가 코드 필요.
 - Object.entries와 Object.fromEntries를 사용하면 _.omit과 _.pick 모두 유연하게 대체 가능.`,
+			},
+		],
+	},
+	{
+		id: 84,
+		title: `[TECH-QA] Lodash compact 함수`,
+		date: '2025-07-28 09:24:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA'],
+		preview: `compact 함수는 배열에서 falsy 값(null, undefined, false, 0, '', NaN 등)을 제거하여 유효한 객체만 포함하는 새로운 배열을 반환하는 유틸리티 함수입니다. 이는 배열을 정리하거나 필터링할 때 사용됩니다.`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `compact 함수는 <span class="point">배열에서 falsy 값(null, undefined, false, 0, '', NaN 등)을 제거</span>하여 <span class="point">유효한 객체만 포함하는 새로운 배열을 반환</span>하는 유틸리티 함수입니다. 이는 배열을 정리하거나 필터링할 때 사용됩니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `actionButtons={compact([
+  { type: 'secondary', label: '취소', action: handleCancel },
+  data?.needsExpiry && { type: 'primary_light', label: '확인', action: handleSaveExpiry },
+])}`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `여기서 compact는 배열 내 두 번째 요소가 조건문(data?.needsExpiry && ...)에 따라 undefined 또는 false가 될 수 있는 경우를 처리합니다. data?.needsExpiry가 false이거나 undefined이면 해당 요소는 제외되고, actionButtons에는 유효한 버튼 객체만 포함됩니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `data.needsExpiry가 true인 경우`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `compact([
+  { type: 'secondary', label: '취소', action: handleCancel },
+  { type: 'primary_light', label: '확인', action: handleSaveExpiry }
+])`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `결과: [{ type: 'secondary', label: '취소', action: handleCancel }, { type: 'primary_light', label: '확인', action: handleSaveExpiry }]`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `data.needsExpiry가 false이거나 undefined인 경우`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `compact([
+  { type: 'secondary', label: '취소', action: handleCancel },
+  undefined // data?.needsExpiry && ...는 falsy이므로 undefined
+])`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `→ 결과: [{ type: 'secondary', label: '취소', action: handleCancel }]`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `compact는 배열에서 falsy 값을 제거하여 UI 컴포넌트(여기서는 버튼 목록)를 동적으로 렌더링할 때 유효한 데이터만 포함하도록 합니다.
+조건부 버튼 렌더링 시 유용하며, 코드의 안정성과 간결성을 유지하는 데 기여합니다.
+이 함수는 Lodash의 _.compact와 유사한 역할을 하며, React 같은 프레임워크에서 동적 UI 렌더링에 자주 사용됩니다.`,
 			},
 		],
 	},
