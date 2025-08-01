@@ -24,7 +24,7 @@ export default function SearchPost({ post }: Props) {
           <Link className={style.title} onClick={()=>{dispatch(rdxResetSearchPost())}} href={`/posts/${post.id}`}>
             {post.title}
           </Link>
-          <PostMeta iconType={IConImageType.ICON_CATEGORY} />
+          {/*<PostMeta iconType={IConImageType.ICON_CATEGORY} />*/}
         </h2>
         <p className={style.preview}>{post.preview}</p>
       </header>

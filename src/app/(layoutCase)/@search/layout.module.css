@@ -2,8 +2,12 @@
   position: absolute;
   width: 100%;
 
+  max-width: 1024px;
+  justify-content: start !important;
   flex-wrap: wrap;
   display: flex;
   font-family: var(--font-IBM_Plex_Sans_KR);
   z-index: 999;
 }
+
+
