@@ -14,8 +14,11 @@ const searchFilterStore = createSlice({
     rdxSearchPostList(state, action: PayloadAction<Array<IPost>>) {
       state.searchPostFilterList = action.payload;
     },
+    rdxResetSearchPost(state){
+      state.searchPostFilterList = [];
+    }
   },
 });
 
 export default searchFilterStore;
-export const { rdxSearchPostList } = searchFilterStore.actions;
+export const { rdxSearchPostList ,rdxResetSearchPost } = searchFilterStore.actions;
