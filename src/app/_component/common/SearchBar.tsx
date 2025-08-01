@@ -22,6 +22,8 @@ export default function SearchBar() {
 				}),
 			);
 
+			console.log('[파일] SearchBar.tsx');
+
 			console.log(
 				'검색한 문자열',
 				'[',

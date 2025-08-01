@@ -12,7 +12,7 @@ export default function Page() {
   );
 
   useEffect(() => {
-    console.log('searchPostFilterList', searchPostFilterList);
+    console.log({ searchPostFilterList });
   }, [searchPostFilterList]);
   return (
     <div className={style.contents}>
