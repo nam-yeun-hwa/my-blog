@@ -3,41 +3,47 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import style from './searchBar.module.css';
 import cx from 'classnames';
 import { totalPostlist } from 'data/post_db';
-import { useDispatch } from 'react-redux';
-import { rdxSearchPostList } from 'store/searchFilterlist';
+import {useDispatch, useSelector} from 'react-redux';
+import { rdxSearchPostList, rdxSetQuary } from 'store/searchFilterlist';
+import {RootState} from "../../../store";
 
 export default function SearchBar() {
 	const [isFocused, setFocused] = useState(false);
-	const [searchQuery, setSearchQuery] = useState('');
+	// const [searchQuery, setSearchQuery] = useState('');
 	const inputRef = useRef<HTMLInputElement>(null);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		if (searchQuery.length > 0) {
-			const filteredItems = totalPostlist.filter(postList =>
-				postList.post.some(postValue => {
-					return postValue.value
-						.toLowerCase()
-						.includes(searchQuery.toLowerCase());
-				}),
-			);
+	const { searchQuery } = useSelector(
+		(state: RootState) => state.searchFilterList,
+	);
 
-			console.log('[파일] SearchBar.tsx');
 
-			console.log(
-				'검색한 문자열',
-				'[',
-				searchQuery,
-				']',
-				'찾은 포스트',
-				filteredItems,
-			);
-
-			dispatch(rdxSearchPostList(filteredItems));
-		} else {
-			dispatch(rdxSearchPostList([]));
-		}
-	}, [searchQuery, dispatch]);
+	// useEffect(() => {
+	// 	if (searchQuery.length > 0) {
+	// 		const filteredItems = totalPostlist.filter(postList =>
+	// 			postList.post.some(postValue => {
+	// 				return postValue.value
+	// 					.toLowerCase()
+	// 					.includes(searchQuery.toLowerCase());
+	// 			}),
+	// 		);
+	//
+	// 		console.log('[파일] SearchBar.tsx');
+	//
+	// 		console.log(
+	// 			'검색한 문자열',
+	// 			'[',
+	// 			searchQuery,
+	// 			']',
+	// 			'찾은 포스트',
+	// 			filteredItems,
+	// 		);
+	//
+	// 		dispatch(rdxSearchPostList(filteredItems));
+	// 	} else {
+	// 		dispatch(rdxSearchPostList([]));
+	// 	}
+	// }, [searchQuery, dispatch]);
 
 	/**
 	 * @function handleInputChange
@@ -45,7 +51,9 @@ export default function SearchBar() {
 	 * @description 검색단어
 	 */
 	const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-		setSearchQuery(event.target.value);
+		// setSearchQuery(event.target.value);
+		dispatch(rdxSetQuary(event.target.value));
+
 	};
 
 	return (
