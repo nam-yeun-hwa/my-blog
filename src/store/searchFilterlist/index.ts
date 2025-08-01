@@ -17,13 +17,20 @@ const searchFilterStore = createSlice({
     rdxSetQuary(state, action: PayloadAction<string>){
       state.searchQuery = action.payload;
 
-      state.searchPostFilterList = totalPostlist.filter(postList =>
-          postList.post.some(postValue => {
-            return postValue.value
-                .toLowerCase()
-                .includes(action.payload.toLowerCase());
-          }),
-      );
+      const searchQuery = action.payload.toLowerCase().toLowerCase();
+
+     if(action.payload){
+         state.searchPostFilterList = totalPostlist.filter(postList =>
+             postList.post.some(postValue => {
+                 return postValue.value
+                    .toLowerCase()
+                    .includes(searchQuery);
+            }),
+        );
+    }else{
+        state.searchPostFilterList = [];
+    }
+
 
       console.log('[파일] SearchBar.tsx');
 
