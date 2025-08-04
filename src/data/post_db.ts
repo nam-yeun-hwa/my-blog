@@ -13974,6 +13974,63 @@ console.log(result); // { a: 1, c: 3 }`,
 			},
 		],
 	},
+	{
+		id: 85,
+		title: `[TECH-QA] ?? (Nullish Coalescing Operator)와 !! (이중 부정 연산자)`,
+		date: '2025-08-04 14:14:14',
+		folder: Folder.JAVASCRIPT,
+		tag: ['TECH-QA', 'Javascript'],
+		preview: `?? (Nullish Coalescing Operator)와 !! (이중 부정 연산자)는 JavaScript에서 완전히 다른 목적으로 사용되는 연산자입니다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `!! (이중 부정 연산자)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `값을 불리언(Boolean) 타입(true 또는 false)으로 강제로 변환합니다.
+				falsy 값 <span class="point">(false, 0, "", null, undefined, NaN)</span>은 false로 변환됩니다, 
+				truthy 값 (falsy 값 외)은 true로 변환됩니다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `console.log(!!0);         // false
+console.log(!!"");        // false
+console.log(!!null);      // false
+console.log(!!"netflix"); // true
+console.log(!!1);         // true`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `?? (Nullish Coalescing Operator)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `두 값 중 "nullish" <span class="point">null 또는 undefined만 체크하며</span> null과 undefined가 아닌 첫 번째 값을 반환합니다.
+				a ?? b 는 a가 null 또는 undefined가 아니면 a를 반환하고, 그렇지 않으면 b를 반환합니다.
+				?? 는 null과 undefined만 체크하며, 다른 falsy 값(false, 0, "", NaN)은 nullish로 간주하지 않습니다.
+				0은 nullish 값이 아니므로, 0 ?? b는 항상 0을 반환합니다 (b는 무시됨).`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `console.log(0 ?? "default");     // 0 (0은 nullish가 아님)
+console.log(null ?? "default");  // "default" (null은 nullish)
+console.log(undefined ?? "default"); // "default" (undefined는 nullish)
+console.log("" ?? "default");    // "" (빈 문자열은 nullish가 아님)
+console.log(false ?? "default"); // false (false는 nullish가 아님)`,
+			},
+			{
+				type: ComponentType.GUIDE_MESSAGE,
+				promptTypeProps: 'WARNING',
+				value: `<b> ?? (Nullish Coalescing Operator)를 사용할 때 두 번째 값를 반환합니다.<br/></b>
+				console.log(null ?? undefined); // undefined <br/>
+				console.log(undefined ?? null); // null <br/>
+				`,
+			},
+		],
+	},
 ];
 
 /**
