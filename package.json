@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^2.0.1",
     "@types/redux-persist": "^4.3.1",
     "@types/sanitize-html": "^2.15.0",
+    "caniuse-lite": "^1.0.30001751",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
     "install": "^0.13.0",

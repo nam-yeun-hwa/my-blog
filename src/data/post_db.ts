@@ -11452,7 +11452,7 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%9B%B9-%EC%84%B1%EB%8A%A5-
 	},
 	{
 		id: 69,
-		title: `[TECH-QA] 이미지 Preloading, 아마지 caching`,
+		title: `[TECH-QA] 이미지 Preloading, 아미지 caching`,
 		date: '2025-05-03 14:20:05',
 		folder: Folder.JAVASCRIPT,
 		tag: ['웹성능최적화', 'TECH-QA'],
