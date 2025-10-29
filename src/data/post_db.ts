@@ -13783,7 +13783,7 @@ export default App;`,
 	},
 	{
 		id: 83,
-		title: `[TECH-QA] ES6+에서 객체 디스트럭처링(...rest)`,
+		title: `[TECH-QA] ES6+에서 _.omit, _.pick, 객체 디스트럭처링(...rest)`,
 		date: '2025-07-25 09:14:33',
 		folder: Folder.JAVASCRIPT,
 		tag: ['TECH-QA'],
