@@ -201,7 +201,7 @@ export const totalPostlist: IPost[] = [
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `tailwond 텍스트 크기 클래스(font-size)`,
+				value: `tailwind 텍스트 크기 클래스(font-size)`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -319,7 +319,7 @@ export const totalPostlist: IPost[] = [
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `tailwond 폰트 두께 (font-weight)`,
+				value: `tailwind 폰트 두께 (font-weight)`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -391,7 +391,7 @@ export const totalPostlist: IPost[] = [
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `tailwond 라인 높이 (line-height)`,
+				value: `tailwind 라인 높이 (line-height)`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -483,7 +483,7 @@ export const totalPostlist: IPost[] = [
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `tailwond 레터 스페이싱 (letter-spacing)`,
+				value: `tailwind 레터 스페이싱 (letter-spacing)`,
 			},
 			{
 				type: ComponentType.CODE,
@@ -539,7 +539,7 @@ export const totalPostlist: IPost[] = [
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: `tailwond 테일윈드 스페이싱 스케일`,
+				value: `tailwind 테일윈드 스페이싱 스케일`,
 			},
 			{
 				type: ComponentType.NORMAL,
@@ -632,7 +632,7 @@ n 값에 따라 n * 0.25rem으로 계산
 			{
 				type: ComponentType.HEADING,
 				headingType: 'h2',
-				value: 'tailwond 커스텀 설정 (tailwind.config.js)',
+				value: 'tailwind 커스텀 설정 (tailwind.config.js)',
 			},
 			{
 				type: ComponentType.CODE,
