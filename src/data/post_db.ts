@@ -14031,6 +14031,89 @@ console.log(false ?? "default"); // false (false는 nullish가 아님)`,
 			},
 		],
 	},
+	{
+		id: 86,
+		title: `[TECH-QA] createQueryKeys`,
+		date: '2026-01-20 15:14:33',
+		folder: Folder.JAVASCRIPT,
+		tag: ['reactQuery'],
+		preview: `createQueryKeys는 TanStack Query (React Query)의 공식 기능이 아니라, 커뮤니티에서 만든 인기 있는 라이브러리인 @lukemorales/query-key-factory 패키지의 함수입니다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h2',
+				value: `createQueryKeys`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `createQueryKeys는 TanStack Query (React Query)의 공식 기능이 아니라, 커뮤니티에서 만든 인기 있는 라이브러리인 @lukemorales/query-key-factory 패키지의 함수입니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `주요 기능과 목적`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이 함수는 타입 세이프(Type-safe)하고 구조화된 Query Key Factory를 만들어줍니다. TanStack Query에서 queryKey를 직접 배열로 관리하다 보면 아래와 같은 문제를 해결하기 위해 설계됐어요.`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `키 오타 발생
+invalidateQueries 할 때 키를 잘못 기억
+타입 추론이 약함
+대규모 프로젝트에서 키 관리 어려움`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `import { createQueryKeys } from '@lukemorales/query-key-factory';
+
+export const taskQueries = createQueryKeys('task', {
+  // 기본 키 (parent key)
+  all: null, // _def: ['task']
+
+  // 상세 조회
+  detail: (taskId: string) => ({
+    queryKey: [taskId], // 실제 키: ['task', 'detail', taskId]
+    // queryFn도 같이 정의 가능
+    // queryFn: () => fetchTask(taskId),
+  }),
+
+  // 리스트
+  list: (filters?: TaskFilters) => ({
+    queryKey: filters ? [{ filters }] : [],
+  }),
+});`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `createQueryKeys 에서 task 이것이 부모키이고 , 나머지 아래 detail, list 등등 createQueryKeys 안에 모든 api 통신 사용 키가 존재 합니다.
+부모키를 업데이트 하면 하위 쿼리가 다 업데이트 됩니다. createQueryKeys를 쓰는 가장 큰 이유 중 하나가 바로 부모 키(parent key)만 무효화(invalidate)하면 그 아래 모든 하위 쿼리가 자동으로 리패치(refetch)되도록 만드는 것입니다.`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `전체 공지 관련 부모 키`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `all: null, // _def: ['task']
+noticeQueries.detail('123') 
+// → { queryKey: ['task', 'detail', '123'] }
+
+noticeQueries.all 
+// → { _def: ['task'] }  // invalidate할 때 부모 키로 유용
+
+queryClient.invalidateQueries({
+  queryKey: noticeQueries.all._def, // ['task'] 전체 무효화
+});
+// 또는 부분 무효화
+queryClient.invalidateQueries({
+  queryKey: noticeQueries.detail()._def, // ['task', 'detail']
+});`,
+			},
+		],
+	},
 ];
 
 /**
