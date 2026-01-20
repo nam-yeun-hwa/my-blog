@@ -14035,7 +14035,7 @@ console.log(false ?? "default"); // false (false는 nullish가 아님)`,
 		id: 86,
 		title: `[TECH-QA] createQueryKeys`,
 		date: '2026-01-20 15:14:33',
-		folder: Folder.JAVASCRIPT,
+		folder: Folder.LIBRARY,
 		tag: ['reactQuery'],
 		preview: `createQueryKeys는 TanStack Query (React Query)의 공식 기능이 아니라, 커뮤니티에서 만든 인기 있는 라이브러리인 @lukemorales/query-key-factory 패키지의 함수입니다.`,
 		post: [
@@ -14111,6 +14111,66 @@ queryClient.invalidateQueries({
 queryClient.invalidateQueries({
   queryKey: noticeQueries.detail()._def, // ['task', 'detail']
 });`,
+			},
+		],
+	},
+	{
+		id: 87,
+		title: `[TECH-QA] 리베이스 (rebase 중 충돌)`,
+		date: '2026-01-20 15:14:14',
+		folder: Folder.GIT,
+		tag: ['git'],
+		preview: `?? (Nullish Coalescing Operator)와 !! (이중 부정 연산자)는 JavaScript에서 완전히 다른 목적으로 사용되는 연산자입니다.`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `rebase 범위 잡기`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `git log --oneline --grep="^chore \[AWS-1280\]"
+
+//커밋내역				
+a1b2c3d chore: [AWS-1280] typo
+e4f5g6h chore: [AWS-1280] notification ui
+i7j8k9l chore: [AWS-1280] project`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `최근 n개의 커밋을 인터랙티브하게 수정`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `git rebase -i HEAD~n`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `에디터로 커밋내역을 열어 수정할 커밋앞의 키워드를 바꿔 준다.`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `pick → reword`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `reword a1b2c3d fix typo
+pick e4f5g6h add notification ui
+pick i7j8k9l init project`,
+			},
+			{
+				type: ComponentType.HEADING,
+				value: `원격에 반영 (해시 변경됨)`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `원격에 반영 (해시 변경됨)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `git push origin 브랜치명 --force-with-lease`,
 			},
 		],
 	},
