@@ -14174,6 +14174,212 @@ pick i7j8k9l init project`,
 			},
 		],
 	},
+	{
+		id: 88,
+		title: `[TECH-QA] docker-compose`,
+		date: '2026-01-26 18:57:14',
+		folder: Folder.DOCKER,
+		tag: ['DOCKER'],
+		preview: `Docker Compose는 여러 개의 Docker 컨테이너를 하나의 애플리케이션처럼 쉽게 정의하고, 실행하고, 관리할 수 있게 해주는 도구입니다.
+한 마디로 요약하면 → “여러 컨테이너를 yaml 파일 한 장으로 묶어서 한 번에 띄우고 내리는 편리한 방법”`,
+		post: [
+			{
+				type: ComponentType.NORMAL,
+				value: `<b>Docker Compose</b>는 여러 개의 Docker 컨테이너를 <U>하나의 애플리케이션처럼 쉽게 정의하고, 실행하고, 관리할 수 있게 해주는 도구</U>입니다.</br>
+한 마디로 요약하면 → “여러 컨테이너를 yaml 파일 한 장으로 묶어서 한 번에 띄우고 내리는 편리한 방법”`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `왜 Docker Compose를 쓰나요? (주요 장점)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `3개 이상부터 매우 편함
+				yaml 파일에 한 번만 작성
+				자동으로 같은 네트워크 생성 & 서비스 이름으로 접근 가능
+				depends_on으로 순서 보장
+				docker-compose.yml 하나로 동일 환경 보장
+				docker compose down 한 방에 정리`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `기본 사용 흐름 (가장 흔한 패턴)`,
+			},
+			{
+				type: ComponentType.STRINGLIST,
+				value: `프로젝트 루트에 docker-compose.yml 파일 만들기
+서비스들 정의하기
+명령어로 실행`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `가장 많이 쓰는 명령어 Top 5`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `docker compose up -d          # 백그라운드에서 실행
+docker compose down           # 모든 컨테이너 + 네트워크 + 볼륨(조건) 정리
+docker compose logs -f        # 실시간 로그 보기
+docker compose ps             # 현재 상태 확인
+docker compose exec 웹 bash   # 특정 컨테이너 안으로 들어가기`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `기본 사용 흐름 (가장 흔한 패턴)`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `# compose.yaml  (최신 프로젝트들은 compose.yaml 라고 쓰는 추세)
+services:
+  web:                          # 서비스 이름 (내부 DNS로 사용됨)
+    image: nginx:alpine
+    ports:
+      - "8080:80"              # 호스트:컨테이너
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+    depends_on:
+      - api
+
+  api:
+    build: ./backend             # 현재 폴더의 Dockerfile로 빌드
+    environment:
+      - DB_HOST=db
+      - DB_USER=app
+    depends_on:
+      db:
+        condition: service_healthy   # 건강할 때까지 기다림 (v2.20+)
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: myapp
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:                  # depends_on condition과 함께 자주 사용
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  mysql-data:                   # 명명된 볼륨 (docker volume ls로 확인 가능)
+
+
+ postgres:
+    image: docker.io/library/postgres:15-alpine
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "25432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: docker.io/library/redis:7-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `자주 쓰이는 주요 키워드 한눈에 정리`,
+			},
+			{
+				type: ComponentType.TABLE,
+				value: ``,
+				tables: {
+					header: [
+						{
+							accessorKey: 'key',
+							header: '키',
+						},
+						{
+							accessorKey: 'content',
+							header: '의미',
+						},
+						{
+							accessorKey: 'ex',
+							header: '예시',
+						},
+					],
+					contents: [
+						{
+							key: 'image',
+							content: '사용할 이미지',
+							header: 'nginx:latest',
+						},
+						{
+							key: 'build',
+							content: '직접 빌드할 경로',
+							header: '. 또는 ./frontend',
+						},
+						{
+							key: 'ports',
+							content: '포트 매핑',
+							header: '"3000:3000"',
+						},
+						{
+							key: 'key',
+							content: '0.75rem',
+							header: '12px',
+						},
+						{
+							key: 'volumes',
+							content: '데이터/코드 마운트',
+							header: './app:/app',
+						},
+						{
+							key: 'environment',
+							content: '환경변수',
+							header: `- DEBUG=true
+- API_PORT=\${API_PORT}
+- POSTGRESQL_USERNAME=\${POSTGRESQL_USERNAME}
+- POSTGRESQL_PASSWORD=\${POSTGRESQL_PASSWORD}
+- POSTGRESQL_DB=\${POSTGRESQL_DB}`,
+						},
+						{
+							key: 'env_file',
+							content: '.env 파일 읽기',
+							header: '.env',
+						},
+						{
+							key: 'depends_on',
+							content: 'depends_on',
+							header: '- db',
+						},
+						{
+							key: 'networks',
+							content: '커스텀 네트워크 사용',
+							header: 'backend-net',
+						},
+						{
+							key: 'restart',
+							content: '자동 재시작 정책',
+							header: 'unless-stopped',
+						},
+						{
+							key: 'healthcheck',
+							content: '컨테이너 건강 체크',
+							header: 'CMD curl -f http://localhost',
+						},
+					],
+				},
+			},
+		],
+	},
 ];
 
 /**
