@@ -14176,7 +14176,7 @@ pick i7j8k9l init project`,
 	},
 	{
 		id: 88,
-		title: `[TECH-QA] docker-compose`,
+		title: `[TECH-QA] Docker-compose`,
 		date: '2026-01-26 18:57:14',
 		folder: Folder.DOCKER,
 		tag: ['DOCKER'],
@@ -14377,6 +14377,68 @@ volumes:
 						},
 					],
 				},
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `docker compose 재실행`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `up
+docker-compose --env-file .env.local -f docker-compose.yml up
+
+down
+docker-compose --env-file .env.local -f docker-compose.yml down
+
+volume (db 포함) 도 다 제거
+docker-compose --env-file .env.local -f docker-compose.yml down -v`,
+			},
+		],
+	},
+	{
+		id: 89,
+		title: `[TECH-QA] Google Analytics(GA), Google Ads`,
+		date: '2026-01-26 19:35:14',
+		folder: Folder.GIT,
+		tag: ['git'],
+		preview: `이벤트를 추적할 때 사용하는 전역 추적 함수(Global Site Tag) 즉, gtag()는 Google이 제공하는 데이터 전송용 함수로, 사용자의 행동(예: 클릭, 페이지 이동, 구매 등)을 Google Analytics로 보내는 역할`,
+		post: [
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h3',
+				value: `gtag()`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `이벤트를 추적할 때 사용하는 전역 추적 함수(Global Site Tag) 즉, gtag()는 Google이 제공하는 데이터 전송용 함수로, 사용자의 행동(예: 클릭, 페이지 이동, 구매 등)을 Google Analytics로 보내는 역할`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>`,
+			},
+			{
+				type: ComponentType.HEADING,
+				headingType: 'h4',
+				value: `예시`,
+			},
+			{
+				type: ComponentType.CODE,
+				value: `gtag("event", "click_folder", {
+  folder_name: folder.noticeFolderName,
+});`,
+			},
+			{
+				type: ComponentType.NORMAL,
+				value: `위 코드는 **“click_folder”**라는 이벤트를 Google Analytics로 전송하고,이벤트 파라미터(folder_name)로 클릭한 폴더의 이름을 함께 보냅니다.
+즉, Analytics 대시보드에서 “click_folder” 이벤트가 언제, 어떤 폴더 이름으로 발생했는지 확인할 수 있습니다.`,
 			},
 		],
 	},
